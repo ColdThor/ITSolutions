@@ -1,5 +1,5 @@
 
-@include('template/header')
+@include('template.header')
 @include('template/navigation')
 @include('template/footer')
 

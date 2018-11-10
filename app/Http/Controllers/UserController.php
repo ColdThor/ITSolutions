@@ -7,7 +7,8 @@
  */
 
 namespace App\Http\Controllers;
-use  Illuminate\Http\Request;
+use Illuminate\Http\Request;
+use App\Http\Requests;
 use App\Models\User;
 use Illuminate\Support\Facades\Input;
 use Redirect;
@@ -101,14 +102,14 @@ class UserController extends Controller {
 
 
     public function edit($id) {
-
-        if($id == null) {
-            return abort(404);
-        }
-        $user = User::find($id);
-
-        return redirect('/');
+        return view('admin/edit',$id);
     }
+
+    public function edit_validator(Request $request) {
+
+    }
+
+
 
 
     public function usertable()
@@ -129,7 +130,7 @@ class UserController extends Controller {
             ->make(true);
     }
     public function index() {
-        return view('admin_dashboard');
+        return view('admin/admin_dashboard');
     }
 
 

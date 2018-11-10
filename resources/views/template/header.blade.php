@@ -14,7 +14,7 @@
     <meta name="author" content="">
 
 
-    <title>Normit</title>
+    <title>ITSolutions</title>
 
     <!-- Bootstrap core CSS -->
     <link href='/reality/assets/css/creative.css' rel="stylesheet">
