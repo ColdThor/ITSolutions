@@ -88,17 +88,27 @@ class UserController extends Controller {
     }
 
     public function delete($id) {
-        $user = User::find($id);
-        if($user != null) {
-            $user->delete();
-            echo "<div align='center'><h1>Použícateľ s ID $id bol zmazaný</h1></div>";
-        } else {
-            echo "<div align='center'><h1>Používateľ s ID $id neexistuje. Neboli vykonané žiadne operácie</h1>";
-            echo "<br /> <img src='/reality/assets/img/cry.gif' />";
-            echo "</div>";
+
+        if($id == null) {
+            return abort(404);
         }
+        $user = User::find($id);
+
+            $user->delete();
+        return redirect('/');
     }
 
+
+
+    public function edit($id) {
+
+        if($id == null) {
+            return abort(404);
+        }
+        $user = User::find($id);
+        
+        return redirect('/');
+    }
 
 
     public function usertable()
@@ -110,10 +120,10 @@ class UserController extends Controller {
                 return $row->first_name ." ". $row->last_name;
             })
             ->addColumn('edit', function($row) {
-                return '<a  href="'. url('/'). '/'. $row->id_user .'" class="editbutton">Editovať</a>';
+                return '<a  href="'. url('/'). '/edit/'. $row->id_user .'" class="editbutton">Editovať</a>';
             })
             ->editColumn('delete', function ($row) {
-                return '<a href="'. url('/'). '/'. $row->id_user .'" class="deletebutton">Zmazať</a>';
+                return '<a href="'. url('/'). '/delete/'. $row->id_user .'" class="deletebutton">Zmazať</a>';
             })
             ->rawColumns(['delete' => 'delete','edit' => 'edit'])
             ->make(true);

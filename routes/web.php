@@ -16,8 +16,6 @@ Route::get('data', 'UserController@usertable');
 
 
 
-
-
 Route::get('test', [
     'as' => 'test', 'uses' => 'TestController@test'
 ]);
