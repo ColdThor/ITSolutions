@@ -106,7 +106,7 @@ class UserController extends Controller {
             return abort(404);
         }
         $user = User::find($id);
-        
+
         return redirect('/');
     }
 
