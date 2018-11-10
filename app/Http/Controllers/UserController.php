@@ -7,7 +7,14 @@
  */
 
 namespace App\Http\Controllers;
+use  Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Input;
+use Redirect;
+use DataTables;
+use Validator;
+
+
 
 class UserController extends Controller {
 
@@ -30,14 +37,10 @@ class UserController extends Controller {
         echo "<div align='center'><h1>Pridal som 10 záznamov do tabuľky users</h1></div>";
     }
 
-
     public function update_usergroup($id) {
         $user =  User()::where("ID_user","=",$id)->first();
         $user->update(["ID_usergroup" => 1]);
     }
-
-
-
 
 
 
@@ -53,7 +56,6 @@ class UserController extends Controller {
 
                 echo "</div>";
             }
-
         }
 
 
@@ -64,7 +66,6 @@ class UserController extends Controller {
        foreach($user as $users) {
            echo $users ->First_name." ".$users->Last_name." with email ".$users->Email."<br />";
        }
-
     }
 
     public function update($id) {
@@ -96,6 +97,31 @@ class UserController extends Controller {
             echo "<br /> <img src='/reality/assets/img/cry.gif' />";
             echo "</div>";
         }
-
     }
+
+
+
+    public function usertable()
+    {
+        $users = User::leftJoin('user_group', 'user.id_user_group', '=', 'user_group.id_user_group')
+            ->select('*');
+        return Datatables::of($users)
+            ->addColumn('full_name', function ($row) {
+                return $row->first_name ." ". $row->last_name;
+            })
+            ->addColumn('edit', function($row) {
+                return '<a  href="'. url('/'). '/'. $row->id_user .'" class="editbutton">Editovať</a>';
+            })
+            ->editColumn('delete', function ($row) {
+                return '<a href="'. url('/'). '/'. $row->id_user .'" class="deletebutton">Zmazať</a>';
+            })
+            ->rawColumns(['delete' => 'delete','edit' => 'edit'])
+            ->make(true);
+    }
+    public function index() {
+        return view('admin_dashboard');
+    }
+
+
+
 }

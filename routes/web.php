@@ -11,9 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'UserController@index');
+Route::get('data', 'UserController@usertable');
+
+
+
+
+
 Route::get('test', [
     'as' => 'test', 'uses' => 'TestController@test'
 ]);
