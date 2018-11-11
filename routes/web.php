@@ -16,6 +16,12 @@ Route::get('data', 'UserController@usertable');
 
 
 
+Route::get('/edit/{id}','UserController@edit');
+Route::post('/edited/',[  'as' => 'updates',
+        'uses' =>'UserController@edit_validator']);
+
+
+
 Route::get('test', [
     'as' => 'test', 'uses' => 'TestController@test'
 ]);

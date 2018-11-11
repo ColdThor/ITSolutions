@@ -7,14 +7,16 @@
  */
 
 namespace App\Http\Controllers;
+use App\Models\Usergroup;
 use Illuminate\Http\Request;
-use App\Http\Requests;
 use App\Models\User;
-use Illuminate\Support\Facades\Input;
 use Redirect;
 use DataTables;
 use Validator;
+use Session;
 
+use Fico7489\Laravel\EloquentJoin\Traits\EloquentJoin;
+use Illuminate\Database\Eloquent\Model;
 
 
 class UserController extends Controller {
@@ -72,7 +74,7 @@ class UserController extends Controller {
     public function update($id) {
         $namearrays2 = array("Wick","Strowman","Wayne","Doe","Orton");
         $random = rand(0,4);
-        $user = User::where("ID_user","=",$id)->first();
+        $user = User::where("id_user","=",$id)->first();
         if($user != null) {
             $user->update(["Last_name"=>$namearrays2[$random]]);
             echo "<div align='center'>";
@@ -102,10 +104,30 @@ class UserController extends Controller {
 
 
     public function edit($id) {
-        return view('admin/edit',$id);
+        $data['title'] = "Editovať používateľa";
+
+        $user = User::join('user_group', 'user.id_user_group', '=', 'user_group.id_user_group')
+            ->select('*')->get()->first();
+
+        $rola = Usergroup::all();
+
+
+
+        $data['users'] =  $user;
+        $data['rola'] =  $rola;
+        return view('admin/edit',$data);
     }
 
     public function edit_validator(Request $request) {
+
+
+        $user = User::where("id_user","=",$request->input('id'))->first();
+        $user->update(["first_name" => $request->input('first_name'),
+        "last_name" => $request->input('last_name'),
+            "email" => $request->input('email'),
+            "id_user_group" => $request->input('rola'),
+            "telephone" => $request->input('telephone')]);
+        return redirect()-> action('UserController@index');
 
     }
 
@@ -127,6 +149,14 @@ class UserController extends Controller {
                 return '<a href="'. url('/'). '/delete/'. $row->id_user .'" class="deletebutton">Zmazať</a>';
             })
             ->rawColumns(['delete' => 'delete','edit' => 'edit'])
+            ->editColumn('telephone', function ($row) {
+                if($row->telephone==null) {
+                    return "Používateľ nemá def. tel. číslo";
+                } else {
+                    return $row->telephone;
+                }
+
+            })
             ->make(true);
     }
     public function index() {

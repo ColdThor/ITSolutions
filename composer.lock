@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c0f3ad3836884e6233f675f8ab51d2ab",
+    "content-hash": "f14bf49aa98540116f95ff56795a42ce",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -262,6 +262,56 @@
                 "parser"
             ],
             "time": "2018-03-08T01:11:30+00:00"
+        },
+        {
+            "name": "fico7489/laravel-eloquent-join",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fico7489/laravel-eloquent-join.git",
+                "reference": "0525825bbd75fc467c9f47cc5747855ad3e75e6e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fico7489/laravel-eloquent-join/zipball/0525825bbd75fc467c9f47cc5747855ad3e75e6e",
+                "reference": "0525825bbd75fc467c9f47cc5747855ad3e75e6e",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "5.*"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "2.*",
+                "orchestra/testbench": "3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Fico7489\\Laravel\\EloquentJoin\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Filip Horvat",
+                    "email": "filip.horvat@am2studio.hr",
+                    "homepage": "http://am2studio.hr",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This package introduces the join magic for eloquent models and relations.",
+            "homepage": "https://github.com/fico7489/laravel-eloquent-join",
+            "keywords": [
+                "laravel eloquent join",
+                "laravel join",
+                "laravel join relation",
+                "laravel sort join",
+                "laravel where join"
+            ],
+            "time": "2018-10-31T17:10:27+00:00"
         },
         {
             "name": "fideloper/proxy",

@@ -3,7 +3,7 @@
 
 
 
-
+<link rel="icon" href='/reality/assets/img/favicon.ico' >
 
 <head>
     <meta charset="utf-8">
@@ -21,7 +21,7 @@
     <link rel="stylesheet" type="text/css" href='/reality/assets/css/creative.css'/>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
 
     <!-- Custom styles for this template -->
     <link href='/reality/assets/css/custom.css' rel="stylesheet">

@@ -23,9 +23,12 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav" style="background-color: #02318e;  margin-left: 20px; margin-right: 15px;">
                 <li><a href="<?php echo url('/'); ?>">Domov</a></li>
-
-
+                @if(session()->has('userID'))
                 <li id="liright"><a href="#">Odhlásiť sa</a></li>
+                    @else:
+                <li id="liright"><a href="#">Prihlásiť sa</a></li>
+                @endif
+
             </ul>
 
         </div><!--/.nav-collapse -->

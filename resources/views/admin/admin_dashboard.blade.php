@@ -71,6 +71,22 @@
 <script>
     $(function() {
         $('#usertable').DataTable({
+
+            dom: 'Blfrtip',
+            lengthMenu: [[10, 25, 50,100,200,300,400], [10, 25, 50,100,200,300,400]],
+            buttons: [
+                { extend: 'excel', text: 'Export do excelu', className: 'excelbutton',
+                    exportOptions: {
+                        columns: [0,1,2,3,4]
+                    }
+                },
+                { extend: 'pdf', text: 'Export do PDF', className: 'excelbutton',
+                    exportOptions: {
+                        columns: [0,1,2,3,4]
+                    }
+                }
+            ],
+
             serverSide: true,
             ajax: '{{ url('data') }}',
             columns: [
@@ -82,14 +98,7 @@
                     data: 'telephone',
                     name: 'telephone',
 
-                    render: function (data, type, full, meta) {
-                        var phone = full[3];
-                        if(phone == null) {
-                            phone = "Používateľ nemá definované tel. číslo";
-                        }
-                        return phone;
 
-                    }
 
 
                 },
