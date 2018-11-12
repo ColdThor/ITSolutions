@@ -23,8 +23,9 @@
 
     </style> -->
     <tr>
-        <th>Číslo typu</th>
-        <th>Názov typu</th>
+        <th>Číslo druhu</th>
+        <th>Názov druhu</th>
+        <th>Skupina</th>
         <th>Editovať</th>
         <th>Zmazať</th>
     </tr>
@@ -80,10 +81,11 @@
             ],
 
             serverSide: true,
-            ajax: '{{ url('/types/data') }}',
+            ajax: '{{ url('/specifications/data') }}',
             columns: [
-                { data: 'id_type', name: 'id_type' },
+                { data: 'id_specification', name: 'id_specification' },
                 { data: 'title', name: 'title' },
+                { data: 'group', name: 'group' },
                 { data: 'edit'},
                 { data: 'delete' },
 
