@@ -1,10 +1,10 @@
 
-@include('template.header')
-@include('template/navigation')
-@include('template/footer')
+@include('admin-template/header')
+@include('admin-template/navigation')
+@include('admin-template/footer')
+
 
 <br />
-
 
 
 
@@ -23,11 +23,8 @@
 
     </style> -->
     <tr>
-        <th>Číslo používateľa</th>
-        <th>Meno a priezvisko</th>
-        <th>Email</th>
-        <th>Telefón</th>
-        <th>Rola</th>
+        <th>Číslo stavu</th>
+        <th>Názov stavu</th>
         <th>Editovať</th>
         <th>Zmazať</th>
     </tr>
@@ -37,13 +34,7 @@
     </tbody>
 </table>
 
-
-
-
 </div>
-
-
-
 
 
 
@@ -53,7 +44,6 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-
 
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
@@ -65,6 +55,8 @@
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.10.16/api/sum().js"></script>
 <script src="vendor/jquery/jquery-1.11.2.min.js" type="text/javascript"></script>
+
+
 
 
 
@@ -88,21 +80,10 @@
             ],
 
             serverSide: true,
-            ajax: '{{ url('data') }}',
+            ajax: '{{ url('conditiondata') }}',
             columns: [
-                { data: 'id_user', name: 'id_user' },
-                { data: 'full_name', name: 'full_name' },
-                { data: 'email', name: 'email' },
-                {
-
-                    data: 'telephone',
-                    name: 'telephone',
-
-
-
-
-                },
-                { data: 'title', name: 'user_group.title' },
+                { data: 'id_condition', name: 'id_condition' },
+                { data: 'title', name: 'title' },
                 { data: 'edit'},
                 { data: 'delete' },
 
@@ -124,22 +105,11 @@
                 }
             }
 
-
-
-
-
-
-
         });
 
     });
 
 </script>
-
-
-
-
-
 
 
 

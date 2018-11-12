@@ -1,7 +1,7 @@
 
-@include('template.header')
-@include('template/navigation')
-@include('template/footer')
+@include('admin-template/header')
+@include('admin-template/navigation')
+@include('admin-template/footer')
 
 <div class="row" style="color: #02318e;" align="center">
     <div class="page-header">

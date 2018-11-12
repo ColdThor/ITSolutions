@@ -107,7 +107,7 @@ class UserController extends Controller {
         $data['title'] = "Editovať používateľa";
 
         $user = User::join('user_group', 'user.id_user_group', '=', 'user_group.id_user_group')
-            ->select('*')->get()->first();
+            ->select('*')->where("id_user","=",$id)->get()->first();
 
         $rola = Usergroup::all();
 
@@ -115,7 +115,7 @@ class UserController extends Controller {
 
         $data['users'] =  $user;
         $data['rola'] =  $rola;
-        return view('admin/edit',$data);
+        return view('admin/user_edit',$data);
     }
 
     public function edit_validator(Request $request) {
@@ -145,7 +145,7 @@ class UserController extends Controller {
             ->addColumn('edit', function($row) {
                 return '<a  href="'. url('/'). '/edit/'. $row->id_user .'" class="editbutton">Editovať</a>';
             })
-            ->editColumn('delete', function ($row) {
+            ->addColumn('delete', function ($row) {
                 return '<a href="'. url('/'). '/delete/'. $row->id_user .'" class="deletebutton">Zmazať</a>';
             })
             ->rawColumns(['delete' => 'delete','edit' => 'edit'])
@@ -160,7 +160,7 @@ class UserController extends Controller {
             ->make(true);
     }
     public function index() {
-        return view('admin/admin_dashboard');
+        return view('admin/admin_userstable');
     }
 
 

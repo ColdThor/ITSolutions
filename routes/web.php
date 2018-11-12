@@ -15,10 +15,18 @@ Route::get('/', 'UserController@index');
 Route::get('data', 'UserController@usertable');
 
 
+Route::get('/conditions', 'ConditionController@index');
+Route::get('conditiondata', 'ConditionController@conditiontable');
+
 
 Route::get('/edit/{id}','UserController@edit');
 Route::post('/edited/',[  'as' => 'updates',
         'uses' =>'UserController@edit_validator']);
+
+
+Route::get('/conditions/edit/{id}','ConditionController@edit');
+Route::post('/conditions/edited/',[  'as' => 'updates',
+    'uses' =>'ConditionController@edit_validator']);
 
 
 
@@ -59,6 +67,12 @@ Route::get('/update/{id}', [
     'as' => 'update', 'uses' => 'UserController@update'
 ]);
 
+
+
 Route::get('/delete/{id}', [
     'as' => 'delete', 'uses' => 'UserController@delete'
+]);
+
+Route::get('/conditions/delete/{id}', [
+    'as' => 'delete', 'uses' => 'ConditionController@delete'
 ]);

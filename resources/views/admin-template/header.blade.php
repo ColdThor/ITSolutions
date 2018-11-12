@@ -23,7 +23,7 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 
 
-    <!-- Custom styles for this template -->
+    <!-- Custom styles for this admin-template -->
     <link href='/reality/assets/css/custom.css' rel="stylesheet">
 
 
