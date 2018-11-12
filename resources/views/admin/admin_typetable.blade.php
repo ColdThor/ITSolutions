@@ -80,9 +80,9 @@
             ],
 
             serverSide: true,
-            ajax: '{{ url('/conditions/data') }}',
+            ajax: '{{ url('/types/data') }}',
             columns: [
-                { data: 'id_condition', name: 'id_condition' },
+                { data: 'id_type', name: 'id_type' },
                 { data: 'title', name: 'title' },
                 { data: 'edit'},
                 { data: 'delete' },

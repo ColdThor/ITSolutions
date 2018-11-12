@@ -12,14 +12,14 @@
 <div class="row" style=" alignment: center; color: #02318e" align="center">
 
 
-    <form method="post" action="{{  action('ConditionController@edit_validator', ['id' => $condition->id_condition])  }}">
+    <form method="post" action="{{  action('TypeController@edit_validator', ['id' => $type->id_type])  }}">
 
 
 
         <div class="form-group">
-            <input type="hidden" name="id_condition" value="{{ $condition->id_condition }}">
+            <input type="hidden" name="id_type" value="{{ $type->id_type }}">
             Názov: <br />
-            <input type="text" name="title" value="{{ $condition->title }}">
+            <input type="text" name="title" value="{{ $type->title }}">
             <br />
 
             <input type="hidden" name="_token" value="{{ csrf_token() }}">

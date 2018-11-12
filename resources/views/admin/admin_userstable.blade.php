@@ -84,7 +84,7 @@
             ],
 
             serverSide: true,
-            ajax: '{{ url('data') }}',
+            ajax: '{{ url('/users/data') }}',
             columns: [
                 { data: 'id_user', name: 'id_user' },
                 { data: 'full_name', name: 'first_name' },

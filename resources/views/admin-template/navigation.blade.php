@@ -22,8 +22,11 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav" style="background-color: #02318e;  margin-left: 20px; margin-right: 15px;">
-                <li><a href="<?php echo url('/'); ?>">Používateľia</a></li>
+                <li><a href="<?php echo url('/'); ?>">Domov</a></li>
+                <li><a href="<?php echo url('/users'); ?>">Používateľia</a></li>
                 <li><a href="<?php echo url('/conditions'); ?>">Stavy</a></li>
+                <li><a href="<?php echo url('/types'); ?>">Typy</a></li>
+                <li><a href="<?php echo url('/specifications'); ?>">Druhy</a></li>
                 @if(session()->has('userID'))
                 <li id="liright"><a href="#">Odhlásiť sa</a></li>
                     @else:

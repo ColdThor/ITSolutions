@@ -11,13 +11,30 @@
 |
 */
 
+
+//MAIN PAGES
+
 Route::get('/', 'UserController@index');
-Route::get('data', 'UserController@usertable');
+
+
+Route::get('/users', 'UserController@user_index');
+Route::get('/users/data', 'UserController@usertable');
 
 
 Route::get('/conditions', 'ConditionController@index');
-Route::get('conditiondata', 'ConditionController@conditiontable');
+Route::get('/conditions/data', 'ConditionController@conditiontable');
 
+Route::get('/types', 'TypeController@index');
+Route::get('/types/data', 'TypeController@typetable');
+
+
+
+Route::get('/specifications', 'SpecificationController@index');
+Route::get('/specifications/data', 'SpecificationController@specificationtable');
+
+//END OF MAIN PAGES
+
+//EDIT PAGES
 
 Route::get('/edit/{id}','UserController@edit');
 Route::post('/edited/',[  'as' => 'updates',
@@ -27,6 +44,60 @@ Route::post('/edited/',[  'as' => 'updates',
 Route::get('/conditions/edit/{id}','ConditionController@edit');
 Route::post('/conditions/edited/',[  'as' => 'updates',
     'uses' =>'ConditionController@edit_validator']);
+
+
+Route::get('/types/edit/{id}','TypeController@edit');
+Route::post('/types/edited/',[  'as' => 'updates',
+    'uses' =>'TypeController@edit_validator']);
+
+
+Route::get('/specifications/edit/{id}','SpecificationController@edit');
+Route::post('/specifications/edited/',[  'as' => 'updates',
+    'uses' =>'SpecificationController@edit_validator']);
+
+//END OF EDIT PAGES
+
+
+
+//DELETE PAGES
+
+Route::get('/delete/{id}', [
+    'as' => 'delete', 'uses' => 'UserController@delete'
+]);
+
+Route::get('/conditions/delete/{id}', [
+    'as' => 'delete', 'uses' => 'ConditionController@delete'
+]);
+
+
+Route::get('/types/delete/{id}', [
+    'as' => 'delete', 'uses' => 'TypeController@delete'
+]);
+
+
+
+Route::get('/specifications/delete/{id}', [
+    'as' => 'delete', 'uses' => 'SpecificationController@delete'
+]);
+//END OF DELETE PAGES
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//EXAMPLE USSES ONLY
 
 
 
@@ -44,7 +115,6 @@ Route::get('test3', [
 ]);
 
 
-
 Route::get('/insert', [
     'as' => 'insert', 'uses' => 'UserController@insert'
 ]);
@@ -56,7 +126,7 @@ Route::get('/location', [
 
 
 Route::get('/show/{id}', [
-   'as' => 'show', 'uses' => 'UserController@show'
+    'as' => 'show', 'uses' => 'UserController@show'
 ]);
 
 Route::get('/showall', [
@@ -65,14 +135,4 @@ Route::get('/showall', [
 
 Route::get('/update/{id}', [
     'as' => 'update', 'uses' => 'UserController@update'
-]);
-
-
-
-Route::get('/delete/{id}', [
-    'as' => 'delete', 'uses' => 'UserController@delete'
-]);
-
-Route::get('/conditions/delete/{id}', [
-    'as' => 'delete', 'uses' => 'ConditionController@delete'
 ]);

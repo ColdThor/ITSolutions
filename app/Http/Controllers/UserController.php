@@ -127,7 +127,7 @@ class UserController extends Controller {
             "email" => $request->input('email'),
             "id_user_group" => $request->input('rola'),
             "telephone" => $request->input('telephone')]);
-        return redirect()-> action('UserController@index');
+        return redirect()-> action('UserController@user_index');
 
     }
 
@@ -159,10 +159,14 @@ class UserController extends Controller {
             })
             ->make(true);
     }
-    public function index() {
+    public function user_index() {
         return view('admin/admin_userstable');
     }
 
+
+    public function index() {
+        return view('admin/admin_home');
+    }
 
 
 }

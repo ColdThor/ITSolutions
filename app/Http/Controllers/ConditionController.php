@@ -58,6 +58,15 @@ class ConditionController extends Controller {
     }
 
 
+    public function edit_validator(Request $request) {
+
+        $condition = Condition::where("id_condition","=",$request->input('id'))->first();
+        $condition->update([
+            "title" => $request->input('title')]);
+        return redirect()-> action('ConditionController@index');
+    }
+
+
 
 
 }
