@@ -69,12 +69,12 @@
             buttons: [
                 { extend: 'excel', text: 'Export do excelu', className: 'excelbutton',
                     exportOptions: {
-                        columns: [0,1,2,3,4]
+                        columns: [0,1]
                     }
                 },
                 { extend: 'pdf', text: 'Export do PDF', className: 'excelbutton',
                     exportOptions: {
-                        columns: [0,1,2,3,4]
+                        columns: [0,1]
                     }
                 }
             ],

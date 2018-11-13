@@ -27,6 +27,7 @@
                 <li><a href="<?php echo url('/conditions'); ?>">Stavy</a></li>
                 <li><a href="<?php echo url('/types'); ?>">Typy</a></li>
                 <li><a href="<?php echo url('/specifications'); ?>">Druhy</a></li>
+                <li><a href="<?php echo url('/inzercia'); ?>">Inzeráty</a></li>
                 @if(session()->has('userID'))
                 <li id="liright"><a href="#">Odhlásiť sa</a></li>
                     @else:

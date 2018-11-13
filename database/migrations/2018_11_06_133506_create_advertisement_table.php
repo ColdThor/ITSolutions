@@ -17,7 +17,7 @@ class CreateAdvertisementTable extends Migration
             $table->increments('id_advertisement');
             $table->string('title');
             $table->string('description');
-            $table->dateTime('date');
+            $table->date('date');
             $table->string('contact_mail');
             $table->string('contact_phone')->nullable();
             $table->integer('price');

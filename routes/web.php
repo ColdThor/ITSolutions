@@ -32,6 +32,12 @@ Route::get('/types/data', 'TypeController@typetable');
 Route::get('/specifications', 'SpecificationController@index');
 Route::get('/specifications/data', 'SpecificationController@specificationtable');
 
+
+
+Route::get('/inzercia', 'AdvertisementController@index');
+Route::get('/inzercia/data', 'AdvertisementController@table');
+
+
 //END OF MAIN PAGES
 
 //EDIT PAGES
@@ -55,6 +61,11 @@ Route::get('/specifications/edit/{id}','SpecificationController@edit');
 Route::post('/specifications/edited/',[  'as' => 'updates',
     'uses' =>'SpecificationController@edit_validator']);
 
+
+Route::get('/inzercia/edit/{id}','AdvertisementController@edit');
+Route::post('/inzercia/edited/',[  'as' => 'updates',
+    'uses' =>'AdvertisementController@edit_validator']);
+
 //END OF EDIT PAGES
 
 
@@ -75,10 +86,15 @@ Route::get('/types/delete/{id}', [
 ]);
 
 
-
 Route::get('/specifications/delete/{id}', [
     'as' => 'delete', 'uses' => 'SpecificationController@delete'
 ]);
+
+Route::get('/inzercia/delete/{id}', [
+    'as' => 'delete', 'uses' => 'AdvertisementController@delete'
+]);
+
+
 //END OF DELETE PAGES
 
 

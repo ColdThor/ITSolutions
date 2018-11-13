@@ -23,9 +23,21 @@
 
     </style> -->
     <tr>
-        <th>Číslo druhu</th>
-        <th>Názov druhu</th>
-        <th>Skupina</th>
+        <th>Číslo inzerátu</th>
+        <th>Názov</th>
+        <th>Popis</th>
+        <th>Dátum zverejnenia</th>
+        <th>Inzerent</th>
+        <th>Inzerent2</th>
+        <th>Emailový kontakt</th>
+        <th>Telefonný kontakt</th>
+        <th>Cena</th>
+        <th>Výmera</th>
+        <th>Lokalita</th>
+        <th>Druh</th>
+        <th>Typ</th>
+        <th>Stav</th>
+        <th>Počet prezretí</th>
         <th>Editovať</th>
         <th>Zmazať</th>
     </tr>
@@ -70,26 +82,36 @@
             buttons: [
                 { extend: 'excel', text: 'Export do excelu', className: 'excelbutton',
                     exportOptions: {
-                        columns: [0,1,2]
+                        columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13]
                     }
                 },
                 { extend: 'pdf', text: 'Export do PDF', className: 'excelbutton',
                     exportOptions: {
-                        columns: [0,1,2]
+                        columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13]
                     }
                 }
             ],
 
             serverSide: true,
-            ajax: '{{ url('/specifications/data') }}',
+            ajax: '{{ url('/inzercia/data') }}',
             columns: [
-                { data: 'id_specification', name: 'id_specification' },
+                { data: 'id_advertisement', name: 'id_advertisement' },
                 { data: 'title', name: 'title' },
-                { data: 'group', name: 'group' },
+                { data: 'description', name: 'description' },
+                { data: 'date', name: 'date' },
+                { data: 'user', name: 'user.first_name' },
+                { data: 'user', name: 'user.last_name', visible:false },
+                { data: 'contact_mail', name: 'contact_mail' },
+                { data: 'contact_phone', name: 'contact_phone' },
+                { data: 'price', name: 'price' },
+                { data: 'area', name: 'area' },
+                { data: 'location', name: 'location.region' },
+                { data: 'specification', name: 'specification.title' },
+                { data: 'type', name: 'type.title' },
+                { data: 'condition', name: 'condition.title' },
+                { data: 'views', name: 'views' },
                 { data: 'edit'},
-                { data: 'delete' },
-
-
+                { data: 'delete' }
             ],
 
             stateSave: true,

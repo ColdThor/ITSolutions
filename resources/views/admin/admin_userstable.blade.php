@@ -25,6 +25,7 @@
     <tr>
         <th>Číslo používateľa</th>
         <th>Meno a priezvisko</th>
+        <th>Meno a priezvisko2</th>
         <th>Email</th>
         <th>Telefón</th>
         <th>Rola</th>
@@ -88,6 +89,7 @@
             columns: [
                 { data: 'id_user', name: 'id_user' },
                 { data: 'full_name', name: 'first_name' },
+                { data: 'full_name', name: 'last_name', visible:false },
                 { data: 'email', name: 'email' },
                 {
                     data: 'telephone',
@@ -95,7 +97,7 @@
                 },
                 { data: 'title', name: 'user_group.title' },
                 { data: 'edit'},
-                { data: 'delete' },
+                { data: 'delete' }
 
 
             ],
