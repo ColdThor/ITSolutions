@@ -7,6 +7,8 @@
  */
 
 namespace App\Http\Controllers;
+
+
 use App\Models\Usergroup;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -14,6 +16,9 @@ use Redirect;
 use DataTables;
 use Validator;
 use Session;
+use Auth;
+use DB;
+use Illuminate\Support\Facades\Input as Input;
 
 use Fico7489\Laravel\EloquentJoin\Traits\EloquentJoin;
 use Illuminate\Database\Eloquent\Model;
@@ -41,7 +46,7 @@ class UserController extends Controller {
     }
 
     public function update_usergroup($id) {
-        $user =  User()::where("ID_user","=",$id)->first();
+        $user =  User::where("ID_user","=",$id)->first();
         $user->update(["ID_usergroup" => 1]);
     }
 
@@ -164,9 +169,73 @@ class UserController extends Controller {
     }
 
 
-    public function index() {
-        return view('admin/admin_home');
+    public function index(Request $request) {
+        $data['value'] = $request->session()->get('userID');
+        return view('admin/admin_home',$data);
     }
+
+
+    public function showlogin() {
+        return view('admin/login');
+    }
+
+    public function dologin(Request $request) {
+
+        $rules = array(
+            'email'    => 'required|email', // make sure the email is an actual email
+            'password' => 'required|alphaNum|min:3' // password can only be alphanumeric and has to be greater than 3 characters
+        );
+
+        // run the validation rules on the inputs from the form
+        $validator = Validator::make(Input::all(), $rules);
+
+// if the validator fails, redirect back to the form
+        if ($validator->fails()) {
+            return Redirect::to('/it-admin/login')
+                ->withErrors($validator) // send back all errors to the login form
+                ->withInput(Input::except('password')); // send back the input (not the password) so that we can repopulate the form
+        } else {
+
+            // create our user data for the authentication
+
+
+
+             $email = Input::get('email');
+             $password =  Input::get('password');
+
+
+
+            // attempt to do the login
+
+            $user = User::where("email","=",$email)->where("password","=",md5($password))->where("id_user_group","=",4)->count();
+
+
+            if($user ==1){
+                $user = User::where("email","=",$email)->where("password","=",md5($password))->where("id_user_group","=",4)->first();
+                $userID = $user->id_user;
+                $username = $user->first_name. " ".$user->last_name;
+                Session::put('userID',$userID);
+                Session::put('userName',$username);
+                Session::get('userName');
+
+                return redirect('/');
+            } else {
+                return Redirect::to('/it-admin/login')
+                    ->withErrors(['no' => 'Použivateľ neexistuje alebo nie je administrátorom']);
+
+            }
+
+        }
+    }
+
+
+public function logout(Request $request) {
+
+    $request->session()->flush();
+    return redirect('/');
+}
+
+
 
 
 }

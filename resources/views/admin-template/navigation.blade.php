@@ -29,9 +29,9 @@
                 <li><a href="<?php echo url('/specifications'); ?>">Druhy</a></li>
                 <li><a href="<?php echo url('/inzercia'); ?>">Inzeráty</a></li>
                 @if(session()->has('userID'))
-                <li id="liright"><a href="#">Odhlásiť sa</a></li>
-                    @else:
-                <li id="liright"><a href="#">Prihlásiť sa</a></li>
+                <li id="liright"><a href="<?php echo url('/it-admin/logout'); ?>">Odhlásiť sa</a></li>
+                    @else
+                <li id="liright"><a href="<?php echo url('/it-admin/login'); ?>">Prihlásiť sa</a></li>
                 @endif
 
             </ul>

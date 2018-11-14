@@ -12,7 +12,17 @@
 */
 
 
-//MAIN PAGES
+//LOGIN SCREEN
+
+Route::get('/it-admin/login', array('uses' => 'UserController@showlogin'));
+Route::post('/it-admin/login', array('uses' => 'UserController@dologin'));
+
+Route::get('/it-admin/logout', array('uses' => 'UserController@logout'));
+//
+
+
+
+//MAIN ADMIN PAGES
 
 Route::get('/', 'UserController@index');
 
@@ -152,3 +162,6 @@ Route::get('/showall', [
 Route::get('/update/{id}', [
     'as' => 'update', 'uses' => 'UserController@update'
 ]);
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

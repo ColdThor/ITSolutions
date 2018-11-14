@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
           'first_name' => 'John',
           'last_name'  => 'Doe',
           'email' => 'johndoe@gmail.com',
-          'password' => bcrypt('1234'),
+          'password' => md5('1234'),
           'telephone' => null,
           'id_user_group'=> 1
           ]);
