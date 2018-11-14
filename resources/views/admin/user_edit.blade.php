@@ -1,72 +1,62 @@
+@extends('backend/header')
+@section('page')Editácia používateľa @endsection
+@section('content')
 
-@include('admin-template/header')
-@include('admin-template/navigation')
-@include('admin-template/footer')
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Editácia používateľa</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <form role="form" method="post" action="{{  action('UserController@edit_validator', ['id' => $users->id_user])  }}">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <input type="hidden" name="id_user" value="{{ $users->id_user }}">
 
-<div class="row" style="color: #02318e;" align="center">
-    <div class="page-header">
-        <h1><?php echo $title; ?></h1>
-    </div>
-</div>
+                                <label for="first_name">Meno:</label>
+                                <input type="text" class="form-control" name="first_name" value="{{ $users->first_name }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="last_name">Priezvisko:</label>
+                                <input type="text" class="form-control" name="last_name" value="{{ $users->last_name }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" name="email" value="{{ $users->email }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="telephone">Telefonné číslo:</label>
+                                <input type="text" class="form-control" name="telephone" value="{{ $users->telephone }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="rola">Rola:</label>
+                                <select class="form-control" name="rola">
+                                    <?php foreach($rola as $rl):
+                                        if($rl->id_user_group == $users->id_user_group): ?>
+                                            <option value="{{$rl->id_user_group}}" selected>{{$rl->title}}</option>
+                                        <?php else: ?>
+                                            <option value="{{$rl->id_user_group}}">{{$rl->title}}</option>
+                                        <?php endif; ?>
+                                    <?php endforeach ?>
+                                </select>
+                            </div>
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-<div class="row" style=" alignment: center; color: #02318e" align="center">
 
-
-    <form method="post" action="{{  action('UserController@edit_validator', ['id' => $users->id_user])  }}">
-
-
-
-        <div class="form-group">
-            <input type="hidden" name="id_user" value="{{ $users->id_user }}">
-            Meno: <br />
-            <input type="text" name="first_name" value="{{ $users->first_name }}">
-            <br />
-            Priezvisko: <br />
-            <input type="text" name="last_name" value="{{ $users->last_name }}">
-            <br />
-            Email: <br />
-            <input type="email" name="email" value="{{ $users->email }}">
-            <br />
-            Telefonné číslo: <br />
-            <input type="text" name="telephone" value="{{ $users->telephone }}">
-            <br />
-            Rola: <br />
-            <div class="form-group">
-                <select class="form-control" name="rola">
-                    <?php foreach($rola as $rl):
-                            if($rl->id_user_group == $users->id_user_group): ?>
-                        <option value="{{$rl->id_user_group}}" selected>{{$rl->title}}</option>
-                        <?php else: ?>
-                        <option value="{{$rl->id_user_group}}">{{$rl->title}}</option>
-                    <?php endif; ?>
-                    <?php endforeach ?>
-                </select>
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-primary" name="submit">Editovať používateľa</button>
+                                <button type="submit" class="btn btn-info pull-right" onclick="javascript:window.history.go(-1);">Naspäť</button>
+                            </div>
+                        </div>
+                    </form>
             </div>
-
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <!-- /.box -->
         </div>
-
-
-
-
-
-<div align="center">
-<div class="col-am-offset-2 col-am-10">
-    <br />
-    <input type="submit" class="editbutton" name="submit" value="Editovať zoznam" />
-</div>
-</div>
-</form>
-
-<br />
-
-
-<div class="col-md-4">
-    <button type="button" class="editbutton" onclick="javascript:window.history.go(-1);">Naspäť</button>
-</div>
-</div>    <!-- /row -->
-<div class="row">
-
-</div>
-</div>
-
+        <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+@endsection
