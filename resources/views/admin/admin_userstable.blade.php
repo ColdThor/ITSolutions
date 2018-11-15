@@ -39,17 +39,18 @@
                                     dom: 'Blfrtip',
                                     lengthMenu: [[10, 25, 50,100,200,300,400], [10, 25, 50,100,200,300,400]],
                                     buttons: [
-                                        { extend: 'excel', text: 'Export do excelu', className: 'excelbutton',
+                                        { extend: 'excel', text: 'Export do excelu',
                                             exportOptions: {
                                                 columns: [0,1,2,3,4]
                                             }
                                         },
-                                        { extend: 'pdf', text: 'Export do PDF', className: 'excelbutton',
+                                        { extend: 'pdf', text: 'Export do PDF',
                                             exportOptions: {
                                                 columns: [0,1,2,3,4]
                                             }
                                         }
                                     ],
+
 
                                     serverSide: true,
                                     ajax: '{{ url('/users/data') }}',

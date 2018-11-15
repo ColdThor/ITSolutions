@@ -29,6 +29,8 @@
     <![endif]-->
 
     <!-- Data tables scripts-->
+
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
@@ -41,6 +43,9 @@
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.10.16/api/sum().js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+
+
 
     <!-- END of Data tables scripts-->
 
@@ -132,11 +137,14 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="{{ asset('admin-theme/dist/img/user2-160x160.jpg')}}" class="user-image" alt="User Image">
-                            <span class="hidden-xs">Alexander Pierce<!-- Meno pouzivatela--></span>
+                            @if(session()->has('userID'))
+                            <span class="hidden-xs">{{session()->get('userName')}}<!-- Meno pouzivatela--></span>
+                                @endif
                         </a>
                         <!-- Popis pouzivatela -->
                         <ul class="dropdown-menu">
                             <li class="user-header">
+
                                 <img src="{{ asset('admin-theme/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
                                 <p>
                                     <!-- meno pouzivatela -->
@@ -144,14 +152,18 @@
                                 </p>
                             </li>
                             <!-- tlacidla-->
+                            @if(session()->has('userID'))
                             <li class="user-footer">
                                 <div class="pull-left">
                                     <a href="#" class="btn btn-default btn-flat">Profil</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Odhlásiť sa</a>
+
+                                    <a href="<?php echo url('/it-admin/logout'); ?>" class="btn btn-default btn-flat">Odhlásiť sa</a>
+
                                 </div>
                             </li>
+                            @endif
                         </ul>
                     </li>
                     <!-- používatel-správa profilu/ohlásenie sa -->

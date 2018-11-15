@@ -4,8 +4,12 @@
         <img src="{{ asset('admin-theme/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
     </div>
     <div class="pull-left info">
-        <p>Alexander Pierce</p>
+        @if(session()->has('userID'))
+            <p>{{session()->get('userName')}}</p>
+
+
         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        @endif
     </div>
 </div>
 <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -27,13 +31,18 @@
             <li><a href="<?php echo url('/types'); ?>"><i class="fa fa-circle-o"></i>Typy inzercie</a></li>
             <li><a href="<?php echo url('/specifications'); ?>"><i class="fa fa-circle-o"></i>Druhy inzercie</a></li>
             <li><a href="<?php echo url('/conditions'); ?>"><i class="fa fa-circle-o"></i>Stavy inzercie</a></li>
+            <li><a href="<?php echo url('/inzercia'); ?>"><i class="fa fa-circle-o"></i>Inzeráty</a></li>
         </ul>
     </li>
     <li>
         <a href="#"><i class="fa fa-user"></i> <span>Profil</span></a>
     </li>
     <li>
-        <a href="#"><i class="fa fa-sign-out"></i> <span>Odhlásiť sa</span></a>
+        @if(session()->has('userID'))
+        <a href="<?php echo url('/it-admin/logout'); ?>"><i class="fa fa-sign-out"></i> <span>Odhlásiť sa</span></a>
+        @else
+            <a href="<?php echo url('/it-admin/login'); ?>"><i class="fa fa-sign-out"></i> <span>Prihlásiť sa</span></a>
+        @endif
     </li>
 </ul>
 <!-- /.sidebar -->

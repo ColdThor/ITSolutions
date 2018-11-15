@@ -127,41 +127,6 @@ Route::get('/inzercia/delete/{id}', [
 
 
 
-Route::get('test', [
-    'as' => 'test', 'uses' => 'TestController@test'
-]);
-
-
-Route::get('test2', [
-    'as' => 'test2', 'uses' => 'TestController@test2'
-]);
-
-Route::get('test3', [
-    'as' => 'test3', 'uses' => 'TestController@test3'
-]);
-
-
-Route::get('/insert', [
-    'as' => 'insert', 'uses' => 'UserController@insert'
-]);
-
-
-Route::get('/location', [
-    'as' => 'populate', 'uses' => 'LocationController@populate'
-]);
-
-
-Route::get('/show/{id}', [
-    'as' => 'show', 'uses' => 'UserController@show'
-]);
-
-Route::get('/showall', [
-    'as' => 'showall', 'uses' => 'UserController@showall'
-]);
-
-Route::get('/update/{id}', [
-    'as' => 'update', 'uses' => 'UserController@update'
-]);
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
