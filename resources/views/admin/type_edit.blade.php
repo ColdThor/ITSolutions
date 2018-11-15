@@ -1,51 +1,36 @@
+@extends('backend/header')
+@section('page') Editácia typu inzercie @endsection
+@section('content')
 
-@include('admin-template/header')
-@include('admin-template/navigation')
-@include('admin-template/footer')
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Editácia typu inzercie</h3>
+                    </div>
+                    <form role="form" method="post" action="{{  action('TypeController@edit_validator', ['id' => $type->id_type])  }}">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <input type="hidden" name="id_type" value="{{ $type->id_type }}">
+                                <label for="title">Názov:</label>
+                                <input type="text" class="form-control" name="title" value="{{ $type->title }}">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            </div>
 
-<div class="row" style="color: #02318e;" align="center">
-    <div class="page-header">
-        <h1><?php echo $title; ?></h1>
-    </div>
-</div>
-
-<div class="row" style=" alignment: center; color: #02318e" align="center">
-
-
-    <form method="post" action="{{  action('TypeController@edit_validator', ['id' => $type->id_type])  }}">
-
-
-
-        <div class="form-group">
-            <input type="hidden" name="id_type" value="{{ $type->id_type }}">
-            Názov: <br />
-            <input type="text" name="title" value="{{ $type->title }}">
-            <br />
-
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        </div>
-
-
-
-
-
-        <div align="center">
-            <div class="col-am-offset-2 col-am-10">
-                <br />
-                <input type="submit" class="editbutton" name="submit" value="Editovať zoznam" />
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-primary" name="submit">Editovať</button>
+                                <button type="submit" class="btn btn-info pull-right" onclick="javascript:window.history.go(-1);">Naspäť</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.box -->
             </div>
+            <!-- /.col -->
         </div>
-    </form>
-
-    <br />
-
-
-    <div class="col-md-4">
-        <button type="button" class="editbutton" onclick="javascript:window.history.go(-1);">Naspäť</button>
-    </div>
-</div>    <!-- /row -->
-<div class="row">
-
-</div>
-</div>
+        <!-- /.row -->
+    </section>
+@endsection
 

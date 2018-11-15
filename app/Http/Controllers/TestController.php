@@ -18,7 +18,7 @@ class TestController {
         echo "<div align='center' style='color: orange; font-size: 100px'>".$mystring;
         echo "<br />";
         echo "<img src='/reality/assets/img/charizard.png' style='cursor: pointer;' onclick='new function test2() {
-       var audio = new Audio(\"/reality/assets/sounds/charizard.mp3\");
+       var audio = new Audio(admin-theme);
         audio.play();
 }' height='440px' width='356px'/>";
         echo " </div>";
