@@ -30,16 +30,7 @@
 
     <!-- Data tables scripts-->
 
-
-
-
-
-
-
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
-
-
 
     <!-- END of Data tables scripts-->
 
@@ -47,6 +38,8 @@
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
+
+
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 

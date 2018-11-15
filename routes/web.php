@@ -25,7 +25,7 @@ Route::get('/it-admin/logout', array('uses' => 'UserController@logout'));
 //MAIN ADMIN PAGES
 
 Route::get('/', 'UserController@index');
-
+Route::get('/frontend', array('uses' => 'HomeController@index'));
 
 Route::get('/users', 'UserController@user_index');
 Route::get('/users/data', 'UserController@usertable');
