@@ -27,8 +27,25 @@
                         </table>
 
 
+
+                        <style>
+                            .buttons-pdf {
+                                background-color: #3c8dbc;
+                                color: white;
+                                margin-right: 5px;
+                            }
+                            .buttons-excel {
+                                background-color: #3c8dbc;
+                                color: white;
+                            }
+                        </style>
+
+
+
+
 <script>
     $(function() {
+        $.fn.dataTable.Buttons.defaults.dom.button.className = 'btn';
         $('#usertable').DataTable({
 
             dom: 'Blfrtip',

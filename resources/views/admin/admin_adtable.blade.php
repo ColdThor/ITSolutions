@@ -1,9 +1,9 @@
 @extends('backend/header')
-@section('page') Používatelia @endsection
+@section('page') Inzeráty @endsection
 @section('content')
 
     <section class="content-header">
-        <h1>Používatelia</h1>
+      
     </section>
     <!-- Main content -->
     <section class="content">
@@ -11,7 +11,7 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Zoznam používateľov</h3>
+                        <h3 class="box-title">Zoznam inzerátov</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -43,16 +43,43 @@
                         </table>
 
 
+<style>
+    .buttons-pdf {
+        background-color: #3c8dbc;
+        color: white;
+        margin-right: 5px;
+    }
+    .buttons-excel {
+        background-color: #3c8dbc;
+        color: white;
+    }
+</style>
+
+
+
 
                         <script>
                             $(function() {
+
+                                $.fn.dataTable.Buttons.defaults.dom.button.className = 'btn';
                                 $('#usertable').DataTable({
 
                                     dom: 'Blfrtip',
                                     lengthMenu: [[10, 25, 50,100,200,300,400], [10, 25, 50,100,200,300,400]],
                                     buttons: [
-                                        'copy', 'excel', 'pdf'
+                                        { extend: 'excel', text: 'Export do excelu',
+                                            exportOptions: {
+                                                columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13]
+                                            }
+                                        },
+                                        { extend: 'pdf', text: 'Export do PDF',
+                                            exportOptions: {
+                                                columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13]
+                                            }
+                                        }
                                     ],
+
+
                                     scrollX: true,
                                     responsive: true,
                                     serverSide: true,
@@ -94,9 +121,16 @@
 
                                 });
 
+
                             });
 
+
+
                         </script>
+
+
+
+
                     </div>
                     <!-- /.box-body -->
                 </div>

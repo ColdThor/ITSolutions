@@ -13,6 +13,30 @@ html,
 body {
   height: 100%;
 }
+
+
+.excelbutton {
+  background-color: #02318e;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 20px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
 .layout-boxed html,
 .layout-boxed body {
   height: 100%;
@@ -2219,8 +2243,13 @@ a:focus {
   cursor: inherit;
   display: block;
 }
+
+
+
+
+
 .btn-default {
-  background-color: #f4f4f4;
+  background-color: #3c8dbc;
   color: #444;
   border-color: #ddd;
 }

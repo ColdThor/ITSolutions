@@ -11,7 +11,7 @@
             <div class="col-md-8">
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Editácia typu inzercie</h3>
+                        <h3 class="box-title">Editácia inzercie</h3>
                     </div>
                     <form method="post" action="{{  action('AdvertisementController@edit_validator', ['id' => $ads->id_advertisement])  }}">
                         <div class="box-body">
