@@ -43,18 +43,6 @@
                         </table>
 
 
-<style>
-    .buttons-pdf {
-        background-color: #3c8dbc;
-        color: white;
-        margin-right: 5px;
-    }
-    .buttons-excel {
-        background-color: #3c8dbc;
-        color: white;
-    }
-</style>
-
 
 
 
@@ -83,7 +71,7 @@
                                     scrollX: true,
                                     responsive: true,
                                     serverSide: true,
-                                    ajax: '{{ url('/inzercia/data') }}',
+                                    ajax: '{{ url('/it-admin/inzercia/data') }}',
                                     columns: [
                                         { data: 'id_advertisement', name: 'id_advertisement' },
                                         { data: 'title', name: 'title' },

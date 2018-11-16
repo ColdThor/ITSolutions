@@ -22,10 +22,10 @@ class TypeController extends Controller {
         $type = Type::all();
         return Datatables::of($type)
             ->addColumn('edit', function($row) {
-                return '<a  href="'. url('/types/'). '/edit/'. $row->id_type .'" class="editbutton">Editovať</a>';
+                return '<a  href="'. url('/it-admin/types/'). '/edit/'. $row->id_type .'" class="editbutton">Editovať</a>';
             })
             ->addColumn('delete', function ($row) {
-                return '<a href="'. url('/types/'). '/delete/'. $row->id_type .'" class="deletebutton">Zmazať</a>';
+                return '<a href="'. url('/it-admin/types/'). '/delete/'. $row->id_type .'" class="deletebutton">Zmazať</a>';
             })
             ->rawColumns(['delete' => 'delete','edit' => 'edit'])->make(true);
     }
@@ -51,7 +51,7 @@ class TypeController extends Controller {
         $type = Type::find($id);
 
         $type->delete();
-        return redirect('/types/');
+        return redirect('/it-admin/types/');
     }
 
 

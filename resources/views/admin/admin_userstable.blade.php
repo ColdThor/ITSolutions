@@ -36,17 +36,7 @@
 
 
 
-                        <style>
-                            .buttons-pdf {
-                                background-color: #3c8dbc;
-                                color: white;
-                                margin-right: 5px;
-                            }
-                            .buttons-excel {
-                                background-color: #3c8dbc;
-                                color: white;
-                            }
-                        </style>
+
 
                         <script>
                             $(function() {
@@ -70,7 +60,7 @@
 
 
                                     serverSide: true,
-                                    ajax: '{{ url('/users/data') }}',
+                                    ajax: '{{ url('it-admin/users/data') }}',
                                     columns: [
                                         { data: 'id_user', name: 'id_user' },
                                         { data: 'full_name', name: 'first_name' },

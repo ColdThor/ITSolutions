@@ -22,10 +22,10 @@ class SpecificationController extends Controller {
         $specification = Specification::all();
         return Datatables::of($specification)
             ->addColumn('edit', function($row) {
-                return '<a  href="'. url('/specifications/'). '/edit/'. $row->id_specification .'" class="editbutton">Editovať</a>';
+                return '<a  href="'. url('/it-admin/specifications/'). '/edit/'. $row->id_specification .'" class="editbutton">Editovať</a>';
             })
             ->addColumn('delete', function ($row) {
-                return '<a href="'. url('/specifications/'). '/delete/'. $row->id_specification .'" class="deletebutton">Zmazať</a>';
+                return '<a href="'. url('/it-admin/specifications/'). '/delete/'. $row->id_specification .'" class="deletebutton">Zmazať</a>';
             })
             ->rawColumns(['delete' => 'delete','edit' => 'edit'])->make(true);
     }
@@ -51,7 +51,7 @@ class SpecificationController extends Controller {
         $specification = Specification::find($id);
 
         $specification->delete();
-        return redirect('/specifications/');
+        return redirect('/it-admin/specifications/');
     }
 
 

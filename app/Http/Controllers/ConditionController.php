@@ -24,10 +24,10 @@ class ConditionController extends Controller {
         $conditions = Condition::all();
         return Datatables::of($conditions)
             ->addColumn('edit', function($row) {
-                return '<a  href="'. url('/conditions/'). '/edit/'. $row->id_condition .'" class="editbutton">Editovať</a>';
+                return '<a  href="'. url('/it-admin/conditions/'). '/edit/'. $row->id_condition .'" class="editbutton">Editovať</a>';
             })
             ->addColumn('delete', function ($row) {
-                return '<a href="'. url('/conditions/'). '/delete/'. $row->id_condition .'" class="deletebutton">Zmazať</a>';
+                return '<a href="'. url('/it-admin/conditions/'). '/delete/'. $row->id_condition .'" class="deletebutton">Zmazať</a>';
             })
             ->rawColumns(['delete' => 'delete','edit' => 'edit'])->make(true);
     }
@@ -54,7 +54,7 @@ class ConditionController extends Controller {
         $condition = Condition::find($id);
 
         $condition->delete();
-        return redirect('/conditions/');
+        return redirect('/it-admin/conditions/');
     }
 
 

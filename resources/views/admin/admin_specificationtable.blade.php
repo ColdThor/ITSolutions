@@ -29,17 +29,7 @@
 
 
 
-                        <style>
-                            .buttons-pdf {
-                                background-color: #3c8dbc;
-                                color: white;
-                                margin-right: 5px;
-                            }
-                            .buttons-excel {
-                                background-color: #3c8dbc;
-                                color: white;
-                            }
-                        </style>
+
 
 
 
@@ -66,7 +56,7 @@
             ],
 
             serverSide: true,
-            ajax: '{{ url('/specifications/data') }}',
+            ajax: '{{ url('it-admin/specifications/data') }}',
             columns: [
                 { data: 'id_specification', name: 'id_specification' },
                 { data: 'title', name: 'title' },

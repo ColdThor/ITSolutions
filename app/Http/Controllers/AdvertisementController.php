@@ -35,10 +35,10 @@ class AdvertisementController extends Controller {
             ->select('advertisement.*', 'type.title AS type', 'condition.title AS condition','specification.title AS specification', 'location.region AS location', DB::raw('CONCAT(first_name," ",last_name) AS user'));
         return Datatables::of($ads)
             ->addColumn('edit', function($row) {
-                return '<a  href="'. url('/inzercia/'). '/edit/'. $row->id_advertisement .'" class="editbutton">Editovať</a>';
+                return '<a  href="'. url('/it-admin/inzercia/'). '/edit/'. $row->id_advertisement .'" class="editbutton">Editovať</a>';
             })
             ->addColumn('delete', function ($row) {
-                return '<a href="'. url('/inzercia/'). '/delete/'. $row->id_advertisement .'" class="deletebutton">Zmazať</a>';
+                return '<a href="'. url('/it-admin/inzercia/'). '/delete/'. $row->id_advertisement .'" class="deletebutton">Zmazať</a>';
             })
             ->rawColumns(['delete' => 'delete','edit' => 'edit'])
             ->editColumn('contact_mail', function ($row) {
@@ -94,7 +94,7 @@ class AdvertisementController extends Controller {
         $ad = Advertisement::find($id);
 
         $ad->delete();
-        return redirect('/inzercia/');
+        return redirect('/it-admin/inzercia/');
     }
 
 

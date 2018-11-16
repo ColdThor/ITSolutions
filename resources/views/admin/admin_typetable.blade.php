@@ -28,17 +28,7 @@
 
 
 
-                        <style>
-                            .buttons-pdf {
-                                background-color: #3c8dbc;
-                                color: white;
-                                margin-right: 5px;
-                            }
-                            .buttons-excel {
-                                background-color: #3c8dbc;
-                                color: white;
-                            }
-                        </style>
+
 <script>
     $(function() {
         $.fn.dataTable.Buttons.defaults.dom.button.className = 'btn';
@@ -60,7 +50,7 @@
             ],
 
             serverSide: true,
-            ajax: '{{ url('/types/data') }}',
+            ajax: '{{ url('/it-admin/types/data') }}',
             columns: [
                 { data: 'id_type', name: 'id_type' },
                 { data: 'title', name: 'title' },

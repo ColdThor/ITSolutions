@@ -24,56 +24,56 @@ Route::get('/it-admin/logout', array('uses' => 'UserController@logout'));
 
 //MAIN ADMIN PAGES
 
-Route::get('/', 'UserController@index');
+Route::get('/it-admin', 'UserController@index');
 
 
-Route::get('/users', 'UserController@user_index');
-Route::get('/users/data', 'UserController@usertable');
+Route::get('/it-admin/users', 'UserController@user_index');
+Route::get('/it-admin/users/data', 'UserController@usertable');
 
 
-Route::get('/conditions', 'ConditionController@index');
-Route::get('/conditions/data', 'ConditionController@conditiontable');
+Route::get('/it-admin/conditions', 'ConditionController@index');
+Route::get('/it-admin/conditions/data', 'ConditionController@conditiontable');
 
-Route::get('/types', 'TypeController@index');
-Route::get('/types/data', 'TypeController@typetable');
-
-
-
-Route::get('/specifications', 'SpecificationController@index');
-Route::get('/specifications/data', 'SpecificationController@specificationtable');
+Route::get('/it-admin/types', 'TypeController@index');
+Route::get('/it-admin/types/data', 'TypeController@typetable');
 
 
 
-Route::get('/inzercia', 'AdvertisementController@index');
-Route::get('/inzercia/data', 'AdvertisementController@table');
+Route::get('/it-admin/specifications', 'SpecificationController@index');
+Route::get('/it-admin/specifications/data', 'SpecificationController@specificationtable');
+
+
+
+Route::get('/it-admin/inzercia', 'AdvertisementController@index');
+Route::get('/it-admin/inzercia/data', 'AdvertisementController@table');
 
 
 //END OF MAIN PAGES
 
 //EDIT PAGES
 
-Route::get('/edit/{id}','UserController@edit');
-Route::post('/edited/',[  'as' => 'updates',
+Route::get('/it-admin/edit/{id}','UserController@edit');
+Route::post('/it-admin/edited/',[  'as' => 'updates',
         'uses' =>'UserController@edit_validator']);
 
 
-Route::get('/conditions/edit/{id}','ConditionController@edit');
-Route::post('/conditions/edited/',[  'as' => 'updates',
+Route::get('/it-admin/conditions/edit/{id}','ConditionController@edit');
+Route::post('/it-admin/conditions/edited/',[  'as' => 'updates',
     'uses' =>'ConditionController@edit_validator']);
 
 
-Route::get('/types/edit/{id}','TypeController@edit');
-Route::post('/types/edited/',[  'as' => 'updates',
+Route::get('/it-admin/types/edit/{id}','TypeController@edit');
+Route::post('/it-admin/types/edited/',[  'as' => 'updates',
     'uses' =>'TypeController@edit_validator']);
 
 
-Route::get('/specifications/edit/{id}','SpecificationController@edit');
-Route::post('/specifications/edited/',[  'as' => 'updates',
+Route::get('/it-admin/specifications/edit/{id}','SpecificationController@edit');
+Route::post('/it-admin/specifications/edited/',[  'as' => 'updates',
     'uses' =>'SpecificationController@edit_validator']);
 
 
-Route::get('/inzercia/edit/{id}','AdvertisementController@edit');
-Route::post('/inzercia/edited/',[  'as' => 'updates',
+Route::get('/it-admin/inzercia/edit/{id}','AdvertisementController@edit');
+Route::post('/it-admin/inzercia/edited/',[  'as' => 'updates',
     'uses' =>'AdvertisementController@edit_validator']);
 
 //END OF EDIT PAGES
@@ -82,44 +82,30 @@ Route::post('/inzercia/edited/',[  'as' => 'updates',
 
 //DELETE PAGES
 
-Route::get('/delete/{id}', [
+Route::get('/it-admin/delete/{id}', [
     'as' => 'delete', 'uses' => 'UserController@delete'
 ]);
 
-Route::get('/conditions/delete/{id}', [
+Route::get('/it-admin/conditions/delete/{id}', [
     'as' => 'delete', 'uses' => 'ConditionController@delete'
 ]);
 
 
-Route::get('/types/delete/{id}', [
+Route::get('/it-admin/types/delete/{id}', [
     'as' => 'delete', 'uses' => 'TypeController@delete'
 ]);
 
 
-Route::get('/specifications/delete/{id}', [
+Route::get('/it-admin/specifications/delete/{id}', [
     'as' => 'delete', 'uses' => 'SpecificationController@delete'
 ]);
 
-Route::get('/inzercia/delete/{id}', [
+Route::get('/it-admin/inzercia/delete/{id}', [
     'as' => 'delete', 'uses' => 'AdvertisementController@delete'
 ]);
 
 
 //END OF DELETE PAGES
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -129,4 +115,4 @@ Route::get('/inzercia/delete/{id}', [
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
