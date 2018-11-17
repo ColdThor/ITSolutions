@@ -17,7 +17,11 @@ class ConditionController extends Controller {
 
 
     public function index() {
-        return view('admin/admin_conditiontable');
+        if(session()->has('userID')) {
+            return view('admin/admin_conditiontable');
+        } else {
+            return view('admin/no_admin');
+        }
     }
 
     public function conditiontable() {
@@ -35,35 +39,45 @@ class ConditionController extends Controller {
 
 
     public function edit($id) {
-        $data['title'] = "Editovať stav";
+        if(session()->has('userID')) {
+            $data['title'] = "Editovať stav";
 
-        $condition = Condition::select('*')->where("id_condition","=",$id)->get()->first();
+            $condition = Condition::select('*')->where("id_condition", "=", $id)->get()->first();
 
 
-        $data['condition'] =  $condition;
+            $data['condition'] = $condition;
 
-        return view('admin/condition_edit',$data);
+            return view('admin/condition_edit', $data);
+        } else {
+            return view('admin/no_admin');
+        }
     }
 
 
     public function delete($id) {
+        if(session()->has('userID')) {
+            if ($id == null) {
+                return abort(404);
+            }
+            $condition = Condition::find($id);
 
-        if($id == null) {
-            return abort(404);
+            $condition->delete();
+            return redirect('/it-admin/conditions/');
+        } else {
+            return view('admin/no_admin');
         }
-        $condition = Condition::find($id);
-
-        $condition->delete();
-        return redirect('/it-admin/conditions/');
     }
 
 
     public function edit_validator(Request $request) {
-
-        $condition = Condition::where("id_condition","=",$request->input('id'))->first();
-        $condition->update([
-            "title" => $request->input('title')]);
-        return redirect()-> action('ConditionController@index');
+        if($request->submit == "submit") {
+            $condition = Condition::where("id_condition", "=", $request->input('id'))->first();
+            $condition->update([
+                "title" => $request->input('title')]);
+            return redirect()->action('ConditionController@index');
+        } else {
+            return redirect()->action('ConditionController@index');
+        }
     }
 
 

@@ -30,7 +30,16 @@
 
     <!-- Data tables scripts-->
 
+
+
+
+
+
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+
+
 
     <!-- END of Data tables scripts-->
 
@@ -38,14 +47,12 @@
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-
-
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="<?php echo url('/'); ?>" class="logo">
+        <a href="<?php echo url('/it-admin/'); ?>" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini">ADM</span>
             <!-- logo for regular state and mobile devices -->
@@ -63,6 +70,9 @@
 
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
+
+                    <li ><a href="<?php echo url('/'); ?>">Na stránku</a></li>
+                @if(session()->has('userID'))
                     <!-- Prijimanie a manažment správ-->
                     <li class="dropdown messages-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -78,9 +88,9 @@
                                         <!-- start message -->
                                         <a href="#">
                                             <div class="pull-left">
-                                                <!-- Link na obrayok odosielatela napr.
-                                                <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                                                -->
+                                            <!--
+                                                <img src=" {{asset('admin-theme//dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+                                            -->
                                             </div>
                                             <h4>
                                                 <!--Odosielatel spravy-->
@@ -98,6 +108,7 @@
                     <!-- Prijimanie a manažment správ END-->
 
                     <!-- Notifikácie -->
+
                     <li class="dropdown notifications-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-bell-o"></i>
@@ -118,21 +129,33 @@
                             <li class="footer"><a href="#">Všetky upozornenia</a></li>
                         </ul>
                     </li>
+                    @endif
                     <!-- Notifikácie -->
 
                     <!-- používatel-správa profilu/ohlásenie sa -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{ asset('admin-theme/dist/img/user2-160x160.jpg')}}" class="user-image" alt="User Image">
+
                             @if(session()->has('userID'))
-                            <span class="hidden-xs">{{session()->get('userName')}}<!-- Meno pouzivatela--></span>
-                                @endif
+                                <?php
+                                $id = session()->get('userID');
+                                ?>
+                                <img src="/reality/storage/app/admins/admin_<?php echo $id?>/fotka.jpeg" class="img-circle" alt="User Image" style="height: 20px; width: 20px;">
+                            @endif
+                            @if(session()->has('userID'))
+                                <span class="hidden-xs">{{session()->get('userName')}}<!-- Meno pouzivatela--></span>
+                            @endif
                         </a>
                         <!-- Popis pouzivatela -->
                         <ul class="dropdown-menu">
                             <li class="user-header">
 
-                                <img src="{{ asset('admin-theme/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+                                @if(session()->has('userID'))
+                                    <?php
+                                    $id = session()->get('userID');
+                                    ?>
+                                    <img src="/reality/storage/app/admins/admin_<?php echo $id?>/fotka.jpeg" class="img-circle" alt="User Image" style="height: 100px; width: 100px;">
+                                @endif
                                 <p>
                                     <!-- meno pouzivatela -->
                                     <small><!-- popis pouzivatela --></small>
@@ -140,16 +163,16 @@
                             </li>
                             <!-- tlacidla-->
                             @if(session()->has('userID'))
-                            <li class="user-footer">
-                                <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profil</a>
-                                </div>
-                                <div class="pull-right">
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="#" class="btn btn-default btn-flat">Profil</a>
+                                    </div>
+                                    <div class="pull-right">
 
-                                    <a href="<?php echo url('/it-admin/logout'); ?>" class="btn btn-default btn-flat">Odhlásiť sa</a>
+                                        <a href="<?php echo url('/it-admin/logout'); ?>" class="btn btn-default btn-flat">Odhlásiť sa</a>
 
-                                </div>
-                            </li>
+                                    </div>
+                                </li>
                             @endif
                         </ul>
                     </li>

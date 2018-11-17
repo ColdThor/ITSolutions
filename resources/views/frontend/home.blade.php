@@ -1,6 +1,7 @@
 
 
 @extends('frontend/header')
+
 @section('page') Home @endsection
 
 

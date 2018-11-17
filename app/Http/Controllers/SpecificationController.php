@@ -15,7 +15,11 @@ class SpecificationController extends Controller {
 
 
     public function index() {
-        return view('admin/admin_specificationtable');
+        if(session()->has('userID')) {
+            return view('admin/admin_specificationtable');
+        } else {
+            return view('admin/no_admin');
+        }
     }
 
     public function specificationtable() {
@@ -33,35 +37,45 @@ class SpecificationController extends Controller {
 
 
     public function edit($id) {
-        $data['title'] = "Editovať druh";
+        if(session()->has('userID')) {
+            $data['title'] = "Editovať druh";
 
-        $specification = Specification::select('*')->where("id_specification","=",$id)->get()->first();
+            $specification = Specification::select('*')->where("id_specification", "=", $id)->get()->first();
 
-        $data['specification'] =  $specification;
+            $data['specification'] = $specification;
 
-        return view('admin/specification_edit',$data);
+            return view('admin/specification_edit', $data);
+        } else {
+            return view('admin/no_admin');
+        }
     }
 
 
     public function delete($id) {
+        if(session()->has('userID')) {
+            if ($id == null) {
+                return abort(404);
+            }
+            $specification = Specification::find($id);
 
-        if($id == null) {
-            return abort(404);
+            $specification->delete();
+            return redirect('/it-admin/specifications/');
+        } else {
+            return view('admin/no_admin');
         }
-        $specification = Specification::find($id);
-
-        $specification->delete();
-        return redirect('/it-admin/specifications/');
     }
 
 
     public function edit_validator(Request $request) {
-
-        $specification = Specification::where("id_specification","=",$request->input('id'))->first();
-        $specification->update([
-            "title" => $request->input('title'),
-            "group" => $request->input('group')]);
-        return redirect()-> action('SpecificationController@index');
+        if($request->submit == "submit") {
+            $specification = Specification::where("id_specification", "=", $request->input('id'))->first();
+            $specification->update([
+                "title" => $request->input('title'),
+                "group" => $request->input('group')]);
+            return redirect()->action('SpecificationController@index');
+        } else {
+            return redirect()->action('SpecificationController@index');
+        }
     }
 
 

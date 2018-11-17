@@ -23,7 +23,11 @@ class AdvertisementController extends Controller {
 
 
     public function index() {
-        return view('admin/admin_adtable');
+        if(session()->has('userID')) {
+            return view('admin/admin_adtable');
+        } else {
+            return view('admin/no_admin');
+        }
     }
 
     public function table() {
@@ -63,58 +67,69 @@ class AdvertisementController extends Controller {
 
 
     public function edit($id) {
-        $data['title'] = "Editovať inzerciu";
+        if(session()->has('userID')) {
+            $data['title'] = "Editovať inzerciu";
 
-        $ad = Advertisement::select('*')->where("id_advertisement","=",$id)->get()->first();
+            $ad = Advertisement::select('*')->where("id_advertisement", "=", $id)->get()->first();
 
-        $condition = Condition::all();
-        $type = Type::all();
-        $specification = Specification::all();
-        $location = Location::all();
-        $user = User::all();
+            $condition = Condition::all();
+            $type = Type::all();
+            $specification = Specification::all();
+            $location = Location::all();
+            $user = User::all();
 
-        $data['ads'] =  $ad;
-        $data['condition'] =  $condition;
-        $data['type'] =  $type;
-        $data['specification'] =  $specification;
-        $data['location'] =  $location;
-        $data['user'] =  $user;
+            $data['ads'] = $ad;
+            $data['condition'] = $condition;
+            $data['type'] = $type;
+            $data['specification'] = $specification;
+            $data['location'] = $location;
+            $data['user'] = $user;
 
 
-
-        return view('admin/ad_edit',$data);
+            return view('admin/ad_edit', $data);
+        } else {
+            return view('admin/no_admin');
+        }
     }
 
 
     public function delete($id) {
+        if(session()->has('userID')) {
 
-        if($id == null) {
-            return abort(404);
-        }
-        $ad = Advertisement::find($id);
+            if ($id == null) {
+                return abort(404);
+            }
+            $ad = Advertisement::find($id);
 
-        $ad->delete();
-        return redirect('/it-admin/inzercia/');
+            $ad->delete();
+            return redirect('/it-admin/inzercia/');
+        }else {
+            return view('admin/no_admin');
+         }
+
     }
 
 
     public function edit_validator(Request $request) {
-
-        $ad = Advertisement::where("id_advertisement","=",$request->input('id'))->first();
-        $ad->update([
-            "title" => $request->input('title'),
-            "description" => $request->input('description'),
-            "date" => $request->input('date'),
-            "contact_mail" => $request->input('contact_mail'),
-            "contact_phone" => $request->input('contact_phone'),
-            "price" => $request->input('price'),
-            "area" => $request->input('area'),
-            "id_user" => $request->input('id_user'),
-            "id_condition" => $request->input('id_condition'),
-            "id_type" => $request->input('id_type'),
-            "id_location" => $request->input('id_specification'),
-            "id_specification" => $request->input('id_specification')]);
-        return redirect()-> action('AdvertisementController@index');
+        if($request->submit == "submit") {
+            $ad = Advertisement::where("id_advertisement", "=", $request->input('id'))->first();
+            $ad->update([
+                "title" => $request->input('title'),
+                "description" => $request->input('description'),
+                "date" => $request->input('date'),
+                "contact_mail" => $request->input('contact_mail'),
+                "contact_phone" => $request->input('contact_phone'),
+                "price" => $request->input('price'),
+                "area" => $request->input('area'),
+                "id_user" => $request->input('id_user'),
+                "id_condition" => $request->input('id_condition'),
+                "id_type" => $request->input('id_type'),
+                "id_location" => $request->input('id_specification'),
+                "id_specification" => $request->input('id_specification')]);
+            return redirect()->action('AdvertisementController@index');
+        } else {
+            return redirect()->action('AdvertisementController@index');
+        }
     }
 
 

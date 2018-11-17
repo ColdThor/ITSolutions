@@ -1,24 +1,30 @@
 <!-- Sidebar user panel -->
 <div class="user-panel">
     <div class="pull-left image">
-        <img src="{{ asset('admin-theme/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+        @if(session()->has('userID'))
+            <?php
+            $id = session()->get('userID');
+            ?>
+        <img src="/reality/storage/app/admins/admin_<?php echo $id?>/fotka.jpeg" class="img-circle" alt="User Image" style="height: 50px; width: 50px;">
+        @endif
     </div>
     <div class="pull-left info">
         @if(session()->has('userID'))
             <p>{{session()->get('userName')}}</p>
 
 
-        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         @endif
     </div>
 </div>
 <!-- sidebar menu: : style can be found in sidebar.less -->
 <ul class="sidebar-menu" data-widget="tree">
+    @if(session()->has('userID'))
     <li>
-        <a href="<?php echo url('/'); ?>"><i class="fa fa-pie-chart"></i> <span>Prehľad</span></a>
+        <a href="<?php echo url('/it-admin/'); ?>"><i class="fa fa-pie-chart"></i> <span>Prehľad</span></a>
     </li>
     <li>
-        <a href="<?php echo url('/users'); ?>"><i class="fa fa-users"></i> <span>Používatelia</span></a>
+        <a href="<?php echo url('/it-admin/users'); ?>"><i class="fa fa-users"></i> <span>Používatelia</span></a>
     </li>
     <li class="treeview">
         <a href="#">
@@ -28,21 +34,26 @@
             </span>
         </a>
         <ul class="treeview-menu">
-            <li><a href="<?php echo url('/types'); ?>"><i class="fa fa-circle-o"></i>Typy inzercie</a></li>
-            <li><a href="<?php echo url('/specifications'); ?>"><i class="fa fa-circle-o"></i>Druhy inzercie</a></li>
-            <li><a href="<?php echo url('/conditions'); ?>"><i class="fa fa-circle-o"></i>Stavy inzercie</a></li>
-            <li><a href="<?php echo url('/inzercia'); ?>"><i class="fa fa-circle-o"></i>Inzeráty</a></li>
+            <li><a href="<?php echo url('/it-admin/types'); ?>"><i class="fa fa-circle-o"></i>Typy inzercie</a></li>
+            <li><a href="<?php echo url('/it-admin/specifications'); ?>"><i class="fa fa-circle-o"></i>Druhy inzercie</a></li>
+            <li><a href="<?php echo url('/it-admin/conditions'); ?>"><i class="fa fa-circle-o"></i>Stavy inzercie</a></li>
+            <li><a href="<?php echo url('/it-admin/inzercia'); ?>"><i class="fa fa-circle-o"></i>Inzeráty</a></li>
         </ul>
     </li>
     <li>
-        <a href="#"><i class="fa fa-user"></i> <span>Profil</span></a>
+        <a href="<?php echo url('/it-admin/profile'); ?>"><i class="fa fa-user"></i> <span>Profil</span></a>
     </li>
     <li>
+        <a href="<?php echo url('/it-admin/register'); ?>"><i class="fa fa-user"></i> <span>Pridať admina</span></a>
+    </li>
+    <li>
+        @endif
         @if(session()->has('userID'))
-        <a href="<?php echo url('/it-admin/logout'); ?>"><i class="fa fa-sign-out"></i> <span>Odhlásiť sa</span></a>
+            <a href="<?php echo url('/it-admin/logout'); ?>"><i class="fa fa-sign-out"></i> <span>Odhlásiť sa</span></a>
         @else
-            <a href="<?php echo url('/it-admin/login'); ?>"><i class="fa fa-sign-out"></i> <span>Prihlásiť sa</span></a>
+            <a href="<?php echo url('/it-admin/login'); ?>"><i class="fa fa-sign-out" style="margin-left: 20px"></i> <span style="margin-left: 20px">Prihlásiť sa</span></a>
         @endif
     </li>
+
 </ul>
 <!-- /.sidebar -->

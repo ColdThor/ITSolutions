@@ -24,6 +24,11 @@ Route::get('/it-admin/logout', array('uses' => 'UserController@logout'));
 
 //MAIN ADMIN PAGES
 
+Route::get('/it-admin/profile', 'UserController@showprofile');
+Route::post('/it-admin/profile/edit/',[  'as' => 'updates',
+    'uses' =>'UserController@changepass']);
+
+
 Route::get('/it-admin', 'UserController@index');
 
 
@@ -108,11 +113,20 @@ Route::get('/it-admin/inzercia/delete/{id}', [
 //END OF DELETE PAGES
 
 
+//ADD ADMIN
+
+Route::get('/it-admin/register/','UserController@showaddAdmin');
+Route::post('/it-admin/register/',[  'as' => 'updates',
+    'uses' =>'UserController@add_admin']);
+// END OF ADD ADMIN
+Route::get('/it-admin/noaccess', array('uses' => 'UserController@not_admin'));
 
 //EXAMPLE USSES ONLY
 
 
 
 Auth::routes();
+
+//LIVE SITE
 
 Route::get('/', 'HomeController@index')->name('home');

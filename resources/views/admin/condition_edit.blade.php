@@ -19,7 +19,7 @@
                             </div>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-primary" name="submit">Editovať</button>
+                                <button type="submit" class="btn btn-primary" name="submit" value="submit">Editovať</button>
                                 <button type="submit" class="btn btn-info pull-right" onclick="javascript:window.history.go(-1);">Naspäť</button>
                             </div>
                         </div>

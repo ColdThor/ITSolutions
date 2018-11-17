@@ -18,6 +18,7 @@ use Validator;
 use Session;
 use Auth;
 use DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Input as Input;
 
 use Fico7489\Laravel\EloquentJoin\Traits\EloquentJoin;
@@ -31,43 +32,83 @@ class UserController extends Controller {
 
     public function delete($id) {
 
-        if($id == null) {
-            return abort(404);
-        }
-        $user = User::find($id);
+        if(session()->has('userID')) {
+            if ($id == null) {
+                return abort(404);
+            }
+            $user = User::find($id);
 
             $user->delete();
-        return redirect('/it-admin/');
+            return redirect('/it-admin/users');
+        } else {
+            return view('admin/no_admin');
+        }
     }
 
 
 
     public function edit($id) {
-        $data['title'] = "Editovať používateľa";
+        if(session()->has('userID')) {
+            $data['title'] = "Editovať používateľa";
 
-        $user = User::join('user_group', 'user.id_user_group', '=', 'user_group.id_user_group')
-            ->select('*')->where("id_user","=",$id)->get()->first();
+            $user = User::join('user_group', 'user.id_user_group', '=', 'user_group.id_user_group')
+                ->select('*')->where("id_user", "=", $id)->get()->first();
 
-        $rola = Usergroup::all();
+            $rola = Usergroup::all();
 
 
-
-        $data['users'] =  $user;
-        $data['rola'] =  $rola;
-        return view('admin/user_edit',$data);
+            $data['users'] = $user;
+            $data['rola'] = $rola;
+            return view('admin/user_edit', $data);
+        } else {
+            return view('admin/no_admin');
+        }
     }
 
     public function edit_validator(Request $request) {
+        if($request->submit == "submit")
+        {
+
+            $user = User::where("id_user","=",$request->input('id'))->first();
+            $user->update(["first_name" => $request->input('first_name'),
+                "last_name" => $request->input('last_name'),
+                "email" => $request->input('email'),
+                "id_user_group" => $request->input('rola'),
+                "telephone" => $request->input('telephone')]);
+            return redirect()-> action('UserController@user_index');
+
+        } else {
+            return redirect()-> action('UserController@user_index');
+        }
+
+    }
 
 
-        $user = User::where("id_user","=",$request->input('id'))->first();
-        $user->update(["first_name" => $request->input('first_name'),
-        "last_name" => $request->input('last_name'),
-            "email" => $request->input('email'),
-            "id_user_group" => $request->input('rola'),
-            "telephone" => $request->input('telephone')]);
-        return redirect()-> action('UserController@user_index');
+    public function changepass(Request $request) {
+        if($request->submit == "submit")
+        {
 
+
+            $rules = array(
+                'password' => 'required|alphaNum|min:3|confirmed' // password can only be alphanumeric and has to be greater than 3 characters
+            );
+
+
+            $validator = Validator::make(Input::all(), $rules);
+
+
+            if ($validator->fails()) {
+                return Redirect::to('/it-admin/profile')
+                    ->withErrors($validator) // send back all errors to the login form
+                    ->withInput(Input::except('password')); // send back the input (not the password) so that we can repopulate the form
+            } else {
+                $user = User::where("id_user","=",session()->get('userID'))->first();
+                $user->update(['password' => md5(Input::get('password'))]);
+                return Redirect::to('/it-admin/profile')
+                    ->with('status', 'Heslo zmenené!');
+            }
+
+        }
     }
 
 
@@ -75,6 +116,7 @@ class UserController extends Controller {
 
     public function usertable()
     {
+
         $users = User::leftJoin('user_group', 'user.id_user_group', '=', 'user_group.id_user_group')
             ->select('*');
         return Datatables::of($users)
@@ -97,16 +139,40 @@ class UserController extends Controller {
 
             })
             ->make(true);
+
+
     }
     public function user_index() {
-        return view('admin/admin_userstable');
+        if(session()->has('userID')) {
+            return view('admin/admin_userstable');
+        } else {
+            return view('admin/no_admin');
+        }
     }
 
 
     public function index(Request $request) {
+        if(session()->has('userID')) {
         $data['value'] = $request->session()->get('userID');
         return view('admin/admin_home',$data);
+        } else {
+            return view('admin/no_admin');
+        }
     }
+
+    public function not_admin() {
+        return view('admin/no_admin');
+    }
+
+    public function showprofile() {
+        if(session()->has('userID')) {
+        $user = User::where("id_user","=",session()->get('userID'))->first();
+        $data['users'] = $user;
+        return view('admin/profile',$data);
+        } else {   return view('admin/no_admin'); }
+    }
+
+
 
 
     public function showlogin() {
@@ -171,7 +237,100 @@ public function logout(Request $request) {
 
 
 public function showaddAdmin() {
-        return view('admin/addadmin');
+    if(session()->has('userID')) {
+        return view('admin/register_admin');
+    } else {
+        return view('admin/no_admin');
+    }
 }
+
+
+
+public function add_admin(Request $request) {
+
+    $rules = array(
+        'first_name' => 'required|alphaNum',
+        'last_name' => 'required|alphaNum',
+        'email'    => 'required|email', // make sure the email is an actual email
+        'password' => 'required|alphaNum|min:3|confirmed'
+    );
+
+    // run the validation rules on the inputs from the form
+    $validator = Validator::make(Input::all(), $rules);
+
+
+
+    if ($validator->fails()) {
+        return Redirect::to('/it-admin/register')
+            ->withErrors($validator) // send back all errors to the login form
+            ->withInput(Input::except('password')); // send back the input (not the password) so that we can repopulate the form
+    } else {
+
+
+        $email = Input::get('email');
+        $password =  md5(Input::get('password'));
+        $first_name = Input::get('first_name');
+        $last_name = Input::get('last_name');
+        $telephone = Input::get('telephone');
+        $id_user_group = 4;
+
+        $user =  new User;
+
+        $user->first_name = $first_name;
+        $user->last_name = $last_name;
+        $user->password = $password;
+        $user->email = $email;
+        $user->telephone = $telephone;
+        $user->id_user_group = $id_user_group;
+
+        $user->save();
+
+        $id = User::max('id_user');
+
+
+
+
+        $file = Input::file('fotka');
+
+        $name = 'admin_'.$id;
+        Storage::putFileAs('admins/'.$name, $file,'fotka.jpeg');
+
+
+
+        // attempt to do the login
+
+        return redirect('/it-admin/users');
+
+    }
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
