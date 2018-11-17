@@ -165,7 +165,7 @@
                             @if(session()->has('userID'))
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profil</a>
+                                        <a href="<?php echo url('/it-admin/profile'); ?>" class="btn btn-default btn-flat">Profil</a>
                                     </div>
                                     <div class="pull-right">
 
