@@ -168,7 +168,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -234,6 +234,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
         'Input' => Illuminate\Support\Facades\Input::class,
+        'Lava' => Khill\Lavacharts\Laravel\LavachartsFacade::class
 
     ],
 

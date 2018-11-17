@@ -29,8 +29,8 @@ Route::post('/it-admin/profile/edit/',[  'as' => 'updates',
     'uses' =>'UserController@changepass']);
 
 
-Route::get('/it-admin', 'UserController@index');
-
+Route::get('/it-admin', 'ChartController@index');
+Route::get('/it-admin/charts', 'ChartController@chart');
 
 Route::get('/it-admin/users', 'UserController@user_index');
 Route::get('/it-admin/users/data', 'UserController@usertable');
