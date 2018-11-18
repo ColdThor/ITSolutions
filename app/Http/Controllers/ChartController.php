@@ -31,41 +31,43 @@ public function index() {
 
 
 //DOKUMENTÁCIA: http://lavacharts.com/#examples
+    if(session()->has('userID')) {
+        $chart = Lava::DataTable();
 
-    $chart = Lava::DataTable();
-
-    $date = DB::table('user')->max('created_at');
+        $date = DB::table('user')->max('created_at');
 
 
+        $date = substr($date, 0, 11);
 
-    $date = substr($date,0,11);
+        $yesterday = DB::table('user')->where('created_at', 'NOT LIKE', $date . '%')->max('created_at');
 
-    $yesterday = DB::table('user')->where('created_at','NOT LIKE',$date.'%')->max('created_at');
+        $data = User::where("created_at", "LIKE", $date . '%')->count();
 
-    $data =  User::where("created_at","LIKE",$date.'%')->count();
+        $yesterday = substr($yesterday, 0, 11);
+        $data2 = User::where("created_at", "LIKE", $yesterday . '%')->count();
 
-    $yesterday = substr($yesterday,0,11);
-    $data2 =  User::where("created_at","LIKE",$yesterday.'%')->count();
+        $chart->addStringColumn('Deň')
+            ->addNumberColumn('Dnes')
+            ->addNumberColumn('Včera')
+            ->addRow([$date . " & " . $yesterday, $data, $data2]);
 
-    $chart->addStringColumn('Deň')
-        ->addNumberColumn('Dnes')
-        ->addNumberColumn('Včera')
-        ->addRow([$date. " & ".$yesterday, $data,$data2]);
+        Lava::ColumnChart('Finances', $chart, [
+            'title' => 'Počet zaregistrovaných používateľov za posledné 2 dni',
+            'titleTextStyle' => [
+                'color' => '#eb6b2c',
+                'fontSize' => 14
+            ],
+            'vAxis' => [
+                'minValue' => 0,
+                'maxAlternation' => 1
 
-    Lava::ColumnChart('Finances', $chart, [
-        'title' => 'Počet zaregistrovaných používateľov dnes a včera',
-        'titleTextStyle' => [
-            'color'    => '#eb6b2c',
-            'fontSize' => 14
-        ],
-        'vAxis'   => [
-            'minValue' => 0,
-            'maxAlternation' => 1
+            ],
 
-        ],
-
-    ]);
-    return view('admin/admin_home');
+        ]);
+        return view('admin/admin_home');
+    } else {
+        return view('admin/no_admin');
+    }
 }
 
 
