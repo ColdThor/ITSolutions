@@ -1,8 +1,21 @@
 
+
+
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 <head>
-    <!-- Mobile Specific Meta -->
+
+    <link rel="stylesheet" href="/reality/assets/css/linearicons.css">
+    <link rel="stylesheet" href="/reality/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/reality/assets/css/nice-select.css">
+    <link rel="stylesheet" href="/reality/assets/css/ion.rangeSlider.css" />
+    <link rel="stylesheet" href="/reality/assets/css/ion.rangeSlider.skinFlat.css" />
+    <link rel="stylesheet" href="/reality/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/reality/assets/css/main.css">
+
+
+    <!-- Mobile Specif ic Meta -->
+    <link rel="icon" href='/reality/assets/img/favicon.ico'>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon-->
 
@@ -21,13 +34,7 @@
     <!--
     CSS
     ============================================= -->
-    <link rel="stylesheet" href="/reality/assets/css/linearicons.css">
-    <link rel="stylesheet" href="/reality/assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/reality/assets/css/nice-select.css">
-    <link rel="stylesheet" href="/reality/assets/css/ion.rangeSlider.css" />
-    <link rel="stylesheet" href="/reality/assets/css/ion.rangeSlider.skinFlat.css" />
-    <link rel="stylesheet" href="/reality/assets/css/bootstrap.css">
-    <link rel="stylesheet" href="/reality/assets/css/main.css">
+
 </head>
 <body>
 
@@ -37,13 +44,14 @@
         <div class="menu-top container">
             <div class="d-flex justify-content-end align-items-center">
                 <ul class="list">
-                    <li><a href="tel:+12312-3-1209">+12312-3-1209</a></li>
-                    <li><a href="#">Sell / Rent Property</a></li>
-                    <li><a href="#">login / register</a></li>
+                    <li><a href="tel:+12312-3-1209">+421 911 111 222</a></li>
+                    <li><a href="#">Predaj / Kúpa nehnuteľností</a></li>
+                    <li><a href="#">Prihlásenie / Registrácia</a></li>
                 </ul>
             </div>
         </div>
     </div>
+
 
 
 @extends('frontend/navigation')
