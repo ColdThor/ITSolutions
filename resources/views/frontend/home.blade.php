@@ -86,6 +86,7 @@
                                     <option value="3">Three</option>
                                 </select>
                             </div>
+                            <!-- -->
                             <br />
                             <div class="col-lg-3 col-md-6 col-xs-6">
                                 <input type="number" class="app-select form-control" name="cena_od" placeholder="Cena od" style="height: 42px"></input>
