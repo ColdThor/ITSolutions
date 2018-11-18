@@ -47,12 +47,12 @@ public function index() {
         $data2 = User::where("created_at", "LIKE", $yesterday . '%')->count();
 
         $chart->addStringColumn('Deň')
-            ->addNumberColumn('Dnes')
-            ->addNumberColumn('Včera')
-            ->addRow([$date . " & " . $yesterday, $data, $data2]);
+            ->addNumberColumn('Deň 1')
+            ->addNumberColumn('Deň 2')
+            ->addRow([$date . "   &   " . $yesterday, $data, $data2]);
 
         Lava::ColumnChart('Finances', $chart, [
-            'title' => 'Počet zaregistrovaných používateľov za posledné 2 dni',
+            'title' => 'Počet najnovších zaregistrovaných používateľov',
             'titleTextStyle' => [
                 'color' => '#eb6b2c',
                 'fontSize' => 14
