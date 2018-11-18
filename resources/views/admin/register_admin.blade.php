@@ -66,7 +66,7 @@
 
                     <p>
                         {{ Form::label('fotka', 'Profilová fotka') }}
-                        <input name= "fotka" type="file" accept=" .jpg, .jpeg" />
+                        <input name= "fotka" type="file" accept=" .jpg, .jpeg" style="margin-left: 10px" />
                     </p>
 
 
