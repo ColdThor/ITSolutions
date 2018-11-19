@@ -1417,6 +1417,7 @@ pre code {
   color: #495057;
   background-color: #fff;
   background-image: none;
+
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.25rem;

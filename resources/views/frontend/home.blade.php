@@ -31,59 +31,77 @@
                                         <div class="onoffswitch3 d-block mx-auto">
 
 
-
-
                                         </div>
                                     </div>
 
                                 </div>
+
+
+
+
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
-                                <select name="location" class="app-select form-control" required>
-                                    <option data-display="Lokalita">Vyberte si lokalitu</option>
-                                    <option value="1">Dhaka</option>
-                                    <option value="2">Rangpur</option>
-                                    <option value="3">Bogra</option>
+                                <select  name="location" class="app-select form-control">
+                                    <option data-display="Miesto">Miesto</option>
+
+                                <?php foreach($location as $lo):  ?>
+
+
+                                <!--
+                                    <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
+-->
+                                    <?php endforeach; ?>
                                 </select>
+
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
                                 <select name="type" class="app-select form-control" required>
                                     <option data-display="Typ nehnuteľnosti">Typ</option>
-                                    <option value="1">Property type 1</option>
-                                    <option value="2">Property type 2</option>
-                                    <option value="3">Property type 3</option>
+                                    <?php foreach($type as $tp):  ?>
+
+                                    <option  value="{{$tp->id_type}}">{{$tp->title}}</option>
+
+                                    <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
                                 <select name="specification" class="app-select form-control" required>
                                     <option data-display="Druh nehnuteľnosti">Druh</option>
-                                    <option value="1">Dhaka</option>
-                                    <option value="2">Rangpur</option>
-                                    <option value="3">Bogra</option>
+                                    <?php foreach($specification as $sp):  ?>
+                                <!--
+                                    <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
+                                    -->
+                                    <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
                                 <select name="condition" class="app-select form-control" required>
                                     <option data-display="Stav nehnuteľnosti">Stav</option>
-                                    <option value="1">Property type 1</option>
-                                    <option value="2">Property type 2</option>
-                                    <option value="3">Property type 3</option>
+                                    <?php foreach($condition as $con):  ?>
+
+                                    <option  value="{{$con->id_condition}}">{{$con->title}}</option>
+
+                                    <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
                                 <select name="user" class="app-select form-control" required>
                                     <option data-display="Inzerujúci">Typ inzerujúceho</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <?php foreach($user as $us):
+                                    if($us->title != "admin"):?>
+
+                                    <option  value="{{$us->id_user_group}}">{{$us->title}}</option>
+                                    <?php endif; endforeach; ?>
                                 </select>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
-                                <select name="bedroom" class="app-select form-control" required>
+                                <select name="area" class="app-select form-control" required>
                                     <option data-display="Výmera">Výmera do</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option value="1">do 20 m2</option>
+                                    <option value="2">20 až 30 m<sup>2</sup></option>
+                                    <option value="3">30 až 40 m2</option>
+                                    <option value="4">40 až 50 m2</option>
+                                    <option value="5">50 a viac m2</option>
                                 </select>
                             </div>
                             <!-- -->

@@ -12,14 +12,7 @@ class LocationSeeder extends Seeder
     public function run()
     {
         DB::table('location')->insert([
-            ['region' => 'Nitriansky kraj'],
-            ['region' => 'Bratislavský kraj'],
-            ['region' => 'Banskobystrický kraj'],
-            ['region' => 'Trnavský kraj'],
-            ['region' => 'Trenčiansky kraj'],
-            ['region' => 'Źilinský kraj'],
-            ['region' => 'Prešovský kraj'],
-            ['region' => 'Košický kraj']
+
         ]);
 
 

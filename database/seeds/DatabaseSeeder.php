@@ -20,8 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TypeSeeder::class);
         $this->call(SpecificationSeeder::class);
 
-        $this->call(UserSeeder::class);
-        $this->call(AdvertisementSeeder::class);
+
 
         Model::reguard();
 

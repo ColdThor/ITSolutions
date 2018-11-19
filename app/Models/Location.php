@@ -14,7 +14,7 @@ class Location extends Model
 
 
     protected $fillable = [
-        'region'
+        'city','region'
     ];
 
 
