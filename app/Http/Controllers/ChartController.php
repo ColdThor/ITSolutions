@@ -31,7 +31,7 @@ public function index() {
 
 
 //DOKUMENTÁCIA: http://lavacharts.com/#examples
-    if(session()->has('userID')) {
+    if(session()->has('admin')) {
         $chart = Lava::DataTable();
 
         $date = DB::table('user')->max('created_at');

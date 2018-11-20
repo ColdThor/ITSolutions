@@ -1,7 +1,7 @@
 <!-- Sidebar user panel -->
 <div class="user-panel">
     <div class="pull-left image">
-        @if(session()->has('userID'))
+        @if(session()->has('admin'))
             <?php
             $id = session()->get('userID');
             ?>
@@ -9,7 +9,7 @@
         @endif
     </div>
     <div class="pull-left info">
-        @if(session()->has('userID'))
+        @if(session()->has('admin'))
             <p>{{session()->get('userName')}}</p>
 
 
@@ -19,7 +19,7 @@
 </div>
 <!-- sidebar menu: : style can be found in sidebar.less -->
 <ul class="sidebar-menu" data-widget="tree">
-    @if(session()->has('userID'))
+    @if(session()->has('admin'))
     <li>
         <a href="<?php echo url('/it-admin/'); ?>"><i class="fa fa-pie-chart"></i> <span>Prehľad</span></a>
     </li>
@@ -48,7 +48,7 @@
     </li>
     <li>
         @endif
-        @if(session()->has('userID'))
+        @if(session()->has('admin'))
             <a href="<?php echo url('/it-admin/logout'); ?>"><i class="fa fa-sign-out"></i> <span>Odhlásiť sa</span></a>
         @else
             <a href="<?php echo url('/it-admin/login'); ?>"><i class="fa fa-sign-out" style="margin-left: 20px"></i> <span style="margin-left: 20px">Prihlásiť sa</span></a>

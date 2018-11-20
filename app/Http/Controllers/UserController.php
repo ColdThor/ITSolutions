@@ -32,7 +32,7 @@ class UserController extends Controller {
 
     public function delete($id) {
 
-        if(session()->has('userID')) {
+        if(session()->has('admin')) {
             if ($id == null) {
                 return abort(404);
             }
@@ -48,7 +48,7 @@ class UserController extends Controller {
 
 
     public function edit($id) {
-        if(session()->has('userID')) {
+        if(session()->has('admin')) {
             $data['title'] = "Editovať používateľa";
 
             $user = User::join('user_group', 'user.id_user_group', '=', 'user_group.id_user_group')
@@ -143,7 +143,7 @@ class UserController extends Controller {
 
     }
     public function user_index() {
-        if(session()->has('userID')) {
+        if(session()->has('admin')) {
             return view('admin/admin_userstable');
         } else {
             return view('admin/no_admin');
@@ -152,7 +152,7 @@ class UserController extends Controller {
 
 
     public function index(Request $request) {
-        if(session()->has('userID')) {
+        if(session()->has('admin')) {
         $data['value'] = $request->session()->get('userID');
         return view('admin/admin_home',$data);
         } else {
@@ -165,7 +165,7 @@ class UserController extends Controller {
     }
 
     public function showprofile() {
-        if(session()->has('userID')) {
+        if(session()->has('admin')) {
         $user = User::where("id_user","=",session()->get('userID'))->first();
         $data['users'] = $user;
         return view('admin/profile',$data);
@@ -205,8 +205,6 @@ class UserController extends Controller {
 
 
 
-            // attempt to do the login
-
             $user = User::where("email","=",$email)->where("password","=",md5($password))->where("id_user_group","=",4)->count();
 
 
@@ -214,9 +212,10 @@ class UserController extends Controller {
                 $user = User::where("email","=",$email)->where("password","=",md5($password))->where("id_user_group","=",4)->first();
                 $userID = $user->id_user;
                 $username = $user->first_name. " ".$user->last_name;
+                $admin = $user->id_user_group;
                 Session::put('userID',$userID);
                 Session::put('userName',$username);
-                Session::get('userName');
+                Session::put('admin',$admin);
 
                 return redirect('/it-admin/');
             } else {
@@ -237,7 +236,7 @@ public function logout(Request $request) {
 
 
 public function showaddAdmin() {
-    if(session()->has('userID')) {
+    if(session()->has('admin')) {
         return view('admin/register_admin');
     } else {
         return view('admin/no_admin');
@@ -252,7 +251,8 @@ public function add_admin(Request $request) {
         'first_name' => 'required|alphaNum',
         'last_name' => 'required|alphaNum',
         'email'    => 'required|email', // make sure the email is an actual email
-        'password' => 'required|alphaNum|min:3|confirmed'
+        'password' => 'required|alphaNum|min:3|confirmed',
+        'fotka' => 'required'
     );
 
     // run the validation rules on the inputs from the form
@@ -289,27 +289,20 @@ public function add_admin(Request $request) {
 
 
 
+        if( Input::file('fotka') ) {
+            $file = Input::file('fotka');
 
-        $file = Input::file('fotka');
-
-        $name = 'admin_'.$id;
-        Storage::putFileAs('admins/'.$name, $file,'fotka.jpeg');
-
-
-
-        // attempt to do the login
+            $name = 'admin_' . $id;
+            Storage::putFileAs('admins/' . $name, $file, 'fotka.jpeg');
+        } else {
+            return Redirect::to('/it-admin/register')
+                ->withErrors($validator) // send back all errors to the login form
+                ->withInput(Input::except('password')); // send back the input (not the password) so that we can repopulate the form
+        }
 
         return redirect('/it-admin/users');
 
     }
-
-
-
-
-
-
-
-
 }
 
 

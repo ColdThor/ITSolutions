@@ -72,7 +72,7 @@
                 <ul class="nav navbar-nav">
 
                     <li ><a href="<?php echo url('/'); ?>">Na stránku</a></li>
-                @if(session()->has('userID'))
+              @if(session()->has('admin'))
                     <!-- Prijimanie a manažment správ-->
                     <li class="dropdown messages-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -136,13 +136,13 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
-                            @if(session()->has('userID'))
+                          @if(session()->has('admin'))
                                 <?php
                                 $id = session()->get('userID');
                                 ?>
                                 <img src="/reality/storage/app/admins/admin_<?php echo $id?>/fotka.jpeg" class="img-circle" alt="User Image" style="height: 20px; width: 20px;">
                             @endif
-                            @if(session()->has('userID'))
+                          @if(session()->has('admin'))
                                 <span class="hidden-xs">{{session()->get('userName')}}<!-- Meno pouzivatela--></span>
                             @endif
                         </a>
@@ -150,7 +150,7 @@
                         <ul class="dropdown-menu">
                             <li class="user-header">
 
-                                @if(session()->has('userID'))
+                              @if(session()->has('admin'))
                                     <?php
                                     $id = session()->get('userID');
                                     ?>
@@ -162,7 +162,7 @@
                                 </p>
                             </li>
                             <!-- tlacidla-->
-                            @if(session()->has('userID'))
+                          @if(session()->has('admin'))
                                 <li class="user-footer">
                                     <div class="pull-left">
                                         <a href="<?php echo url('/it-admin/profile'); ?>" class="btn btn-default btn-flat">Profil</a>

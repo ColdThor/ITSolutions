@@ -44,9 +44,17 @@
         <div class="menu-top container">
             <div class="d-flex justify-content-end align-items-center">
                 <ul class="list">
-                    <li><a href="tel:+12312-3-1209">+421 911 111 222</a></li>
+                    @if(session()->has('userID'))
+                        <li><a href="#">{{session()->get('userName')}}</a></li>
+                    @endif
+                    <li><a href="tel:+421 911111222">+421 911 111 222</a></li>
                     <li><a href="#">Predaj / Kúpa nehnuteľností</a></li>
-                    <li><a href="#">Prihlásenie / Registrácia</a></li>
+                    @if(session()->has('userID'))
+                        <li><a href="<?php echo url('/user/logout'); ?>">Odhlásiť sa</a></li>
+                    @else
+                        <li><a href="<?php echo url('/user/login'); ?>">Prihlásenie / Registrácia</a></li>
+                    @endif
+
                 </ul>
             </div>
         </div>

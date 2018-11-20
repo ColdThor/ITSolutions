@@ -10,10 +10,11 @@
         <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <li><a href="#home">Domov</a></li>
-                <li><a href="#service">O nás</a></li>
-                <li><a href="#property">Kontakt</a></li>
-                <li><a href="#contact">Moje inzeráty</a></li>
-                <li><a href="generic.html">Realitná kancelária</a></li>
+                <li><a href="#about">O nás</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+                <li><a href="#">Užitočné informácie</a></li>
+                <li><a href="#">Realitná kancelária</a></li>
+
 
             </ul>
         </div>

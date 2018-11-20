@@ -16,7 +16,7 @@
                     IT Solutions
                 </h1>
                 <div class="search-field">
-                    <form class="search-form" action="#">
+                    <form method="get" class="search-form" action="{{  action('HomeController@search')  }}">
                         <div class="row">
                             <div class="col-lg-12 d-flex align-items-center justify-content-center toggle-wrap">
                                 <div class="row">
@@ -42,7 +42,7 @@
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
                                 <select  name="location" class="app-select form-control">
-                                    <option data-display="Miesto">Miesto</option>
+                                    <option value="" data-display="Miesto">Miesto</option>
 
                                 <?php foreach($location as $lo):  ?>
 
@@ -55,8 +55,8 @@
 
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
-                                <select name="type" class="app-select form-control" required>
-                                    <option data-display="Typ nehnuteľnosti">Typ</option>
+                                <select name="type" class="app-select form-control" >
+                                    <option value="" data-display="Typ nehnuteľnosti">Typ</option>
                                     <?php foreach($type as $tp):  ?>
 
                                     <option  value="{{$tp->id_type}}">{{$tp->title}}</option>
@@ -65,8 +65,8 @@
                                 </select>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
-                                <select name="specification" class="app-select form-control" required>
-                                    <option data-display="Druh nehnuteľnosti">Druh</option>
+                                <select name="specification" class="app-select form-control" >
+                                    <option value="" data-display="Druh nehnuteľnosti">Druh</option>
                                     <?php foreach($specification as $sp):  ?>
                                 <!--
                                     <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
@@ -75,8 +75,8 @@
                                 </select>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
-                                <select name="condition" class="app-select form-control" required>
-                                    <option data-display="Stav nehnuteľnosti">Stav</option>
+                                <select name="condition" class="app-select form-control" >
+                                    <option value="" data-display="Stav nehnuteľnosti">Stav</option>
                                     <?php foreach($condition as $con):  ?>
 
                                     <option  value="{{$con->id_condition}}">{{$con->title}}</option>
@@ -85,8 +85,8 @@
                                 </select>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
-                                <select name="user" class="app-select form-control" required>
-                                    <option data-display="Inzerujúci">Typ inzerujúceho</option>
+                                <select name="user" class="app-select form-control" >
+                                    <option value="" data-display="Inzerujúci">Typ inzerujúceho</option>
                                     <?php foreach($user as $us):
                                     if($us->title != "admin"):?>
 
@@ -95,8 +95,8 @@
                                 </select>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
-                                <select name="area" class="app-select form-control" required>
-                                    <option data-display="Výmera">Výmera do</option>
+                                <select name="area" class="app-select form-control" >
+                                    <option value="" data-display="Výmera">Výmera do</option>
                                     <option value="1">do 20 m2</option>
                                     <option value="2">20 až 30 m<sup>2</sup></option>
                                     <option value="3">30 až 40 m2</option>
@@ -107,13 +107,13 @@
                             <!-- -->
                             <br />
                             <div class="col-lg-3 col-md-6 col-xs-6">
-                                <input type="number" class="app-select form-control" name="cena_od" placeholder="Cena od" style="height: 42px"></input>
+                                <input type="number" class="app-select form-control" value="" name="cena_od" placeholder="Cena od" style="height: 42px"></input>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
-                                <input type="number" class="app-select form-control" name="cena_do" placeholder="Cena do"  style="height: 42px"></input>
+                                <input type="number" class="app-select form-control" value="" name="cena_do" placeholder="Cena do"  style="height: 42px"></input>
                             </div>
+                            <button type="submit" class="primary-btn mt-50" name="submit" style="height: 45px; margin-left: 900px" value="submit">Hľadať<span class="lnr lnr-arrow-right"></span></button>
 
-                                <button class="primary-btn mt-50" style="height: 45px; margin-left: 900px">Hľadať<span class="lnr lnr-arrow-right"></span></button>
 
                         </div>
                     </form>
@@ -126,7 +126,7 @@
 
 
 <!-- Start service Area -->
-<section class="service-area section-gap" id="service">
+<section class="service-area section-gap" id="about">
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-md-8 pb-40 header-text">
@@ -339,7 +339,7 @@
 <!-- End About Area -->
 
 <!-- Start contact-info Area -->
-<section class="contact-info-area section-gap">
+<section class="contact-info-area section-gap" id="contact">
     <div class="container">
         <div class="row">
             <div class="single-info col-lg-3 col-md-6">

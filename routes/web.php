@@ -17,9 +17,18 @@
 Route::get('/it-admin/login', array('uses' => 'UserController@showlogin'));
 Route::post('/it-admin/login', array('uses' => 'UserController@dologin'));
 
+Route::get('/user/login', array('uses' => 'HomeController@showlogin'));
+Route::post('/user/login', array('uses' => 'HomeController@dologin'));
+
+Route::get('/user/logout', array('uses' => 'HomeController@logout'));
 Route::get('/it-admin/logout', array('uses' => 'UserController@logout'));
 //
 
+//REGISTER
+Route::get('/user/register/','HomeController@showregister');
+Route::post('/user/register/',[  'as' => 'updates',
+    'uses' =>'HomeController@doregister']);
+//END OF REGISTER
 
 
 //MAIN ADMIN PAGES
@@ -121,12 +130,12 @@ Route::post('/it-admin/register/',[  'as' => 'updates',
 // END OF ADD ADMIN
 Route::get('/it-admin/noaccess', array('uses' => 'UserController@not_admin'));
 
-//EXAMPLE USSES ONLY
-
-
+//EXAMPLE USES ONLY
 
 Auth::routes();
 
 //LIVE SITE
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/search', 'HomeController@search')->name('search');
+Route::get('/search_results', 'HomeController@results')->name('results');

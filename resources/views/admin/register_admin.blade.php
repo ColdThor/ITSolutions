@@ -29,6 +29,7 @@
 
                         {{ $errors->first('email') }}
                         {{ $errors->first('password') }}
+                        {{ $errors->first('fotka') }}
                     </p>
 
                     <p>
@@ -51,7 +52,7 @@
 
                     <p>
                         {{ Form::label('telephone', 'Telefónne číslo') }}
-                        {{ Form::password('telephone') }}
+                        {{ Form::text('telephone') }}
                     </p>
 
                     <p>
