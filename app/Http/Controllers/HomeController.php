@@ -17,6 +17,7 @@ use App\Models\Location;
 use App\Models\Specification;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 
 class HomeController extends Controller
@@ -118,7 +119,84 @@ class HomeController extends Controller
     }
 
     public function add_advertisement(Request $request) {
+        $rules = array(
+            'title' => 'required|min:3',
+            'description' => 'required|min:3',
+            'contact_mail'    => 'required|email', // make sure the email is an actual email
+            'area' => 'required|alphaNum',
+            'price' => 'required|alphaNum',
+            'location' => 'required',
+            'type' => 'required',
+            'specification' => 'required',
+            'condition' => 'required',
+            'eula' => 'required',
+            'g-recaptcha-response' => 'required'
+        );
 
+        // run the validation rules on the inputs from the form
+        $validator = Validator::make(Input::all(), $rules);
+
+
+
+        if ($validator->fails()) {
+            return Redirect::to('/pridat')
+                ->withErrors($validator);
+        } else {
+
+
+            $title = Input::get('title');
+            $description =  Input::get('description');
+            $contact_mail = Input::get('contact_mail');
+            $contact_phone = Input::get('contact_phone');
+            $area = Input::get('area');
+            $price = Input::get('price');
+            $location =  Input::get('location');
+            $type = Input::get('type');
+            $specification = Input::get('specification');
+            $condition = Input::get('condition');
+
+
+            $ad = new Advertisement();
+
+            $ad->title = $title;
+            $ad->description = $description;
+            $ad->contact_mail = $contact_mail;
+            $ad->contact_phone = $contact_phone;
+            $ad->area = $area;
+            $ad->price = $price;
+            $ad->date = date("Y-m-d");
+            $ad->id_location = $location;
+            $ad->id_type = $type;
+            $ad->id_specification = $specification;
+            $ad->id_condition = $condition;
+            $ad->id_user = 1; //!!!!!!!!!!!!!!!!
+
+            $ad->save();
+
+            $id =  Advertisement::max('id_advertisement');
+
+
+
+            $name = 'inzerat_' . $id;
+
+            if(Input::file('fotka')) {
+                $fotky = Input::file('fotka');
+                $i=0;
+                foreach ($fotky as $fotka) {
+                    $i++;
+                    Storage::putFileAs('inzeraty/' . $name, $fotka, 'fotka_' . $i . '.png');
+                }
+            } else {
+                return Redirect::to('/pridat')
+                    ->withErrors(['fotka' => 'Pridajte aspoň jednu fotku k inzerátu']);
+            }
+
+            return redirect('/search_all');
+
+
+
+
+        }
 
     }
 
