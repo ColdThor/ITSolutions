@@ -13,8 +13,17 @@
 <!-- if there are login errors, show them here -->
 <p>
     <label for="required">Položky označené s <span style="color: red">*</span> sú povinné.</label>
-    {{ $errors->first('email') }}
-    {{ $errors->first('password') }}
+    {{ $errors->first('title') }}
+    {{ $errors->first('contact_mail') }}
+    {{ $errors->first('description') }}
+    {{ $errors->first('area') }}
+    {{ $errors->first('price') }}
+    {{ $errors->first('condition') }}
+    {{ $errors->first('specification') }}
+    {{ $errors->first('type') }}
+    {{ $errors->first('location') }}
+    {{ $errors->first('eula') }}
+    {{ $errors->first('g-recaptcha-response') }}
 </p>
 
 <p>
@@ -92,6 +101,10 @@
         </select>
     </p>
 
+    <label for="fotka" style="margin-left: 100px">Fotky<span style="color: red">*</span></label>
+    <input name= "fotka" multiple="multiple" type="file" accept=" .jpg, .jpeg, .png" /> <br />
+
+
     <input type="checkbox" name="eula" value="eula"> Súhlasím s obchodnými podmienkami<span style="color: red">*</span><br>
 
     <div class="g-recaptcha"
@@ -105,10 +118,7 @@
 {{ Form::close() }}
 
 
-<br /> <br />
-<br /> <br />
-<br /> <br />
-<br /> <br />
+
 </div>
 
 @include('frontend/footer')

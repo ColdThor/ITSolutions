@@ -115,7 +115,7 @@
                             <div class="col-lg-3 col-md-6 col-xs-6">
                                 <input type="number" class="app-select form-control" value="" name="cena_do" placeholder="Cena do"  style="height: 42px"></input>
                             </div>
-                            <button type="submit" class="primary-btn mt-50" name="submit" style="height: 45px; margin-left: 900px" value="submit">Hľadať<span class="lnr lnr-arrow-right"></span></button>
+                            <button type="submit" class="primary-btn mt-50" name="submit" style="height: 5%; margin-left: 80%" value="submit">Hľadať<span class="lnr lnr-arrow-right"></span></button>
 
 
                         </div>
