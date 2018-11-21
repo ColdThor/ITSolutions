@@ -169,7 +169,7 @@ class HomeController extends Controller
             $ad->id_type = $type;
             $ad->id_specification = $specification;
             $ad->id_condition = $condition;
-            $ad->id_user = 1; //!!!!!!!!!!!!!!!!
+            $ad->id_user = 1; //!!!!!!!!!!!!!!!! EMAIL, NEW USER
 
             $ad->save();
 
