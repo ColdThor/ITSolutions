@@ -4,7 +4,7 @@
 <br /> <br />
 <br /> <br />
 <div align="center">
-<h1>LOGIN PAGE</h1>
+<h1>Prihlásenie </h1>
     {{ Form::open(array('url' => '/user/login')) }}
 
 

@@ -138,4 +138,11 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/search', 'HomeController@search')->name('search');
+Route::get('/search_all', 'HomeController@search_all')->name('search_all');
+
+Route::get('/pridat', 'HomeController@pridat')->name('pridat');
+Route::post('/pridat',[  'as' => 'updates',
+    'uses' =>'HomeController@add_advertisement']);
+
 Route::get('/search_results', 'HomeController@results')->name('results');
+Route::get('/select', 'HomeController@show_select')->name('select');

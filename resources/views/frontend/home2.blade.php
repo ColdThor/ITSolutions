@@ -5,9 +5,7 @@
 
 @section('page') Home @endsection
 
-<br /><br />
-<br />
-<br />
+
 
 <!-- start banner Area -->
 <section class="banner-area relative" id="home">
@@ -50,9 +48,9 @@
                                 <?php foreach($location as $lo):  ?>
 
 
-
+                                <!--
                                     <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
-
+                                    -->
                                     <?php endforeach; ?>
                                 </select>
 
@@ -71,9 +69,9 @@
                                 <select name="specification" class="app-select form-control" >
                                     <option value="" data-display="Druh nehnuteľnosti">Druh</option>
                                 <?php foreach($specification as $sp):  ?>
-
+                                <!--
                                     <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
-
+                                    -->
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -196,8 +194,11 @@
 </section>
 <!-- End service Area -->
 
+
+
+
 <!-- Start property Area -->
-<section class="property-area section-gap relative" >
+<section class="property-area section-gap relative" id="property">
     <div class="overlay overlay-bg"></div>
     <div class="container">
         <div class="row d-flex justify-content-center">
@@ -374,8 +375,11 @@
 </section>
 <!-- End contact-info Area -->
 
+<!-- Start Contact Area -->
 
 
+
+<!-- End Contact Area -->
 @include('frontend/footer')
 
 

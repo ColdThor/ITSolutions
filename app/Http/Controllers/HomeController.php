@@ -97,6 +97,35 @@ class HomeController extends Controller
         }
     }
 
+    public function search_all(Request $request)  {
+            $ad= Advertisement::all();
+
+            Session::flash('search', $ad);
+            return redirect()-> action('HomeController@results');
+    }
+
+
+    public function pridat(Request $request) {
+        $location = Location::all();
+        $type = Type::all();
+        $condition = Condition::all();
+        $specification = Specification::all();
+        $data['location'] = $location;
+        $data['type'] = $type;
+        $data['condition'] = $condition;
+        $data['specification'] = $specification;
+        return view('frontend/sell',$data);
+    }
+
+    public function add_advertisement(Request $request) {
+
+
+    }
+
+
+
+
+
     public function results(Request $request) {
 
             return view('frontend/search_results');
@@ -194,6 +223,10 @@ class HomeController extends Controller
                 return redirect('/user/login');
 
             }
+        }
+
+        public function show_select() {
+         return view('frontend/select');
         }
 
 
