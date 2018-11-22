@@ -197,7 +197,7 @@ class HomeController extends Controller
                 Mail::send('frontend/mail', ["data"=>$data], function ($message) use ($data) {
                     $message->from('chrisfodor333@gmail.com', 'ITSolutions');
                     $message->subject("Váš inzerát bol pridaný");
-                    $message->to('nglchstn@gmail.com');
+                    $message->to($data['to']);
                 });
 
             }
