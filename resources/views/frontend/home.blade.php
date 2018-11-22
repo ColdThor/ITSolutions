@@ -1,13 +1,6 @@
-
-
-
-@include('frontend/header')
-
+@extends('frontend/header')
 @section('page') Home @endsection
-
-<br /><br />
-<br />
-<br />
+@section('content')
 
 <!-- start banner Area -->
 <section class="banner-area relative" id="home">
@@ -15,34 +8,20 @@
     <div class="container">
         <div class="row fullscreen align-items-center justify-content-center" style="height: 915px;">
             <div class="banner-content col-lg-12 col-md-12">
-                <h1 class="text-uppercase">
-                    IT Solutions
+                <!-- Nadpis pod menu
+                <h1>
+                    Parametre hľadanej nehnuteľnosti
                 </h1>
+                -->
                 <div class="search-field">
                     <form method="get" class="search-form" action="{{  action('HomeController@search')  }}">
                         <div class="row">
                             <div class="col-lg-12 d-flex align-items-center justify-content-center toggle-wrap">
                                 <div class="row">
-                                    <!--
-                                    <div class="col">
-                                        <h4 class="search-title">Search Properties For</h4>
-                                    </div>
-                                       --->
-
-                                    <div class="col">
-
-                                        <div class="onoffswitch3 d-block mx-auto">
-
-
-                                        </div>
-                                    </div>
-
+                                  <h2>Parametre hľadanej nehnuteľnosti</h2>
                                 </div>
-
-
-
-
                             </div>
+
                             <div class="col-lg-3 col-md-6 col-xs-6">
                                 <select  name="location" class="app-select form-control">
                                     <option value="" data-display="Miesto">Miesto</option>
@@ -50,9 +29,9 @@
                                 <?php foreach($location as $lo):  ?>
 
 
-
+                                <!--
                                     <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
-
+-->
                                     <?php endforeach; ?>
                                 </select>
 
@@ -70,10 +49,10 @@
                             <div class="col-lg-3 col-md-6 col-xs-6">
                                 <select name="specification" class="app-select form-control" >
                                     <option value="" data-display="Druh nehnuteľnosti">Druh</option>
-                                <?php foreach($specification as $sp):  ?>
-
+                                    <?php foreach($specification as $sp):  ?>
+                                <!--
                                     <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
-
+                                    -->
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -115,9 +94,11 @@
                             <div class="col-lg-3 col-md-6 col-xs-6">
                                 <input type="number" class="app-select form-control" value="" name="cena_do" placeholder="Cena do"  style="height: 42px"></input>
                             </div>
-                            <button type="submit" class="primary-btn mt-50" name="submit" style="height: 5%; margin-left: 80%" value="submit">Hľadať<span class="lnr lnr-arrow-right"></span></button>
-
-
+                            <div class="col-lg-12 d-flex align-items-center justify-content-center">
+                                <div class="row">
+                                    <button type="submit" class="primary-btn mt-10" name="submit" value="submit">Hľadať<span class="lnr lnr-arrow-right"></span></button>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -196,8 +177,11 @@
 </section>
 <!-- End service Area -->
 
+
+
+
 <!-- Start property Area -->
-<section class="property-area section-gap relative" >
+<section class="property-area section-gap relative" id="property">
     <div class="overlay overlay-bg"></div>
     <div class="container">
         <div class="row d-flex justify-content-center">
@@ -372,11 +356,5 @@
         </div>
     </div>
 </section>
-<!-- End contact-info Area -->
-
-
-
-@include('frontend/footer')
-
-
+@endsection
 
