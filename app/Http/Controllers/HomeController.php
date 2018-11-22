@@ -9,6 +9,7 @@ use Validator;
 use DB;
 use Session;
 use Input;
+use Mail;
 use App\Models\Advertisement;
 use App\Models\Usergroup;
 use App\Models\Condition;
@@ -169,7 +170,37 @@ class HomeController extends Controller
             $ad->id_type = $type;
             $ad->id_specification = $specification;
             $ad->id_condition = $condition;
-            $ad->id_user = 1; //!!!!!!!!!!!!!!!! EMAIL, NEW USER
+
+            if(session()->has('userID')) {
+
+                $ad->id_user = session()->get('userID');
+            } else {
+                $first_name = Input::get('first_name');
+                $last_name = Input::get('last_name');
+                $password = $this->randomPassword();
+
+                $user = new User();
+
+                $user->first_name = $first_name;
+                $user->last_name = $last_name;
+                $user->password = md5($password);
+                $user->id_user_group = 1;
+                $user->email = $contact_mail;
+                $user->telephone = $contact_phone;
+
+                $user->save();
+                $id_user = User::max('id_user');
+                $ad->id_user = $id_user;
+
+                $data = array('name'=>$first_name,'password' =>$password, 'to' => $contact_mail);
+
+                Mail::send('frontend/mail', ["data"=>$data], function ($message) use ($data) {
+                    $message->from('chrisfodor333@gmail.com', 'ITSolutions');
+                    $message->subject("Váš inzerát bol pridaný");
+                    $message->to('nglchstn@gmail.com');
+                });
+
+            }
 
             $ad->save();
 
@@ -191,6 +222,9 @@ class HomeController extends Controller
                     ->withErrors(['fotka' => 'Pridajte aspoň jednu fotku k inzerátu']);
             }
 
+
+
+
             return redirect('/search_all');
 
 
@@ -201,7 +235,16 @@ class HomeController extends Controller
     }
 
 
-
+    function randomPassword() {
+        $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+        $pass = array(); //remember to declare $pass as an array
+        $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+        for ($i = 0; $i < 8; $i++) {
+            $n = rand(0, $alphaLength);
+            $pass[] = $alphabet[$n];
+        }
+        return implode($pass); //turn the array into a string
+    }
 
 
     public function results(Request $request) {

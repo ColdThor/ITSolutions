@@ -103,6 +103,22 @@
         </select>
     </p>
 
+
+
+    <?php if(!session()->has('userID')): ?>
+
+    <p>
+        <label for="first_name">Meno zadávateľa<span style="color: red">*</span></label>
+        {{ Form::text('first_name') }}
+    </p>
+
+    <p>
+        <label for="last_name">Priezvisko zadávateľa<span style="color: red">*</span></label>
+        {{ Form::text('last_name') }}
+    </p>
+    <?php endif?>
+
+
     <label for="fotka[]" style="margin-left: 100px">Fotky<span style="color: red">*</span></label>
 
     {!! Form::file('fotka[]', array('multiple'=>true)) !!}
@@ -111,9 +127,8 @@
 
     <input type="checkbox" name="eula" value="eula"> Súhlasím s obchodnými podmienkami<span style="color: red">*</span><br>
 
-    <div class="g-recaptcha"
-         data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}">
-    </div>
+
+    <div class="g-recaptcha" data-sitekey="6LdscXwUAAAAAEjwe-hTuEOTCptX4bHax134Q6xZ"></div>
 
 
 

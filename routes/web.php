@@ -138,7 +138,10 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/search', 'HomeController@search')->name('search');
-Route::get('/search_all', 'HomeController@search_all')->name('search_all');
+Route::get('/search_all',[
+    'as' => 'search_all',
+    'uses' => 'HomeController@search_all'
+]);
 
 Route::get('/pridat', 'HomeController@pridat')->name('pridat');
 Route::post('/pridat',[  'as' => 'updates',

@@ -9,9 +9,9 @@
 
         <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
             <ul class="navbar-nav">
-                <li><a href="#home">Domov</a></li>
-                <li><a href="#about">O nás</a></li>
-                <li><a href="#contact">Kontakt</a></li>
+                <li><a href="<?php echo url('/'); ?>">Domov</a></li>
+                <li><a href="<?php echo url('/'); ?>#about">O nás</a></li>
+                <li><a href="<?php echo url('/'); ?>#contact">Kontakt</a></li>
                 <li><a href="#">Užitočné informácie</a></li>
                 <li><a href="#">Realitná kancelária</a></li>
 

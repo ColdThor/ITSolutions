@@ -31,7 +31,10 @@
       <?php endif; ?>
 
     @else
-   <script>window.location = "/reality/public/";</script>
+   <script>
+
+       document.location.href="{!! route('search_all'); !!}";
+   </script>
 @endif
 
 <br /> <br />

@@ -18,12 +18,12 @@
     </p>
 
     <p>
-        <label for="first_name">Meno<span style="color: red">*</span></label>
+        <label for="first_name">Meno / Názov realitnej kancelárie<span style="color: red">*</span></label>
         {{ Form::text('first_name') }}
     </p>
 
     <p>
-        <label for="last_name">Priezvisko<span style="color: red">*</span></label>
+        <label for="last_name">Priezvisko</label>
         {{ Form::text('last_name') }}
     </p>
 
