@@ -8,8 +8,6 @@
 <br /><br />
 <br />
 <br />
-<!-- fdfggfgfdfg-->
-
 
 <!-- start banner Area -->
 <section class="banner-area relative" id="home">
