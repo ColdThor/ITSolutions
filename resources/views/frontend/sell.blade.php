@@ -3,6 +3,7 @@
 @section('page') Pridať inzerát @endsection
 <br /> <br />
 <br /> <br />
+<br /> <br />
 <div align="center">
 <h1>Pridať inzerát</h1>
 
