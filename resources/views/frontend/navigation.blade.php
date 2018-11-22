@@ -12,7 +12,7 @@
                 <li><a href="<?php echo url('/'); ?>">Domov</a></li>
                 <li><a href="<?php echo url('/'); ?>#about">O nás</a></li>
                 <li><a href="<?php echo url('/'); ?>#contact">Kontakt</a></li>
-                <li><a href="#">Užitočné informácie</a></li>
+                <li><a href="<?php echo url('/informacie'); ?>">Užitočné informácie</a></li>
                 <li><a href="#">Realitná kancelária</a></li>
 
 

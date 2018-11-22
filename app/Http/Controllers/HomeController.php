@@ -119,6 +119,11 @@ class HomeController extends Controller
         return view('frontend/sell',$data);
     }
 
+
+    public function informacie() {
+        return view('frontend/informacie');
+    }
+
     public function add_advertisement(Request $request) {
         $rules = array(
             'title' => 'required|min:3',
@@ -197,7 +202,7 @@ class HomeController extends Controller
                 Mail::send('frontend/mail', ["data"=>$data], function ($message) use ($data) {
                     $message->from('chrisfodor333@gmail.com', 'ITSolutions');
                     $message->subject("Váš inzerát bol pridaný");
-                    $message->to('nglchstn@gmail.com');
+                    $message->to($data['to']);
                 });
 
             }
