@@ -137,6 +137,7 @@ Auth::routes();
 //LIVE SITE
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/informacie', 'HomeController@informacie')->name('informacie');
 Route::get('/search', 'HomeController@search')->name('search');
 Route::get('/search_all',[
     'as' => 'search_all',

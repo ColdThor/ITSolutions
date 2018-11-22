@@ -119,6 +119,11 @@ class HomeController extends Controller
         return view('frontend/sell',$data);
     }
 
+
+    public function informacie() {
+        return view('frontend/informacie');
+    }
+
     public function add_advertisement(Request $request) {
         $rules = array(
             'title' => 'required|min:3',
