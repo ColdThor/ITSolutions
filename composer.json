@@ -9,11 +9,12 @@
         "consoletvs/charts": "^6.3",
         "fico7489/laravel-eloquent-join": "^4.0",
         "fideloper/proxy": "~3.3",
+        "guzzlehttp/guzzle": "^6.3",
+        "khill/lavacharts": "3.0.*",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "yajra/laravel-datatables-buttons": "3.0",
-        "yajra/laravel-datatables-oracle": "^8.9",
-        "khill/lavacharts" : "3.0.*"
+        "yajra/laravel-datatables-oracle": "^8.9"
     },
 
     "require-dev": {

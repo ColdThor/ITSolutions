@@ -9,6 +9,7 @@ use Validator;
 use DB;
 use Session;
 use Input;
+use Mail;
 use App\Models\Advertisement;
 use App\Models\Usergroup;
 use App\Models\Condition;
@@ -17,6 +18,7 @@ use App\Models\Location;
 use App\Models\Specification;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 
 class HomeController extends Controller
@@ -96,6 +98,159 @@ class HomeController extends Controller
             return redirect()-> action('HomeController@results');
         }
     }
+
+    public function search_all(Request $request)  {
+            $ad= Advertisement::all();
+
+            Session::flash('search', $ad);
+            return redirect()-> action('HomeController@results');
+    }
+
+
+    public function pridat(Request $request) {
+        $location = Location::all();
+        $type = Type::all();
+        $condition = Condition::all();
+        $specification = Specification::all();
+        $data['location'] = $location;
+        $data['type'] = $type;
+        $data['condition'] = $condition;
+        $data['specification'] = $specification;
+        return view('frontend/sell',$data);
+    }
+
+
+    public function informacie() {
+        return view('frontend/informacie');
+    }
+
+    public function add_advertisement(Request $request) {
+        $rules = array(
+            'title' => 'required|min:3',
+            'description' => 'required|min:3',
+            'contact_mail'    => 'required|email', // make sure the email is an actual email
+            'area' => 'required|alphaNum',
+            'price' => 'required|alphaNum',
+            'location' => 'required',
+            'type' => 'required',
+            'specification' => 'required',
+            'condition' => 'required',
+            'eula' => 'required',
+            'g-recaptcha-response' => 'required'
+        );
+
+        // run the validation rules on the inputs from the form
+        $validator = Validator::make(Input::all(), $rules);
+
+
+
+        if ($validator->fails()) {
+            return Redirect::to('/pridat')
+                ->withErrors($validator);
+        } else {
+
+
+            $title = Input::get('title');
+            $description =  Input::get('description');
+            $contact_mail = Input::get('contact_mail');
+            $contact_phone = Input::get('contact_phone');
+            $area = Input::get('area');
+            $price = Input::get('price');
+            $location =  Input::get('location');
+            $type = Input::get('type');
+            $specification = Input::get('specification');
+            $condition = Input::get('condition');
+
+
+            $ad = new Advertisement();
+
+            $ad->title = $title;
+            $ad->description = $description;
+            $ad->contact_mail = $contact_mail;
+            $ad->contact_phone = $contact_phone;
+            $ad->area = $area;
+            $ad->price = $price;
+            $ad->date = date("Y-m-d");
+            $ad->id_location = $location;
+            $ad->id_type = $type;
+            $ad->id_specification = $specification;
+            $ad->id_condition = $condition;
+
+            if(session()->has('userID')) {
+
+                $ad->id_user = session()->get('userID');
+            } else {
+                $first_name = Input::get('first_name');
+                $last_name = Input::get('last_name');
+                $password = $this->randomPassword();
+
+                $user = new User();
+
+                $user->first_name = $first_name;
+                $user->last_name = $last_name;
+                $user->password = md5($password);
+                $user->id_user_group = 1;
+                $user->email = $contact_mail;
+                $user->telephone = $contact_phone;
+
+                $user->save();
+                $id_user = User::max('id_user');
+                $ad->id_user = $id_user;
+
+                $data = array('name'=>$first_name,'password' =>$password, 'to' => $contact_mail);
+
+                Mail::send('frontend/mail', ["data"=>$data], function ($message) use ($data) {
+                    $message->from('chrisfodor333@gmail.com', 'ITSolutions');
+                    $message->subject("Váš inzerát bol pridaný");
+                    $message->to($data['to']);
+                });
+
+            }
+
+            $ad->save();
+
+            $id =  Advertisement::max('id_advertisement');
+
+
+
+            $name = 'inzerat_' . $id;
+
+            if(Input::file('fotka')) {
+                $fotky = Input::file('fotka');
+                $i=0;
+                foreach ($fotky as $fotka) {
+                    $i++;
+                    Storage::putFileAs('inzeraty/' . $name, $fotka, 'fotka_' . $i . '.png');
+                }
+            } else {
+                return Redirect::to('/pridat')
+                    ->withErrors(['fotka' => 'Pridajte aspoň jednu fotku k inzerátu']);
+            }
+
+
+
+
+            return redirect('/search_all');
+
+
+
+
+        }
+
+    }
+
+
+    function randomPassword() {
+        $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+        $pass = array(); //remember to declare $pass as an array
+        $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+        for ($i = 0; $i < 8; $i++) {
+            $n = rand(0, $alphaLength);
+            $pass[] = $alphabet[$n];
+        }
+        return implode($pass); //turn the array into a string
+    }
+
 
     public function results(Request $request) {
 
@@ -194,6 +349,10 @@ class HomeController extends Controller
                 return redirect('/user/login');
 
             }
+        }
+
+        public function show_select() {
+         return view('frontend/select');
         }
 
 

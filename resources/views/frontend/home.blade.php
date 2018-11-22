@@ -1,9 +1,14 @@
 
 
+
 @include('frontend/header')
 
 @section('page') Home @endsection
 
+<br /><br />
+<br />
+<br />
+<!-- fdfggfgfdfg-->
 
 
 <!-- start banner Area -->
@@ -47,9 +52,9 @@
                                 <?php foreach($location as $lo):  ?>
 
 
-                                <!--
+
                                     <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
--->
+
                                     <?php endforeach; ?>
                                 </select>
 
@@ -67,10 +72,10 @@
                             <div class="col-lg-3 col-md-6 col-xs-6">
                                 <select name="specification" class="app-select form-control" >
                                     <option value="" data-display="Druh nehnuteľnosti">Druh</option>
-                                    <?php foreach($specification as $sp):  ?>
-                                <!--
+                                <?php foreach($specification as $sp):  ?>
+
                                     <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
-                                    -->
+
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -112,7 +117,7 @@
                             <div class="col-lg-3 col-md-6 col-xs-6">
                                 <input type="number" class="app-select form-control" value="" name="cena_do" placeholder="Cena do"  style="height: 42px"></input>
                             </div>
-                            <button type="submit" class="primary-btn mt-50" name="submit" style="height: 45px; margin-left: 900px" value="submit">Hľadať<span class="lnr lnr-arrow-right"></span></button>
+                            <button type="submit" class="primary-btn mt-50" name="submit" style="height: 5%; margin-left: 80%" value="submit">Hľadať<span class="lnr lnr-arrow-right"></span></button>
 
 
                         </div>
@@ -193,11 +198,8 @@
 </section>
 <!-- End service Area -->
 
-
-
-
 <!-- Start property Area -->
-<section class="property-area section-gap relative" id="property">
+<section class="property-area section-gap relative" >
     <div class="overlay overlay-bg"></div>
     <div class="container">
         <div class="row d-flex justify-content-center">
@@ -374,8 +376,9 @@
 </section>
 <!-- End contact-info Area -->
 
-<!-- Start Contact Area -->
 
-<!-- End Contact Area -->
+
 @include('frontend/footer')
+
+
 
