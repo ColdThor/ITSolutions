@@ -314,7 +314,7 @@ class HomeController extends Controller
                 'location.region AS location',
                 DB::raw('CONCAT(first_name," ",last_name) AS user'),DB::raw('CONCAT(city," - ",region) AS location2'))->get()->first();
         $data['ad'] = $ads;
-        
+
 
         $ad = Advertisement::where("id_advertisement","=",$id)->update(["views" =>  DB::raw('views+1')]);
 
