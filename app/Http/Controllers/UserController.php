@@ -293,7 +293,7 @@ public function add_admin(Request $request) {
             $file = Input::file('fotka');
 
             $name = 'admin_' . $id;
-            Storage::putFileAs('admins/' . $name, $file, 'fotka.jpeg');
+            Storage::putFileAs('public/admins/' . $name, $file, 'fotka.jpeg');
         } else {
             return Redirect::to('/it-admin/register')
                 ->withErrors($validator) // send back all errors to the login form

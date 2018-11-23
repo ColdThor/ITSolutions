@@ -4,6 +4,7 @@
 
 <br /> <br />
 <br /> <br />
+<br /> <br />
 <div align="center">
 @if(session()->has('search'))
     <?php $search = session()->get('search');
@@ -11,8 +12,9 @@
     foreach($search as $ads):
             $fotka = $ads->id_advertisement;
        $i++; ?>
-        <img align="center" class="img-fluid mx-auto d-block" src="/reality/storage/app/inzeraty/inzerat_<?php echo $fotka ?>/fotka_1.png" alt=""  style="position:relative; left:350px; float:left; height: 20%; width: 20%">
+        <a href="<?php echo url('/inzerat/'.$fotka); ?>" style="color: black"> <img  align="center" class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $fotka ?>/fotka_1.png" alt=""  style="position:relative; left:350px; float:left; height: 20%; width: 20%"></a>
     <div>
+        <a href="<?php echo url('/inzerat/'.$fotka); ?>" style="color: black">
         <h1>{{$ads->title}}</h1>
         Popis: {{$ads->description}} <br />
         Dátum zverejnenia: {{$ads->date}} <br />
@@ -23,6 +25,7 @@
         <br />
         <br />
         <br />
+        </a>
     </div>
        <?php endforeach;
        if($i==0): ?>

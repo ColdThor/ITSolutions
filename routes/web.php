@@ -138,12 +138,13 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/informacie', 'HomeController@informacie')->name('informacie');
+Route::get('/inzerat/{id}', 'HomeController@showinzerat')->name('inzerat');
 Route::get('/search', 'HomeController@search')->name('search');
 Route::get('/search_all',[
     'as' => 'search_all',
     'uses' => 'HomeController@search_all'
 ]);
-
+Route::get('/moje_inzeraty', 'HomeController@show_mypage')->name('moje_inzeraty');
 Route::get('/pridat', 'HomeController@pridat')->name('pridat');
 Route::post('/pridat',[  'as' => 'updates',
     'uses' =>'HomeController@add_advertisement']);

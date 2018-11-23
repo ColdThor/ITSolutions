@@ -140,7 +140,7 @@
                                 <?php
                                 $id = session()->get('userID');
                                 ?>
-                                <img src="/reality/storage/app/admins/admin_<?php echo $id?>/fotka.jpeg" class="img-circle" alt="User Image" style="height: 20px; width: 20px;">
+                                <img src="/reality/storage/app/public/admins/admin_<?php echo $id?>/fotka.jpeg" class="img-circle" alt="User Image" style="height: 20px; width: 20px;">
                             @endif
                           @if(session()->has('admin'))
                                 <span class="hidden-xs">{{session()->get('userName')}}<!-- Meno pouzivatela--></span>

@@ -50,9 +50,9 @@
                                     <select class="form-control" name="id_location">
                                         <?php foreach($location as $lo):
                                         if($lo->id_location == $ads->id_location): ?>
-                                        <option value="{{$lo->id_location}}" selected>{{$lo->region}}</option>
+                                        <option value="{{$lo->id_location}}" selected>{{$lo->city}}</option>
                                         <?php else: ?>
-                                        <option value="{{$lo->id_location}}">{{$lo->region}}</option>
+                                        <option value="{{$lo->id_location}}">{{$lo->city}}</option>
                                         <?php endif; ?>
                                         <?php endforeach ?>
                                     </select>

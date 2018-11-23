@@ -5,6 +5,9 @@
 
 @section('page') Home @endsection
 
+
+
+
 <br /><br />
 <br />
 <br />
@@ -45,15 +48,62 @@
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
                                 <select  name="location" class="app-select form-control">
-                                    <option value="" data-display="Miesto">Miesto</option>
-
-                                    <?php foreach($location as $lo):  ?>
-
-
-
+                                    <?php $i = 0; foreach($ban as $lo): $i++; ?>
+                                    <?php if($i==1): ?>
+                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
+                                    <?php endif; ?>
                                     <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
-
                                     <?php endforeach; ?>
+
+                                        <?php $i = 0; foreach($bra as $lo): $i++; ?>
+                                        <?php if($i==1): ?>
+                                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
+                                        <?php endif; ?>
+                                        <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
+                                        <?php endforeach; ?>
+
+                                        <?php $i = 0; foreach($kos as $lo): $i++; ?>
+                                        <?php if($i==1): ?>
+                                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
+                                        <?php endif; ?>
+                                        <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
+                                        <?php endforeach; ?>
+
+                                        <?php $i = 0; foreach($nit as $lo): $i++; ?>
+                                        <?php if($i==1): ?>
+                                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
+                                        <?php endif; ?>
+                                        <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
+                                        <?php endforeach; ?>
+
+                                        <?php $i = 0; foreach($pre as $lo): $i++; ?>
+                                        <?php if($i==1): ?>
+                                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
+                                        <?php endif; ?>
+                                        <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
+                                        <?php endforeach; ?>
+
+                                        <?php $i = 0; foreach($tre as $lo): $i++; ?>
+                                        <?php if($i==1): ?>
+                                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
+                                        <?php endif; ?>
+                                        <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
+                                        <?php endforeach; ?>
+
+                                        <?php $i = 0; foreach($trn as $lo): $i++; ?>
+                                        <?php if($i==1): ?>
+                                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
+                                        <?php endif; ?>
+                                        <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
+                                        <?php endforeach; ?>
+
+                                        <?php $i = 0; foreach($zil as $lo): $i++; ?>
+                                        <?php if($i==1): ?>
+                                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
+                                        <?php endif; ?>
+                                        <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
+                                        <?php endforeach; ?>
+
                                 </select>
 
                             </div>
@@ -69,12 +119,47 @@
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
                                 <select name="specification" class="app-select form-control" >
-                                    <option value="" data-display="Druh nehnuteľnosti">Druh</option>
-                                    <?php foreach($specification as $sp):  ?>
-
-                                    <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
-
+                                    <?php $i = 0; foreach($byty as $sp): $i++; ?>
+                                    <?php if($i==1): ?>
+                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
+                                    <?php endif; ?>
+                                    <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
                                     <?php endforeach; ?>
+
+                                        <?php $i = 0; foreach($domy as $sp): $i++; ?>
+                                        <?php if($i==1): ?>
+                                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
+                                        <?php endif; ?>
+                                        <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
+                                        <?php endforeach; ?>
+
+                                        <?php $i = 0; foreach($objekty as $sp): $i++; ?>
+                                        <?php if($i==1): ?>
+                                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
+                                        <?php endif; ?>
+                                        <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
+                                        <?php endforeach; ?>
+
+                                        <?php $i = 0; foreach($pozemky as $sp): $i++; ?>
+                                        <?php if($i==1): ?>
+                                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
+                                        <?php endif; ?>
+                                        <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
+                                        <?php endforeach; ?>
+
+                                        <?php $i = 0; foreach($priestory as $sp): $i++; ?>
+                                        <?php if($i==1): ?>
+                                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
+                                        <?php endif; ?>
+                                        <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
+                                        <?php endforeach; ?>
+
+                                        <?php $i = 0; foreach($rek as $sp): $i++; ?>
+                                        <?php if($i==1): ?>
+                                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
+                                        <?php endif; ?>
+                                        <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
+                                        <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
