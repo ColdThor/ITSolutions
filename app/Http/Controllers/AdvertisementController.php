@@ -36,7 +36,7 @@ class AdvertisementController extends Controller {
             ->leftJoin('specification', 'advertisement.id_specification', '=', 'specification.id_specification')
             ->leftJoin('location', 'advertisement.id_location', '=', 'location.id_location')
             ->leftJoin('user', 'advertisement.id_user', '=', 'user.id_user')
-            ->select('advertisement.*', 'type.title AS type', 'condition.title AS condition','specification.title AS specification', 'location.region AS location', DB::raw('CONCAT(first_name," ",last_name) AS user'));
+            ->select('advertisement.*', 'type.title AS type', 'condition.title AS condition','specification.title AS specification', 'location.city AS location', DB::raw('CONCAT(first_name," ",last_name) AS user'));
         return Datatables::of($ads)
             ->addColumn('edit', function($row) {
                 return '<a  href="'. url('/it-admin/inzercia/'). '/edit/'. $row->id_advertisement .'" class="editbutton">Editovať</a>';
