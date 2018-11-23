@@ -56,6 +56,7 @@ body {
   font-weight: 300;
   line-height: 1.625em;
   position: relative;
+  background-color: #FFFFFF;
 }
 
 ol, ul {
@@ -1270,6 +1271,10 @@ h1, h2, h3, h4, h5, h6 {
   padding-left: 45px;
 }
 
+.input-group-icon .single-input-accent {
+  padding-left: 45px;
+}
+
 .single-textarea {
   display: block;
   width: 100%;
@@ -2138,7 +2143,6 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
 .menutop-wrap .menu-top .list li a {
   font-weight: 600;
   color: #222;
-  text-transform: uppercase;
 }
 
 @media (max-width: 462px) {
@@ -2209,7 +2213,7 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
   color: #777777;
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 1400px) {
   .search-field .app-select {
     margin-bottom: 25px;
   }
@@ -2225,7 +2229,7 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
 }
 
 .toggle-wrap {
-  margin-bottom: 20px;
+  margin-bottom: 35px;
 }
 
 .toggle-wrap .lnr-arrow-right {
@@ -2912,7 +2916,7 @@ h6 {
 }
 
 .generic-banner {
-  background-color: #f41068;
+  background-color: #fff;
 }
 
 .generic-banner .height {

@@ -47,7 +47,7 @@
                                 <select  name="location" class="app-select form-control">
                                     <option value="" data-display="Miesto">Miesto</option>
 
-                                <?php foreach($location as $lo):  ?>
+                                    <?php foreach($location as $lo):  ?>
 
 
 
@@ -70,7 +70,7 @@
                             <div class="col-lg-3 col-md-6 col-xs-6">
                                 <select name="specification" class="app-select form-control" >
                                     <option value="" data-display="Druh nehnuteľnosti">Druh</option>
-                                <?php foreach($specification as $sp):  ?>
+                                    <?php foreach($specification as $sp):  ?>
 
                                     <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
 

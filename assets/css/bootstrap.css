@@ -11,6 +11,7 @@
     text-shadow: none !important;
     box-shadow: none !important;
   }
+
   a,
   a:visited {
     text-decoration: underline;
@@ -233,6 +234,12 @@ figure {
 img {
   vertical-align: middle;
   border-style: none;
+}
+
+.logo-menu {
+  vertical-align: middle;
+  border-style: none;
+  width: 180px;
 }
 
 svg:not(:root) {
@@ -512,6 +519,7 @@ mark,
 .img-fluid {
   max-width: 100%;
   height: auto;
+
 }
 
 .img-thumbnail {

@@ -15,7 +15,7 @@
 
 
     <!-- Mobile Specif ic Meta -->
-    <link rel="icon" href='/reality/assets/img/favicon.ico'>
+    <link rel="icon" href='/reality/assets/img/fav.png'>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon-->
 
@@ -45,7 +45,7 @@
             <div class="d-flex justify-content-end align-items-center">
                 <ul class="list">
                     @if(session()->has('userID'))
-                        <li><a href="#">{{session()->get('userName')}}</a></li>
+                        <li><a href="#">Prihlásený: {{session()->get('userName')}}</a></li>
                     @endif
                     <li><a href="tel:+421 911111222">+421 911 111 222</a></li>
                     <li><a href="<?php echo url('/select'); ?>">Predaj / Kúpa nehnuteľností</a></li>
