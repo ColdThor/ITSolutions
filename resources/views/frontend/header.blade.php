@@ -54,12 +54,9 @@
                     @else
                         <li><a href="<?php echo url('/user/login'); ?>">Prihlásenie / Registrácia</a></li>
                     @endif
-
                 </ul>
             </div>
         </div>
     </div>
-
-
-
-@extends('frontend/navigation')
+@include('frontend/navigation')
+</header>

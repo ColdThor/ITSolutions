@@ -18,33 +18,13 @@
     <div class="container">
         <div class="row fullscreen align-items-center justify-content-center" style="height: 915px;">
             <div class="banner-content col-lg-12 col-md-12">
-                <h1 class="text-uppercase">
-                    IT Solutions
-                </h1>
                 <div class="search-field">
                     <form method="get" class="search-form" action="{{  action('HomeController@search')  }}">
                         <div class="row">
                             <div class="col-lg-12 d-flex align-items-center justify-content-center toggle-wrap">
                                 <div class="row">
-                                    <!--
-                                    <div class="col">
-                                        <h4 class="search-title">Search Properties For</h4>
-                                    </div>
-                                       --->
-
-                                    <div class="col">
-
-                                        <div class="onoffswitch3 d-block mx-auto">
-
-
-                                        </div>
-                                    </div>
-
+                                    <h2>Parametre hľadanej nehnuteľnosti</h2>
                                 </div>
-
-
-
-
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
                                 <select  name="location" class="app-select form-control">
@@ -200,9 +180,11 @@
                             <div class="col-lg-3 col-md-6 col-xs-6">
                                 <input type="number" class="app-select form-control" value="" name="cena_do" placeholder="Cena do"  style="height: 42px"></input>
                             </div>
-                            <button type="submit" class="primary-btn mt-50" name="submit" style="height: 5%; margin-left: 80%" value="submit">Hľadať<span class="lnr lnr-arrow-right"></span></button>
-
-
+                            <div class="col-lg-12 d-flex align-items-center justify-content-center">
+                                <div class="row">
+                                    <button type="submit" class="primary-btn mt-10" name="submit" value="submit">Hľadať<span class="lnr lnr-arrow-right"></span></button>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>
