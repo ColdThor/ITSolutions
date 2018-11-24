@@ -1,22 +1,10 @@
-
-
-
 @include('frontend/header')
-
 @section('page') Home @endsection
-
-
-
-
-<br /><br />
-<br />
-<br />
-
 <!-- start banner Area -->
 <section class="banner-area relative" id="home">
     <div class="overlay overlay-bg"></div>
     <div class="container">
-        <div class="row fullscreen align-items-center justify-content-center" style="height: 915px;">
+        <div class="row fullscreen align-items-center justify-content-center mt-25" style="height: 915px;">
             <div class="banner-content col-lg-12 col-md-12">
                 <div class="search-field">
                     <form method="get" class="search-form" action="{{  action('HomeController@search')  }}">

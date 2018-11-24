@@ -50,7 +50,7 @@
 }
 
 body {
-  color: #777777;
+  color: #ffffff;
   font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-weight: 300;
@@ -469,6 +469,10 @@ td, th {
 
 .pt-120 {
   padding-top: 120px;
+}
+
+.pt-130 {
+  padding-top: 130px;
 }
 
 .pt-150 {
@@ -2121,7 +2125,7 @@ h1, h2, h3, h4, h5, h6 {
 .default-header {
   background-color: #fff;
   width: 100% !important;
-  box-shadow: -21.213px 21.213px 30px 0px rgba(158, 158, 158, 0.3);
+  box-shadow: -21.213px 21.213px 30px 0px rgba(158, 158, 158, 0.1);
 }
 
 .menutop-wrap {
