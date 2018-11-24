@@ -136,6 +136,18 @@ Auth::routes();
 
 //LIVE SITE
 
+
+Route::get('/inzerat/edit/{id}','HomeController@show_editinzerat');
+Route::post('/inzerat/edited/',[  'as' => 'updates',
+    'uses' =>'HomeController@do_editinzerat']);
+
+
+Route::get('/inzerat/delete/{id}', [
+    'as' => 'delete', 'uses' => 'HomeController@delete_inzerat'
+]);
+
+
+
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/informacie', 'HomeController@informacie')->name('informacie');
 Route::get('/inzerat/{id}', 'HomeController@showinzerat')->name('inzerat');

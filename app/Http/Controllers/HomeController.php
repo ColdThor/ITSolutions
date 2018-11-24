@@ -214,6 +214,10 @@ class HomeController extends Controller
 
                 $ad->id_user = session()->get('userID');
             } else {
+
+               $email_check = $this->check_email($contact_mail);
+
+               if($email_check == false) {
                 $first_name = Input::get('first_name');
                 $last_name = Input::get('last_name');
                 $password = $this->randomPassword();
@@ -230,8 +234,16 @@ class HomeController extends Controller
                 $user->save();
                 $id_user = User::max('id_user');
                 $ad->id_user = $id_user;
+               } else {
+                   $first_name = Input::get('first_name');
+                   $last_name = Input::get('last_name');
+                   $password = $this->randomPassword();
+                   $user = User::where("email","=",$contact_mail)->update(["password" =>  md5($password),"telephone" => $contact_phone,
+                       "first_name" => $first_name,"last_name" => $last_name]);
+                   $id_user =  User::select("id_user")->where("email","=",$contact_mail)->get()->first();
+                   $ad->id_user = $id_user->id_user;
+               }
 
-                $data = array('name'=>$first_name,'password' =>$password, 'to' => $contact_mail);
 
 
             }
@@ -266,7 +278,6 @@ class HomeController extends Controller
             }
 
 
-            $id_advertisement =  Advertisement::max('id_advertisement');
 
             return redirect()-> action('HomeController@showinzerat',$id);
 
@@ -300,6 +311,100 @@ class HomeController extends Controller
 
     public function showlogin() {
        return view('frontend/login');
+    }
+
+    public function check_email($email) {
+        $user = User::where("email","=",$email)->count();
+        if($user>=1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    public function show_editinzerat($id) {
+        if(session()->has('userID')) {
+            $data['title'] = "Editovať inzerciu";
+
+            $ad = Advertisement::select('*')->where("id_advertisement", "=", $id)->get()->first();
+
+            $condition = Condition::all();
+            $type = Type::all();
+            $specification = Specification::all();
+            $location = Location::all();
+            $user = User::all();
+
+            $data['ads'] = $ad;
+            $data['condition'] = $condition;
+            $data['type'] = $type;
+            $data['specification'] = $specification;
+            $data['location'] = $location;
+            $data['user'] = $user;
+
+
+            return view('frontend/editinzerat', $data);
+        } else {
+            return redirect('/search_all');
+        }
+    }
+
+    public function do_editinzerat(Request $request) {
+        if($request->submit == "submit") {
+
+            $rules = array(
+                'title' => 'required|min:3',
+                'description' => 'required|min:3',
+                'contact_mail'    => 'required|email', // make sure the email is an actual email
+                'area' => 'required|alphaNum',
+                'price' => 'required|alphaNum',
+                'id_location' => 'required',
+                'id_type' => 'required',
+                'id_specification' => 'required',
+                'id_condition' => 'required',
+                'eula' => 'required',
+                'g-recaptcha-response' => 'required'
+            );
+
+
+            $validator = Validator::make(Input::all(), $rules);
+
+
+            if ($validator->fails()) {
+                return Redirect::to('/inzerat/edit/'.$request->input('id'))
+                    ->withErrors($validator);
+            } else {
+                $ad = Advertisement::where("id_advertisement", "=", $request->input('id'))->first();
+                $ad->update([
+                    "title" => $request->input('title'),
+                    "description" => $request->input('description'),
+                    "date" => $request->input('date'),
+                    "contact_mail" => $request->input('contact_mail'),
+                    "contact_phone" => $request->input('contact_phone'),
+                    "price" => $request->input('price'),
+                    "area" => $request->input('area'),
+                    "id_condition" => $request->input('id_condition'),
+                    "id_type" => $request->input('id_type'),
+                    "id_location" => $request->input('id_location'),
+                    "id_specification" => $request->input('id_specification')]);
+                return redirect()->action('HomeController@showinzerat',$request->input('id'));
+            }
+        } else {
+            return redirect()->action('HomeController@showinzerat',$request->input('id'));
+        }
+    }
+
+    public function delete_inzerat($id) {
+        if(session()->has('userID')) {
+
+            $ad = Advertisement::find($id);
+
+            $ad->delete();
+            return redirect('/search_all');
+        } else {
+            return view('admin/no_admin');
+        }
+
     }
 
 

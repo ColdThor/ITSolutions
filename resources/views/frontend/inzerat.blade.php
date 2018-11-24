@@ -58,7 +58,14 @@
 </style>
 
 
+<div align="right" style="float: right; margin-right: 30px;">
+    <?php if($ad->id_user == session()->get("userID")): ?>
+    <a href="<?php echo url('/inzerat/edit/'.$ad->id_advertisement)?>">Editovať</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="<?php echo url('/inzerat/delete/'.$ad->id_advertisement)?>">Zmazať</a>
+    <?php endif; ?>
+</div>
 
+<br />
 
 
 <div align="center">
