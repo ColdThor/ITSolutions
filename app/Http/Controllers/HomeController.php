@@ -10,6 +10,7 @@ use DB;
 use Session;
 use Input;
 use Mail;
+use Lava;
 use App\Models\Advertisement;
 use App\Models\Usergroup;
 use App\Models\Condition;
@@ -30,6 +31,8 @@ class HomeController extends Controller
 
         $condition = Condition::all();
         $type = Type::all();
+
+
         $byty = Specification::select('*')->where("group","=","Byty")->get();
         $domy = Specification::select('*')->where("group","=","Domy")->get();
         $objekty = Specification::select('*')->where("group","=","Objekty")->get();
@@ -48,6 +51,17 @@ class HomeController extends Controller
         $trn = Location::select('*')->where("region","=","Trnavský kraj")->get();
         $zil = Location::select('*')->where("region","=","Žilinský kraj")->get();
 
+
+        $data['type'] = $type;
+        $data['kos'] = $kos;
+        $data['nit'] = $nit;
+        $data['ban'] = $ban;
+        $data['bra'] = $bra;
+        $data['pre'] = $pre;
+        $data['tre'] = $tre;
+        $data['trn'] = $trn;
+        $data['zil'] = $zil;
+
         $user = Usergroup::all();
         $data['condition'] = $condition;
 
@@ -61,15 +75,7 @@ class HomeController extends Controller
 
 
 
-        $data['type'] = $type;
-        $data['kos'] = $kos;
-        $data['nit'] = $nit;
-        $data['ban'] = $ban;
-        $data['bra'] = $bra;
-        $data['pre'] = $pre;
-        $data['tre'] = $tre;
-        $data['trn'] = $trn;
-        $data['zil'] = $zil;
+
 
         $data['user'] = $user;
         return view('frontend/home',$data);
@@ -133,6 +139,59 @@ class HomeController extends Controller
         }
     }
 
+
+
+
+    public function show_mypage() {
+
+        $ad = Advertisement::leftJoin('condition', 'advertisement.id_condition', '=', 'condition.id_condition')
+            ->leftJoin('type', 'advertisement.id_type', '=', 'type.id_type')
+            ->leftJoin('specification', 'advertisement.id_specification', '=', 'specification.id_specification')
+            ->leftJoin('location', 'advertisement.id_location', '=', 'location.id_location')
+            ->leftJoin('user', 'advertisement.id_user', '=', 'user.id_user')
+            ->where('advertisement.id_user','=',session()->get('userID'))
+            ->select('advertisement.*','user.id_user_group')->get();
+
+
+
+        Session::flash('mypage', $ad);
+
+
+        $chart = Lava::DataTable();
+
+
+        $data = DB::table('advertisement')->where("id_user","=",session()->get('userID'))->max('views');
+        $data2 = DB::table('advertisement')->where('views', 'NOT LIKE',$data)->where("id_user","=",session()->get('userID'))->max('views');
+        $title = DB::table('advertisement')->where("id_user","=",session()->get('userID'))->where('views', DB::raw("(select MAX(`views`) from advertisement)"))->get()->first();
+        $title2 = DB::table('advertisement')->where("id_user","=",session()->get('userID'))->where('views', DB::raw("(select MAX(`views`) from advertisement WHERE views NOT LIKE ".$data.")"))->get()->first();
+
+
+        //$yesterday = DB::table('user')->where('created_at', 'NOT LIKE', $date . '%')->max('created_at');
+
+
+
+        $chart->addStringColumn('Inzeráty')
+            ->addNumberColumn($title->title)
+            ->addNumberColumn($title2->title)
+            ->addRow(["Počet prehliadnutí", $data,$data2]);
+
+        Lava::ColumnChart('Finances', $chart, [
+            'title' => 'Najsledovanejšie inzeráty',
+            'titleTextStyle' => [
+                'color' => '#eb6b2c',
+                'fontSize' => 14
+            ],
+            'vAxis' => [
+                'minValue' => 0,
+                'maxAlternation' => 1
+            ],
+        ]);
+
+
+        return view('frontend/moje_inzeraty');
+    }
+
+
     public function search_all(Request $request)  {
             $ad= Advertisement::all();
 
@@ -145,11 +204,54 @@ class HomeController extends Controller
         $location = Location::all();
         $type = Type::all();
         $condition = Condition::all();
-        $specification = Specification::all();
-        $data['location'] = $location;
+
+
+        $byty = Specification::select('*')->where("group","=","Byty")->get();
+        $domy = Specification::select('*')->where("group","=","Domy")->get();
+        $objekty = Specification::select('*')->where("group","=","Objekty")->get();
+        $pozemky = Specification::select('*')->where("group","=","Pozemky")->get();
+        $priestory = Specification::select('*')->where("group","=","Priestory")->get();
+        $rek = Specification::select('*')->where("group","=","Rekreačné domy")->get();
+
+
+
+        $kos = Location::select('*')->where("region","=","Košický kraj")->get();
+        $nit = Location::select('*')->where("region","=","Nitriansky kraj")->get();
+        $ban = Location::select('*')->where("region","=","Banskobystrický kraj")->get();
+        $bra = Location::select('*')->where("region","=","Bratislavský kraj")->get();
+        $pre = Location::select('*')->where("region","=","Prešovský kraj")->get();
+        $tre = Location::select('*')->where("region","=","Trenčiansky kraj")->get();
+        $trn = Location::select('*')->where("region","=","Trnavský kraj")->get();
+        $zil = Location::select('*')->where("region","=","Žilinský kraj")->get();
+
+
+        $data['type'] = $type;
+        $data['kos'] = $kos;
+        $data['nit'] = $nit;
+        $data['ban'] = $ban;
+        $data['bra'] = $bra;
+        $data['pre'] = $pre;
+        $data['tre'] = $tre;
+        $data['trn'] = $trn;
+        $data['zil'] = $zil;
+
+
+
+        $data['byty'] = $byty;
+        $data['domy'] = $domy;
+        $data['objekty'] = $objekty;
+        $data['pozemky'] = $pozemky;
+        $data['priestory'] = $priestory;
+        $data['rek'] = $rek;
+
+
+
+
+
+
         $data['type'] = $type;
         $data['condition'] = $condition;
-        $data['specification'] = $specification;
+
         return view('frontend/sell',$data);
     }
 
@@ -214,6 +316,10 @@ class HomeController extends Controller
 
                 $ad->id_user = session()->get('userID');
             } else {
+
+               $email_check = $this->check_email($contact_mail);
+
+               if($email_check == false) {
                 $first_name = Input::get('first_name');
                 $last_name = Input::get('last_name');
                 $password = $this->randomPassword();
@@ -230,8 +336,16 @@ class HomeController extends Controller
                 $user->save();
                 $id_user = User::max('id_user');
                 $ad->id_user = $id_user;
+               } else {
+                   $first_name = Input::get('first_name');
+                   $last_name = Input::get('last_name');
+                   $password = $this->randomPassword();
+                   $user = User::where("email","=",$contact_mail)->update(["password" =>  md5($password),"telephone" => $contact_phone,
+                       "first_name" => $first_name,"last_name" => $last_name]);
+                   $id_user =  User::select("id_user")->where("email","=",$contact_mail)->get()->first();
+                   $ad->id_user = $id_user->id_user;
+               }
 
-                $data = array('name'=>$first_name,'password' =>$password, 'to' => $contact_mail);
 
 
             }
@@ -240,9 +354,10 @@ class HomeController extends Controller
 
             $id =  Advertisement::max('id_advertisement');
 
-            $data = array('name'=>$first_name,'password' =>$password, 'to' => $contact_mail, 'id' => $id);
+
 
             if(!session()->has('userID')) {
+                $data = array('name'=>$first_name,'password' =>$password, 'to' => $contact_mail, 'id' => $id);
                 Mail::send('frontend/mail', ["data" => $data], function ($message) use ($data) {
                     $message->from('chrisfodor333@gmail.com', 'ITSolutions');
                     $message->subject("Váš inzerát bol pridaný");
@@ -266,9 +381,8 @@ class HomeController extends Controller
             }
 
 
-            $id_advertisement =  Advertisement::max('id_advertisement');
 
-            return redirect()-> action('HomeController@showinzerat',$id);
+            return redirect()-> action('HomeController@showinzerat',['id' => $id,'owner' => 'false']);
 
 
 
@@ -277,9 +391,7 @@ class HomeController extends Controller
 
     }
 
-    public function show_mypage() {
-        return view('frontend/moje_inzeraty');
-    }
+
 
     function randomPassword() {
         $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
@@ -302,8 +414,130 @@ class HomeController extends Controller
        return view('frontend/login');
     }
 
+    public function check_email($email) {
+        $user = User::where("email","=",$email)->count();
+        if($user>=1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-    public function showinzerat($id) {
+
+    public function show_editinzerat($id,$owner) {
+        if(session()->has('userID')) {
+            $data['title'] = "Editovať inzerciu";
+
+            $ad = Advertisement::select('*')->where("id_advertisement", "=", $id)->get()->first();
+
+            $condition = Condition::all();
+            $type = Type::all();
+            $specification = Specification::all();
+            $location = Location::all();
+            $user = User::all();
+
+            $data['ads'] = $ad;
+            $data['condition'] = $condition;
+            $data['type'] = $type;
+            $data['specification'] = $specification;
+            $data['location'] = $location;
+            $data['user'] = $user;
+
+
+            return view('frontend/editinzerat', $data);
+        } else {
+            if($owner == "true") {
+                $data['title'] = "Editovať inzerciu";
+
+                $ad = Advertisement::select('*')->where("id_advertisement", "=", $id)->get()->first();
+
+                $condition = Condition::all();
+                $type = Type::all();
+                $specification = Specification::all();
+                $location = Location::all();
+                $user = User::all();
+
+                $data['ads'] = $ad;
+                $data['condition'] = $condition;
+                $data['type'] = $type;
+                $data['specification'] = $specification;
+                $data['location'] = $location;
+                $data['user'] = $user;
+
+
+                return view('frontend/editinzerat', $data);
+            } else {
+            return redirect('/search_all');
+            }
+        }
+    }
+
+    public function do_editinzerat(Request $request) {
+        if($request->submit == "submit") {
+
+            $rules = array(
+                'title' => 'required|min:3',
+                'description' => 'required|min:3',
+                'contact_mail'    => 'required|email', // make sure the email is an actual email
+                'area' => 'required|alphaNum',
+                'price' => 'required|alphaNum',
+                'id_location' => 'required',
+                'id_type' => 'required',
+                'id_specification' => 'required',
+                'id_condition' => 'required',
+                'eula' => 'required',
+                'g-recaptcha-response' => 'required'
+            );
+
+
+            $validator = Validator::make(Input::all(), $rules);
+
+
+            if ($validator->fails()) {
+                return Redirect::to('/inzerat/edit/'.$request->input('id').'/true')
+                    ->withErrors($validator);
+            } else {
+                $ad = Advertisement::where("id_advertisement", "=", $request->input('id'))->first();
+                $ad->update([
+                    "title" => $request->input('title'),
+                    "description" => $request->input('description'),
+                    "contact_mail" => $request->input('contact_mail'),
+                    "contact_phone" => $request->input('contact_phone'),
+                    "price" => $request->input('price'),
+                    "area" => $request->input('area'),
+                    "id_condition" => $request->input('id_condition'),
+                    "id_type" => $request->input('id_type'),
+                    "id_location" => $request->input('id_location'),
+                    "id_specification" => $request->input('id_specification')]);
+                return redirect()->action('HomeController@showinzerat',['id' => $request->input('id'),'owner' => 'true']);
+            }
+        } else {
+            return redirect()->action('HomeController@showinzerat',['id' => $request->input('id'),'owner' => 'true']);
+        }
+    }
+
+    public function delete_inzerat($id,$owner) {
+        if(session()->has('userID')) {
+
+            $ad = Advertisement::find($id);
+
+            $ad->delete();
+            return redirect('/search_all');
+        } else {
+            if($owner == "true") {
+                $ad = Advertisement::find($id);
+
+                $ad->delete();
+                return redirect('/search_all');
+            } else {
+                return redirect('/search_all');
+            }
+        }
+
+    }
+
+
+    public function showinzerat($id,$owner) {
         $ads = Advertisement::leftJoin('condition', 'advertisement.id_condition', '=', 'condition.id_condition')
             ->leftJoin('type', 'advertisement.id_type', '=', 'type.id_type')
             ->leftJoin('specification', 'advertisement.id_specification', '=', 'specification.id_specification')
@@ -313,6 +547,8 @@ class HomeController extends Controller
             ->select('advertisement.*', 'type.title AS type', 'condition.title AS condition','specification.title AS specification',
                 'location.region AS location',
                 DB::raw('CONCAT(first_name," ",last_name) AS user'),DB::raw('CONCAT(city," - ",region) AS location2'))->get()->first();
+        $his = $owner;
+        $data['owner'] = $his;
         $data['ad'] = $ads;
 
 

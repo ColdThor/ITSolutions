@@ -12,9 +12,9 @@
     foreach($search as $ads):
             $fotka = $ads->id_advertisement;
        $i++; ?>
-        <a href="<?php echo url('/inzerat/'.$fotka); ?>" style="color: black"> <img  align="center" class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $fotka ?>/fotka_1.png" alt=""  style="position:relative; left:350px; float:left; height: 20%; width: 20%"></a>
+        <a href="<?php echo url('/inzerat/'.$fotka.'/false'); ?>" style="color: black"> <img  align="center" class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $fotka ?>/fotka_1.png" alt=""  style="position:relative; left:350px; float:left; height: 20%; width: 20%"></a>
     <div>
-        <a href="<?php echo url('/inzerat/'.$fotka); ?>" style="color: black">
+        <a href="<?php echo url('/inzerat/'.$fotka.'/false'); ?>" style="color: black">
         <h1>{{$ads->title}}</h1>
         Popis: {{$ads->description}} <br />
         Dátum zverejnenia: {{$ads->date}} <br />

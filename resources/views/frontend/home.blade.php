@@ -47,7 +47,7 @@
 
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
-                                <select  name="location" class="app-select form-control">
+                                <select  name="location" class="app-select form-control" id="combobox"  size="1">
                                     <?php $i = 0; foreach($ban as $lo): $i++; ?>
                                     <?php if($i==1): ?>
                                     <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>

@@ -124,7 +124,7 @@ class AdvertisementController extends Controller {
                 "id_user" => $request->input('id_user'),
                 "id_condition" => $request->input('id_condition'),
                 "id_type" => $request->input('id_type'),
-                "id_location" => $request->input('id_specification'),
+                "id_location" => $request->input('id_location'),
                 "id_specification" => $request->input('id_specification')]);
             return redirect()->action('AdvertisementController@index');
         } else {
