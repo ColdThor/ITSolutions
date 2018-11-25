@@ -611,9 +611,9 @@ class HomeController extends Controller
         public function doregister() {
             $rules = array(
                 'first_name' => 'required|alphaNum',
-                'last_name' => 'required|alphaNum',
                 'email'    => 'required|email', // make sure the email is an actual email
-                'password' => 'required|alphaNum|min:3|confirmed'
+                'password' => 'required|alphaNum|min:3|confirmed',
+                'user_group' => 'required'
             );
 
             $validator = Validator::make(Input::all(), $rules);
