@@ -153,7 +153,7 @@ h4, .h4 {
 }
 
 h5, .h5 {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 h6, .h6 {
@@ -241,6 +241,10 @@ td, th {
 
 .fsi {
   font-style: italic;
+}
+
+.mt-05 {
+  margin-top: 5px;
 }
 
 .mt-10 {
@@ -799,7 +803,7 @@ h4 {
 }
 
 h5 {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 h6 {
@@ -2744,6 +2748,25 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
   color: #777777;
   height: 150px;
   resize: none;
+}
+
+.menu-textarea {
+  width: 100%;
+  border: 1px solid transparent;
+  display: block;
+  background: #f9f9ff;
+  padding: 8px 20px;
+  height: 150px;
+  resize: none;
+}
+
+.menu-textarea:focus {
+  outline: none;
+  border: 1px solid #eb6b55;
+}
+
+.input-group-icon .menu-textarea {
+  padding-left: 45px;
 }
 
 .alert-msg {

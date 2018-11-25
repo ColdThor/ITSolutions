@@ -150,7 +150,7 @@ class HomeController extends Controller
         $data['type'] = $type;
         $data['condition'] = $condition;
         $data['specification'] = $specification;
-        return view('frontend/sell',$data);
+        return view('frontend/pridat',$data);
     }
 
 
