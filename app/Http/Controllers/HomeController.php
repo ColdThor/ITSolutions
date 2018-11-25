@@ -10,6 +10,7 @@ use DB;
 use Session;
 use Input;
 use Mail;
+use Lava;
 use App\Models\Advertisement;
 use App\Models\Usergroup;
 use App\Models\Condition;
@@ -30,6 +31,8 @@ class HomeController extends Controller
 
         $condition = Condition::all();
         $type = Type::all();
+
+
         $byty = Specification::select('*')->where("group","=","Byty")->get();
         $domy = Specification::select('*')->where("group","=","Domy")->get();
         $objekty = Specification::select('*')->where("group","=","Objekty")->get();
@@ -48,6 +51,17 @@ class HomeController extends Controller
         $trn = Location::select('*')->where("region","=","Trnavský kraj")->get();
         $zil = Location::select('*')->where("region","=","Žilinský kraj")->get();
 
+
+        $data['type'] = $type;
+        $data['kos'] = $kos;
+        $data['nit'] = $nit;
+        $data['ban'] = $ban;
+        $data['bra'] = $bra;
+        $data['pre'] = $pre;
+        $data['tre'] = $tre;
+        $data['trn'] = $trn;
+        $data['zil'] = $zil;
+
         $user = Usergroup::all();
         $data['condition'] = $condition;
 
@@ -61,15 +75,7 @@ class HomeController extends Controller
 
 
 
-        $data['type'] = $type;
-        $data['kos'] = $kos;
-        $data['nit'] = $nit;
-        $data['ban'] = $ban;
-        $data['bra'] = $bra;
-        $data['pre'] = $pre;
-        $data['tre'] = $tre;
-        $data['trn'] = $trn;
-        $data['zil'] = $zil;
+
 
         $data['user'] = $user;
         return view('frontend/home',$data);
@@ -133,6 +139,59 @@ class HomeController extends Controller
         }
     }
 
+
+
+
+    public function show_mypage() {
+
+        $ad = Advertisement::leftJoin('condition', 'advertisement.id_condition', '=', 'condition.id_condition')
+            ->leftJoin('type', 'advertisement.id_type', '=', 'type.id_type')
+            ->leftJoin('specification', 'advertisement.id_specification', '=', 'specification.id_specification')
+            ->leftJoin('location', 'advertisement.id_location', '=', 'location.id_location')
+            ->leftJoin('user', 'advertisement.id_user', '=', 'user.id_user')
+            ->where('advertisement.id_user','=',session()->get('userID'))
+            ->select('advertisement.*','user.id_user_group')->get();
+
+
+
+        Session::flash('mypage', $ad);
+
+
+        $chart = Lava::DataTable();
+
+
+        $data = DB::table('advertisement')->where("id_user","=",session()->get('userID'))->max('views');
+        $data2 = DB::table('advertisement')->where('views', 'NOT LIKE',$data)->where("id_user","=",session()->get('userID'))->max('views');
+        $title = DB::table('advertisement')->where("id_user","=",session()->get('userID'))->where('views', DB::raw("(select MAX(`views`) from advertisement)"))->get()->first();
+        $title2 = DB::table('advertisement')->where("id_user","=",session()->get('userID'))->where('views', DB::raw("(select MAX(`views`) from advertisement WHERE views NOT LIKE ".$data.")"))->get()->first();
+
+
+        //$yesterday = DB::table('user')->where('created_at', 'NOT LIKE', $date . '%')->max('created_at');
+
+
+
+        $chart->addStringColumn('Inzeráty')
+            ->addNumberColumn($title->title)
+            ->addNumberColumn($title2->title)
+            ->addRow(["Počet prehliadnutí", $data,$data2]);
+
+        Lava::ColumnChart('Finances', $chart, [
+            'title' => 'Najsledovanejšie inzeráty',
+            'titleTextStyle' => [
+                'color' => '#eb6b2c',
+                'fontSize' => 14
+            ],
+            'vAxis' => [
+                'minValue' => 0,
+                'maxAlternation' => 1
+            ],
+        ]);
+
+
+        return view('frontend/moje_inzeraty');
+    }
+
+
     public function search_all(Request $request)  {
             $ad= Advertisement::all();
 
@@ -145,11 +204,54 @@ class HomeController extends Controller
         $location = Location::all();
         $type = Type::all();
         $condition = Condition::all();
-        $specification = Specification::all();
-        $data['location'] = $location;
+
+
+        $byty = Specification::select('*')->where("group","=","Byty")->get();
+        $domy = Specification::select('*')->where("group","=","Domy")->get();
+        $objekty = Specification::select('*')->where("group","=","Objekty")->get();
+        $pozemky = Specification::select('*')->where("group","=","Pozemky")->get();
+        $priestory = Specification::select('*')->where("group","=","Priestory")->get();
+        $rek = Specification::select('*')->where("group","=","Rekreačné domy")->get();
+
+
+
+        $kos = Location::select('*')->where("region","=","Košický kraj")->get();
+        $nit = Location::select('*')->where("region","=","Nitriansky kraj")->get();
+        $ban = Location::select('*')->where("region","=","Banskobystrický kraj")->get();
+        $bra = Location::select('*')->where("region","=","Bratislavský kraj")->get();
+        $pre = Location::select('*')->where("region","=","Prešovský kraj")->get();
+        $tre = Location::select('*')->where("region","=","Trenčiansky kraj")->get();
+        $trn = Location::select('*')->where("region","=","Trnavský kraj")->get();
+        $zil = Location::select('*')->where("region","=","Žilinský kraj")->get();
+
+
+        $data['type'] = $type;
+        $data['kos'] = $kos;
+        $data['nit'] = $nit;
+        $data['ban'] = $ban;
+        $data['bra'] = $bra;
+        $data['pre'] = $pre;
+        $data['tre'] = $tre;
+        $data['trn'] = $trn;
+        $data['zil'] = $zil;
+
+
+
+        $data['byty'] = $byty;
+        $data['domy'] = $domy;
+        $data['objekty'] = $objekty;
+        $data['pozemky'] = $pozemky;
+        $data['priestory'] = $priestory;
+        $data['rek'] = $rek;
+
+
+
+
+
+
         $data['type'] = $type;
         $data['condition'] = $condition;
-        $data['specification'] = $specification;
+
         return view('frontend/sell',$data);
     }
 
@@ -289,9 +391,7 @@ class HomeController extends Controller
 
     }
 
-    public function show_mypage() {
-        return view('frontend/moje_inzeraty');
-    }
+
 
     function randomPassword() {
         $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
