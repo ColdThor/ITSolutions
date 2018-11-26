@@ -1952,7 +1952,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-gap {
-  padding: 120px 0;
+  padding: 50px 0;
 }
 
 .section-title {
@@ -2438,7 +2438,7 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
   transition: all 0.3s ease 0s;
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 1400px) {
   .single-property {
     margin-bottom: 30px;
   }
@@ -2459,7 +2459,7 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   width: 100%;
-  opacity: .5;
+  height: 280px;
 }
 
 .images span {
@@ -2467,7 +2467,6 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
   padding: 5px 25px;
   margin-top: -60px;
   position: absolute;
-  margin-left: 22px;
 }
 
 .desc .top {
@@ -2507,7 +2506,6 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
 
 .desc .bottom p {
   width: 50%;
-  margin-bottom: 0px;
 }
 
 .desc .bottom p:nth-child(2) {
