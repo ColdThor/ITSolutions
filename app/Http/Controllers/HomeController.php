@@ -166,13 +166,12 @@ class HomeController extends Controller
         $title2 = DB::table('advertisement')->where("id_user","=",session()->get('userID'))->where('views', DB::raw("(select MAX(`views`) from advertisement WHERE views NOT LIKE ".$data.")"))->get()->first();
 
 
-        //$yesterday = DB::table('user')->where('created_at', 'NOT LIKE', $date . '%')->max('created_at');
 
 
 
         $chart->addStringColumn('Inzeráty')
             ->addNumberColumn($title->title)
-            ->addNumberColumn($title2->title)
+            ->addNumberColumn(@$title2->title)
             ->addRow(["Počet prehliadnutí", $data,$data2]);
 
         Lava::ColumnChart('Finances', $chart, [
@@ -193,7 +192,12 @@ class HomeController extends Controller
 
 
     public function search_all(Request $request)  {
-            $ad= Advertisement::all();
+        $ad = Advertisement::leftJoin('condition', 'advertisement.id_condition', '=', 'condition.id_condition')
+            ->leftJoin('type', 'advertisement.id_type', '=', 'type.id_type')
+            ->leftJoin('specification', 'advertisement.id_specification', '=', 'specification.id_specification')
+            ->leftJoin('location', 'advertisement.id_location', '=', 'location.id_location')
+            ->leftJoin('user', 'advertisement.id_user', '=', 'user.id_user')
+            ->select('advertisement.*','type.title AS type','location.city AS location')->get();
 
             Session::flash('search', $ad);
             return redirect()-> action('HomeController@results');

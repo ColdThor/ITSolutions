@@ -1,53 +1,21 @@
-
-
-
 @include('frontend/header')
-
 @section('page') Home @endsection
-
-
-
-
-<br /><br />
-<br />
-<br />
-
 <!-- start banner Area -->
 <section class="banner-area relative" id="home">
     <div class="overlay overlay-bg"></div>
     <div class="container">
-        <div class="row fullscreen align-items-center justify-content-center" style="height: 915px;">
+        <div class="row fullscreen align-items-center justify-content-center mt-25" style="height: 915px;">
             <div class="banner-content col-lg-12 col-md-12">
-                <h1 class="text-uppercase">
-                    IT Solutions
-                </h1>
                 <div class="search-field">
                     <form method="get" class="search-form" action="{{  action('HomeController@search')  }}">
                         <div class="row">
                             <div class="col-lg-12 d-flex align-items-center justify-content-center toggle-wrap">
                                 <div class="row">
-                                    <!--
-                                    <div class="col">
-                                        <h4 class="search-title">Search Properties For</h4>
-                                    </div>
-                                       --->
-
-                                    <div class="col">
-
-                                        <div class="onoffswitch3 d-block mx-auto">
-
-
-                                        </div>
-                                    </div>
-
+                                    <h2>Parametre hľadanej nehnuteľnosti</h2>
                                 </div>
-
-
-
-
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
-                                <select  name="location" class="app-select form-control" id="combobox"  size="1">
+                                <select  name="location" class="app-select form-control">
                                     <?php $i = 0; foreach($ban as $lo): $i++; ?>
                                     <?php if($i==1): ?>
                                     <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
@@ -55,54 +23,54 @@
                                     <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
                                     <?php endforeach; ?>
 
-                                        <?php $i = 0; foreach($bra as $lo): $i++; ?>
-                                        <?php if($i==1): ?>
-                                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
-                                        <?php endif; ?>
-                                        <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
-                                        <?php endforeach; ?>
+                                    <?php $i = 0; foreach($bra as $lo): $i++; ?>
+                                    <?php if($i==1): ?>
+                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
+                                    <?php endif; ?>
+                                    <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
+                                    <?php endforeach; ?>
 
-                                        <?php $i = 0; foreach($kos as $lo): $i++; ?>
-                                        <?php if($i==1): ?>
-                                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
-                                        <?php endif; ?>
-                                        <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
-                                        <?php endforeach; ?>
+                                    <?php $i = 0; foreach($kos as $lo): $i++; ?>
+                                    <?php if($i==1): ?>
+                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
+                                    <?php endif; ?>
+                                    <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
+                                    <?php endforeach; ?>
 
-                                        <?php $i = 0; foreach($nit as $lo): $i++; ?>
-                                        <?php if($i==1): ?>
-                                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
-                                        <?php endif; ?>
-                                        <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
-                                        <?php endforeach; ?>
+                                    <?php $i = 0; foreach($nit as $lo): $i++; ?>
+                                    <?php if($i==1): ?>
+                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
+                                    <?php endif; ?>
+                                    <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
+                                    <?php endforeach; ?>
 
-                                        <?php $i = 0; foreach($pre as $lo): $i++; ?>
-                                        <?php if($i==1): ?>
-                                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
-                                        <?php endif; ?>
-                                        <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
-                                        <?php endforeach; ?>
+                                    <?php $i = 0; foreach($pre as $lo): $i++; ?>
+                                    <?php if($i==1): ?>
+                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
+                                    <?php endif; ?>
+                                    <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
+                                    <?php endforeach; ?>
 
-                                        <?php $i = 0; foreach($tre as $lo): $i++; ?>
-                                        <?php if($i==1): ?>
-                                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
-                                        <?php endif; ?>
-                                        <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
-                                        <?php endforeach; ?>
+                                    <?php $i = 0; foreach($tre as $lo): $i++; ?>
+                                    <?php if($i==1): ?>
+                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
+                                    <?php endif; ?>
+                                    <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
+                                    <?php endforeach; ?>
 
-                                        <?php $i = 0; foreach($trn as $lo): $i++; ?>
-                                        <?php if($i==1): ?>
-                                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
-                                        <?php endif; ?>
-                                        <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
-                                        <?php endforeach; ?>
+                                    <?php $i = 0; foreach($trn as $lo): $i++; ?>
+                                    <?php if($i==1): ?>
+                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
+                                    <?php endif; ?>
+                                    <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
+                                    <?php endforeach; ?>
 
-                                        <?php $i = 0; foreach($zil as $lo): $i++; ?>
-                                        <?php if($i==1): ?>
-                                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
-                                        <?php endif; ?>
-                                        <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
-                                        <?php endforeach; ?>
+                                    <?php $i = 0; foreach($zil as $lo): $i++; ?>
+                                    <?php if($i==1): ?>
+                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
+                                    <?php endif; ?>
+                                    <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
+                                    <?php endforeach; ?>
 
                                 </select>
 
@@ -126,40 +94,40 @@
                                     <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
                                     <?php endforeach; ?>
 
-                                        <?php $i = 0; foreach($domy as $sp): $i++; ?>
-                                        <?php if($i==1): ?>
-                                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
-                                        <?php endif; ?>
-                                        <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
-                                        <?php endforeach; ?>
+                                    <?php $i = 0; foreach($domy as $sp): $i++; ?>
+                                    <?php if($i==1): ?>
+                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
+                                    <?php endif; ?>
+                                    <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
+                                    <?php endforeach; ?>
 
-                                        <?php $i = 0; foreach($objekty as $sp): $i++; ?>
-                                        <?php if($i==1): ?>
-                                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
-                                        <?php endif; ?>
-                                        <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
-                                        <?php endforeach; ?>
+                                    <?php $i = 0; foreach($objekty as $sp): $i++; ?>
+                                    <?php if($i==1): ?>
+                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
+                                    <?php endif; ?>
+                                    <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
+                                    <?php endforeach; ?>
 
-                                        <?php $i = 0; foreach($pozemky as $sp): $i++; ?>
-                                        <?php if($i==1): ?>
-                                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
-                                        <?php endif; ?>
-                                        <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
-                                        <?php endforeach; ?>
+                                    <?php $i = 0; foreach($pozemky as $sp): $i++; ?>
+                                    <?php if($i==1): ?>
+                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
+                                    <?php endif; ?>
+                                    <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
+                                    <?php endforeach; ?>
 
-                                        <?php $i = 0; foreach($priestory as $sp): $i++; ?>
-                                        <?php if($i==1): ?>
-                                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
-                                        <?php endif; ?>
-                                        <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
-                                        <?php endforeach; ?>
+                                    <?php $i = 0; foreach($priestory as $sp): $i++; ?>
+                                    <?php if($i==1): ?>
+                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
+                                    <?php endif; ?>
+                                    <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
+                                    <?php endforeach; ?>
 
-                                        <?php $i = 0; foreach($rek as $sp): $i++; ?>
-                                        <?php if($i==1): ?>
-                                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
-                                        <?php endif; ?>
-                                        <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
-                                        <?php endforeach; ?>
+                                    <?php $i = 0; foreach($rek as $sp): $i++; ?>
+                                    <?php if($i==1): ?>
+                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
+                                    <?php endif; ?>
+                                    <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
+                                    <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
@@ -200,9 +168,11 @@
                             <div class="col-lg-3 col-md-6 col-xs-6">
                                 <input type="number" class="app-select form-control" value="" name="cena_do" placeholder="Cena do"  style="height: 42px"></input>
                             </div>
-                            <button type="submit" class="primary-btn mt-50" name="submit" style="height: 5%; margin-left: 80%" value="submit">Hľadať<span class="lnr lnr-arrow-right"></span></button>
-
-
+                            <div class="col-lg-12 d-flex align-items-center justify-content-center">
+                                <div class="row">
+                                    <button type="submit" class="primary-btn mt-10" name="submit" value="submit">Hľadať<span class="lnr lnr-arrow-right"></span></button>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -462,6 +432,5 @@
 
 
 @include('frontend/footer')
-
 
 

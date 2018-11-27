@@ -115,6 +115,7 @@ h1, h2, h3, h4, h5, h6 {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+  color: #666666;
 }
 
 abbr[title],
@@ -289,7 +290,6 @@ button,
 select,
 optgroup,
 textarea {
-  margin: 0;
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
@@ -423,7 +423,7 @@ h4, .h4 {
 }
 
 h5, .h5 {
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 
 h6, .h6 {
@@ -1420,7 +1420,7 @@ pre code {
   display: block;
   width: 100%;
   padding: 0.5rem 0.75rem;
-  font-size: 1rem;
+  font-size: 0.85rem;
   line-height: 1.25;
   color: #495057;
   background-color: #fff;
@@ -2908,7 +2908,7 @@ tbody.collapse.show {
 
 .custom-file {
   position: relative;
-  display: inline-block;
+  display: block;
   max-width: 100%;
   height: 2.5rem;
   margin-bottom: 0;
