@@ -167,7 +167,7 @@
 
                     <h5 class="mt-20">Priložiť obrázky nehnuteľnosti<b>*</b></h5>
                     <div class="col-lg-12 align-items-center justify-content-center mt-05">
-                        <div class="row">
+                        <div class="row" style="color: black">
                             <input type="file" name="fotka[]" class="custom-file" required>
                         </div>
                     </div>
