@@ -50,7 +50,7 @@
 }
 
 body {
-  color: #777777;
+  color: #ffffff;
   font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-weight: 300;
@@ -153,7 +153,7 @@ h4, .h4 {
 }
 
 h5, .h5 {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 h6, .h6 {
@@ -241,6 +241,10 @@ td, th {
 
 .fsi {
   font-style: italic;
+}
+
+.mt-05 {
+  margin-top: 5px;
 }
 
 .mt-10 {
@@ -469,6 +473,10 @@ td, th {
 
 .pt-120 {
   padding-top: 120px;
+}
+
+.pt-130 {
+  padding-top: 130px;
 }
 
 .pt-150 {
@@ -795,7 +803,7 @@ h4 {
 }
 
 h5 {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 h6 {
@@ -1944,7 +1952,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-gap {
-  padding: 120px 0;
+  padding: 50px 0;
 }
 
 .section-title {
@@ -2121,7 +2129,7 @@ h1, h2, h3, h4, h5, h6 {
 .default-header {
   background-color: #fff;
   width: 100% !important;
-  box-shadow: -21.213px 21.213px 30px 0px rgba(158, 158, 158, 0.3);
+  box-shadow: -21.213px 21.213px 30px 0px rgba(158, 158, 158, 0.1);
 }
 
 .menutop-wrap {
@@ -2430,7 +2438,7 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
   transition: all 0.3s ease 0s;
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 1400px) {
   .single-property {
     margin-bottom: 30px;
   }
@@ -2451,7 +2459,7 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   width: 100%;
-  opacity: .5;
+  height: 280px;
 }
 
 .images span {
@@ -2459,7 +2467,6 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
   padding: 5px 25px;
   margin-top: -60px;
   position: absolute;
-  margin-left: 22px;
 }
 
 .desc .top {
@@ -2499,7 +2506,6 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
 
 .desc .bottom p {
   width: 50%;
-  margin-bottom: 0px;
 }
 
 .desc .bottom p:nth-child(2) {
@@ -2740,6 +2746,25 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
   color: #777777;
   height: 150px;
   resize: none;
+}
+
+.menu-textarea {
+  width: 100%;
+  border: 1px solid transparent;
+  display: block;
+  background: #f9f9ff;
+  padding: 8px 20px;
+  height: 150px;
+  resize: none;
+}
+
+.menu-textarea:focus {
+  outline: none;
+  border: 1px solid #eb6b55;
+}
+
+.input-group-icon .menu-textarea {
+  padding-left: 45px;
 }
 
 .alert-msg {
