@@ -48,8 +48,7 @@
                     </div>
 
                     <h5 class="mt-20">Lokalita: <b>*</b></h5>
-                    <label for="location">Miesto<span style="color: red">*</span></label>
-                    <select name="location">
+                    <select name="location" class="app-select form-control mt-05">
                         <?php $i = 0; foreach($ban as $lo): $i++; ?>
                         <?php if($i==1): ?>
                         <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
@@ -108,7 +107,7 @@
                     </select>
 
                     <h5 class="mt-20">Druh nehnuteľnosti: <b>*</b></h5>
-                    <select name="specification">
+                    <select name="specification" class="app-select form-control mt-05">
                         <?php $i = 0; foreach($byty as $sp): $i++; ?>
                         <?php if($i==1): ?>
                         <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
