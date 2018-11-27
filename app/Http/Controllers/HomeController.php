@@ -95,8 +95,9 @@ class HomeController extends Controller
             $price_to = $request->input('cena_do');
 
 
-            $advertisements = Advertisement::select('advertisement.*','user_group.title AS group')->leftJoin("user","advertisement.id_user","user.id_user")
-            ->leftJoin("user_group","user.id_user_group","user_group.id_user_group");
+            $advertisements = Advertisement::select('advertisement.*','user_group.title AS group','location.city AS location','type.title AS type')->leftJoin("user","advertisement.id_user","user.id_user")
+            ->leftJoin("user_group","user.id_user_group","user_group.id_user_group")->leftJoin('type', 'advertisement.id_type', '=', 'type.id_type')
+                ->leftJoin('location', 'advertisement.id_location', '=', 'location.id_location');
 
             if ($location != "") {
                 $advertisements->where("id_location", "=", $location);
@@ -386,7 +387,7 @@ class HomeController extends Controller
 
 
 
-            return redirect()-> action('HomeController@showinzerat',['id' => $id,'owner' => 'false']);
+            return redirect()-> action('HomeController@showinzerat',['id' => $id,'owner' => 'true']);
 
 
 

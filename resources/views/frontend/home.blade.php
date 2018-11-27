@@ -91,42 +91,42 @@
                                     <?php if($i==1): ?>
                                     <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
                                     <?php endif; ?>
-                                    <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
+                                    <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
                                     <?php endforeach; ?>
 
                                     <?php $i = 0; foreach($domy as $sp): $i++; ?>
                                     <?php if($i==1): ?>
                                     <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
                                     <?php endif; ?>
-                                    <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
+                                    <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
                                     <?php endforeach; ?>
 
                                     <?php $i = 0; foreach($objekty as $sp): $i++; ?>
                                     <?php if($i==1): ?>
                                     <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
                                     <?php endif; ?>
-                                    <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
+                                    <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
                                     <?php endforeach; ?>
 
                                     <?php $i = 0; foreach($pozemky as $sp): $i++; ?>
                                     <?php if($i==1): ?>
                                     <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
                                     <?php endif; ?>
-                                    <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
+                                    <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
                                     <?php endforeach; ?>
 
                                     <?php $i = 0; foreach($priestory as $sp): $i++; ?>
                                     <?php if($i==1): ?>
                                     <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
                                     <?php endif; ?>
-                                    <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
+                                    <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
                                     <?php endforeach; ?>
 
                                     <?php $i = 0; foreach($rek as $sp): $i++; ?>
                                     <?php if($i==1): ?>
                                     <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
                                     <?php endif; ?>
-                                    <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
+                                    <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
