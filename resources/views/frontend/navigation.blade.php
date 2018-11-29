@@ -13,7 +13,14 @@
                 <li><a href="<?php echo url('/'); ?>#about">O nás</a></li>
                 <li><a href="<?php echo url('/'); ?>#contact">Kontakt</a></li>
                 <li><a href="<?php echo url('/informacie'); ?>">Užitočné informácie</a></li>
-                <li><a href="#">Pre realitné kancelárie</a></li>
+                <div class="dropdown">
+                    <li class="dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton"><a href="">Moje inzeráty</a></li>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="<?php echo url('/pridat'); ?>">Pridať inzerát</a>
+                            <a class="dropdown-item" href="<?php echo url('/moje_inzeraty'); ?>">Moje inzeráty</a>
+                        </div>
+                </div>
+                <li><a href="<?php echo url('/user/login'); ?>">Realitné kancelárie</a></li>
             </ul>
         </div>
     </div>
