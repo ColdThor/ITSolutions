@@ -13,7 +13,7 @@
                         <h5>Položky označené s <b>*</b> sú povinné.</h5>
                     </div>
                 </div>
-                <form  method="post" action="{{ action ('HomeController@add_advertisement') }}">
+                {{ Form::open(array('url' => '/pridat', 'files' => true)) }}
                     <div class="input-group-icon mt-30">
                         <div class="icon"><i class="fa fa-font" aria-hidden="true"></i></div>
                         <input type="text" name="title" placeholder="Nadpis inzerátu *" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nadpis inzerátu *'" required class="single-input-accent">
@@ -38,6 +38,7 @@
                         <div class="icon"><i class="fa fa-euro" aria-hidden="true"></i></div>
                         <input type="nuber" name="price" placeholder="Cena v € *" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cena v € *'" required class="single-input-accent">
                     </div>
+                <?php if(!session()->has('userID')): ?>
                     <div class="input-group-icon mt-10">
                         <div class="icon"><i class="fa fa-user" aria-hidden="true"></i></div>
                         <input type="text" name="first_name" placeholder="Meno zadávateľa *" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Meno zadávateľa *'" required class="single-input-accent">
@@ -46,9 +47,10 @@
                         <div class="icon"><i class="fa fa-user" aria-hidden="true"></i></div>
                         <input type="text" name="last_name" placeholder="Priezvisko zadávateľa *" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Priezvisko zadávateľa *'" required class="single-input-accent">
                     </div>
+                <?php endif?>
 
                     <h5 class="mt-20">Lokalita: <b>*</b></h5>
-                    <select name="location" class="app-select form-control mt-05">
+                    <select name="location" class="app-select form-control mt-05" required>
                         <?php $i = 0; foreach($ban as $lo): $i++; ?>
                         <?php if($i==1): ?>
                         <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
@@ -107,47 +109,47 @@
                     </select>
 
                     <h5 class="mt-20">Druh nehnuteľnosti: <b>*</b></h5>
-                    <select name="specification" class="app-select form-control mt-05">
+                    <select name="specification" class="app-select form-control mt-05" required>
                         <?php $i = 0; foreach($byty as $sp): $i++; ?>
                         <?php if($i==1): ?>
-                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
+                        <option value=""  style="font-weight: bold" data-display="Druh">{{$sp->group}}</option>
                         <?php endif; ?>
-                        <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
+                        <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
                         <?php endforeach; ?>
 
                         <?php $i = 0; foreach($domy as $sp): $i++; ?>
                         <?php if($i==1): ?>
-                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
+                        <option value=""  style="font-weight: bold" data-display="Druh">{{$sp->group}}</option>
                         <?php endif; ?>
-                        <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
+                        <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
                         <?php endforeach; ?>
 
                         <?php $i = 0; foreach($objekty as $sp): $i++; ?>
                         <?php if($i==1): ?>
-                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
+                        <option value=""  style="font-weight: bold" data-display="Druh">{{$sp->group}}</option>
                         <?php endif; ?>
-                        <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
+                        <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
                         <?php endforeach; ?>
 
                         <?php $i = 0; foreach($pozemky as $sp): $i++; ?>
                         <?php if($i==1): ?>
-                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
+                        <option value=""  style="font-weight: bold" data-display="Druh">{{$sp->group}}</option>
                         <?php endif; ?>
-                        <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
+                        <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
                         <?php endforeach; ?>
 
                         <?php $i = 0; foreach($priestory as $sp): $i++; ?>
                         <?php if($i==1): ?>
-                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
+                        <option value=""  style="font-weight: bold" data-display="Druh">{{$sp->group}}</option>
                         <?php endif; ?>
-                        <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
+                        <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
                         <?php endforeach; ?>
 
                         <?php $i = 0; foreach($rek as $sp): $i++; ?>
                         <?php if($i==1): ?>
-                        <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
+                        <option value=""  style="font-weight: bold" data-display="Druh">{{$sp->group}}</option>
                         <?php endif; ?>
-                        <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
+                        <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
                         <?php endforeach; ?>
                     </select>
 
@@ -168,7 +170,7 @@
                     <h5 class="mt-20">Priložiť obrázky nehnuteľnosti<b>*</b></h5>
                     <div class="col-lg-12 align-items-center justify-content-center mt-05">
                         <div class="row" style="color: black">
-                            <input type="file" name="fotka[]" class="custom-file" required>
+                            {!! Form::file('fotka[]', array('multiple'=>true)) !!}
                         </div>
                     </div>
 
@@ -190,7 +192,7 @@
                         </div>
                     </div>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                </form>
+                    {{ Form::close() }}
                 <div class="d-flex align-items-center justify-content-center mt-30">
                     <div class="row">
                         <p class="sample-text">
