@@ -265,6 +265,19 @@ class HomeController extends Controller
         return view('frontend/informacie');
     }
 
+
+    public function zmluvy() {
+        return view('frontend/zmluvy');
+    }
+
+    public function hypoteky() {
+        return view('frontend/hypoteky');
+    }
+
+    public function poradenstvo() {
+        return view('frontend/poradenstvo');
+    }
+
     public function add_advertisement(Request $request) {
         $rules = array(
             'title' => 'required|min:3',
