@@ -3,7 +3,7 @@
 <section class="property-area section-gap relative" id="property">
     <div class="container pt-30">
         <div class="row d-flex justify-content-center">
-            <div class="col-md-8 pb-40 header-text">
+            <div class="col-md-8 pt-30 pb-40 header-text">
                 <h2>Výsledky hľadania</h2>
             </div>
         </div>
