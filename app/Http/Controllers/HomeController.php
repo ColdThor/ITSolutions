@@ -171,7 +171,7 @@ class HomeController extends Controller
 
 
         $chart->addStringColumn('Inzeráty')
-            ->addNumberColumn($title->title)
+            ->addNumberColumn(@$title->title)
             ->addNumberColumn(@$title2->title)
             ->addRow(["Počet prehliadnutí", $data,$data2]);
 
