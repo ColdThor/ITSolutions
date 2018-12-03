@@ -52,5 +52,5 @@
             </div>
         </div>
     </div>
-@include('frontend/navigation')
+    @include('frontend/navigation')
 </header>

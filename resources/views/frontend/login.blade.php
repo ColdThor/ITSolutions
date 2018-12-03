@@ -1,6 +1,8 @@
 @include('frontend/header')
 @section('page') Prihlásenie @endsection
 
+
+
 <div class="container pt-130">
     <div class="row align-items-center justify-content-center">
         <div class="col-lg-5">
@@ -36,9 +38,9 @@
                     <div class="row">
                         <p>
                             <b>
-                            {{ $errors->first('no') }}
-                            {{ $errors->first('email') }}
-                            {{ $errors->first('password') }}
+                                {{ $errors->first('no') }}
+                                {{ $errors->first('email') }}
+                                {{ $errors->first('password') }}
                             </b>
                         </p>
                     </div>

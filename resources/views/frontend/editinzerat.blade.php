@@ -1,53 +1,65 @@
 
-@extends('backend/header')
-@section('page') Editovať inzerciu @endsection
-@section('content')
+@include('frontend/header')
+
+@section('page') Editovať inzerát @endsection
+
+<br />  <br />
+<br /> <br />
+<br /> <br />
+
+<div align="center">
+<!-- Main content -->
 
 
-
-    <!-- Main content -->
-    <section class="content">
-        <div class="row">
             <div class="col-md-8">
                 <div class="box box-primary">
                     <div class="box-header with-border">
                         <h3 class="box-title">Editácia inzercie</h3>
                     </div>
-                    <form method="post" action="{{  action('AdvertisementController@edit_validator', ['id' => $ads->id_advertisement])  }}">
+
+
+                    <p>
+                        <label for="required">Položky označené s <span style="color: red">*</span> sú povinné.</label>
+                        <br />
+                        {{ $errors->first('title') }}
+                        {{ $errors->first('contact_mail') }}
+                        {{ $errors->first('description') }}
+                        {{ $errors->first('area') }}
+                        {{ $errors->first('price') }}
+                        {{ $errors->first('condition') }}
+                        {{ $errors->first('specification') }}
+                        {{ $errors->first('type') }}
+                        {{ $errors->first('location') }}
+                        {{ $errors->first('eula') }}
+                        {{ $errors->first('fotka') }}
+                        {{ $errors->first('g-recaptcha-response') }}
+                    </p>
+
+
+
+                    <form method="post" action="{{  action('HomeController@do_editinzerat', ['id' => $ads->id_advertisement])  }}">
                         <div class="box-body">
                             <div class="form-group">
                                 <input type="hidden" name="id_advertisement" value="{{ $ads->id_advertisement }}">
-                                Názov: <br />
+                                <label for="title">Názov inzerátu<span style="color: red">*</span></label>
                                 <input type="text" name="title" value="{{ $ads->title }}">
                                 <br />
-                                Popis: <br />
-                                <input type="text" name="description" value="{{ $ads->description }}">
+                                <label for="description">Popis inzerátu<span style="color: red">*</span></label>
+                                <textarea id="description" name="description" >
+                                    {{ $ads->description }}
+                                </textarea>
+
                                 <br />
-                                Dátum pridania: <br />
-                                <input type="date" name="date" value="{{ $ads->date }}">
-                                <br />
-                                Inzerent: <br />
-                                <div class="form-group">
-                                    <select class="form-control" name="id_user">
-                                        <?php foreach($user as $us):
-                                        if($us->id_user == $ads->id_user): ?>
-                                        <option value="{{$us->id_user}}" selected>{{$us->first_name. " ". $us->last_name}}</option>
-                                        <?php else: ?>
-                                        <option value="{{$us->id_user}}">{{$us->first_name. " ". $us->last_name}}</option>
-                                        <?php endif; ?>
-                                        <?php endforeach ?>
-                                    </select>
-                                </div>
-                                Email: <br />
+                                <label for="contact_mail">Email<span style="color: red">*</span></label>
                                 <input type="text" name="contact_mail" value="{{ $ads->contact_mail }}">
                                 <br />
-                                Telefonné číslo: <br />
+                                <label for="contact_phone">Tel. kontakt<span style="color: red">*</span></label>
                                 <input type="text" name="contact_phone" value="{{ $ads->contact_phone }}">
                                 <br />
 
-                                Miesto: <br />
+                                <label for="id_location">Miesto<span style="color: red">*</span></label>
                                 <div class="form-group">
-                                    <select class="form-control" name="id_location">
+                                    <select  name="id_location">
                                         <?php foreach($location as $lo):
                                         if($lo->id_location == $ads->id_location): ?>
                                         <option value="{{$lo->id_location}}" selected>{{$lo->city}}</option>
@@ -59,16 +71,16 @@
                                 </div>
 
 
-                                Cena: <br />
+                                <label for="price">Cena<span style="color: red">*</span></label>
                                 <input type="number" name="price" value="{{ $ads->price }}">
                                 <br />
-                                Výmera: <br />
+                                <label for="area">Výmera<span style="color: red">*</span></label>
                                 <input type="number" name="area" value="{{ $ads->area }}">
                                 <br />
 
-                                Druh: <br />
+                                <label for="id_specification">Druh<span style="color: red">*</span></label>
                                 <div class="form-group">
-                                    <select class="form-control" name="id_specification">
+                                    <select  name="id_specification">
                                         <?php foreach($specification as $sp):
                                         if($sp->id_specification == $ads->id_specification): ?>
                                         <option value="{{$sp->id_specification}}" selected>{{$sp->title}}</option>
@@ -79,9 +91,9 @@
                                     </select>
                                 </div>
 
-                                Typ: <br />
+                                <label for="id_type">Typ<span style="color: red">*</span></label>
                                 <div class="form-group">
-                                    <select class="form-control" name="id_type">
+                                    <select  name="id_type">
                                         <?php foreach($type as $tp):
                                         if($tp->id_type == $ads->id_type): ?>
                                         <option value="{{$tp->id_type}}" selected>{{$tp->title}}</option>
@@ -93,9 +105,9 @@
                                 </div>
 
 
-                                Stav: <br />
+                                <label for="id_condition">Stav<span style="color: red">*</span></label>
                                 <div class="form-group">
-                                    <select class="form-control" name="id_condition">
+                                    <select  name="id_condition">
                                         <?php foreach($condition as $co):
                                         if($co->id_condition == $ads->id_condition): ?>
                                         <option value="{{$co->id_condition}}" selected>{{$co->title}}</option>
@@ -110,13 +122,15 @@
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             </div>
 
+                            <input type="checkbox" name="eula" value="eula"> Súhlasím s obchodnými podmienkami<span style="color: red">*</span><br>
 
+
+                            <div class="g-recaptcha" data-sitekey="6LdscXwUAAAAAEjwe-hTuEOTCptX4bHax134Q6xZ"></div>
 
 
 
                             <div class="box-footer">
                                 <button type="submit" class="btn btn-primary" name="submit" value="submit">Editovať</button>
-                                <button type="submit" class="btn btn-info pull-right" onclick="javascript:window.history.go(-1);">Naspäť</button>
                             </div>
                         </div>
                     </form>
@@ -124,14 +138,15 @@
                 <!-- /.box -->
             </div>
             <!-- /.col -->
-        </div>
+
         <!-- /.row -->
-    </section>
 
 
+</div>
+<br />  <br />
+<br /> <br />
 
-
-@endsection
+@include('frontend/footer')
 
 
 

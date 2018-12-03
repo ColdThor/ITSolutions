@@ -136,9 +136,24 @@ Auth::routes();
 
 //LIVE SITE
 
+
+Route::get('/inzerat/edit/{id}/{owner}','HomeController@show_editinzerat');
+Route::post('/inzerat/edited/',[  'as' => 'updates',
+    'uses' =>'HomeController@do_editinzerat']);
+
+
+Route::get('/inzerat/delete/{id}/{owner}', [
+    'as' => 'delete', 'uses' => 'HomeController@delete_inzerat'
+]);
+
+
+
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/informacie', 'HomeController@informacie')->name('informacie');
-Route::get('/inzerat/{id}', 'HomeController@showinzerat')->name('inzerat');
+Route::get('/zmluvy', 'HomeController@zmluvy')->name('zmluvy');
+Route::get('/hypoteky', 'HomeController@hypoteky')->name('hypoteky');
+Route::get('/poradenstvo', 'HomeController@poradenstvo')->name('poradenstvo');
+Route::get('/inzerat/{id}/{owner}', 'HomeController@showinzerat')->name('inzerat');
 Route::get('/search', 'HomeController@search')->name('search');
 Route::get('/search_all',[
     'as' => 'search_all',

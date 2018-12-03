@@ -83,6 +83,15 @@ class UserController extends Controller {
 
     }
 
+    public function check_email($email) {
+        $user = User::where("email","=",$email)->count();
+        if($user>=1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
     public function changepass(Request $request) {
         if($request->submit == "submit")
