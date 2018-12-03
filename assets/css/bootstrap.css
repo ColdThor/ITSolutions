@@ -112,11 +112,22 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5rem;
 }
 
+.single-info p{
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.footer-area p {
+  color: #afafaf;
+}
+
 p {
   margin-top: 0;
   margin-bottom: 1rem;
   color: #666666;
 }
+
 
 abbr[title],
 abbr[data-original-title] {
@@ -189,14 +200,14 @@ sup {
 }
 
 a {
-  color: #007bff;
+  color: #f8673c;
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
 
 a:hover {
-  color: #0056b3;
+  color: #e3582e;
   text-decoration: underline;
 }
 
@@ -240,7 +251,7 @@ img {
 .logo-menu {
   vertical-align: middle;
   border-style: none;
-  width: 180px;
+  width: 160px;
 }
 
 svg:not(:root) {
@@ -2410,14 +2421,12 @@ tbody.collapse.show {
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 0;
+  left: -20px;
   z-index: 1000;
   display: none;
   float: left;
-  min-width: 10rem;
   padding: 0.5rem 0;
   margin: 0.125rem 0 0;
-  font-size: 1rem;
   color: #212529;
   text-align: left;
   list-style: none;
@@ -2437,7 +2446,7 @@ tbody.collapse.show {
 .dropdown-item {
   display: block;
   width: 100%;
-  padding: 0.25rem 1.5rem;
+  padding: 0.3rem 1.4rem;
   clear: both;
   font-weight: normal;
   color: #212529;
@@ -2462,6 +2471,10 @@ tbody.collapse.show {
 .dropdown-item.disabled, .dropdown-item:disabled {
   color: #868e96;
   background-color: transparent;
+}
+
+.dropdown-item a {
+  padding-right: o;
 }
 
 .show > a {
@@ -3096,7 +3109,6 @@ tbody.collapse.show {
 
 .navbar-nav .dropdown-menu {
   position: static;
-  float: none;
 }
 
 .navbar-text {

@@ -91,42 +91,42 @@
                                     <?php if($i==1): ?>
                                     <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
                                     <?php endif; ?>
-                                    <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
+                                    <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
                                     <?php endforeach; ?>
 
                                     <?php $i = 0; foreach($domy as $sp): $i++; ?>
                                     <?php if($i==1): ?>
                                     <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
                                     <?php endif; ?>
-                                    <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
+                                    <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
                                     <?php endforeach; ?>
 
                                     <?php $i = 0; foreach($objekty as $sp): $i++; ?>
                                     <?php if($i==1): ?>
                                     <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
                                     <?php endif; ?>
-                                    <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
+                                    <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
                                     <?php endforeach; ?>
 
                                     <?php $i = 0; foreach($pozemky as $sp): $i++; ?>
                                     <?php if($i==1): ?>
                                     <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
                                     <?php endif; ?>
-                                    <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
+                                    <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
                                     <?php endforeach; ?>
 
                                     <?php $i = 0; foreach($priestory as $sp): $i++; ?>
                                     <?php if($i==1): ?>
                                     <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
                                     <?php endif; ?>
-                                    <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
+                                    <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
                                     <?php endforeach; ?>
 
                                     <?php $i = 0; foreach($rek as $sp): $i++; ?>
                                     <?php if($i==1): ?>
                                     <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
                                     <?php endif; ?>
-                                    <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
+                                    <option  value="{{$sp->id_location}}">{{$sp->title}}</option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -360,69 +360,50 @@
 <!-- End property Area -->
 
 
-
-<!-- Start About Area -->
-<section class="about-area">
-    <div class="container-fluid">
-        <div class="row d-flex justify-content-end align-items-center">
-            <div class="col-lg-6 about-left">
-                <div class="single-about pb-30">
-                    <h4>Prečo si vybrať nás?</h4>
-                    <p>
-                        Lebo poskytujeme najviac informácii na jednom mieste pre spokojnosť klientov.
-                    </p>
-                </div>
-                <div class="single-about pb-30">
-                    <h4>Naše produkty</h4>
-                    <p>
-                        Získavanie informácii o realitách zo všetkých dostupných zdrojov v rámci celého Slovenska.
-                    </p>
-                </div>
-                <div class="single-about">
-                    <h4>Co-working tímu </h4>
-                    <p>
-                        Kontaktujeme odborníkov na reality z celoslovenskej siete nehnuteľností.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-6 about-right no-padding">
-                <img class="img-fluid" src="/reality/assets/img/about-img.jpg" alt="">
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End About Area -->
-
 <!-- Start contact-info Area -->
-<section class="contact-info-area section-gap" id="contact">
+<section class="about-area section-gap" id="contact">
     <div class="container">
         <div class="row">
-            <div class="single-info col-lg-3 col-md-6">
-                <h4>Navštívte nás </h4>
-                <p>
+            <div class="single-info col-lg-4 col-md-12 pt-10">
+                <h4>Adresa</h4>
+                <p class="single-info">
                     Tr. Andreja Hlinku 1,  Nitra 94901, <br>
                     Slovenská Republika
                 </p>
             </div>
-            <div class="single-info col-lg-3 col-md-6">
-                <h4>Zavolajte nám</h4>
+            <div class="single-info col-lg-4 col-md-12 pt-10">
+                <h4>Kontakt</h4>
                 <p>
-                    TEL: +$21 0902 000 000 <br>
-                    FAX: 02-6532-568-746
+                    Tel.: +421 918 157 419<br>
+                    Email: <a href="mailto:info@svetrealit.sk" target="_top">info@svetrealit.sk</a>
                 </p>
             </div>
-            <div class="single-info col-lg-3 col-md-6">
-                <h4>Napíšte nám email</h4>
-                <p>
-                    <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ec8489808083ac8f8380839e80858ec28f8381">itsolutions@itsolutions.com</a> <br>
+            <div class="single-info col-lg-4 col-md-12 pt-10">
+                <div class="single-footer-widget ">
+                    <h4>Newsletter</h4>
+                    <p>Prihláste sa na odber aktuálnych<br>
+                        noviniek zo sveta realít.
+                    </p>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <div class="" id="mc_embed_signup">
+                            <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
 
-                </p>
-            </div>
-            <div class="single-info col-lg-3 col-md-6">
-                <h4>Kontaktujte podporu</h4>
-                <p>
-                    <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="24575154544b565064474b484b56484d460a474b49">customersupport@itsolutions.com</a> <br>
-                </p>
+                                <div class="d-flex flex-row">
+
+                                    <input class="form-control" name="EMAIL" placeholder="Zadať email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Zadajte email '" required="" type="email">
+
+
+                                    <button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+                                    <div style="position: absolute; left: -5000px;">
+                                        <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+                                    </div>
+
+                                </div>
+                                <div class="info"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
