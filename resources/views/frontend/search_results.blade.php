@@ -1,15 +1,13 @@
 @include('frontend/header')
 @section('page') Inzeráty @endsection
 <section class="property-area section-gap relative" id="property">
-    <div class="overlay overlay-bg"></div>
-    <div class="container pt-100">
+    <div class="container pt-30">
         <div class="row d-flex justify-content-center">
             <div class="col-md-8 pb-40 header-text">
-                <h1>Výsledky hľadania</h1>
+                <h2>Výsledky hľadania</h2>
             </div>
         </div>
         <div class="row">
-
             @if(session()->has('search'))
                 <?php $search = session()->get('search');
                 $i=0;
@@ -34,7 +32,7 @@
                             </div>
                             <div class="bottom d-flex justify-content-start">
                                 <p><span class="lnr lnr-map-marker"></span>Poloha: {{$ads->location}}</p>
-                                <p><span class="lnr lnr-bubble"></span>Pridané: <b>{{$ads->date}}</b></p>
+                                <p><span class="lnr lnr-history"></span>Pridané: <b>{{$ads->date}}</b></p>
                             </div>
                         </div>
                     </div>

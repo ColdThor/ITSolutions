@@ -4,7 +4,7 @@
 <section class="banner-area relative" id="home">
     <div class="overlay overlay-bg"></div>
     <div class="container">
-        <div class="row fullscreen align-items-center justify-content-center mt-25" style="height: 915px;">
+        <div class="row fullscreen align-items-center justify-content-center" style="height: 915px;">
             <div class="banner-content col-lg-12 col-md-12">
                 <div class="search-field">
                     <form method="get" class="search-form" action="{{  action('HomeController@search')  }}">
@@ -187,8 +187,8 @@
 <section class="service-area section-gap" id="about">
     <div class="container">
         <div class="row d-flex justify-content-center">
-            <div class="col-md-8 pb-40 header-text">
-                <h1>Sme najlepší na trhu</h1>
+            <div class="col-md-8 pt-30 pb-20 header-text">
+                <h2>Sme najlepší na trhu</h2>
                 <p>
                     Prečo použiť našu platformu?
                 </p>
