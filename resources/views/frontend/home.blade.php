@@ -265,7 +265,7 @@
         </div>
         <div class="row">
             <div class="col-lg-4">
-                <div class="single-property">
+                <div class="single-prop">
                     <div class="images">
                         <img class="img-fluid mx-auto d-block" src="/reality/assets/img/s1.jpg" alt="">
                         <span>Na predaj</span>
@@ -295,7 +295,7 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="single-property">
+                <div class="single-prop">
                     <div class="images">
                         <img class="img-fluid mx-auto d-block" src="/reality/assets/img/s2	.jpg" alt="">
                         <span>Na predaj</span>
@@ -325,7 +325,7 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="single-property">
+                <div class="single-prop">
                     <div class="images">
                         <img class="img-fluid mx-auto d-block" src="/reality/assets/img/s3.jpg" alt="">
                         <span>Na predaj</span>

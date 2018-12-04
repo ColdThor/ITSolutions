@@ -20,7 +20,7 @@
         </div>
         <div class="row">
             <div class="col-lg-4">
-                <div class="single-property" style="height: 95%">
+                <div class="single-prop" style="height: 95%">
                     <div class="images">
                         <img class="img-fluid mx-auto d-block" src="/reality/assets/img/zmluva1.jpg" alt="">
                     </div>
@@ -45,7 +45,7 @@
 
 
             <div class="col-lg-4">
-                <div class="single-property" style="height: 95%">
+                <div class="single-prop" style="height: 95%">
                     <div class="images">
                         <img class="img-fluid mx-auto d-block" src="/reality/assets/img/zmluva2.jpg" alt="">
 
@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="single-property" style="height: 95%">
+                <div class="single-prop" style="height: 95%">
                     <div class="images">
                         <img class="img-fluid mx-auto d-block" src="/reality/assets/img/zmluva3.jpg" alt="" >
 

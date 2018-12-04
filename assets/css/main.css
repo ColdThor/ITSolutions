@@ -2435,6 +2435,28 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
   opacity: 0.8;
 }
 
+.single-prop {
+  background-color: #fff;
+  padding: 20px;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.single-prop .images img {
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  width: 100%;
+  height: auto;
+}
+
+.single-prop .desc {
+  padding: 0;
+}
+
 .single-property {
   background-color: #fff;
   box-shadow: 0px 2px 13px 0px rgba(204, 204, 204, 0.8);
