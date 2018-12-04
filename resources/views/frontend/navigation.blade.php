@@ -17,7 +17,9 @@
                     <li class="dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton"><a href="">Moje inzeráty</a></li>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="<?php echo url('/pridat'); ?>">Pridať inzerát</a>
+                        @if(session()->has('userID'))
                         <a class="dropdown-item" href="<?php echo url('/moje_inzeraty'); ?>">Moje inzeráty</a>
+                            @endif
                     </div>
                 </div>
                 <li><a href="<?php echo url('/user/login'); ?>">Realitné kancelárie</a></li>
