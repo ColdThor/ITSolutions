@@ -1,5 +1,5 @@
 @include('frontend/header')
-
+@include('frontend/chat')
 @section('page') Inzerát @endsection
 <br /> <br />
 <br /> <br />

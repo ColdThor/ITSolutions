@@ -1,4 +1,5 @@
 @include('frontend/header')
+@include('frontend/chat')
 @section('page') Inzeráty @endsection
 <section class="property-area section-gap relative" id="property">
     <div class="container pt-30">

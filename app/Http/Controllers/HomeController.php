@@ -264,7 +264,15 @@ class HomeController extends Controller
     public function informacie() {
         return view('frontend/informacie');
     }
-
+    public function ziadosti() {
+        return view('frontend/ziadosti');
+    }
+    public function kupa() {
+        return view('frontend/kupa');
+    }
+    public function navrhy() {
+        return view('frontend/navrhy');
+    }
 
     public function zmluvy() {
         return view('frontend/zmluvy');

@@ -1,5 +1,5 @@
 @include('frontend/header')
-
+@include('frontend/chat')
 @section('page') Užitočné informácie @endsection
 
 <div align="center">

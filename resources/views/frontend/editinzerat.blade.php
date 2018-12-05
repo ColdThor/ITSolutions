@@ -1,4 +1,4 @@
-
+@include('frontend/chat')
 @include('frontend/header')
 @section('page') Editovať inzerát @endsection
 <div class="container pt-130">

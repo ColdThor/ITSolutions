@@ -1,4 +1,5 @@
 @include('frontend/header')
+@include('frontend/chat')
 @section('page') Home @endsection
 <!-- start banner Area -->
 <section class="banner-area relative" id="home">
