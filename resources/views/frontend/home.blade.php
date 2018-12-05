@@ -185,6 +185,9 @@
 
 
 <!-- Start service Area -->
+
+
+
 <section class="service-area section-gap" id="about">
     <div class="container">
         <div class="row d-flex justify-content-center">
@@ -269,13 +272,19 @@
                 <div class="single-prop">
                     <div class="images">
                         <img class="img-fluid mx-auto d-block" src="/reality/assets/img/s1.jpg" alt="">
-                        <span>Na predaj</span>
+                        <?php
+                        $i = 0;
+                        foreach ($top as $realita):
+                            $i++;
+                        if($i==1):?>
+                        <span><?php echo $realita->title ?></span>
+
                     </div>
 
                     <div class="desc">
                         <div class="top d-flex justify-content-between">
                             <h4><a href="#">04 Bed Duplex</a></h4>
-                            <h4>$3.5M</h4>
+                            <h4><?php echo $realita->price ?></h4>
                         </div>
                         <div class="middle">
                             <div class="d-flex justify-content-start">
@@ -295,6 +304,9 @@
                     </div>
                 </div>
             </div>
+        <?php endif ?>
+        <?php endforeach; ?>
+            <!-- Koniec 1 casti-->
             <div class="col-lg-4">
                 <div class="single-prop">
                     <div class="images">
@@ -325,6 +337,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Koniec 2 casti-->
             <div class="col-lg-4">
                 <div class="single-prop">
                     <div class="images">
@@ -355,6 +368,106 @@
                     </div>
                 </div>
             </div>
+            <!-- Koniec 3 casti-->
+
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="single-prop">
+                    <div class="images">
+                        <img class="img-fluid mx-auto d-block" src="/reality/assets/img/s1.jpg" alt="">
+                        <span>Na predaj</span>
+                    </div>
+
+                    <div class="desc">
+                        <div class="top d-flex justify-content-between">
+                            <h4><a href="#">04 Bed Duplex</a></h4>
+                            <h4>$3.5M</h4>
+                        </div>
+                        <div class="middle">
+                            <div class="d-flex justify-content-start">
+                                <p>Bed: 04</p>
+                                <p>Bath: 03</p>
+                                <p>Area: 750sqm</p>
+                            </div>
+                            <div class="d-flex justify-content-start">
+                                <p>Pool: <span class="gr">Yes</span></p>
+                                <p>Internet: <span class="rd">No</span></p>
+                                <p>Cleaning: <span class="rd">No</span></p>
+                            </div>
+                        </div>
+                        <div class="bottom d-flex justify-content-start">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Koniec 4 casti-->
+
+            <div class="col-lg-4">
+                <div class="single-prop">
+                    <div class="images">
+                        <img class="img-fluid mx-auto d-block" src="/reality/assets/img/s2	.jpg" alt="">
+                        <span>Na predaj</span>
+                    </div>
+
+                    <div class="desc">
+                        <div class="top d-flex justify-content-between">
+                            <h4><a href="#">04 Bed Duplex</a></h4>
+                            <h4>$3.5M</h4>
+                        </div>
+                        <div class="middle">
+                            <div class="d-flex justify-content-start">
+                                <p>Bed: 04</p>
+                                <p>Bath: 03</p>
+                                <p>Area: 750sqm</p>
+                            </div>
+                            <div class="d-flex justify-content-start">
+                                <p>Pool: <span class="gr">Yes</span></p>
+                                <p>Internet: <span class="rd">No</span></p>
+                                <p>Cleaning: <span class="rd">No</span></p>
+                            </div>
+                        </div>
+                        <div class="bottom d-flex justify-content-start">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Koniec 5 casti-->
+
+            <div class="col-lg-4">
+                <div class="single-prop">
+                    <div class="images">
+                        <img class="img-fluid mx-auto d-block" src="/reality/assets/img/s3.jpg" alt="">
+                        <span>Na predaj</span>
+                    </div>
+
+                    <div class="desc">
+                        <div class="top d-flex justify-content-between">
+                            <h4><a href="#">04 Bed Duplex</a></h4>
+                            <h4>$3.5M</h4>
+                        </div>
+                        <div class="middle">
+                            <div class="d-flex justify-content-start">
+                                <p>Bed: 04</p>
+                                <p>Bath: 03</p>
+                                <p>Area: 750sqm</p>
+                            </div>
+                            <div class="d-flex justify-content-start">
+                                <p>Pool: <span class="gr">Yes</span></p>
+                                <p>Internet: <span class="rd">No</span></p>
+                                <p>Cleaning: <span class="rd">No</span></p>
+                            </div>
+                        </div>
+                        <div class="bottom d-flex justify-content-start">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Koniec 6 casti-->
+
         </div>
     </div>
 </section>

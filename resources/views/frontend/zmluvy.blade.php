@@ -2,7 +2,6 @@
 @include('frontend/chat')
 @section('page') Zmluvy @endsection
 
-<h1>Všetky informácie o hypotékach na jednom mieste len pre Vás</h1>
 
 
 <!-- Start property Area -->

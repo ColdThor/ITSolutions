@@ -8,54 +8,12 @@
 
 
 
-<style>
-    div.gallery {
-        border: 1px solid #ccc;
-    }
 
-    div.gallery:hover {
-        border: 1px solid #777;
-    }
-
-    div.gallery img {
-        width: 100%;
-        height: auto;
-    }
-
-    div.desc {
-        padding: 15px;
-        text-align: center;
-    }
-
-    * {
-        box-sizing: border-box;
-    }
-
-    .responsive {
-        padding: 0 6px;
-        float: left;
-        width: 24.99999%;
-    }
-
-    @media only screen and (max-width: 700px) {
-        .responsive {
-            width: 49.99999%;
-            margin: 6px 0;
-        }
-    }
-
-    @media only screen and (max-width: 500px) {
-        .responsive {
-            width: 100%;
-        }
-    }
-
-    .clearfix:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
+    <style>
+    .mySlides {display:none;}
 </style>
+
+
 
 
 <div align="right" style="float: right; margin-right: 30px;">
@@ -135,22 +93,21 @@
 <br />
 
 
-<?php
-        $id= $ad->id_advertisement;
-        $i = 1;
-while(file_exists("storage/inzeraty/inzerat_".$id."/fotka_".$i.".png")):?>
-    <div class="responsive">
-        <div class="gallery">
-            <a target="_blank" href="/reality/storage/app/public/inzeraty/inzerat_{{$ad->id_advertisement}}/fotka_<?php echo $i; ?>.png">
-                <img src="/reality/storage/app/public/inzeraty/inzerat_{{$ad->id_advertisement}}/fotka_<?php echo $i; ?>.png" alt="Foto1" width="600" height="400">
-            </a>
-        </div>
+
+
+
+    <div class="w3-content w3-display-container">
+        <?php $id= $ad->id_advertisement; $i = 1;
+        while(file_exists("storage/inzeraty/inzerat_".$id."/fotka_".$i.".png")):?>
+        <img  class="mySlides" src="/reality/storage/app/public/inzeraty/inzerat_{{$ad->id_advertisement}}/fotka_<?php echo $i; ?>.png" alt="Foto1" width="600" height="400">
+
+
+        <?php
+        $i++;
+        endwhile; ?>
+        <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
     </div>
-    <?php
-    $i++;
-    endwhile; ?>
-
-
 
 
 
@@ -162,6 +119,26 @@ while(file_exists("storage/inzeraty/inzerat_".$id."/fotka_".$i.".png")):?>
 </div>
 <br /> <br />
 <br /> <br />
+
+<script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+
+    function plusDivs(n) {
+        showDivs(slideIndex += n);
+    }
+
+    function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = x.length}
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex-1].style.display = "block";
+    }
+</script>
 
 
 
