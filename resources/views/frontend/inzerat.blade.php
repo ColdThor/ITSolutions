@@ -1,14 +1,70 @@
 @include('frontend/header')
-
 @section('page') Inzerát @endsection
-<br /> <br />
-<br /> <br />
-<br /> <br />
+
+<div class="section-top-border">
+    <div class="row pt-30">
+        <div class="col-lg-7 col-md-7">
+            <h3 class="mb-10">{{$ad->title}}</h3>
+            <div class="single-element-widget">
+                <h5><span class="lnr lnr-history"></span>Dátum zverejnenia: <b>{{$ad->date}}</b></h5>
+            </div>
+            <blockquote class="generic-blockquote mt-20">
+                {{$ad->description}}</p>
+            </blockquote>
+        </div>
+
+        <div class="col-lg-5 col-md-5 mt-sm-30">
+            <div class="single-element-widget">
+                <h4 class="mb-10">Špecifikácia nehnuteľnosti:</h4>
+                <h5><span class="lnr lnr-apartment"></span>Druh: <b>{{$ad->specification}}</b></h5>
+                <h5><span class="lnr lnr-cog"></span>Stav: <b>{{$ad->condition}}</b></h5>
+                <h5><span class="lnr lnr-pushpin"></span>Typ: <b>{{$ad->type}}</b></h5>
+                <h5><span class="lnr lnr-crop"></span>Výmera: <b>{{$ad->area}}m<sup>2</sup></b></h5>
+                <h5><span class="lnr lnr-map-marker"></span>Lokalita: <b>{{$ad->location2}}</b></h5>
+                <h4 id="price">Cena: <b>{{$ad->price}}€</b></h4>
+            </div>
+
+            <div class="single-element-widget mt-40">
+                <h4 class="mb-10">Inzerujúci:</h4>
+                <h5><span class="lnr lnr-user"></span>Meno: <b>{{$ad->user}}</b></h5>
+                <h5><span class="lnr lnr-envelope"></span>Email: <b>{{$ad->contact_mail}}</b></h5>
+                <?php if($ad->contact_phone == "" || $ad->contact_phone == null): ?>
+                <?php else: ?>
+                <h5><span class="lnr lnr-phone"></span>Tel. číslo: <b>{{$ad->contact_phone}}</b></h5>
+                <?php endif ?>
+            </div>
+        </div>
+    </div>
+</div>
 
 
+<div class="section-top-border">
+    <div class="col-lg-12 d-flex align-items-center justify-content-center">
+        <div class="row">
+            <h3 class="mb-30">Fotogaléria</h3>
+        </div>
+    </div>
+    <div class="row gallery-item">
+        <?php
+        $id= $ad->id_advertisement;
+        $i = 1;
+        while(file_exists("storage/inzeraty/inzerat_".$id."/fotka_".$i.".png")):?>
+        <div class="col-md-4">
+            <a href="/reality/storage/app/public/inzeraty/inzerat_{{$ad->id_advertisement}}/fotka_<?php echo $i; ?>.png" class="img-pop-up">
+                <div class="single-gallery-image" style="background: url(/reality/storage/app/public/inzeraty/inzerat_{{$ad->id_advertisement}}/fotka_<?php echo $i; ?>.png);"></div>
+            </a>
+        </div>
+        <?php
+        $i++;
+        endwhile; ?>
+    </div>
+</div>
 
+
+<!-- Pôvodný chrisov kód na galériu
 
 <style>
+    /*
     div.gallery {
         border: 1px solid #ccc;
     }
@@ -54,7 +110,7 @@
         content: "";
         display: table;
         clear: both;
-    }
+    } */
 </style>
 
 
@@ -162,7 +218,7 @@ while(file_exists("storage/inzeraty/inzerat_".$id."/fotka_".$i.".png")):?>
 </div>
 <br /> <br />
 <br /> <br />
-
+-->
 
 
 

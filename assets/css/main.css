@@ -783,7 +783,7 @@ td, th {
 }
 
 b, i, sup, sub, u, del {
-  color: #f41068;
+  color: #ff660c;
 }
 
 h1 {
@@ -1070,9 +1070,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .generic-blockquote {
-  padding: 30px 50px 30px 30px;
+  padding: 20px 50px 10px 30px;
+  color: #000;
   background: #f9f9ff;
-  border-left: 2px solid #f41068;
+  border-left: 2px solid #ff660c;
 }
 
 .progress-table-wrap {
@@ -1173,7 +1174,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .single-gallery-image {
-  margin-top: 30px;
+  margin-top: 10px;
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: cover !important;
@@ -3039,7 +3040,7 @@ h6 {
 }
 
 .section-top-border {
-  padding: 70px 0;
+  padding: 70px;
   border-top: 1px dotted #eee;
 }
 
@@ -3051,3 +3052,33 @@ h6 {
   margin: 0;
 }
 
+.single-element-widget h4{
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+}
+
+.single-element-widget h4 b{
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.single-element-widget h5{
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+  padding: 4px 0px;
+}
+
+.single-element-widget b, sup{
+  font-weight: 500;
+}
+
+#price {
+  padding-top: 10px;
+}
+
+.date h5, b {
+  font-size: 14px;
+  font-weight: 400;
+}
