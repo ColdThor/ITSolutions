@@ -1,5 +1,8 @@
 @include('frontend/header')
+<<<<<<< HEAD
 @include('frontend/chat')
+=======
+>>>>>>> 2961c3311be86d181be8a00bc0ab3876056d5379
 @section('page') Pridať inzerát @endsection
 <div class="container pt-130">
     <div class="row align-items-center justify-content-center">
