@@ -38,19 +38,22 @@
                 </div>
                 <?php endforeach;?>
             @endif
+
         </div>
-    </div>
+
             <?php if($user_id == 3 || $user_id == 4):?>
                 <br />
-
+<span style="color: black; margin-left: 5%">Štatistiky</span>
+    <br />
             <div class="box-body">
+
                 <div id="pop_div"></div>
 
                 <?= Lava::render('ColumnChart', 'Finances', 'pop_div') ?>
             </div>
             <?php endif; ?>
 
-
+    </div>
 </section>
 
 @include('frontend/footer')
