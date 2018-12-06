@@ -1,4 +1,5 @@
 @include('frontend/header')
+@include('frontend/chat')
 @section('page') Registrácia @endsection
 
 

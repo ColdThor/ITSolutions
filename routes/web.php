@@ -145,7 +145,9 @@ Route::post('/inzerat/edited/',[  'as' => 'updates',
 Route::get('/inzerat/delete/{id}/{owner}', [
     'as' => 'delete', 'uses' => 'HomeController@delete_inzerat'
 ]);
-
+Route::get('/ziadosti', 'HomeController@ziadosti')->name('ziadosti');
+Route::get('/kupa', 'HomeController@kupa')->name('kupa');
+Route::get('/navrhy', 'HomeController@navrhy')->name('navrhy');
 
 
 Route::get('/', 'HomeController@index')->name('home');

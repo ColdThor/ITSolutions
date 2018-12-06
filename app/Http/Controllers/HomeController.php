@@ -72,7 +72,13 @@ class HomeController extends Controller
         $data['priestory'] = $priestory;
         $data['rek'] = $rek;
 
-
+        $top = Advertisement::select('advertisement.*','condition.title AS condition',
+            'type.title AS type','specification.title AS title','location.city AS location')->leftJoin('condition', 'advertisement.id_condition', '=', 'condition.id_condition')
+            ->leftJoin('type', 'advertisement.id_type', '=', 'type.id_type')
+            ->leftJoin('specification', 'advertisement.id_specification', '=', 'specification.id_specification')
+            ->leftJoin('location', 'advertisement.id_location', '=', 'location.id_location')
+            ->leftJoin('user', 'advertisement.id_user', '=', 'user.id_user')->latest("views")->get();
+        $data['top'] = $top;
 
 
 
@@ -264,7 +270,15 @@ class HomeController extends Controller
     public function informacie() {
         return view('frontend/informacie');
     }
-
+    public function ziadosti() {
+        return view('frontend/ziadosti');
+    }
+    public function kupa() {
+        return view('frontend/kupa');
+    }
+    public function navrhy() {
+        return view('frontend/navrhy');
+    }
 
     public function zmluvy() {
         return view('frontend/zmluvy');

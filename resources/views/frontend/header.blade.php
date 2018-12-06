@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/reality/assets/css/ion.rangeSlider.skinFlat.css" />
     <link rel="stylesheet" href="/reality/assets/css/bootstrap.css">
     <link rel="stylesheet" href="/reality/assets/css/main.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 
     <!-- Mobile Specif ic Meta -->

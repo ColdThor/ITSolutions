@@ -1,37 +1,46 @@
 @include('frontend/header')
-
+@include('frontend/chat')
 @section('page') Moje inzeráty @endsection
-<br /> <br />
-<br /> <br />
-<br /> <br />
+<section class="property-area section-gap relative" id="property">
+    <div class="container pt-30">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8 pt-30 pb-40 header-text">
+                <h2>Moje inzeráty</h2>
+            </div>
+        </div>
+        <div class="row">
+            @if(session()->has('mypage'))
+                <?php $search = session()->get('mypage');
+                foreach($search as $ads):
+                    $fotka = $ads->id_advertisement;
+                    $user_id = $ads->id_user_group;
+                ?>
+            <div class="col-lg-6">
+                <div class="single-property">
+                    <div class="images">
+                        <a href="<?php echo url('/inzerat/'.$fotka.'/false'); ?>" style="color: black">
+                            <img class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $fotka ?>/fotka_1.png" alt="" ></a>
+                        <span>Typ predaja: {{$ads->type}} </span>
+                    </div>
+                    <div class="desc">
+                        <div class="top d-flex justify-content-between">
+                            <h5><a href="<?php echo url('/inzerat/'.$fotka.'/false'); ?>">{{$ads->title}}</a></h5>
+                        </div>
+                        <div class="bottom d-flex justify-content-start">
+                            <p><span class="lnr lnr-apartment"></span>Cena: <b>{{$ads->price}}€</b></p>
+                            <p><span class="lnr lnr-crop"></span>Výmera: <b>{{$ads->area}}m<sup>2</sup></b></p>
+                        </div>
+                        <div class="bottom d-flex justify-content-start">
+                            <p><span class="lnr lnr-eye"></span>Počet zobrazení: <b>{{$ads->views}}</b></p>
+                            <p><span class="lnr lnr-history"></span>Pridané: <b>{{$ads->date}}</b></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach;?>
+            @endif
 
-
-<div align="center">
-@if(session()->has('mypage'))
-    <?php $search = session()->get('mypage');
-        foreach($search as $ads):
-            $fotka = $ads->id_advertisement;
-            $user_id = $ads->id_user_group;
-        ?>
-        <a href="<?php echo url('/inzerat/'.$fotka.'/false'); ?>" style="color: black"> <img  align="center" class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $fotka ?>/fotka_1.png" alt=""  style="position:relative; left:350px; float:left; height: 20%; width: 20%"></a>
-        <div>
-            <a href="<?php echo url('/inzerat/'.$fotka.'/false'); ?>" style="color: black">
-                <h1>{{$ads->title}}</h1>
-                Popis: {{$ads->description}} <br />
-                Dátum zverejnenia: {{$ads->date}} <br />
-                Výmera: {{$ads->area}} m<sup style="color: black">2</sup> <br />
-                Cena: <span style="color:red" > {{$ads->price}} </span>€ <br />
-                Počet prezretí: {{$ads->views}}
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-            </a>
-    <?php endforeach; ?>
-    @endif
-
-<?php if($user_id == 3 || $user_id == 4):?>
+            <?php if($user_id == 3 || $user_id == 4):?>
             <div class="box-body">
                 <div id="pop_div"></div>
 
@@ -39,17 +48,8 @@
             </div>
             <?php endif; ?>
 
-
-
-</div>
-
-
-
-
-
-
-
-<br /> <br />
-<br /> <br />
+        </div>
+    </div>
+</section>
 
 @include('frontend/footer')
