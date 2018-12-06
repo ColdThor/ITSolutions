@@ -358,60 +358,6 @@
     </div>
 </section>
 <!-- End property Area -->
-
-
-<!-- Start contact-info Area -->
-<section class="about-area section-gap" id="contact">
-    <div class="container">
-        <div class="row">
-            <div class="single-info col-lg-4 col-md-12 pt-10">
-                <h4>Adresa</h4>
-                <p class="single-info">
-                    Tr. Andreja Hlinku 1,  Nitra 94901, <br>
-                    Slovenská Republika
-                </p>
-            </div>
-            <div class="single-info col-lg-4 col-md-12 pt-10">
-                <h4>Kontakt</h4>
-                <p>
-                    Tel.: +421 918 157 419<br>
-                    Email: <a href="mailto:info@svetrealit.sk" target="_top">info@svetrealit.sk</a>
-                </p>
-            </div>
-            <div class="single-info col-lg-4 col-md-12 pt-10">
-                <div class="single-footer-widget ">
-                    <h4>Newsletter</h4>
-                    <p>Prihláste sa na odber aktuálnych<br>
-                        noviniek zo sveta realít.
-                    </p>
-                    <div class="d-flex align-items-center justify-content-center">
-                        <div class="" id="mc_embed_signup">
-                            <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
-
-                                <div class="d-flex flex-row">
-
-                                    <input class="form-control" name="EMAIL" placeholder="Zadať email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Zadajte email '" required="" type="email">
-
-
-                                    <button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
-                                    <div style="position: absolute; left: -5000px;">
-                                        <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-                                    </div>
-
-                                </div>
-                                <div class="info"></div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End contact-info Area -->
-
-
-
 @include('frontend/footer')
 
 
