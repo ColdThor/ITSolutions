@@ -267,35 +267,37 @@
                 </p>
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="display: run-in">
+
             <div class="col-lg-4">
                 <div class="single-prop">
+                    <?php
+                    $i = 0;
+                    foreach ($top as $realita):
+                    $i++;
+                    if($i==1):?>
                     <div class="images">
-                        <img class="img-fluid mx-auto d-block" src="/reality/assets/img/s1.jpg" alt="">
-                        <?php
-                        $i = 0;
-                        foreach ($top as $realita):
-                            $i++;
-                        if($i==1):?>
-                        <span><?php echo $realita->title ?></span>
+                        <a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>" style="color: black">
+                            <img class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png" alt="" style="max-height: 170px" style="min-height: 170px"> </a>
+
+
+                        <span><?php echo $realita->location ?></span>
 
                     </div>
 
                     <div class="desc">
                         <div class="top d-flex justify-content-between">
-                            <h4><a href="#">04 Bed Duplex</a></h4>
-                            <h4><?php echo $realita->price ?></h4>
+                            <h4><?php echo $realita->title ?></h4>
+                            <h4><?php echo $realita->price ?> €</h4>
                         </div>
                         <div class="middle">
-                            <div class="d-flex justify-content-start">
-                                <p>Bed: 04</p>
-                                <p>Bath: 03</p>
-                                <p>Area: 750sqm</p>
+                            <div class="d-flex justify-content-start" >
+                                <p>Pridané: </p>
+                                <p></p>
+                                <p><?php echo $realita->date?></p>
                             </div>
                             <div class="d-flex justify-content-start">
-                                <p>Pool: <span class="gr">Yes</span></p>
-                                <p>Internet: <span class="rd">No</span></p>
-                                <p>Cleaning: <span class="rd">No</span></p>
+
                             </div>
                         </div>
                         <div class="bottom d-flex justify-content-start">
@@ -306,29 +308,39 @@
             </div>
         <?php endif ?>
         <?php endforeach; ?>
+
+            <br />
+
             <!-- Koniec 1 casti-->
             <div class="col-lg-4">
                 <div class="single-prop">
+                    <?php
+                    $i = 0;
+                    foreach ($top as $realita):
+                    $i++;
+                    if($i==2):?>
                     <div class="images">
-                        <img class="img-fluid mx-auto d-block" src="/reality/assets/img/s2	.jpg" alt="">
-                        <span>Na predaj</span>
+                        <a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>" style="color: black">
+                            <img class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png" alt="" style="max-height: 170px" style="min-height: 170px"> </a>
+
+
+                        <span><?php echo $realita->location ?></span>
+
                     </div>
 
                     <div class="desc">
                         <div class="top d-flex justify-content-between">
-                            <h4><a href="#">04 Bed Duplex</a></h4>
-                            <h4>$3.5M</h4>
+                            <h4><?php echo $realita->title ?></h4>
+                            <h4><?php echo $realita->price ?> €</h4>
                         </div>
                         <div class="middle">
                             <div class="d-flex justify-content-start">
-                                <p>Bed: 04</p>
-                                <p>Bath: 03</p>
-                                <p>Area: 750sqm</p>
+                                <p>Pridané: </p>
+                                <p></p>
+                                <p><?php echo $realita->date?></p>
                             </div>
                             <div class="d-flex justify-content-start">
-                                <p>Pool: <span class="gr">Yes</span></p>
-                                <p>Internet: <span class="rd">No</span></p>
-                                <p>Cleaning: <span class="rd">No</span></p>
+
                             </div>
                         </div>
                         <div class="bottom d-flex justify-content-start">
@@ -337,29 +349,38 @@
                     </div>
                 </div>
             </div>
+        <?php endif ?>
+        <?php endforeach; ?>
             <!-- Koniec 2 casti-->
             <div class="col-lg-4">
                 <div class="single-prop">
+                    <?php
+                    $i = 0;
+                    foreach ($top as $realita):
+                    $i++;
+                    if($i==3):?>
                     <div class="images">
-                        <img class="img-fluid mx-auto d-block" src="/reality/assets/img/s3.jpg" alt="">
-                        <span>Na predaj</span>
+                        <a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>" style="color: black">
+                            <img class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png" alt="" style="max-height: 170px" style="min-height: 170px"> </a>
+
+
+                        <span><?php echo $realita->location ?></span>
                     </div>
 
                     <div class="desc">
                         <div class="top d-flex justify-content-between">
-                            <h4><a href="#">04 Bed Duplex</a></h4>
-                            <h4>$3.5M</h4>
+                            <h4><?php echo $realita->title ?></h4>
+                            <h4><?php echo $realita->price ?> €</h4>
                         </div>
                         <div class="middle">
                             <div class="d-flex justify-content-start">
-                                <p>Bed: 04</p>
-                                <p>Bath: 03</p>
-                                <p>Area: 750sqm</p>
+
+                                <p>Pridané: </p>
+                                <p></p>
+                                <p><?php echo $realita->date?></p>
                             </div>
                             <div class="d-flex justify-content-start">
-                                <p>Pool: <span class="gr">Yes</span></p>
-                                <p>Internet: <span class="rd">No</span></p>
-                                <p>Cleaning: <span class="rd">No</span></p>
+
                             </div>
                         </div>
                         <div class="bottom d-flex justify-content-start">
@@ -368,32 +389,43 @@
                     </div>
                 </div>
             </div>
+        <?php endif ?>
+        <?php endforeach; ?>
+            <br />
             <!-- Koniec 3 casti-->
 
         </div>
-        <div class="row">
+    <br />
+        <div class="row" style="display: flex">
             <div class="col-lg-4">
                 <div class="single-prop">
+                    <?php
+                    $i = 0;
+                    foreach ($top as $realita):
+                    $i++;
+                    if($i==4):?>
                     <div class="images">
-                        <img class="img-fluid mx-auto d-block" src="/reality/assets/img/s1.jpg" alt="">
-                        <span>Na predaj</span>
+                        <a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>" style="color: black">
+                            <img class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png" alt="" style="max-height: 170px" style="min-height: 170px"> </a>
+
+
+                        <span><?php echo $realita->location ?></span>
                     </div>
 
                     <div class="desc">
                         <div class="top d-flex justify-content-between">
-                            <h4><a href="#">04 Bed Duplex</a></h4>
-                            <h4>$3.5M</h4>
+                            <h4><?php echo $realita->title ?></h4>
+                            <h4><?php echo $realita->price ?> €</h4>
                         </div>
                         <div class="middle">
                             <div class="d-flex justify-content-start">
-                                <p>Bed: 04</p>
-                                <p>Bath: 03</p>
-                                <p>Area: 750sqm</p>
+                                <p>Pridané: </p>
+                                <p></p>
+                                <p><?php echo $realita->date?></p>
+
                             </div>
                             <div class="d-flex justify-content-start">
-                                <p>Pool: <span class="gr">Yes</span></p>
-                                <p>Internet: <span class="rd">No</span></p>
-                                <p>Cleaning: <span class="rd">No</span></p>
+
                             </div>
                         </div>
                         <div class="bottom d-flex justify-content-start">
@@ -402,30 +434,40 @@
                     </div>
                 </div>
             </div>
+        <?php endif ?>
+        <?php endforeach; ?>
+            <br />
             <!-- Koniec 4 casti-->
 
             <div class="col-lg-4">
                 <div class="single-prop">
+                    <?php
+                    $i = 0;
+                    foreach ($top as $realita):
+                    $i++;
+                    if($i==5):?>
                     <div class="images">
-                        <img class="img-fluid mx-auto d-block" src="/reality/assets/img/s2	.jpg" alt="">
-                        <span>Na predaj</span>
+                        <a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>" style="color: black">
+                            <img class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png" alt="" style="max-height: 170px" style="min-height: 170px"> </a>
+
+
+                        <span><?php echo $realita->location ?></span>
                     </div>
 
                     <div class="desc">
                         <div class="top d-flex justify-content-between">
-                            <h4><a href="#">04 Bed Duplex</a></h4>
-                            <h4>$3.5M</h4>
+                            <h4><?php echo $realita->title ?></h4>
+                            <h4><?php echo $realita->price ?> €</h4>
                         </div>
                         <div class="middle">
                             <div class="d-flex justify-content-start">
-                                <p>Bed: 04</p>
-                                <p>Bath: 03</p>
-                                <p>Area: 750sqm</p>
+
+                                <p>Pridané: </p>
+                                <p></p>
+                                <p><?php echo $realita->date?></p>
                             </div>
                             <div class="d-flex justify-content-start">
-                                <p>Pool: <span class="gr">Yes</span></p>
-                                <p>Internet: <span class="rd">No</span></p>
-                                <p>Cleaning: <span class="rd">No</span></p>
+
                             </div>
                         </div>
                         <div class="bottom d-flex justify-content-start">
@@ -434,36 +476,54 @@
                     </div>
                 </div>
             </div>
+        <?php endif ?>
+        <?php endforeach; ?>
+            <br />
             <!-- Koniec 5 casti-->
 
             <div class="col-lg-4">
                 <div class="single-prop">
+                    <?php
+                    $i = 0;
+                    foreach ($top as $realita):
+                    $i++;
+                    if($i==6):?>
                     <div class="images">
-                        <img class="img-fluid mx-auto d-block" src="/reality/assets/img/s3.jpg" alt="">
-                        <span>Na predaj</span>
+                        <a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>" style="color: black">
+                            <img class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png" alt="" style="max-height: 170px" style="min-height: 170px"> </a>
+
+
+                        <span><?php echo $realita->location ?></span>
                     </div>
 
                     <div class="desc">
                         <div class="top d-flex justify-content-between">
-                            <h4><a href="#">04 Bed Duplex</a></h4>
-                            <h4>$3.5M</h4>
+                            <h4><?php echo $realita->title ?></h4>
+                            <h4><?php echo $realita->price ?> €</h4>
                         </div>
                         <div class="middle">
                             <div class="d-flex justify-content-start">
-                                <p>Bed: 04</p>
-                                <p>Bath: 03</p>
-                                <p>Area: 750sqm</p>
+                                <p>Pridané: </p>
+                                <p></p>
+                                <p><?php echo $realita->date?></p>
+
                             </div>
                             <div class="d-flex justify-content-start">
-                                <p>Pool: <span class="gr">Yes</span></p>
-                                <p>Internet: <span class="rd">No</span></p>
-                                <p>Cleaning: <span class="rd">No</span></p>
+
                             </div>
                         </div>
                         <div class="bottom d-flex justify-content-start">
 
                         </div>
                     </div>
+                </div>
+            </div>
+        <?php endif ?>
+        <?php endforeach; ?>
+            <br />
+            <div class="col-lg-12 d-flex align-items-center justify-content-center">
+                <div class="row">
+                    <a type="a"  href="<?php echo url('/search_all'); ?>" class="primary-btn mt-10" >Pozrieť všetky inzeráty<span class="lnr lnr-arrow-right"></span> </a>
                 </div>
             </div>
             <!-- Koniec 6 casti-->
@@ -472,6 +532,7 @@
     </div>
 </section>
 <!-- End property Area -->
+
 
 
 <!-- Start contact-info Area -->

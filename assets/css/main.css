@@ -2445,6 +2445,7 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
 }
 
 .single-prop .images img {
+
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
