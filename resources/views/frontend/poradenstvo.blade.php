@@ -5,12 +5,13 @@
 <section class="contact-area" id="contact">
     <div class="container-fluid">
         <br><br><br><br>
+        <h3  style="margin-left: 5%; color: #0a0a0a">Napíšte svoju otázku a registrovaní právnici Vám poskytnú kvalifikovaný právny názor.</h3>
         <div class="row align-items-center d-flex justify-content-start">
 
             <br><br><br><br>
-            <h3  style="margin-left: 5%" style="color: #0a0a0a">Napíšte svoju otázku a registrovaní právnici Vám poskytnú kvalifikovaný právny názor.</h3>
 
-            <div class="col-lg-4 col-md-12 pt-100 pb-100" >
+
+            <div class="col-lg-4 col-md-12 pt-100 pb-100" style="margin-left: 2%" >
                 <form class="form-area" id="myForm" action="mail.php" method="post" >
 
                     <input name="fname" placeholder="Meno" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Napíšte svoje meno'" class="common-input mt-10" required="" type="text">
