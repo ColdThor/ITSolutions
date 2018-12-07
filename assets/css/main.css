@@ -897,7 +897,7 @@ h1, h2, h3, h4, h5, h6 {
 .genric-btn.default {
     color: #222222;
     background: #f9f9ff;
-    border: 1px solid transparent;
+    border: 1px solid #ff660c;
 }
 
 .genric-btn.default:hover {
@@ -2440,6 +2440,7 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
     -moz-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
+    font-size: 15px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
