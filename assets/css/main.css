@@ -4,11 +4,11 @@
 /* Mobile Layout: 320px */
 /* Wide Mobile Layout: 480px */
 /* =================================== */
-/*  Basic Style 
+/*  Basic Style
 /* =================================== */
 ::-moz-selection {
     /* Code for Firefox */
-    background-color: #f41068;
+    background-color: #ff660c;
     color: #fff;
 }
 
@@ -1186,10 +1186,45 @@ h1, h2, h3, h4, h5, h6 {
     height: 14px;
 }
 
+.unordered-list .hypo-list li {
+    position: relative;
+    padding: 0px 0px 10px 20px;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.5em !important;
+    color: #000;
+}
+
+.unordered-list .hypo-list li:before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 3px solid #ff660c;
+    background: #fff;
+    top: 4px;
+    left: 0;
+    border-radius: 50%;
+}
+
 .unordered-list li {
     position: relative;
     padding-left: 30px;
-    line-height: 1.82em !important;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 2.4em !important;
+    color: #000;
+}
+
+.unordered-list .hypo-blockquote {
+    margin-left: 5px;
+    padding: 20px 50px 10px 30px;
+    color: #000;
+    background: #f9f9ff;
+    border-left: 2px solid #ff660c;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.5em !important;
 }
 
 .unordered-list li:before {
@@ -1197,9 +1232,9 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     width: 14px;
     height: 14px;
-    border: 3px solid #f41068;
+    border: 3px solid #ff660c;
     background: #fff;
-    top: 4px;
+    top: 8px;
     left: 0;
     border-radius: 50%;
 }
@@ -1938,7 +1973,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-nav a:hover {
-    color: #f41068;
+    color: #ff660c;
 }
 
 @media (max-width: 992px) {
@@ -2378,7 +2413,8 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
 
 .single-service {
     background-color: #f9f9ff;
-    padding: 30px;
+    padding: 25px;
+    height: 100%;
     -webkit-transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
@@ -2388,6 +2424,10 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
 .single-service:hover {
     box-shadow: -14.142px 14.142px 20px 0px rgba(157, 157, 157, 0.5);
     cursor: pointer;
+    color: #fff;
+}
+
+.single-service:hover p {
     color: #fff;
 }
 
@@ -2405,7 +2445,7 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
 }
 
 .single-service h4 .lnr {
-    margin-right: 15px;
+    margin-right: 3px;
 }
 
 @media (max-width: 991px) {
@@ -3081,4 +3121,17 @@ h6 {
 .date h5, b {
     font-size: 14px;
     font-weight: 400;
+}
+
+.info {
+    color: #ff660c;
+}
+
+.sp_item_cnt {
+    display: none;
+}
+
+.sp_item {
+    cursor: pointer;
+    padding-left: 50px;
 }
