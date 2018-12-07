@@ -1076,14 +1076,6 @@ h1, h2, h3, h4, h5, h6 {
   border-left: 2px solid #ff660c;
 }
 
-.hypo-blockquote {
-  margin-left: 5px;
-  padding: 20px 50px 10px 30px;
-  color: #000;
-  background: #f9f9ff;
-  border-left: 2px solid #ff660c;
-}
-
 .progress-table-wrap {
   overflow-x: scroll;
 }
@@ -1194,13 +1186,45 @@ h1, h2, h3, h4, h5, h6 {
   height: 14px;
 }
 
+.unordered-list .hypo-list li {
+  position: relative;
+  padding: 0px 0px 10px 20px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5em !important;
+  color: #000;
+}
+
+.unordered-list .hypo-list li:before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 3px solid #ff660c;
+  background: #fff;
+  top: 4px;
+  left: 0;
+  border-radius: 50%;
+}
+
 .unordered-list li {
   position: relative;
   padding-left: 30px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
-  line-height: 2.2em !important;
+  line-height: 2.4em !important;
   color: #000;
+}
+
+.unordered-list .hypo-blockquote {
+  margin-left: 5px;
+  padding: 20px 50px 10px 30px;
+  color: #000;
+  background: #f9f9ff;
+  border-left: 2px solid #ff660c;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5em !important;
 }
 
 .unordered-list li:before {
@@ -1210,7 +1234,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 14px;
   border: 3px solid #ff660c;
   background: #fff;
-  top: 4px;
+  top: 8px;
   left: 0;
   border-radius: 50%;
 }
@@ -3109,4 +3133,5 @@ h6 {
 
 .sp_item {
   cursor: pointer;
+  padding-left: 50px;
 }
