@@ -10,7 +10,6 @@
                     <h3>Všetky potrebné dokumenty na jednom mieste</h3>
                 </div>
             </div>
-
             <div class="row pb-20" >
                 <div class="col-lg-4 col-md-6 pb-30">
                     <a href="/reality/assets/img/ziadost-o-predlzenie-najomnej-zmluvy.pdf" download>
@@ -52,7 +51,6 @@
                         </div>
                     </a>
                 </div>
-
             </div>
         </div>
     </section>
