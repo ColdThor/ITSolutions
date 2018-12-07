@@ -22,7 +22,9 @@
                             @endif
                     </div>
                 </div>
+                @if(!session()->has('userID'))
                 <li><a href="<?php echo url('/user/login'); ?>">Realitné kancelárie</a></li>
+                @endif
             </ul>
         </div>
     </div>

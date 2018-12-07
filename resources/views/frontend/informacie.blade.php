@@ -1,5 +1,5 @@
 @include('frontend/header')
-
+@include('frontend/chat')
 @section('page') Užitočné informácie @endsection
 
 <div align="center">
@@ -10,6 +10,7 @@
 
             <div class="row d-flex justify-content-center">
                 <div class="col-md-8 pb-40 header-text">
+<br /> <br />
                     <h1>Užitočné informácie</h1>
                     <br/><br/>
                 </div>
@@ -51,6 +52,11 @@
                         </div>
                     </a>
                 </div>
+                <div alig="center" style="text-align: center">
+                <h3 >Potrebujete poradiť s niečím iným ako sú informácie v hore uvedených sekciách?</h3>
+                    <br />
+                <h3>Tak neváhajte a kontaktujte nás pomocou chatu, ktorý sa nachádza v pravom dolnom rohu.</h3>
+                </div>
             </div>
         </div>
     </section>
@@ -60,5 +66,6 @@
 
 </div>
 <br /> <br />
-<br /> <br />
+<br /> <br /><br /> <br />
+<br /> <br /><br /><br /><br /><br /><br /><br />
 @include('frontend/footer')

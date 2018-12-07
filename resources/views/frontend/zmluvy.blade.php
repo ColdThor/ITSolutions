@@ -1,8 +1,7 @@
 @include('frontend/header')
-
+@include('frontend/chat')
 @section('page') Zmluvy @endsection
 
-<h1>Všetky informácie o hypotékach na jednom mieste len pre Vás</h1>
 
 
 <!-- Start property Area -->
@@ -19,14 +18,16 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-4" >
                 <div class="single-property" style="height: 95%">
                     <div class="images">
+
                         <img class="img-fluid mx-auto d-block" src="/reality/assets/img/zmluva1.jpg" alt="">
                     </div>
                     <div class="desc">
                         <div class="top d-flex justify-content-between">
-                            <h4><a href="#">Kúpa, predaj, nájom</a></h4>
+
+                            <h4><a href="<?php echo url('/kupa')?>">Kúpa, predaj, nájom</a></h4>
 
                         </div>
                         <div class="middle">
@@ -45,6 +46,7 @@
 
 
             <div class="col-lg-4">
+
                 <div class="single-property" style="height: 95%">
                     <div class="images">
                         <img class="img-fluid mx-auto d-block" src="/reality/assets/img/zmluva2.jpg" alt="">
@@ -53,7 +55,7 @@
 
                     <div class="desc">
                         <div class="top d-flex justify-content-between">
-                            <h4><a href="#">Žiadosti</a></h4>
+                            <h4><a href="<?php echo url('/ziadosti'); ?>">Žiadosti</a></h4>
 
                         </div>
                         <div class="middle">
@@ -79,9 +81,10 @@
 
                     <div class="desc">
                         <div class="top d-flex justify-content-between">
-                            <h4><a href="#">Návrhy a ohlásenia</a></h4>
+                            <h4><a href="<?php echo url('/navrhy'); ?>">Návrhy a ohlásenia</a></h4>
 
                         </div>
+
                         <div class="middle">
                             <div class="d-flex justify-content-start">
 
