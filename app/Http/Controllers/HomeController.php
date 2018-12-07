@@ -72,7 +72,13 @@ class HomeController extends Controller
         $data['priestory'] = $priestory;
         $data['rek'] = $rek;
 
-
+        $top = Advertisement::select('advertisement.*','condition.title AS condition',
+            'type.title AS type','specification.title AS title','location.city AS location')->leftJoin('condition', 'advertisement.id_condition', '=', 'condition.id_condition')
+            ->leftJoin('type', 'advertisement.id_type', '=', 'type.id_type')
+            ->leftJoin('specification', 'advertisement.id_specification', '=', 'specification.id_specification')
+            ->leftJoin('location', 'advertisement.id_location', '=', 'location.id_location')
+            ->leftJoin('user', 'advertisement.id_user', '=', 'user.id_user')->latest("views")->get();
+        $data['top'] = $top;
 
 
 
@@ -100,17 +106,17 @@ class HomeController extends Controller
                 ->leftJoin('location', 'advertisement.id_location', '=', 'location.id_location');
 
             if ($location != "") {
-                $advertisements->where("id_location", "=", $location);
+                $advertisements->where("advertisement.id_location", "=", $location);
             }
             if ($type != "") {
-                $advertisements->where("id_type", "=", $type);
+                $advertisements->where("advertisement.id_type", "=", $type);
             }
 
             if ($condition != "") {
-                $advertisements->where("id_condition", "=", $condition);
+                $advertisements->where("advertisement.id_condition", "=", $condition);
             }
             if ($specification != "") {
-                $advertisements->where("id_specification", "=", $specification);
+                $advertisements->where("advertisement.id_specification", "=", $specification);
             }
 
               if($user != "") {
@@ -162,10 +168,15 @@ class HomeController extends Controller
 
 
         $data = DB::table('advertisement')->where("id_user","=",session()->get('userID'))->max('views');
+        if($data == null) {
+            $data2 = 0;
+            $title = "";
+            $title2 = "";
+        } else {
         $data2 = DB::table('advertisement')->where('views', 'NOT LIKE',$data)->where("id_user","=",session()->get('userID'))->max('views');
         $title = DB::table('advertisement')->where("id_user","=",session()->get('userID'))->where('views', DB::raw("(select MAX(`views`) from advertisement)"))->get()->first();
         $title2 = DB::table('advertisement')->where("id_user","=",session()->get('userID'))->where('views', DB::raw("(select MAX(`views`) from advertisement WHERE views NOT LIKE ".$data.")"))->get()->first();
-
+        }
 
 
 
@@ -264,7 +275,15 @@ class HomeController extends Controller
     public function informacie() {
         return view('frontend/informacie');
     }
-
+    public function ziadosti() {
+        return view('frontend/ziadosti');
+    }
+    public function kupa() {
+        return view('frontend/kupa');
+    }
+    public function navrhy() {
+        return view('frontend/navrhy');
+    }
 
     public function zmluvy() {
         return view('frontend/zmluvy');

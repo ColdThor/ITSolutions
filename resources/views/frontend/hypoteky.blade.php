@@ -1,26 +1,26 @@
 @include('frontend/header')
-
+@include('frontend/chat')
 @section('page') Hypoteky @endsection
 
 <br><br><br><br><br><br>
-<h1 style="margin-left: 2%">Všetky informácie o hypotékach na jednom mieste len pre Vás</h1>
+<h3 style="margin-left: 2%">Informácie o hypotékach si môžete prečítať tu:</h3>
 
 
 <style>
-    .sp_item_cnt {
-        display: none;
-    }
+   .sp_item_cnt {
+       display: none;
+   }
 
-    .sp_item {
-        cursor: pointer;
-    }
+   .sp_item {
+       cursor: pointer;
+   }
 
 </style>
 <br><br><br>
-<div class="finviaFaq" style="margin-left: 2%; color: #0a0a0a">
+<div class="finviaFaq" style="margin-left: 2% ; color: #0a0a0a">
     <div class="sp_item closed" onclick="showDiv()">
 
-        <h3>Čo je refinancovanie hypotéky <span class="lnr lnr-arrow-down"></span></h3>
+        <h4>Čo je refinancovanie hypotéky <span class="lnr lnr-arrow-down"></span></h4>
 
         <div class="sp_item_cnt" id="sipka">Prenesenie hypotéky - teda refinancovanie - je krok, vďaka ktorému môžete poriadne
             ušetriť. Vďaka novej hypotéke môžete mať nižší úrok a aj splátky. Usporíte tak stovky až tisíce eur.<br>
@@ -33,7 +33,7 @@
     </div>
     <div class="sp_item closed" onclick="showDiv2()">
 
-        <h3>Čo je konsolidácia úverov<span class="lnr lnr-arrow-down"></span></h3>
+        <h4>Čo je konsolidácia úverov<span class="lnr lnr-arrow-down"></span></h4>
 
         <div class="sp_item_cnt" id="sipka2">Splatenie zlých úverov - teda konsolidácia úverov - je splatenie všetkých Vašich
             pôžičiek jednou, konsolidačnou hypotékou.<br>
@@ -48,7 +48,7 @@
     </div>
     <div class="sp_item closed" onclick="showDiv3()">
 
-        <h3>Čo je hypotéka?<span class="lnr lnr-arrow-down"></span></h3>
+        <h4>Čo je hypotéka?<span class="lnr lnr-arrow-down"></span></h4>
 
         <div class="sp_item_cnt" id="sipka3">Čo je hypotéka?Hypotéka je úver poskytnutý bankou na financovanie kúpy, výstavby alebo
             rekonštrukciu nehnuteľnosti a jeho splácanie je zaistené záložným právom na nehnuteľnosť. Využitie úveru
@@ -59,7 +59,7 @@
     </div>
     <div class="sp_item closed" onclick="showDiv4()">
 
-        <h3>Kedy osloviť Hypošpecialistu<span class="lnr lnr-arrow-down"></span></h3>
+        <h4>Kedy osloviť hypošpecialistu<span class="lnr lnr-arrow-down"></span></h4>
 
         <div class="sp_item_cnt" id="sipka4">
             <ul>
@@ -89,7 +89,7 @@
     </div>
     <div class="sp_item closed" onclick="showDiv5()">
 
-        <h3>Aké sú jednotlivé kroky pri vybavovaní hypotéky?<span class="lnr lnr-arrow-down"></span></h3>
+        <h4>Aké sú jednotlivé kroky pri vybavovaní hypotéky?<span class="lnr lnr-arrow-down"></span></h4>
 
         <div class="sp_item_cnt" id="sipka5">Aké sú jednotlivé kroky pri vybavovaní hypotéky?
             <ol>
@@ -108,7 +108,7 @@
     </div>
     <div class="sp_item closed" onclick="showDiv6()">
 
-        <h3>Koľko peňazí viem získať z hypotéky?<span class="lnr lnr-arrow-down"></span></h3>
+        <h4>Koľko peňazí viem získať z hypotéky?<span class="lnr lnr-arrow-down"></span></h4>
 
         <div class="sp_item_cnt" id="sipka6"><p>
                 Výška poskytnutých peňazí závisí od nasledovných faktorov:</p>
@@ -134,7 +134,7 @@
     </div>
     <div class="sp_item closed" onclick="showDiv7()">
 
-        <h3>Aké DOKLADY potrebujem k získaniu hypotéky?<span class="lnr lnr-arrow-down"></span></h3>
+        <h4>Aké doklady potrebujem k získaniu hypotéky?<span class="lnr lnr-arrow-down"></span></h4>
 
         <div class="sp_item_cnt" id="sipka7"><p>
                 Pri účelových hypotékach potrebujete nasledovné doklady:</p>
@@ -159,7 +159,7 @@
     </div>
     <div class="sp_item closed" onclick="showDiv8()">
 
-        <h3>Aké sú NÁKLADY spojené s hypotékou?<span class="lnr lnr-arrow-down"></span></h3>
+        <h4>Aké sú náklady spojené s hypotékou?<span class="lnr lnr-arrow-down"></span></h4>
 
         <div class="sp_item_cnt" id="sipka8"><p>
                 Pri hypotékach by ste nemali zabúdať na poplatky spojené s&nbsp;ich vybavením:</p>
@@ -176,7 +176,7 @@
     </div>
     <div class="sp_item closed" onclick="showDiv9()">
 
-        <h3>Aká je DĹŽKA SPLÁCANIA hypotéky?<span class="lnr lnr-arrow-down"></span></h3>
+        <h4>Aká je dĺžka splácania hypotéky?<span class="lnr lnr-arrow-down"></span></h4>
 
         <div class="sp_item_cnt" id="sipka9"><p>
                 Doba splácania hypotéky závisí od:</p>
@@ -201,7 +201,7 @@
     </div>
     <div class="sp_item closed" onclick="showDiv10()">
 
-        <h3>Čo je Hypotekárny certifikát<span class="lnr lnr-arrow-down"></span></h3>
+        <h4>Čo je hypotekárny certifikát<span class="lnr lnr-arrow-down"></span></h4>
 
         <div class="sp_item_cnt" id="sipka10">Hypotekárnym certifikátom Vám banka postkytne takzvaný úverový prísľub, to znamená
             potvrdenie poskytnutia úveru po splnení určitých podmienok.&nbsp;Každý hypotekárny certifikát má svoju
@@ -219,7 +219,7 @@
     </div>
     <div class="sp_item closed" onclick="showDiv11()">
 
-        <h3>Ako funguje refinancovanie hypoték?<span class="lnr lnr-arrow-down"></span></h3>
+        <h4>Ako funguje refinancovanie hypoték?<span class="lnr lnr-arrow-down"></span></h4>
 
         <div class="sp_item_cnt" id="sipka11">Ako funguje refinancovanie hypoték?
             <ol>
@@ -238,7 +238,7 @@
     </div>
     <div class="sp_item closed" onclick="showDiv12()">
 
-        <h3>Kedy je ten správny čas na refinancovanie vašej hypotéky?<span class="lnr lnr-arrow-down"></span></h3>
+        <h4>Kedy je ten správny čas na refinancovanie vašej hypotéky?<span class="lnr lnr-arrow-down"></span></h4>
 
         <div class="sp_item_cnt" id="sipka12">Kedy je ten správny čas na refinancovanie vašej hypotéky? Určite by ste mali o tom
             začať premýšľať najmenej 4-6 mesiacov pred vypršaním fixácie, aby ste si tak zabezpečili lepšiu vyjednávaciu
@@ -251,7 +251,7 @@
     </div>
     <div class="sp_item closed" onclick="showDiv13()">
 
-        <h3>Čo je americká hypotéka?<span class="lnr lnr-arrow-down"></span></h3>
+        <h4>Čo je americká hypotéka?<span class="lnr lnr-arrow-down"></span></h4>
 
         <div class="sp_item_cnt" id="sipka13"><br>
             Predstavuje bankou poskytnutý bezúčelový úver založený nehnuteľnosťou. Maximálna výška hypotekárneho úveru
@@ -261,7 +261,7 @@
     </div>
     <div class="sp_item closed" onclick="showDiv14()">
 
-        <h3>Ako preukázať príjem pre získanie hypotéky<span class="lnr lnr-arrow-down"></span></h3>
+        <h4>Ako preukázať príjem pre získanie hypotéky<span class="lnr lnr-arrow-down"></span></h4>
 
         <div class="sp_item_cnt" id="sipka14">Ako preukázať príjem pre získanie hypotéky?
             <ul>
@@ -284,7 +284,7 @@
     </div>
     <div class="sp_item closed" onclick="showDiv15()">
 
-        <h3>Ako postupovať s návrhom na vklad na katastrálnom úrade?<span class="lnr lnr-arrow-down"></span></h3>
+        <h4>Ako postupovať s návrhom na vklad na katastrálnom úrade?<span class="lnr lnr-arrow-down"></span></h4>
 
         <div class="sp_item_cnt" id="sipka15">Po podpise úverových zmlúv má každá banka osobitné podmienky. Súčasťou splnenia
             podmienok k čerpaniu každej hypotéky je návšteva klienta na katastri nehnuteľností so Záložnými zmluvami na
@@ -305,7 +305,7 @@
     </div>
     <div class="sp_item closed" onclick="showDiv16()">
 
-        <h3>Musím mať poistenie nehnuteľnosti?<span class="lnr lnr-arrow-down"></span></h3>
+        <h4>Musím mať poistenie nehnuteľnosti?<span class="lnr lnr-arrow-down"></span></h4>
 
         <div class="sp_item_cnt" id="sipka16">Musím mať poistenie nehnuteľnosti?Poistenie nehnuteľnosti pre potreby úveru nie je
             podmienené zákonom. Poistenie môže byť súčasťou podmienok banky pre získanie hypotéky. Aby si banky
@@ -318,7 +318,7 @@
         </div>
     </div>
 </div>
-
+<br/><br/>
 
 
 <script type="text/javascript">
@@ -330,7 +330,7 @@
         }
 
     }
-</script>
+    </script>
 
 <script type="text/javascript">
     function showDiv2() {

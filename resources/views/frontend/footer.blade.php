@@ -3,7 +3,7 @@
     <div class="container">
         <div class="footer-bottom d-flex justify-content-center align-items-center">
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            <p>Copyright© ITSolutions <script>document.write(new Date().getFullYear());</script> All rights reserved</p>
+            <p>Copyright© <script>document.write(new Date().getFullYear());</script>. Svet realít</p>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
         </div>
     </div>
