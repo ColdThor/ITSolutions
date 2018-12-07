@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 <head>
@@ -12,8 +9,11 @@
     <link rel="stylesheet" href="/reality/assets/css/ion.rangeSlider.skinFlat.css" />
     <link rel="stylesheet" href="/reality/assets/css/bootstrap.css">
     <link rel="stylesheet" href="/reality/assets/css/main.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
+    <!-- Problémový stylesheet
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    -->
 
     <!-- Mobile Specif ic Meta -->
     <link rel="icon" href='/reality/assets/img/fav.png'>
