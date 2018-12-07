@@ -1,34 +1,40 @@
 @include('frontend/header')
-@include('frontend/chat')
 @section('page') Poradenstvo @endsection
 
-<section class="contact-area" id="contact">
-    <div class="container-fluid">
-        <br><br><br><br>
-        <h3  style="margin-left: 5%; color: #0a0a0a">Napíšte svoju otázku a registrovaní právnici Vám poskytnú kvalifikovaný právny názor.</h3>
-        <div class="row align-items-center d-flex justify-content-start">
-
-            <br><br><br><br>
-
-
-            <div class="col-lg-4 col-md-12 pt-100 pb-100" style="margin-left: 2%" >
-                <form class="form-area" id="myForm" action="mail.php" method="post" >
-
-                    <input name="fname" placeholder="Meno" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Napíšte svoje meno'" class="common-input mt-10" required="" type="text">
-                    <input name="fname" placeholder="Nadpis" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Zadajte nadpis'" class="common-input mt-10" required="" type="text">
-
-                    <textarea class="common-textarea mt-10" name="message" placeholder="Otázka" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Text otázky'" required=""></textarea>
-                    <button class="primary-btn mt-20">Odoslať<span class="lnr lnr-arrow-right"></span></button>
-                    <div class="alert-msg">
+<div class="container pt-100 pb-60">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-lg-5 col-md-8">
+            <div class="generic-banner-content">
+                <h3 class="text-center">Kontaktovať poradňu</h3>
+                <form  method="post" action="">
+                    <div class="input-group-icon mt-30">
+                        <div class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                        <input type="email" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" required class="single-input-accent">
                     </div>
+                    <div class="input-group-icon mt-10">
+                        <div class="icon"><i class="fa fa-align-left" aria-hidden="true"></i></div>
+                        <textarea class="menu-textarea mt-10" name="description" placeholder="Vaša otázka" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Vaša otázka'" required></textarea>
+                    </div>
+                    <div class="col-lg-12 d-flex align-items-center justify-content-center">
+                        <div class="row">
+                            <button type="submit" class="primary-btn mt-30" name="submit" value="submit">Odoslať<span class="lnr lnr-arrow-right"></span></button>
+                        </div>
+                    </div>
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 </form>
+
+                <div class="d-flex align-items-center justify-content-center mt-10">
+                    <div class="row">
+                        <p>
+                            <b>
+                                {{ $errors->first('no') }}
+                                {{ $errors->first('email') }}
+                            </b>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</section>
-
-
-
-
-<br /> <br />  <br />
+</div>
 @include('frontend/footer')

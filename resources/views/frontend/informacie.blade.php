@@ -1,42 +1,29 @@
 @include('frontend/header')
-@include('frontend/chat')
 @section('page') Užitočné informácie @endsection
 
 <div align="center">
-
-    <!-- Start informacie Area -->
-    <section class="service-area section-gap" id="about">
+    <section class="service-area section-gap">
         <div class="container">
-
             <div class="row d-flex justify-content-center">
-                <div class="col-md-8 pb-40 header-text">
-<br /> <br />
-                    <h1>Užitočné informácie</h1>
-                    <br/><br/>
+                <div class="col-md-8 pt-50 pb-30 header-text">
+                    <h3>Užitočné informácie</h3>
                 </div>
             </div>
-            <div class="row" >
 
+            <div class="row pb-20" >
                 <div class="col-lg-4 col-md-6 pb-30" href="<?php echo url('/zmluvy'); ?>">
                     <a href="<?php echo url('/zmluvy'); ?>"style="color: #0a0a0a">
                         <div class="single-service" >
                             <h4><span class="lnr lnr-book" ></span>Zmluvy</h4>
-                            <p>
-                                Všetky potrebné zmluvy máme pre Vás nachystané na jednom mieste.
-
-                            </p>
+                            <p>Všetky potrebné zmluvy máme pre Vás prichystané na jednom mieste.</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-lg-4 col-md-6 pb-30" href="<?php echo url('/poradenstvo'); ?>">
                     <a href="<?php echo url('/poradenstvo'); ?>"style="color: #0a0a0a">
-
                         <div class="single-service">
                             <h4><span class="lnr lnr-users"></span>Poradenstvo </h4>
-                            <p>
-                                V prípade, že máte nejakú otázku, registrovaný právnici Vám poskytnú kvalifikovaný právny názor.
-
-                            </p>
+                            <p>V prípade akýchkoľvek Vašich otázok neváhajte využiť službu poradne.</p>
                         </div>
                     </a>
                 </div>
@@ -44,28 +31,12 @@
                     <a href="<?php echo url('/hypoteky'); ?>" style="color: #0a0a0a">
                         <div class="single-service">
                             <h4><span class="lnr lnr-layers" ></span> Hypotéky </h4>
-
-                            <p>
-                                Všetky informácie o hypotékach na jednom mieste!
-
-                            </p>
+                            <p>Všetky potrebné informácie o hypotékach na jednom mieste!</p>
                         </div>
                     </a>
-                </div>
-                <div alig="center" style="text-align: center">
-                <h3 >Potrebujete poradiť s niečím iným ako sú informácie v hore uvedených sekciách?</h3>
-                    <br />
-                <h3>Tak neváhajte a kontaktujte nás pomocou chatu, ktorý sa nachádza v pravom dolnom rohu.</h3>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- End informacie Area -->
-
-
 </div>
-<br /> <br />
-<br /> <br /><br /> <br />
-<br /> <br /><br /><br /><br /><br /><br /><br />
 @include('frontend/footer')
