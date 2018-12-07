@@ -15,7 +15,7 @@
                 <div class="col-lg-4 col-md-6 pb-30">
                     <a href="/reality/assets/img/ziadost-o-predlzenie-najomnej-zmluvy.pdf" download>
                         <div class="single-service" >
-                            <h4>Žiadosť o predĺženie nájomnej zmluvy</h4>
+                            <h4>Vzor žiadosti o predĺženie nájomnej zmluvy</h4>
                             <a href="/reality/assets/img/ziadost-o-predlzenie-najomnej-zmluvy.pdf" download class="genric-btn default circle">Stiahnuť</a>
                         </div>
                     </a>
@@ -23,7 +23,7 @@
                 <div class="col-lg-4 col-md-6 pb-30">
                     <a href="/reality/assets/img/ziadost-o-pridelenie-najomneho-bytu.pdf" download="">
                         <div class="single-service">
-                            <h4>Žiadosť o pridelenie nájomného bytu</h4>
+                            <h4>Vzor žiadosti o pridelenie nájomného bytu</h4>
                             <a href="/reality/assets/img/ziadost-o-pridelenie-najomneho-bytu.pdf" download class="genric-btn default circle">Stiahnuť</a>
                         </div>
                     </a>
@@ -31,7 +31,7 @@
                 <div class="col-lg-4 col-md-6 pb-30">
                     <a href="/reality/assets/img/ziadost-o-vydanie-rovnopisu-z-notarskej-zapisnice.pdf" download="">
                         <div class="single-service">
-                            <h4>Žiadosť o vydanie rovnopisu z notárkej zápisnice</h4>
+                            <h4>Vzor žiadosti o vydanie rovnopisu z notárskej zápisnice</h4>
                             <a href="/reality/assets/img/ziadost-o-vydanie-rovnopisu-z-notarskej-zapisnice.pdf" download class="genric-btn default circle">Stiahnuť</a>
                         </div>
                     </a>
