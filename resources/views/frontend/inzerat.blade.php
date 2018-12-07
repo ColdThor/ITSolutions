@@ -1,16 +1,22 @@
 @include('frontend/header')
 @section('page') Inzerát @endsection
 
-<style>
-    .mySlides {display:none;}
-</style>
-
 <div class="section-top-border">
     <div class="row pt-30">
         <div class="col-lg-7 col-md-7">
             <h3 class="mb-10">{{$ad->title}}</h3>
-            <div class="single-element-widget">
+            <div class="single-element-widget pb-20">
                 <h5><span class="lnr lnr-history"></span>Dátum zverejnenia: <b>{{$ad->date}}</b></h5>
+            </div>
+            <?php $id= $ad->id_advertisement; $i = 1;
+            while(file_exists("storage/inzeraty/inzerat_".$id."/fotka_".$i.".png")):?>
+            <img  class="mySlides img-fluid mx-auto" src="/reality/storage/app/public/inzeraty/inzerat_{{$ad->id_advertisement}}/fotka_<?php echo $i; ?>.png" alt="Foto1">
+            <?php
+            $i++;
+            endwhile; ?>
+            <div class="gallery-btn">
+                <button class="genric-btn danger-border w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+                <button class="genric-btn danger-border w3-display-right" onclick="plusDivs(1)">&#10095;</button>
             </div>
             <blockquote class="generic-blockquote mt-20">
                 {{$ad->description}}</p>
@@ -40,37 +46,6 @@
         </div>
     </div>
 </div>
-
-
-<h2 align="center">Fotogaléria</h2>
-
-
-<br />
-
-
-<div class="w3-content w3-display-container" align="center">
-    <?php $id= $ad->id_advertisement; $i = 1;
-    while(file_exists("storage/inzeraty/inzerat_".$id."/fotka_".$i.".png")):?>
-    <img  class="mySlides" src="/reality/storage/app/public/inzeraty/inzerat_{{$ad->id_advertisement}}/fotka_<?php echo $i; ?>.png" alt="Foto1" width="600" height="400">
-
-
-    <?php
-    $i++;
-    endwhile; ?>
-    <button style="margin-left: 130px" class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-    <button style="margin-right: 130px" class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
-</div>
-
-<br />
-
-<div class="clearfix"></div>
-
-
-
-    <div class="clearfix"></div>
-</div>
-
-
 
 <script>
     var slideIndex = 1;

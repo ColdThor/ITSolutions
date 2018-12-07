@@ -3115,7 +3115,7 @@ h6 {
 }
 
 #price {
-    padding-top: 10px;
+    padding: 10px 0px 10px 0px;
 }
 
 .date h5, b {
@@ -3134,4 +3134,14 @@ h6 {
 .sp_item {
     cursor: pointer;
     padding-left: 50px;
+}
+
+.mySlides {
+    display:none;
+}
+
+
+.gallery-btn {
+    padding-top: 5px;
+    text-align: center;
 }
