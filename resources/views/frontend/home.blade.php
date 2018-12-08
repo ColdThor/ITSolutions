@@ -3,7 +3,7 @@
 @section('page') Home @endsection
 <!-- start banner Area -->
 <section class="banner-area relative" id="home">
-    <div class="overlay overlay-bg"></div>
+    <div class="overlay"></div>
     <div class="container">
         <div class="row fullscreen align-items-center justify-content-center" style="height: 915px;">
             <div class="banner-content col-lg-12 col-md-12">
@@ -185,68 +185,38 @@
 
 
 <!-- Start service Area -->
-
-
-
 <section class="service-area section-gap" id="about">
     <div class="container">
         <div class="row d-flex justify-content-center">
-            <div class="col-md-8 pt-30 pb-20 header-text">
-                <h2>Sme najlepší na trhu</h2>
-                <p>
-                    Prečo použiť našu platformu?
-                </p>
+            <div class="col-md-8 pt-30 pb-40 header-text">
+                <h2>Naša vízia modernej inzercie</h2>
             </div>
         </div>
-        <div class="row">
+        <div class="row pb-20">
             <div class="col-lg-4 col-md-6 pb-30">
                 <div class="single-service">
-                    <h4><span class="lnr lnr-user"></span>Sprostredkovanie bezkonkurenčných služieb</h4>
+                    <h4><span class="lnr lnr-layers"></span>Inovatívne technológie</h4>
                     <p>
-                        Ako novátorská rezidenčná realitná firma posilňujeme realitný trh, aby naši klienti mali dostatok prostriedkov na poradenstvo svojim klientom.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 pb-30">
-                <div class="single-service">
-                    <h4><span class="lnr lnr-license"></span>Profesionálne služby</h4>
-                    <p>
-                        Byť leader na trhu vyžaduje najchytrejšie nástroje postavené tou najjasnejšou mysľou v oblasti inžinierstva, dizajnu a stratégie akou ITSolutions disponuje.
-
-
+                        Sme novátorský portál s cieľom prepojiť moderné technológie s realitným trhom,
+                        aby vaša cesta naším svetom realít bola jedinečným zážitkom.
                     </p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 pb-30">
                 <div class="single-service">
-                    <h4><span class="lnr lnr-phone"></span>Najlepšia podpora</h4>
+                    <h4><span class="lnr lnr-magnifier"></span>Mapovanie realitného trhu</h4>
                     <p>
-                        S riadeným prístupom ku klientom je ITSolutions sofistikovanou budúcnosťou nehnuteľností.
+                        Neustále monitorujeme trh, aby sme vám poskytli komfort, pri ktorom u nás
+                        nájdete čo najširšie portfólio zhromaždených inzerátov na jednom mieste.
                     </p>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 pb-30">
                 <div class="single-service">
-                    <h4><span class="lnr lnr-rocket"></span>Technické zručnosti</h4>
+                    <h4><span class="lnr lnr-bookmark"></span>Podpora a poradenstvo</h4>
                     <p>
-                        Používanie internetu sa stáva čoraz častejším v dôsledku rýchleho pokroku technológie aj v oblasti nehnuteľností.
-
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single-service">
-                    <h4><span class="lnr lnr-diamond"></span>Prémiové produkty</h4>
-                    <p>
-                        To najlepšie čo Slovenský realitný trh ponúka vďaka naším partnerom inzerujeme na našej platforme. Spoľahnite sa na ITSolutions.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single-service">
-                    <h4><span class="lnr lnr-bubble"></span>Pozitívne hodnotenie</h4>
-                    <p>
-                        Tisícky spokojných klientov radia ITSolutions medzi lídrov v oblasti realitného developmentu na Slovensku.
+                        Spájame špecialistov z oblasti realít a technológií pre poskytnutie kvalitného
+                        právneho poradenstva a promptnej technickej podpory.
                     </p>
                 </div>
             </div>
@@ -256,20 +226,17 @@
 <!-- End service Area -->
 
 <!-- Start property Area -->
-<section class="property-area section-gap relative" >
+<section class="property-area-home section-gap relative" >
     <div class="overlay overlay-bg"></div>
     <div class="container">
         <div class="row d-flex justify-content-center">
-            <div class="col-md-8 pb-40 header-text">
-                <h1>Naše odporúčané nehnuteľnosti</h1>
-                <p>
-                    Vybrali sme pre Vás zaujímavé nehnuteľnosti.
-                </p>
+            <div class="col-md-8 pt-20 pb-10 header-text">
+                <h2 class="top-offers pb-10">Najsledovanejšie ponuky</h2>
+                <p>Pripravili sme pre Vás zoznam najzaujímavejších inzerátov.</p>
             </div>
         </div>
-        <div class="row" style="display: run-in">
-
-            <div class="col-lg-4">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
                 <div class="single-prop">
                     <?php
                     $i = 0;
@@ -277,42 +244,29 @@
                     $i++;
                     if($i==1):?>
                     <div class="images">
-                        <a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>" style="color: black">
-                            <img class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png" alt="" style="max-height: 170px" style="min-height: 170px"> </a>
-
-
-                        <span><?php echo $realita->location ?></span>
-
+                        <a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>">
+                            <img class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png">
+                        </a>
+                        <span><strong>Lokalita: </strong><?php echo $realita->location ?></span>
                     </div>
-
                     <div class="desc">
                         <div class="top d-flex justify-content-between">
-                            <h4><?php echo $realita->title ?></h4>
-                            <h4><?php echo $realita->price ?> €</h4>
-                        </div>
-                        <div class="middle">
-                            <div class="d-flex justify-content-start" >
-                                <p>Pridané: </p>
-                                <p></p>
-                                <p><?php echo $realita->date?></p>
-                            </div>
-                            <div class="d-flex justify-content-start">
-
-                            </div>
+                            <h5><a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>"> {{$realita->title}}</a></h5>
                         </div>
                         <div class="bottom d-flex justify-content-start">
-
+                            <p><span class="lnr lnr-apartment"></span>Cena: <b>{{$realita->price}}€</b></p>
+                            <p><span class="lnr lnr-history"></span><b>{{$realita->date}}</b></p>
+                        </div>
+                        <div class="bottom d-flex justify-content-start">
                         </div>
                     </div>
+                    <?php endif ?>
+                    <?php endforeach; ?>
                 </div>
             </div>
-        <?php endif ?>
-        <?php endforeach; ?>
-
-            <br />
 
             <!-- Koniec 1 casti-->
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-6">
                 <div class="single-prop">
                     <?php
                     $i = 0;
@@ -320,39 +274,28 @@
                     $i++;
                     if($i==2):?>
                     <div class="images">
-                        <a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>" style="color: black">
-                            <img class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png" alt="" style="max-height: 170px" style="min-height: 170px"> </a>
-
-
-                        <span><?php echo $realita->location ?></span>
-
+                        <a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>">
+                            <img class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png">
+                        </a>
+                        <span><strong>Lokalita: </strong><?php echo $realita->location ?></span>
                     </div>
-
                     <div class="desc">
                         <div class="top d-flex justify-content-between">
-                            <h4><?php echo $realita->title ?></h4>
-                            <h4><?php echo $realita->price ?> €</h4>
-                        </div>
-                        <div class="middle">
-                            <div class="d-flex justify-content-start">
-                                <p>Pridané: </p>
-                                <p></p>
-                                <p><?php echo $realita->date?></p>
-                            </div>
-                            <div class="d-flex justify-content-start">
-
-                            </div>
+                            <h5><a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>"> {{$realita->title}}</a></h5>
                         </div>
                         <div class="bottom d-flex justify-content-start">
-
+                            <p><span class="lnr lnr-apartment"></span>Cena: <b>{{$realita->price}}€</b></p>
+                            <p><span class="lnr lnr-history"></span><b>{{$realita->date}}</b></p>
+                        </div>
+                        <div class="bottom d-flex justify-content-start">
                         </div>
                     </div>
+                    <?php endif ?>
+                    <?php endforeach; ?>
                 </div>
             </div>
-        <?php endif ?>
-        <?php endforeach; ?>
             <!-- Koniec 2 casti-->
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-6">
                 <div class="single-prop">
                     <?php
                     $i = 0;
@@ -360,44 +303,28 @@
                     $i++;
                     if($i==3):?>
                     <div class="images">
-                        <a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>" style="color: black">
-                            <img class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png" alt="" style="max-height: 170px" style="min-height: 170px"> </a>
-
-
-                        <span><?php echo $realita->location ?></span>
+                        <a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>">
+                            <img class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png">
+                        </a>
+                        <span><strong>Lokalita: </strong><?php echo $realita->location ?></span>
                     </div>
-
                     <div class="desc">
                         <div class="top d-flex justify-content-between">
-                            <h4><?php echo $realita->title ?></h4>
-                            <h4><?php echo $realita->price ?> €</h4>
-                        </div>
-                        <div class="middle">
-                            <div class="d-flex justify-content-start">
-
-                                <p>Pridané: </p>
-                                <p></p>
-                                <p><?php echo $realita->date?></p>
-                            </div>
-                            <div class="d-flex justify-content-start">
-
-                            </div>
+                            <h5><a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>">{{$realita->title}}</a></h5>
                         </div>
                         <div class="bottom d-flex justify-content-start">
-
+                            <p><span class="lnr lnr-apartment"></span>Cena: <b>{{$realita->price}}€</b></p>
+                            <p><span class="lnr lnr-history"></span><b>{{$realita->date}}</b></p>
+                        </div>
+                        <div class="bottom d-flex justify-content-start">
                         </div>
                     </div>
+                    <?php endif ?>
+                    <?php endforeach; ?>
                 </div>
             </div>
-        <?php endif ?>
-        <?php endforeach; ?>
-            <br />
             <!-- Koniec 3 casti-->
-
-        </div>
-    <br />
-        <div class="row" style="display: flex">
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-6">
                 <div class="single-prop">
                     <?php
                     $i = 0;
@@ -405,41 +332,29 @@
                     $i++;
                     if($i==4):?>
                     <div class="images">
-                        <a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>" style="color: black">
-                            <img class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png" alt="" style="max-height: 170px" style="min-height: 170px"> </a>
-
-
-                        <span><?php echo $realita->location ?></span>
+                        <a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>">
+                            <img class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png">
+                        </a>
+                        <span><strong>Lokalita: </strong><?php echo $realita->location ?></span>
                     </div>
-
                     <div class="desc">
                         <div class="top d-flex justify-content-between">
-                            <h4><?php echo $realita->title ?></h4>
-                            <h4><?php echo $realita->price ?> €</h4>
-                        </div>
-                        <div class="middle">
-                            <div class="d-flex justify-content-start">
-                                <p>Pridané: </p>
-                                <p></p>
-                                <p><?php echo $realita->date?></p>
-
-                            </div>
-                            <div class="d-flex justify-content-start">
-
-                            </div>
+                            <h5><a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>">{{$realita->title}}</a></h5>
                         </div>
                         <div class="bottom d-flex justify-content-start">
-
+                            <p><span class="lnr lnr-apartment"></span>Cena: <b>{{$realita->price}}€</b></p>
+                            <p><span class="lnr lnr-history"></span><b>{{$realita->date}}</b></p>
+                        </div>
+                        <div class="bottom d-flex justify-content-start">
                         </div>
                     </div>
+                    <?php endif ?>
+                    <?php endforeach; ?>
                 </div>
             </div>
-        <?php endif ?>
-        <?php endforeach; ?>
-            <br />
             <!-- Koniec 4 casti-->
 
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-4">
                 <div class="single-prop">
                     <?php
                     $i = 0;
@@ -448,40 +363,28 @@
                     if($i==5):?>
                     <div class="images">
                         <a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>" style="color: black">
-                            <img class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png" alt="" style="max-height: 170px" style="min-height: 170px"> </a>
-
-
-                        <span><?php echo $realita->location ?></span>
+                            <img class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png">
+                        </a>
+                        <span><strong>Lokalita: </strong><?php echo $realita->location ?></span>
                     </div>
-
                     <div class="desc">
                         <div class="top d-flex justify-content-between">
-                            <h4><?php echo $realita->title ?></h4>
-                            <h4><?php echo $realita->price ?> €</h4>
-                        </div>
-                        <div class="middle">
-                            <div class="d-flex justify-content-start">
-
-                                <p>Pridané: </p>
-                                <p></p>
-                                <p><?php echo $realita->date?></p>
-                            </div>
-                            <div class="d-flex justify-content-start">
-
-                            </div>
+                            <h5><a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>">{{$realita->title}}</a></h5>
                         </div>
                         <div class="bottom d-flex justify-content-start">
-
+                            <p><span class="lnr lnr-apartment"></span>Cena: <b>{{$realita->price}}€</b></p>
+                            <p><span class="lnr lnr-history"></span><b>{{$realita->date}}</b></p>
+                        </div>
+                        <div class="bottom d-flex justify-content-start">
                         </div>
                     </div>
+                    <?php endif ?>
+                    <?php endforeach; ?>
                 </div>
             </div>
-        <?php endif ?>
-        <?php endforeach; ?>
-            <br />
             <!-- Koniec 5 casti-->
 
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-6">
                 <div class="single-prop">
                     <?php
                     $i = 0;
@@ -489,44 +392,32 @@
                     $i++;
                     if($i==6):?>
                     <div class="images">
-                        <a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>" style="color: black">
-                            <img class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png" alt="" style="max-height: 170px" style="min-height: 170px"> </a>
-
-
-                        <span><?php echo $realita->location ?></span>
+                        <a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>">
+                            <img class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png">
+                        </a>
+                        <span><strong>Lokalita: </strong><?php echo $realita->location ?></span>
                     </div>
-
                     <div class="desc">
                         <div class="top d-flex justify-content-between">
-                            <h4><?php echo $realita->title ?></h4>
-                            <h4><?php echo $realita->price ?> €</h4>
-                        </div>
-                        <div class="middle">
-                            <div class="d-flex justify-content-start">
-                                <p>Pridané: </p>
-                                <p></p>
-                                <p><?php echo $realita->date?></p>
-
-                            </div>
-                            <div class="d-flex justify-content-start">
-
-                            </div>
+                            <h5><a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>">{{$realita->title}}</a></h5>
                         </div>
                         <div class="bottom d-flex justify-content-start">
-
+                            <p><span class="lnr lnr-apartment"></span>Cena: <b>{{$realita->price}}€</b></p>
+                            <p><span class="lnr lnr-history"></span><b>{{$realita->date}}</b></p>
+                        </div>
+                        <div class="bottom d-flex justify-content-start">
                         </div>
                     </div>
-                </div>
-            </div>
-        <?php endif ?>
-        <?php endforeach; ?>
-            <br />
-            <div class="col-lg-12 d-flex align-items-center justify-content-center">
-                <div class="row">
-                    <a type="a"  href="<?php echo url('/search_all'); ?>" class="primary-btn mt-10" >Pozrieť všetky inzeráty<span class="lnr lnr-arrow-right"></span> </a>
+                    <?php endif ?>
+                    <?php endforeach; ?>
                 </div>
             </div>
             <!-- Koniec 6. inzeratu-->
+            <div class="col-lg-12 d-flex align-items-center justify-content-center">
+                <div class="row">
+                    <a type="a"  href="<?php echo url('/search_all'); ?>" class="genric-btn default circle mt-20">Zobraziť všetky inzeráty</a>
+                </div>
+            </div>
         </div>
     </div>
 </section>

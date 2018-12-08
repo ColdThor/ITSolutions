@@ -2015,7 +2015,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-.p1-gradient-bg, .primary-btn, .primary-btn:after, .primary-btn2.primary-border:hover, .onoffswitch3-active .onoffswitch3-switch, .onoffswitch3-inactive .onoffswitch3-switch, .single-service:hover, .property-area .overlay-bg, .images span, .content .content-overlay, .single-footer-widget .click-btn {
+.p1-gradient-bg, .primary-btn, .primary-btn:after, .primary-btn2.primary-border:hover, .onoffswitch3-active .onoffswitch3-switch, .onoffswitch3-inactive .onoffswitch3-switch, .single-service:hover, .property-area-home, .overlay-bg, .images span, .content .content-overlay, .single-footer-widget .click-btn {
     background-image: -moz-linear-gradient(0deg, #f40f68 0%, #fbcd08 100%);
     background-image: -webkit-linear-gradient(0deg, #f40f68 0%, #fbcd08 100%);
     background-image: -ms-linear-gradient(0deg, #f40f68 0%, #fbcd08 100%);
@@ -2455,31 +2455,35 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
     }
 }
 
+.property-area-home {
+    background: url(../img/home.jpg) no-repeat center center/cover;
+}
+
 .property-area {
-    /*background: url(../img/service-bg.jpg) no-repeat center center/cover;*/
     background-color: #fff;
 }
 
-.property-area .header-text {
+.property-area, .property-area-home .header-text {
     text-align: center;
 }
 
-.property-area .header-text h1 {
+.property-area, .property-area-home .header-text h1 {
     color: #000;
     margin-bottom: 20px;
 }
 
-.property-area .header-text p {
+.property-area, .property-area-home .header-text p {
     color: #fff;
 }
 
-.property-area .overlay-bg {
-    opacity: 0.8;
+.property-area-home .overlay-bg {
+    opacity: 0.7;
 }
 
 .single-prop {
     background-color: #fff;
     padding: 20px;
+    margin-bottom: 20px;
     -webkit-transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
@@ -2492,7 +2496,7 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
     width: 100%;
-    height: auto;
+    height: 190px;
 }
 
 .single-prop .desc {
@@ -2593,6 +2597,7 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
 
 .desc .bottom p {
     width: 50%;
+    text-align: left;
 }
 
 .desc .bottom p:nth-child(2) {
@@ -3179,4 +3184,8 @@ h6 {
 
 .imagebox:hover .imagebox-desc {
     padding-bottom: 10%;
+}
+
+.top-offers {
+    color: #fff;
 }
