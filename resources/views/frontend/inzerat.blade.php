@@ -3,9 +3,9 @@
 
 <div class="section-top-border">
     <div class="row pt-30">
-        <div class="col-lg-7 col-md-7">
+        <div class="col-lg-12 col-md-12">
             <h3 class="mb-10">{{$ad->title}}</h3>
-            <div class="single-element-widget pb-20">
+            <div class="single-element-widget">
                 <h5><span class="lnr lnr-history"></span>Dátum zverejnenia: <b>{{$ad->date}}</b></h5>
                 <div class="pt-10">
                 <?php if($ad->id_user == session()->get("userID")): ?>
@@ -19,7 +19,10 @@
                 <?php endif; ?>
                 </div>
             </div>
-
+        </div>
+    </div>
+    <div class="row pt-10">
+        <div class="col-lg-7 col-md-7">
             <?php $id= $ad->id_advertisement; $i = 1;
             while(file_exists("storage/inzeraty/inzerat_".$id."/fotka_".$i.".png")):?>
             <img  class="mySlides img-fluid mx-auto" src="/reality/storage/app/public/inzeraty/inzerat_{{$ad->id_advertisement}}/fotka_<?php echo $i; ?>.png" alt="Foto1">
