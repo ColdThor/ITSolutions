@@ -3,8 +3,8 @@
 @section('page') Inzeráty @endsection
 <section class="property-area section-gap relative" id="property">
     <div class="container pt-30">
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-8 pt-30 pb-40 header-text">
+        <div class="row pt-20">
+            <div class="col-lg-12 d-flex align-items-center justify-content-center toggle-wrap">
                 <h2>Výsledky hľadania</h2>
             </div>
         </div>
@@ -32,7 +32,7 @@
                             <p><span class="lnr lnr-crop"></span>Výmera: <b>{{$ads->area}}m<sup>2</sup></b></p>
                         </div>
                         <div class="bottom d-flex justify-content-start">
-                            <p><span class="lnr lnr-map-marker"></span>Poloha: {{$ads->location}}</p>
+                            <p><span class="lnr lnr-map-marker"></span>Poloha: <b>{{$ads->location}}</b></p>
                             <p><span class="lnr lnr-history"></span>Pridané: <b>{{$ads->date}}</b></p>
                         </div>
                     </div>

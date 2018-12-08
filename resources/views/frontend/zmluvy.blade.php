@@ -5,9 +5,9 @@
 <section class="property-area section-gap relative" >
     <div class="container">
         <div class="row d-flex justify-content-center">
-            <div class="col-md-8 pt-40 pb-20 header-text">
-                <h3 class="pb-10">Vzory právnych zmlúv</h3>
-                <h5 class="info">Všetky dokumenty pre kúpu, predaj, výstavbu alebo úpravu Vašej nehnuteľnosti</h5>
+            <div class="col-md-8 pt-50 pb-40 header-text">
+                <h3>Vzory právnych zmlúv</h3>
+                <h5 class="info pt-10">Všetky dokumenty pre kúpu, predaj, výstavbu alebo úpravu Vašej nehnuteľnosti</h5>
             </div>
         </div>
         <div class="row">

@@ -2463,7 +2463,7 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
     background-color: #fff;
 }
 
-.property-area, .property-area-home .header-text {
+.property-area .header-text {
     text-align: center;
 }
 
@@ -2471,6 +2471,7 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
     color: #000;
     margin-bottom: 20px;
 }
+
 
 .property-area, .property-area-home .header-text p {
     color: #fff;

@@ -229,10 +229,9 @@
 <section class="property-area-home section-gap relative" >
     <div class="overlay overlay-bg"></div>
     <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-8 pt-20 pb-10 header-text">
+        <div class="row">
+            <div class="col-lg-12 d-flex align-items-center justify-content-center toggle-wrap">
                 <h2 class="top-offers pb-10">Najsledovanejšie ponuky</h2>
-                <p>Pripravili sme pre Vás zoznam najzaujímavejších inzerátov.</p>
             </div>
         </div>
         <div class="row">
