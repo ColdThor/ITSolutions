@@ -277,6 +277,12 @@ public function add_admin(Request $request) {
 
 
         $email = Input::get('email');
+
+        if($this->check_email($email)) {
+            return Redirect::to('/user/register')
+                ->withErrors(['email' => 'Emailova adresa už existuje v našej databáze'])
+                ->withInput(Input::except('password')); // send back the input (not the password) so that we can repopulate the form
+        }
         $password =  md5(Input::get('password'));
         $first_name = Input::get('first_name');
         $last_name = Input::get('last_name');
