@@ -38,12 +38,9 @@
                     </div>
                 </div>
             </div>
-                <?php endforeach;
+                <?php endforeach; ?>
 
-                if($i==0): ?>
 
-                <h1>Nenašli sa žiadne inzeráty podľa kritérií</h1>
-                <?php endif; ?>
 
             @else
                 <script>
@@ -52,6 +49,14 @@
             @endif
         </div>
     </div>
+
+
+   <?php if($i==0): ?>
+    <div class="col-md-8 pt-30 pb-40 header-text" style="margin-left: 15%">
+        <h2>Nenašli sa žiadne inzeráty podľa kritérií hľadania</h2>
+    </div>
+<?php endif; ?>
+
 </section>
 
 @include('frontend/footer')

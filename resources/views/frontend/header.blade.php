@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="/reality/assets/css/ion.rangeSlider.skinFlat.css" />
     <link rel="stylesheet" href="/reality/assets/css/bootstrap.css">
     <link rel="stylesheet" href="/reality/assets/css/main.css">
+    <link rel="stylesheet" href="/reality/assets/css/paver.css">
+
 
     <!-- Problémový stylesheet
 

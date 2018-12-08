@@ -55,7 +55,11 @@
 </footer>
 <!-- End footer Area -->
 
-<script src="/reality/assets/js/vendor/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+<script type="text/javascript"  src="/reality/assets/js/jquery.paver.min.js"></script>
+<script type="text/javascript"  src="/reality/assets/js/functions.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="/reality/assets/js/vendor/bootstrap.min.js"></script>
 <script src="/reality/assets/js/jquery.ajaxchimp.min.js"></script>
@@ -65,6 +69,18 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="/reality/assets/js/jquery.magnific-popup.min.js"></script>
 <script src="/reality/assets/js/main.js"></script>
+
+
+
+<script type="text/javascript">
+    $(function () {
+        // Paver
+        $('div.panorama').paver();
+    });
+
+</script>
+
+
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>

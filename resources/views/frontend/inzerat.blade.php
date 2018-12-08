@@ -59,6 +59,30 @@
     </div>
 </div>
 
+<style>
+
+</style>
+
+
+<?php
+$i=1;
+if(file_exists("storage/inzeraty/inzerat_".$id."/fotka_".$i.".png")):?>
+<div align="center" class="panorama" style="width: 1000px; height: 600px; margin-left: 15%">
+<img src="/reality/storage/app/public/inzeraty/inzerat_{{$ad->id_advertisement}}/panorama_<?php echo $i; ?>.jpg" alt="Panorama1">
+</div>
+<?php endif; ?>
+
+<br />
+
+
+
+
+
+
+
+
+
+
 <script>
     var slideIndex = 1;
     showDivs(slideIndex);
