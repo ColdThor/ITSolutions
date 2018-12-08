@@ -7,7 +7,19 @@
             <h3 class="mb-10">{{$ad->title}}</h3>
             <div class="single-element-widget pb-20">
                 <h5><span class="lnr lnr-history"></span>Dátum zverejnenia: <b>{{$ad->date}}</b></h5>
+                <div class="pt-10">
+                <?php if($ad->id_user == session()->get("userID")): ?>
+                <a href="<?php echo url('/inzerat/edit/'.$ad->id_advertisement.'/true')?>" class="genric-btn danger-border circle">Editovať</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="<?php echo url('/inzerat/delete/'.$ad->id_advertisement.'/true')?>" class="genric-btn primary-border circle">Zmazať</a>
+                <?php else:
+                if($owner == "true"): ?>
+                <a href="<?php echo url('/inzerat/edit/'.$ad->id_advertisement.'/true')?>" class="genric-btn danger-border circle">Editovať</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="<?php echo url('/inzerat/delete/'.$ad->id_advertisement.'/true')?>" class="genric-btn primary-border circle">Zmazať</a>
+                <?php  endif;   ?>
+                <?php endif; ?>
+                </div>
             </div>
+
             <?php $id= $ad->id_advertisement; $i = 1;
             while(file_exists("storage/inzeraty/inzerat_".$id."/fotka_".$i.".png")):?>
             <img  class="mySlides img-fluid mx-auto" src="/reality/storage/app/public/inzeraty/inzerat_{{$ad->id_advertisement}}/fotka_<?php echo $i; ?>.png" alt="Foto1">
