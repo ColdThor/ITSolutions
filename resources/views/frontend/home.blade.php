@@ -229,8 +229,8 @@
 <section class="property-area-home section-gap relative" >
     <div class="overlay overlay-bg"></div>
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12 d-flex align-items-center justify-content-center toggle-wrap">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-12 col-md-12 pt-50 pb-40 header-text">
                 <h2 class="top-offers pb-10">Najsledovanejšie ponuky</h2>
             </div>
         </div>
