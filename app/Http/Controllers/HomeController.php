@@ -157,7 +157,7 @@ class HomeController extends Controller
             ->leftJoin('location', 'advertisement.id_location', '=', 'location.id_location')
             ->leftJoin('user', 'advertisement.id_user', '=', 'user.id_user')
             ->where('advertisement.id_user','=',session()->get('userID'))
-            ->select('advertisement.*','user.id_user_group')->get();
+            ->select('advertisement.*','user.id_user_group','type.title as type')->get();
 
 
 
