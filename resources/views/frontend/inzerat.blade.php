@@ -70,15 +70,20 @@
 <?php
 $id= $ad->id_advertisement;
 $i=1;
-while(file_exists("storage/inzeraty/inzerat_".$id."/panorama_".$i.".jpg")):?>
+$exists = false;
+while(file_exists("storage/inzeraty/inzerat_".$id."/panorama_".$i.".jpg")):
+$exists = true;
+?>
 <div align="center" class="panorama" style="width: 1000px; height: 600px; margin-left: 16%">
 <img src="/reality/storage/app/public/inzeraty/inzerat_{{$ad->id_advertisement}}/panorama_<?php echo $i; ?>.jpg" alt="Panorama1">
 </div>
 <?php $i++; endwhile; ?>
+<?php if($exists): ?>
 <div class="gallery-btn">
     <button class="genric-btn danger-border w3-display-left" onclick="plusDivs2(-1)">&#10094;</button>
     <button class="genric-btn danger-border w3-display-right" onclick="plusDivs2(1)">&#10095;</button>
 </div>
+<?php endif; ?>
 <br />
 
 
