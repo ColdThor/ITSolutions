@@ -230,7 +230,7 @@
     <div class="overlay overlay-bg"></div>
     <div class="container">
         <div class="row d-flex justify-content-center">
-            <div class="col-lg-12 col-md-12 pt-50 pb-40 header-text">
+            <div class="col-lg-12 col-md-12 pt-10 pb-40 header-text">
                 <h2 class="top-offers pb-10">Najsledovanejšie ponuky</h2>
             </div>
         </div>
