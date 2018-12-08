@@ -175,6 +175,13 @@
                         </div>
                     </div>
 
+                <h5 class="mt-20">Priložiť panoramické foto nehnuteľnosti</h5>
+                <div class="col-lg-12 align-items-center justify-content-center mt-05">
+                    <div class="row" style="color: black">
+                        {!! Form::file('pan[]', array('multiple'=>true)) !!}
+                    </div>
+                </div>
+
                     <div class="col-lg-12 d-flex align-items-center justify-content-center mt-10">
                         <div class="row">
                             <div class="g-recaptcha" data-sitekey="6LdscXwUAAAAAEjwe-hTuEOTCptX4bHax134Q6xZ"></div>
@@ -209,7 +216,12 @@
                                 {{ $errors->first('location') }}
                                 {{ $errors->first('eula') }}
                                 {{ $errors->first('fotka') }}
+                                {{ $errors->first('pan') }}
+                                {{ $errors->first('fotka.*') }}
+                                {{ $errors->first('pan.*') }}
                                 {{ $errors->first('g-recaptcha-response') }}
+
+
                             </b>
                         </p>
                     </div>

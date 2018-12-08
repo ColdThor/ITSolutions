@@ -68,20 +68,42 @@
 
 
 <?php
+$id= $ad->id_advertisement;
 $i=1;
-if(file_exists("storage/inzeraty/inzerat_".$id."/fotka_".$i.".png")):?>
-<div align="center" class="panorama" style="width: 1000px; height: 600px; margin-left: 15%">
+while(file_exists("storage/inzeraty/inzerat_".$id."/panorama_".$i.".jpg")):?>
+<div align="center" class="panorama" style="width: 1000px; height: 600px; margin-left: 16%">
 <img src="/reality/storage/app/public/inzeraty/inzerat_{{$ad->id_advertisement}}/panorama_<?php echo $i; ?>.jpg" alt="Panorama1">
 </div>
-<?php endif; ?>
-
+<?php $i++; endwhile; ?>
+<div class="gallery-btn">
+    <button class="genric-btn danger-border w3-display-left" onclick="plusDivs2(-1)">&#10094;</button>
+    <button class="genric-btn danger-border w3-display-right" onclick="plusDivs2(1)">&#10095;</button>
+</div>
 <br />
 
 
 
 
 
+<script>
+    var slideIndex = 1;
+    showDivs2(slideIndex);
 
+    function plusDivs2(n) {
+        showDivs2(slideIndex += n);
+    }
+
+    function showDivs2(n) {
+        var i;
+        var x = document.getElementsByClassName("panorama");
+        if (n > x.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = x.length}
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex-1].style.display = "block";
+    }
+</script>
 
 
 

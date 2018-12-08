@@ -309,6 +309,8 @@ class HomeController extends Controller
             'specification' => 'required',
             'condition' => 'required',
             'eula' => 'required',
+            'fotka.*' => 'required|max:999',
+            'pan.*' => 'max:999',
             'g-recaptcha-response' => 'required'
         );
 
@@ -418,6 +420,16 @@ class HomeController extends Controller
             }
 
 
+            if(Input::file('pan')) {
+                $panoramy = Input::file('pan');
+                $i=0;
+                foreach ($panoramy as $panorama) {
+
+                    $i++;
+                    Storage::putFileAs('public/inzeraty/' . $name, $panorama, 'panorama_' . $i . '.jpg');
+
+                }
+            }
 
             return redirect()-> action('HomeController@showinzerat',['id' => $id,'owner' => 'true']);
 
