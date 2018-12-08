@@ -1,6 +1,7 @@
 @include('frontend/header')
 @include('frontend/chat')
 @section('page') Inzeráty @endsection
+
 <section class="property-area section-gap relative" id="property">
     <div class="container pt-30">
         <div class="row pt-20">
@@ -9,9 +10,10 @@
             </div>
         </div>
         <div class="row">
+            <?php  $i=0; ?>
             @if(session()->has('search'))
                 <?php $search = session()->get('search');
-                $i=0;
+
                 foreach($search as $ads):
                 $fotka = $ads->id_advertisement;
                 $i++; ?>
