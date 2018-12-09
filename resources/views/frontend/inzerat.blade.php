@@ -60,34 +60,28 @@
             </div>
         </div>
     </div>
+    <?php
+    $id= $ad->id_advertisement;
+    $i=1;
+    $exists = false;
+    while(file_exists("storage/inzeraty/inzerat_".$id."/panorama_".$i.".jpg")):
+    $exists = true;
+    ?>
+    <div class="row pt-10">
+        <div class="col-lg-12 col-md-12 panorama">
+            <img class="mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_{{$ad->id_advertisement}}/panorama_<?php echo $i; ?>.jpg" alt="Panorama1" style="max-height: 430px">
+        </div>
+    </div>
+
+    <?php $i++; endwhile; ?>
+    <?php if($exists): ?>
+    <div class="gallery-btn pb-30">
+        <button class="genric-btn danger-border w3-display-left" onclick="plusDivs2(-1)">&#10094;</button>
+        <button class="genric-btn danger-border w3-display-right" onclick="plusDivs2(1)">&#10095;</button>
+    </div>
+    <?php endif; ?>
 </div>
-
-<style>
-
-</style>
-
-
-<?php
-$id= $ad->id_advertisement;
-$i=1;
-$exists = false;
-while(file_exists("storage/inzeraty/inzerat_".$id."/panorama_".$i.".jpg")):
-$exists = true;
-?>
-<div align="center" class="panorama" style="width: 1000px; height: 600px; margin-left: 16%">
-<img src="/reality/storage/app/public/inzeraty/inzerat_{{$ad->id_advertisement}}/panorama_<?php echo $i; ?>.jpg" alt="Panorama1">
-</div>
-<?php $i++; endwhile; ?>
-<?php if($exists): ?>
-<div class="gallery-btn">
-    <button class="genric-btn danger-border w3-display-left" onclick="plusDivs2(-1)">&#10094;</button>
-    <button class="genric-btn danger-border w3-display-right" onclick="plusDivs2(1)">&#10095;</button>
-</div>
-<?php endif; ?>
-<br />
-
-
-
+@include('frontend/footer')
 
 
 <script>
@@ -132,5 +126,3 @@ $exists = true;
         x[slideIndex-1].style.display = "block";
     }
 </script>
-
-@include('frontend/footer')
