@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+
+    <?php
+        $helps = \App\Models\Helpdesk::select('*')->where("was_read","=",0)->get();
+    ?>
+
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Admin | @yield('page')</title>
@@ -86,18 +93,25 @@
                                 <ul class="menu">
                                     <li>
                                         <!-- start message -->
-                                        <a href="#">
+                                        <?php foreach($helps as $help):
+
+                                        $preview = substr($help->text,0,20)." ...";
+                                        ?>
+                                        <a href="<?php echo url('/it-admin/helpdesk/'.$help->id_helpdesk); ?>">
                                             <div class="pull-left">
                                             <!--
                                                 <img src=" {{asset('admin-theme//dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
                                             -->
                                             </div>
+
                                             <h4>
                                                 <!--Odosielatel spravy-->
                                                 <small><i class="fa fa-clock-o"></i> <!--Dorucenie> napr. 5 mins--></small>
                                             </h4>
-                                            <p><!--Sprava--></p>
+
+                                            <p><?php echo $preview; ?></p>
                                         </a>
+                                    <?php endforeach; ?>
                                         <!-- end message -->
                                     </li>
                                 </ul>

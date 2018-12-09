@@ -4,6 +4,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Helpdesk;
 use Redirect;
 use Validator;
 use DB;
@@ -607,6 +608,40 @@ class HomeController extends Controller
 
 
         return view('frontend/inzerat',$data);
+    }
+
+
+
+    public function ask_helpdesk(Request $request) {
+        $rules = array(
+            'email'    => 'required|email',
+            'text' => 'required|min:3'
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+
+
+        if ($validator->fails()) {
+            return Redirect::to('/poradenstvo')
+                ->withErrors($validator); // send back the input (not the password) so that we can repopulate the form
+        } else {
+
+            $email = Input::get('email');
+            $text = Input::get('text');
+
+            $helpdesk =  new Helpdesk;
+
+            $helpdesk->email = $email;
+            $helpdesk->text = $text;
+            $helpdesk->was_read = 0;
+
+            $helpdesk->save();
+
+            return redirect('/poradenstvo')->withErrors(['success' => 'Vaša otázka bola poslaná administrátorom stránky']);
+        }
+
+
     }
 
     public function dologin(Request $request) {
