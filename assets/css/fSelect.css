@@ -2,7 +2,7 @@
     display: inline-block;
     cursor: pointer;
     line-height: 1;
-    width: 200px;
+    width: 100%;
 }
 
 .fs-label-wrap {
@@ -27,6 +27,7 @@
     white-space: nowrap;
     overflow: hidden;
     color: #000;
+    text-align: left;
 }
 
 .fs-arrow {
