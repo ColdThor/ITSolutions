@@ -3,6 +3,12 @@
 @section('page') Home @endsection
 <!-- start banner Area -->
 
+<style>
+    .location {
+        display: none;
+    }
+</style>
+
 
 <section class="banner-area relative" id="home">
     <div class="overlay"></div>
@@ -20,7 +26,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
-                                <select multiple="multiple" name="location[]" class="location" id="location">
+                                <select multiple="multiple" name="location[]" class="app-select form-control location" id="location">
                                     <?php $i = 0; foreach($ban as $lo): $i++; ?>
                                     <?php if($i==1): ?>
                                         <optgroup label="{{$lo->region}}">

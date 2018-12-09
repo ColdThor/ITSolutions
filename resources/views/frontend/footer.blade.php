@@ -80,13 +80,9 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="/reality/assets/js/jquery.magnific-popup.min.js"></script>
 <script src="/reality/assets/js/main.js"></script>
-
+<script src="/reality/assets/js/fSelect.js"></script>
 
 <!--
-
--->
-
-
 <script>
     $('select.location').multipleSelect({
         filter: true,
@@ -102,6 +98,13 @@
     $("input#cena_od").removeClass("cena_od");
 
 </script>
+-->
+
+<script>
+    $('.location').fSelect();
+    $("select#location").removeClass("location");
+</script>
+
 
 
 <script type="text/javascript">
