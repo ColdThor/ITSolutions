@@ -6,6 +6,9 @@
     .location {
         display: none;
     }
+    .specification {
+        display:none;
+    }
 </style>
 
 <section class="banner-area relative" id="home">
@@ -105,48 +108,56 @@
                                 </select>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
-                                <select name="specification" class="app-select form-control specification" id="specification" >
+                                <select  multiple="multiple" name="specification[]" class="app-select form-control specification" id="specification" >
                                     <?php $i = 0; foreach($byty as $sp): $i++; ?>
                                     <?php if($i==1): ?>
-                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
+                                        <optgroup label="{{$sp->group}}">
                                     <?php endif; ?>
                                     <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
                                     <?php endforeach; ?>
+                                        </optgroup>
 
                                     <?php $i = 0; foreach($domy as $sp): $i++; ?>
                                     <?php if($i==1): ?>
-                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
+                                        <optgroup label="{{$sp->group}}">
                                     <?php endif; ?>
                                     <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
                                     <?php endforeach; ?>
+                                        </optgroup>
+
 
                                     <?php $i = 0; foreach($objekty as $sp): $i++; ?>
                                     <?php if($i==1): ?>
-                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
+                                        <optgroup label="{{$sp->group}}">
                                     <?php endif; ?>
                                     <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
                                     <?php endforeach; ?>
+                                        </optgroup>
 
                                     <?php $i = 0; foreach($pozemky as $sp): $i++; ?>
                                     <?php if($i==1): ?>
-                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
+                                        <optgroup label="{{$sp->group}}">
                                     <?php endif; ?>
                                     <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
                                     <?php endforeach; ?>
+                                        </optgroup>
+
 
                                     <?php $i = 0; foreach($priestory as $sp): $i++; ?>
                                     <?php if($i==1): ?>
-                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
+                                        <optgroup label="{{$sp->group}}">
                                     <?php endif; ?>
                                     <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
                                     <?php endforeach; ?>
+                                        </optgroup>
 
                                     <?php $i = 0; foreach($rek as $sp): $i++; ?>
                                     <?php if($i==1): ?>
-                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
+                                        <optgroup label="{{$sp->group}}">
                                     <?php endif; ?>
                                     <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
                                     <?php endforeach; ?>
+                                        </optgroup>
                                 </select>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">

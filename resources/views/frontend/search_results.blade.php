@@ -2,7 +2,7 @@
 @include('frontend/chat')
 @section('page') Inzeráty @endsection
 
-<section class="property-area section-gap relative" id="property">
+<section class="property-area section-gap relative">
     <div class="container pt-30">
         <div class="row pt-20">
             <div class="col-lg-12 d-flex align-items-center justify-content-center toggle-wrap">
@@ -13,6 +13,9 @@
         <style>
             .location {
                 display: none;
+            }
+            .specification {
+                display:none;
             }
         </style>
 
@@ -111,48 +114,56 @@
                         </select>
                     </div>
                     <div class="col-lg-3 col-md-6 col-xs-6">
-                        <select multiple="multiple" name="specification" class="app-select form-control specification" id="specification" >
+                        <select  multiple="multiple" name="specification[]" class="app-select form-control specification" id="specification" >
                             <?php $i = 0; foreach($byty as $sp): $i++; ?>
                             <?php if($i==1): ?>
-                            <option value=""  style="font-weight: bold" data-display="Druh">{{$sp->group}}</option>
-                            <?php endif; ?>
-                            <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
-                            <?php endforeach; ?>
+                            <optgroup label="{{$sp->group}}">
+                                <?php endif; ?>
+                                <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
+                                <?php endforeach; ?>
+                            </optgroup>
 
                             <?php $i = 0; foreach($domy as $sp): $i++; ?>
                             <?php if($i==1): ?>
-                            <option value=""  style="font-weight: bold" data-display="Druh">{{$sp->group}}</option>
-                            <?php endif; ?>
-                            <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
-                            <?php endforeach; ?>
+                            <optgroup label="{{$sp->group}}">
+                                <?php endif; ?>
+                                <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
+                                <?php endforeach; ?>
+                            </optgroup>
+
 
                             <?php $i = 0; foreach($objekty as $sp): $i++; ?>
                             <?php if($i==1): ?>
-                            <option value=""  style="font-weight: bold" data-display="Druh">{{$sp->group}}</option>
-                            <?php endif; ?>
-                            <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
-                            <?php endforeach; ?>
+                            <optgroup label="{{$sp->group}}">
+                                <?php endif; ?>
+                                <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
+                                <?php endforeach; ?>
+                            </optgroup>
 
                             <?php $i = 0; foreach($pozemky as $sp): $i++; ?>
                             <?php if($i==1): ?>
-                            <option value=""  style="font-weight: bold" data-display="Druh">{{$sp->group}}</option>
-                            <?php endif; ?>
-                            <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
-                            <?php endforeach; ?>
+                            <optgroup label="{{$sp->group}}">
+                                <?php endif; ?>
+                                <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
+                                <?php endforeach; ?>
+                            </optgroup>
+
 
                             <?php $i = 0; foreach($priestory as $sp): $i++; ?>
                             <?php if($i==1): ?>
-                            <option value=""  style="font-weight: bold" data-display="Druh">{{$sp->group}}</option>
-                            <?php endif; ?>
-                            <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
-                            <?php endforeach; ?>
+                            <optgroup label="{{$sp->group}}">
+                                <?php endif; ?>
+                                <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
+                                <?php endforeach; ?>
+                            </optgroup>
 
                             <?php $i = 0; foreach($rek as $sp): $i++; ?>
                             <?php if($i==1): ?>
-                            <option value=""  style="font-weight: bold" data-display="Druh">{{$sp->group}}</option>
-                            <?php endif; ?>
-                            <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
-                            <?php endforeach; ?>
+                            <optgroup label="{{$sp->group}}">
+                                <?php endif; ?>
+                                <option  value="{{$sp->id_specification}}">{{$sp->title}}</option>
+                                <?php endforeach; ?>
+                            </optgroup>
                         </select>
                     </div>
                     <div class="col-lg-3 col-md-6 col-xs-6">

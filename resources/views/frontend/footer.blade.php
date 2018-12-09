@@ -85,8 +85,19 @@
 
 
 <script>
-    $('.location').fSelect();
+    $('.location').fSelect({
+        placeholder: "Miesto"
+    });
     $("select#location").removeClass("location");
+</script>
+
+<script>
+    $('.specification').fSelect({
+        placeholder: "Druh"
+    });
+
+    $("select#specification").removeClass("specification");
+
 </script>
 
 

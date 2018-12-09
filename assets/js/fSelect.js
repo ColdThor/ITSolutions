@@ -27,7 +27,7 @@
         }
         else {
             var settings = $.extend({
-                placeholder: 'Miesto',
+                placeholder: 'Hľadať',
                 numDisplayed: 3,
                 overflowText: '{n} vybraté',
                 searchText: 'Hľadať',

@@ -116,9 +116,7 @@ class HomeController extends Controller
             if ($condition != "") {
                 $advertisements->where("advertisement.id_condition", "=", $condition);
             }
-            if ($specification != "") {
-                $advertisements->where("advertisement.id_specification", "=", $specification);
-            }
+
 
               if($user != "") {
                   $advertisements->where("user.id_user_group","=",$user);
@@ -133,7 +131,6 @@ class HomeController extends Controller
 
             if ($location != "") {
                 $i = 0;
-
                 foreach($location as $loc) {
                     $i++;
                     if($i==1) {
@@ -143,6 +140,19 @@ class HomeController extends Controller
                     }
                 }
             }
+
+            if ($specification != "") {
+                $i = 0;
+                foreach($specification as $sp) {
+                    $i++;
+                    if($i==1) {
+                        $advertisements->where("advertisement.id_specification", "=", $sp);
+                    } else {
+                        $advertisements->orWhere("advertisement.id_specification", "=", $sp);
+                    }
+                }
+            }
+
 
 
             if ($area != "") {
