@@ -18,9 +18,13 @@ class HelpDeskController extends Controller
 {
 
     public function index($id) {
-        $help = Helpdesk::where("id_helpdesk","=".$id)->get()->first();
+        $help = Helpdesk::find($id);
         $data['help'] = $help;
         return view('admin/helpdesk',$data);
+    }
+
+    public function send_message(Request $request) {
+
     }
 
 

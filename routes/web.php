@@ -170,5 +170,9 @@ Route::post('/pridat',[  'as' => 'updates',
 Route::post('/ask_helpdesk',[  'as' => 'updates',
     'uses' =>'HomeController@ask_helpdesk']);
 
+Route::post('/send_helpdesk',[  'as' => 'updates',
+    'uses' =>'HelpdeskController@send_message']);
+
+
 Route::get('/search_results', 'HomeController@results')->name('results');
 Route::get('/select', 'HomeController@show_select')->name('select');
