@@ -108,20 +108,7 @@ class HomeController extends Controller
             ->leftJoin("user_group","user.id_user_group","user_group.id_user_group")->leftJoin('type', 'advertisement.id_type', '=', 'type.id_type')
                 ->leftJoin('location', 'advertisement.id_location', '=', 'location.id_location');
 
-            if ($location != "") {
-                $i = 0;
 
-                foreach($location as $loc) {
-                    $i++;
-                    if($i==1) {
-                        $advertisements->where("advertisement.id_location", "=", $loc);
-                    } else {
-                        $advertisements->orWhere("advertisement.id_location", "=", $loc);
-                    }
-
-                }
-
-            }
             if ($type != "") {
                 $advertisements->where("advertisement.id_type", "=", $type);
             }
@@ -142,6 +129,22 @@ class HomeController extends Controller
             if ($price_to != "") {
                 $advertisements->where("price", "<", $price_to);
             }
+
+
+            if ($location != "") {
+                $i = 0;
+
+                foreach($location as $loc) {
+                    $i++;
+                    if($i==1) {
+                        $advertisements->where("advertisement.id_location", "=", $loc);
+                    } else {
+                        $advertisements->orWhere("advertisement.id_location", "=", $loc);
+                    }
+                }
+            }
+
+
             if ($area != "") {
                 switch ($area) {
                     case 1:   $advertisements->where("area", "<", 20);  break;
