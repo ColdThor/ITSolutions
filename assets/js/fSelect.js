@@ -27,11 +27,11 @@
         }
         else {
             var settings = $.extend({
-                placeholder: 'Select some options',
+                placeholder: 'Miesto',
                 numDisplayed: 3,
-                overflowText: '{n} selected',
-                searchText: 'Search',
-                noResultsText: 'No results found',
+                overflowText: '{n} vybraté',
+                searchText: 'Hľadať',
+                noResultsText: 'Žiadne výsledky',
                 showSearch: true,
                 optionFormatter: false
             }, options);
