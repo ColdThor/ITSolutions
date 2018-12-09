@@ -82,23 +82,7 @@
 <script src="/reality/assets/js/main.js"></script>
 <script src="/reality/assets/js/fSelect.js"></script>
 
-<!--
-<script>
-    $('select.location').multipleSelect({
-        filter: true,
-        placeholder: "Miesto"
-    });
-    $("select#location").removeClass("location");
-    $("select#type").removeClass("type");
-    $("select#condition").removeClass("condition");
-    $("select#specification").removeClass("specification");
-    $("select#user").removeClass("user");
-    $("select#area").removeClass("area");
-    $("input#cena_do").removeClass("cena_do");
-    $("input#cena_od").removeClass("cena_od");
 
-</script>
--->
 
 <script>
     $('.location').fSelect();
