@@ -16,62 +16,72 @@
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
-                                <select  name="location" class="app-select form-control">
+                                <select multiple="multiple" name="location" class="location">
                                     <?php $i = 0; foreach($ban as $lo): $i++; ?>
                                     <?php if($i==1): ?>
-                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
+                                        <optgroup label="{{$lo->region}}">
                                     <?php endif; ?>
                                     <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
                                     <?php endforeach; ?>
+                                        </optgroup>
 
                                     <?php $i = 0; foreach($bra as $lo): $i++; ?>
                                     <?php if($i==1): ?>
-                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
+                                        <optgroup label="{{$lo->region}}">
                                     <?php endif; ?>
                                     <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
                                     <?php endforeach; ?>
+                                        </optgroup>
 
                                     <?php $i = 0; foreach($kos as $lo): $i++; ?>
                                     <?php if($i==1): ?>
-                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
+                                        <optgroup label="{{$lo->region}}">
                                     <?php endif; ?>
                                     <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
                                     <?php endforeach; ?>
+                                        </optgroup>
 
                                     <?php $i = 0; foreach($nit as $lo): $i++; ?>
                                     <?php if($i==1): ?>
-                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
+                                        <optgroup label="{{$lo->region}}">
                                     <?php endif; ?>
                                     <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
                                     <?php endforeach; ?>
+                                        </optgroup>
 
                                     <?php $i = 0; foreach($pre as $lo): $i++; ?>
                                     <?php if($i==1): ?>
-                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
+                                        <optgroup label="{{$lo->region}}">
                                     <?php endif; ?>
                                     <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
                                     <?php endforeach; ?>
+                                        </optgroup>
+
 
                                     <?php $i = 0; foreach($tre as $lo): $i++; ?>
                                     <?php if($i==1): ?>
-                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
+                                        <optgroup label="{{$lo->region}}">
                                     <?php endif; ?>
                                     <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
                                     <?php endforeach; ?>
+                                        </optgroup>
 
                                     <?php $i = 0; foreach($trn as $lo): $i++; ?>
                                     <?php if($i==1): ?>
-                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
+                                        <optgroup label="{{$lo->region}}">
                                     <?php endif; ?>
                                     <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
                                     <?php endforeach; ?>
+                                        </optgroup>
+
 
                                     <?php $i = 0; foreach($zil as $lo): $i++; ?>
                                     <?php if($i==1): ?>
-                                    <option value=""  style="font-weight: bold" data-display="Miesto">{{$lo->region}}</option>
+                                        <optgroup label="{{$lo->region}}">
                                     <?php endif; ?>
                                     <option  value="{{$lo->id_location}}">{{$lo->city}}</option>
                                     <?php endforeach; ?>
+                                        </optgroup>
 
                                 </select>
 

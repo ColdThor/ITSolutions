@@ -2,6 +2,7 @@
 <html lang="zxx" class="no-js">
 <head>
 
+    <link rel="stylesheet" href="/reality/assets/css/multiple-select.css">
     <link rel="stylesheet" href="/reality/assets/css/linearicons.css">
     <link rel="stylesheet" href="/reality/assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="/reality/assets/css/nice-select.css">
@@ -10,6 +11,9 @@
     <link rel="stylesheet" href="/reality/assets/css/bootstrap.css">
     <link rel="stylesheet" href="/reality/assets/css/main.css">
     <link rel="stylesheet" href="/reality/assets/css/paver.css">
+
+
+
 
 
     <!-- Problémový stylesheet
