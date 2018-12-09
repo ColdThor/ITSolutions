@@ -73,6 +73,7 @@ class HomeController extends Controller
         $data['pozemky'] = $pozemky;
         $data['priestory'] = $priestory;
         $data['rek'] = $rek;
+        $data['user'] = $user;
 
         $top = Advertisement::select('advertisement.*','condition.title AS condition',
             'type.title AS type','specification.title AS title','location.city AS location')->leftJoin('condition', 'advertisement.id_condition', '=', 'condition.id_condition')
@@ -85,7 +86,7 @@ class HomeController extends Controller
 
 
 
-        $data['user'] = $user;
+
         return view('frontend/home',$data);
     }
 
@@ -479,8 +480,51 @@ class HomeController extends Controller
 
 
     public function results(Request $request) {
+        $condition = Condition::all();
+        $type = Type::all();
 
-            return view('frontend/search_results');
+
+        $byty = Specification::select('*')->where("group","=","Byty")->get();
+        $domy = Specification::select('*')->where("group","=","Domy")->get();
+        $objekty = Specification::select('*')->where("group","=","Objekty")->get();
+        $pozemky = Specification::select('*')->where("group","=","Pozemky")->get();
+        $priestory = Specification::select('*')->where("group","=","Priestory")->get();
+        $rek = Specification::select('*')->where("group","=","Rekreačné domy")->get();
+
+
+
+        $kos = Location::select('*')->where("region","=","Košický kraj")->get();
+        $nit = Location::select('*')->where("region","=","Nitriansky kraj")->get();
+        $ban = Location::select('*')->where("region","=","Banskobystrický kraj")->get();
+        $bra = Location::select('*')->where("region","=","Bratislavský kraj")->get();
+        $pre = Location::select('*')->where("region","=","Prešovský kraj")->get();
+        $tre = Location::select('*')->where("region","=","Trenčiansky kraj")->get();
+        $trn = Location::select('*')->where("region","=","Trnavský kraj")->get();
+        $zil = Location::select('*')->where("region","=","Žilinský kraj")->get();
+
+
+        $data['type'] = $type;
+        $data['kos'] = $kos;
+        $data['nit'] = $nit;
+        $data['ban'] = $ban;
+        $data['bra'] = $bra;
+        $data['pre'] = $pre;
+        $data['tre'] = $tre;
+        $data['trn'] = $trn;
+        $data['zil'] = $zil;
+
+        $user = Usergroup::all();
+        $data['condition'] = $condition;
+
+        $data['byty'] = $byty;
+        $data['domy'] = $domy;
+        $data['objekty'] = $objekty;
+        $data['pozemky'] = $pozemky;
+        $data['priestory'] = $priestory;
+        $data['rek'] = $rek;
+        $data['user'] = $user;
+
+            return view('frontend/search_results',$data);
     }
 
     public function showlogin() {

@@ -3,46 +3,6 @@
 @section('page') Home @endsection
 <!-- start banner Area -->
 
-<style>
-    select.location
-    {
-        display: none
-    }
-    select.type
-    {
-        display: none
-    }
-
-
-    select.condition
-    {
-        display: none
-    }
-
-    select.specification
-    {
-        display: none
-    }
-
-    select.area
-    {
-        display: none
-    }
-
-    select.user
-    {
-        display: none
-    }
-
-    input.cena_do {
-        display: none
-    }
-
-    input.cena_od {
-        display: none
-    }
-
-</style>
 
 <section class="banner-area relative" id="home">
     <div class="overlay"></div>
