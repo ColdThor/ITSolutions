@@ -65,10 +65,10 @@
 </footer>
 <!-- End footer Area -->
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
-<script src="/reality/assets/js/multiple-select.js"></script>
+
 <script type="text/javascript"  src="/reality/assets/js/jquery.paver.min.js"></script>
 <script type="text/javascript"  src="/reality/assets/js/functions.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
@@ -87,7 +87,8 @@
 
 <script>
     $('select.location').multipleSelect({
-        filter: true
+        filter: true,
+        placeholder: "Miesto"
     });
 </script>
 

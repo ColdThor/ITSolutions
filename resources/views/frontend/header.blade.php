@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 <head>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" async src="/reality/assets/js/multiple-select.js"></script>
 
     <link rel="stylesheet" href="/reality/assets/css/multiple-select.css">
     <link rel="stylesheet" href="/reality/assets/css/linearicons.css">

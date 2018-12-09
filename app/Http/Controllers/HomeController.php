@@ -108,7 +108,18 @@ class HomeController extends Controller
                 ->leftJoin('location', 'advertisement.id_location', '=', 'location.id_location');
 
             if ($location != "") {
-                $advertisements->where("advertisement.id_location", "=", $location);
+                $i = 0;
+
+                foreach($location as $loc) {
+                    $i++;
+                    if($i==1) {
+                        $advertisements->where("advertisement.id_location", "=", $loc);
+                    } else {
+                        $advertisements->orWhere("advertisement.id_location", "=", $loc);
+                    }
+
+                }
+
             }
             if ($type != "") {
                 $advertisements->where("advertisement.id_type", "=", $type);

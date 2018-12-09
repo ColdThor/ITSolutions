@@ -16,7 +16,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
-                                <select multiple="multiple" name="location" class="location">
+                                <select multiple="multiple" name="location[]" class="location">
                                     <?php $i = 0; foreach($ban as $lo): $i++; ?>
                                     <?php if($i==1): ?>
                                         <optgroup label="{{$lo->region}}">
