@@ -2,13 +2,57 @@
 @include('frontend/chat')
 @section('page') Home @endsection
 <!-- start banner Area -->
+
+<style>
+    select.location
+    {
+        display: none
+    }
+    select.type
+    {
+        display: none
+    }
+
+
+    select.condition
+    {
+        display: none
+    }
+
+    select.specification
+    {
+        display: none
+    }
+
+    select.area
+    {
+        display: none
+    }
+
+    select.user
+    {
+        display: none
+    }
+
+    input.cena_do {
+        display: none
+    }
+
+    input.cena_od {
+        display: none
+    }
+
+</style>
+
 <section class="banner-area relative" id="home">
     <div class="overlay"></div>
     <div class="container">
         <div class="row fullscreen align-items-center justify-content-center" style="height: 915px;">
             <div class="banner-content col-lg-12 col-md-12">
                 <div class="search-field">
-                    <form method="get" class="search-form" action="{{  action('HomeController@search')  }}">
+                    <form method="post" class="search-form" action="{{  action('HomeController@search')  }}">
+
+
                         <div class="row">
                             <div class="col-lg-12 d-flex align-items-center justify-content-center toggle-wrap">
                                 <div class="row">
@@ -16,7 +60,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
-                                <select multiple="multiple" name="location[]" class="location">
+                                <select multiple="multiple" name="location[]" class="location" id="location">
                                     <?php $i = 0; foreach($ban as $lo): $i++; ?>
                                     <?php if($i==1): ?>
                                         <optgroup label="{{$lo->region}}">
@@ -87,7 +131,7 @@
 
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
-                                <select name="type" class="app-select form-control" >
+                                <select name="type" class="app-select form-control type" id="type" >
                                     <option value="" data-display="Typ nehnuteľnosti">Typ</option>
                                     <?php foreach($type as $tp):  ?>
 
@@ -97,7 +141,7 @@
                                 </select>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
-                                <select name="specification" class="app-select form-control" >
+                                <select name="specification" class="app-select form-control specification" id="specification" >
                                     <?php $i = 0; foreach($byty as $sp): $i++; ?>
                                     <?php if($i==1): ?>
                                     <option value=""  style="font-weight: bold" data-display="Miesto">{{$sp->group}}</option>
@@ -142,7 +186,7 @@
                                 </select>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
-                                <select name="condition" class="app-select form-control" >
+                                <select name="condition" class="app-select form-control condition" id="condition" >
                                     <option value="" data-display="Stav nehnuteľnosti">Stav</option>
                                     <?php foreach($condition as $con):  ?>
 
@@ -152,7 +196,7 @@
                                 </select>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
-                                <select name="user" class="app-select form-control" >
+                                <select name="user" class="app-select form-control user" id="user">
                                     <option value="" data-display="Inzerujúci">Typ inzerujúceho</option>
                                     <?php foreach($user as $us):
                                     if($us->title != "admin"):?>
@@ -162,7 +206,7 @@
                                 </select>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
-                                <select name="area" class="app-select form-control" >
+                                <select name="area" class="app-select form-control area " id="area">
                                     <option value="" data-display="Výmera">Výmera do</option>
                                     <option value="1">do 20 m2</option>
                                     <option value="2">20 až 30 m<sup>2</sup></option>
@@ -173,10 +217,10 @@
                             </div>
                             <!-- -->
                             <div class="col-lg-3 col-md-6 col-xs-6">
-                                <input type="number" class="app-select form-control" value="" name="cena_od" placeholder="Cena od" style="height: 38px"></input>
+                                <input type="number" class="app-select form-control cena_od" id="cena_od" value="" name="cena_od" placeholder="Cena od" style="height: 38px"></input>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
-                                <input type="number" class="app-select form-control" value="" name="cena_do" placeholder="Cena do"  style="height: 38px"></input>
+                                <input type="number" class="app-select form-control cena_do" id="cena_do" value="" name="cena_do" placeholder="Cena do"  style="height: 38px"></input>
                             </div>
                             <div class="col-lg-12 d-flex align-items-center justify-content-center">
                                 <div class="row">
@@ -184,6 +228,7 @@
                                 </div>
                             </div>
                         </div>
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     </form>
                 </div>
             </div>
