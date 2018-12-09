@@ -42,7 +42,7 @@
                     {{ Form::password('password') }}
                 </p>
 
-                <p style="margin-left: 10px">{{ Form::submit('Submit!',array('class'=>'btn btn-primary')) }}</p>
+                <p style="margin-left: 10px">{{ Form::submit('Prihlásiť sa!',array('class'=>'btn btn-primary')) }}</p>
                 {{ Form::close() }}
 
 

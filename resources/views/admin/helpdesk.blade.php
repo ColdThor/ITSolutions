@@ -13,7 +13,7 @@
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title"> Otázka od: {{$help->email}}</h3>
-
+                        <input type="hidden" name="id_helpdesk" value="{{ $help->id_helpdesk }}">
                     <!-- /.box-header -->
                     <br />     <br />
                     <h3>Text: <br /></h3>

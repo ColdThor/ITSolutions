@@ -7,5 +7,5 @@ Aby ste vedeli editovať a zmazať Váš inzerát dovolili sme si Vám vygenerov
 <br /> <br />
 Ďakujeme že ste využili naše sľužby <br />
 S pozdravom, <br />
-Váš ITSolutions
+Váš Svet Realít
 

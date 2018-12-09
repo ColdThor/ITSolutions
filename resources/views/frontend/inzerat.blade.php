@@ -8,15 +8,15 @@
             <div class="single-element-widget">
                 <h5><span class="lnr lnr-history"></span>Dátum zverejnenia: <b>{{$ad->date}}</b></h5>
                 <div class="pt-10">
-                <?php if($ad->id_user == session()->get("userID")): ?>
-                <a href="<?php echo url('/inzerat/edit/'.$ad->id_advertisement.'/true')?>" class="genric-btn danger-border circle">Editovať</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="<?php echo url('/inzerat/delete/'.$ad->id_advertisement.'/true')?>" class="genric-btn primary-border circle">Zmazať</a>
-                <?php else:
-                if($owner == "true"): ?>
-                <a href="<?php echo url('/inzerat/edit/'.$ad->id_advertisement.'/true')?>" class="genric-btn danger-border circle">Editovať</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="<?php echo url('/inzerat/delete/'.$ad->id_advertisement.'/true')?>" class="genric-btn primary-border circle">Zmazať</a>
-                <?php  endif;   ?>
-                <?php endif; ?>
+                    <?php if($ad->id_user == session()->get("userID")): ?>
+                    <a href="<?php echo url('/inzerat/edit/'.$ad->id_advertisement.'/true')?>" class="genric-btn danger-border circle">Editovať</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="<?php echo url('/inzerat/delete/'.$ad->id_advertisement.'/true')?>" class="genric-btn primary-border circle">Zmazať</a>
+                    <?php else:
+                    if($owner == "true"): ?>
+                    <a href="<?php echo url('/inzerat/edit/'.$ad->id_advertisement.'/true')?>" class="genric-btn danger-border circle">Editovať</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="<?php echo url('/inzerat/delete/'.$ad->id_advertisement.'/true')?>" class="genric-btn primary-border circle">Zmazať</a>
+                    <?php  endif;   ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

@@ -93,7 +93,9 @@
                                 <ul class="menu">
                                     <li>
                                         <!-- start message -->
-                                        <?php foreach($helps as $help):
+                                        <?php
+                                        $i = 0;
+                                        foreach($helps as $help):
 
                                         $preview = substr($help->text,0,20)." ...";
                                         ?>
@@ -111,15 +113,22 @@
 
                                             <p><?php echo $preview; ?></p>
                                         </a>
-                                    <?php endforeach; ?>
+                                    <?php
+                                    $i++;
+                                    endforeach; ?>
+
                                         <!-- end message -->
+                                        <?php if($i==0): ?>
+                                        <p align="center">Žiadne nové správy</p>
+
+                                        <?php endif; ?>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="footer"><a href="#">Zobraziť všetky správy</a></li>
-                        </ul>
-                    </li>
-                    <!-- Prijimanie a manažment správ END-->
+                            <!-- e <li class="footer"><a href="#">Zobraziť všetky správy</a></li> -->
+                      </ul>
+                  </li>
+                  <!-- Prijimanie a manažment správ END-->
 
                     <!-- Notifikácie -->
 
