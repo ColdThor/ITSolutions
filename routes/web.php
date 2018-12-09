@@ -151,6 +151,7 @@ Route::get('/navrhy', 'HomeController@navrhy')->name('navrhy');
 
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/it-admin/helpdesk/{id}', 'HelpDeskController@index')->name('helpdesk');
 Route::get('/informacie', 'HomeController@informacie')->name('informacie');
 Route::get('/zmluvy', 'HomeController@zmluvy')->name('zmluvy');
 Route::get('/hypoteky', 'HomeController@hypoteky')->name('hypoteky');
@@ -165,6 +166,9 @@ Route::get('/moje_inzeraty', 'HomeController@show_mypage')->name('moje_inzeraty'
 Route::get('/pridat', 'HomeController@pridat')->name('pridat');
 Route::post('/pridat',[  'as' => 'updates',
     'uses' =>'HomeController@add_advertisement']);
+
+Route::post('/ask_helpdesk',[  'as' => 'updates',
+    'uses' =>'HomeController@ask_helpdesk']);
 
 Route::get('/search_results', 'HomeController@results')->name('results');
 Route::get('/select', 'HomeController@show_select')->name('select');
