@@ -5,12 +5,23 @@
     width: 100%;
 }
 
+
+@media (max-width: 1400px) {
+    .fs-wrap {
+        margin-bottom: 25px;
+    }
+}
+
 .fs-label-wrap {
     position: relative;
     background-color: #fff;
     border: 1px solid #ddd;
     cursor: default;
+    height: 38px;
 }
+
+
+
 
 .fs-label-wrap,
 .fs-dropdown {
