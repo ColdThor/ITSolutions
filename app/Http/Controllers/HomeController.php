@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Helpdesk;
+use App\Models\Newsletter;
 use Redirect;
 use Validator;
 use DB;
@@ -296,6 +297,17 @@ class HomeController extends Controller
 
     public function poradenstvo() {
         return view('frontend/poradenstvo');
+    }
+
+
+    public function subscribe() {
+        $email = Input::get('email');
+        $newsletter = new Newsletter;
+        $newsletter->email = $email;
+        $newsletter->save();
+        return redirect()-> action('HomeController@index');
+
+
     }
 
     public function add_advertisement(Request $request) {

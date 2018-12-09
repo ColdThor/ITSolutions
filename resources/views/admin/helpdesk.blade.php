@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="content-header">
-        <h1>Prehľad</h1>
+        <h1>Helpdesk</h1>
     </section>
     <!-- Main content -->
     <section class="content">
@@ -46,9 +46,20 @@
             <!-- /.col -->
         </div>
 
+
+
         <button type="submit" class="btn btn-primary" name="submit" value="submit">Odpovedať</button>
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         {{ Form::close() }}
+
+        <p class="sample-text">
+            <b>
+                {{ $errors->first('response') }}
+
+            </b>
+        </p>
+
+
     </section>
 
 @endsection

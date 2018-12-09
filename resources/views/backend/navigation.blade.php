@@ -46,6 +46,9 @@
     <li>
         <a href="<?php echo url('/it-admin/register'); ?>"><i class="fa fa-user"></i> <span>Pridať admina</span></a>
     </li>
+        <li>
+            <a href="<?php echo url('/it-admin/newsletter'); ?>"><i class="fa fa-users"></i> <span>Newsletter</span></a>
+        </li>
     <li>
         @endif
         @if(session()->has('admin'))

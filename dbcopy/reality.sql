@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2018 at 04:39 PM
+-- Generation Time: Dec 09, 2018 at 05:05 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `advertisement` (
   `id_advertisement` int(10) UNSIGNED NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `date` date NOT NULL,
   `contact_mail` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `contact_phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -52,7 +52,10 @@ CREATE TABLE `advertisement` (
 --
 
 INSERT INTO `advertisement` (`id_advertisement`, `title`, `description`, `date`, `contact_mail`, `contact_phone`, `price`, `area`, `views`, `id_user`, `id_condition`, `id_type`, `id_location`, `id_specification`, `created_at`, `updated_at`) VALUES
-(10, 'Predám rodinný dom', 'Pôvodny stav, od rodičov. Výborný stav', '2018-11-21', 'dom@gmail.com', '0911 496 888', 6000, 124, 2, 1, 4, 1, 1582, 9, '2018-11-21 22:40:55', '2018-11-23 14:39:06');
+(16, 'Predám rodinný dom', 'Pôvodny stav, od rodičov. Výborný stav', '2018-11-13', 'dom@gmail.com', '0911 496 888', 1222, 124, 106, 1, 2, 1, 290, 10, '2018-11-21 22:40:55', '2018-12-09 13:16:08'),
+(17, 'Nadpis', 'Popis', '2018-11-27', 'sima.johnny@gmail.com', NULL, 2500, 12, 126, 15, 3, 3, 50, 13, '2018-11-27 13:18:05', '2018-12-09 13:26:35'),
+(18, 'Nadpisasdasd', 'bnbnm', '2018-12-06', 'adsad@fm.com', '120', 1122, 120, 2, 1, 3, 4, 17, 11, '2018-12-06 16:48:48', '2018-12-06 16:58:54'),
+(19, 'Podnájom', 'fdfdf', '2018-12-04', 'mail@com', NULL, 1200, 25, 19, 1, 3, 3, 18, 60, NULL, '2018-12-08 18:22:42');
 
 -- --------------------------------------------------------
 
@@ -78,6 +81,29 @@ INSERT INTO `condition` (`id_condition`, `title`, `created_at`, `updated_at`) VA
 (4, 'Pôvodný stav', NULL, NULL),
 (5, 'Vo výstavbe', NULL, NULL),
 (6, 'Developerský projekt', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `helpdesk`
+--
+
+CREATE TABLE `helpdesk` (
+  `id_helpdesk` int(11) NOT NULL,
+  `email` varchar(45) COLLATE utf8_slovak_ci NOT NULL,
+  `text` text COLLATE utf8_slovak_ci NOT NULL,
+  `was_read` tinyint(4) NOT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci;
+
+--
+-- Dumping data for table `helpdesk`
+--
+
+INSERT INTO `helpdesk` (`id_helpdesk`, `email`, `text`, `was_read`, `updated_at`, `created_at`) VALUES
+(1, 'nglchstn@gmail.com', 'čo sa tu robí?', 1, '2018-12-09 13:59:08', '2018-12-09 12:08:38'),
+(2, 'nglchstn@gmail.com', 'Ako toto funguje?', 1, '2018-12-09 13:53:19', '2018-12-09 12:09:24');
 
 -- --------------------------------------------------------
 
@@ -3016,6 +3042,26 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `newsletter`
+--
+
+CREATE TABLE `newsletter` (
+  `id_newsletter` int(11) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `newsletter`
+--
+
+INSERT INTO `newsletter` (`id_newsletter`, `email`, `created_at`, `updated_at`) VALUES
+(2, 'nglchstn@gmail.com', '2018-12-09 14:19:08', '2018-12-09 14:19:08');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `specification`
 --
 
@@ -3146,7 +3192,9 @@ INSERT INTO `user` (`id_user`, `first_name`, `last_name`, `email`, `password`, `
 (7, 'Ján', 'Šima', 'jan.sima@student.ukf.sk', '81dc9bdb52d04dc20036dbd8313ed055', NULL, 4, '2018-11-17 09:26:10', '2018-11-17 09:26:10'),
 (8, 'Andrea', 'Kalamárová', 'andrea.kalamarova@student.ukf.sk', '81dc9bdb52d04dc20036dbd8313ed055', NULL, 4, '2018-11-17 09:27:06', '2018-11-17 09:27:06'),
 (9, 'Tomáš', 'Wiedermann', 'tomas.wiedermann@student.ukf.sk', '81dc9bdb52d04dc20036dbd8313ed055', NULL, 4, '2018-11-17 09:27:28', '2018-11-17 09:57:55'),
-(13, 'Nový', 'Zákazník', 'novyzakaznik@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '+421', 2, '2018-11-20 16:30:16', '2018-11-23 13:47:07');
+(13, 'Nový', 'Zákazník', 'novyzakaznik@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '+421', 2, '2018-11-20 16:30:16', '2018-11-23 13:47:07'),
+(14, 'Realita', NULL, 'realitasfsdffsd@c.sk', '81dc9bdb52d04dc20036dbd8313ed055', '0911', 3, '2018-11-25 11:32:49', '2018-11-25 11:32:49'),
+(15, 'Ján', 'Šima', 'sima.johnny@gmail.com', 'fb1d9736d9286e3f39d33928ac000513', NULL, 2, '2018-11-27 13:15:06', '2018-11-27 13:18:05');
 
 -- --------------------------------------------------------
 
@@ -3193,6 +3241,12 @@ ALTER TABLE `condition`
   ADD PRIMARY KEY (`id_condition`);
 
 --
+-- Indexes for table `helpdesk`
+--
+ALTER TABLE `helpdesk`
+  ADD PRIMARY KEY (`id_helpdesk`);
+
+--
 -- Indexes for table `location`
 --
 ALTER TABLE `location`
@@ -3203,6 +3257,12 @@ ALTER TABLE `location`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `newsletter`
+--
+ALTER TABLE `newsletter`
+  ADD PRIMARY KEY (`id_newsletter`);
 
 --
 -- Indexes for table `specification`
@@ -3237,13 +3297,19 @@ ALTER TABLE `user_group`
 -- AUTO_INCREMENT for table `advertisement`
 --
 ALTER TABLE `advertisement`
-  MODIFY `id_advertisement` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_advertisement` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `condition`
 --
 ALTER TABLE `condition`
   MODIFY `id_condition` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `helpdesk`
+--
+ALTER TABLE `helpdesk`
+  MODIFY `id_helpdesk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `location`
@@ -3256,6 +3322,12 @@ ALTER TABLE `location`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
+
+--
+-- AUTO_INCREMENT for table `newsletter`
+--
+ALTER TABLE `newsletter`
+  MODIFY `id_newsletter` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `specification`
@@ -3273,7 +3345,7 @@ ALTER TABLE `type`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_user` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `user_group`

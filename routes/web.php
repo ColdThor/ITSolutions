@@ -151,6 +151,9 @@ Route::get('/navrhy', 'HomeController@navrhy')->name('navrhy');
 
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/it-admin/newsletter', 'NewsletterController@index')->name('newsletter');
+Route::post('/send_newsletter',[  'as' => 'updates',
+    'uses' =>'NewsletterController@send_newsletter']);
 
 Route::get('/it-admin/helpdesk/{id}', 'HelpDeskController@index')->name('helpdesk');
 Route::post('/send_helpdesk',[  'as' => 'updates',
@@ -175,7 +178,8 @@ Route::post('/ask_helpdesk',[  'as' => 'updates',
     'uses' =>'HomeController@ask_helpdesk']);
 
 
-
+Route::post('/subscribe',[  'as' => 'updates',
+    'uses' =>'HomeController@subscribe']);
 
 Route::get('/search_results', 'HomeController@results')->name('results');
 Route::get('/select', 'HomeController@show_select')->name('select');

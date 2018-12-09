@@ -131,27 +131,30 @@
                   <!-- Prijimanie a manažment správ END-->
 
                     <!-- Notifikácie -->
-
+                    <!--
                     <li class="dropdown notifications-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-bell-o"></i>
-                            <span class="label label-warning"><!-- počet notifikácii na ikone --></span>
+                            <span class="label label-warning"><!-- počet notifikácii na ikone</span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="header"><!-- Počet notifikácii v menu --></li>
+                            <li class="header"></li>
                             <li>
-                                <!-- zoznam notifikácii -->
+                                <!-- zoznam notifikácii
                                 <ul class="menu">
                                     <li>
                                         <a href="#">
-                                            <i class="fa fa-users text-aqua"></i> <!-- Notifikácia- text notifikácie -->
+                                            <i class="fa fa-users text-aqua"></i>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="footer"><a href="#">Všetky upozornenia</a></li>
+                       <li class="footer"><a href="#">Všetky upozornenia</a></li>
                         </ul>
                     </li>
+
+                  -->
+
                     @endif
                     <!-- Notifikácie -->
 
