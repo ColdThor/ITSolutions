@@ -2256,10 +2256,10 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
 }
 
 .search-field .app-select {
-    border-radius: 0;
+    border-radius: 5px;
     font-size: 13px;
-    font-weight: 300;
-    color: #777777;
+    font-weight: 400;
+    color: #000;
 }
 
 @media (max-width: 1400px) {

@@ -162,12 +162,11 @@
                                 </select>
                             </div>
                             <!-- -->
-                            <br />
                             <div class="col-lg-3 col-md-6 col-xs-6">
-                                <input type="number" class="app-select form-control" value="" name="cena_od" placeholder="Cena od" style="height: 42px"></input>
+                                <input type="number" class="app-select form-control" value="" name="cena_od" placeholder="Cena od" style="height: 38px"></input>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
-                                <input type="number" class="app-select form-control" value="" name="cena_do" placeholder="Cena do"  style="height: 42px"></input>
+                                <input type="number" class="app-select form-control" value="" name="cena_do" placeholder="Cena do"  style="height: 38px"></input>
                             </div>
                             <div class="col-lg-12 d-flex align-items-center justify-content-center">
                                 <div class="row">
