@@ -17,37 +17,18 @@
             .specification {
                 display:none;
             }
+            .inzeraty {
+                display: none;
+            }
+
+            .click {
+                cursor: pointer;
+            }
+
         </style>
 
 
-        <!-- CRAWLER
 
-            <div style="color: black">
-          <?php
-/*
-        use Goutte\Client;
-        use GuzzleHttp\Client as GuzzleClient;
-
-
-        $client = new Client();
-        $crawler = $client->request('GET', 'https://www.nehnutelnosti.sk/vyhladavanie/');
-
-        $goutteClient = new Client();
-        $guzzleClient = new GuzzleClient(array(
-            'timeout' => 60,
-        ));
-        $goutteClient->setClient($guzzleClient);
-
-
-        $crawler->filter('h2 > a')->each(function ($node) {
-            print $node->text()."\n"."<br />";
-        });
-
-*/
-            ?>
-            </div>
-
-        <!-- CRAWLER -->
 
         <div class="search-field">
             <form method="post" class="search-form" action="{{  action('HomeController@search')  }}">
@@ -291,6 +272,61 @@
     </div>
 <?php endif; ?>
 
+
+<br />
+<!-- CRAWLER -->
+    <div class="click" onclick="showDiv()">
+        <h2 style="color: black">Inzeráty od zmluvných partnerov<span class="lnr lnr-arrow-right"></span></h2>
+        <div style="color: black" class="inzeraty" id="traitor">
+            <?php
+
+            use Goutte\Client;
+            use GuzzleHttp\Client as GuzzleClient;
+
+
+            $client = new Client();
+            $crawler = $client->request('GET', 'https://www.nehnutelnosti.sk/vyhladavanie/');
+
+            $goutteClient = new Client();
+            $guzzleClient = new GuzzleClient(array(
+                'timeout' => 60,
+            ));
+            $goutteClient->setClient($guzzleClient);
+
+
+            $crawler->filter('h2 > a,img')->each(function ($node) {
+                if (in_array($node->getNode(0)->nodeName, ['h2', 'a'])) {
+
+                    echo '<a href="'.$node->getNode(0)->getAttribute('href').'">'.$node->getNode(0)->textContent.'</a><br />';
+                }
+              /*  elseif ($node->getNode(0)->nodeName == 'img') {
+                    $length = strlen($node->getNode(0)->getAttribute('data-lazy-src'));
+                    if($length>10) {
+                            echo '<img src="'.$node->getNode(0)->getAttribute('data-lazy-src')."\" height='100px' width='100px'><br/>\n";
+                        }
+
+                } */
+            });
+            ?>
+        </div>
+    </div>
+
+    <!-- CRAWLER -->
+
 </section>
+
+
+<script type="text/javascript">
+    function showDiv() {
+        if( document.getElementById('traitor').style.display === "block") {
+            document.getElementById('traitor').style.display = "none";
+        } else {
+            document.getElementById('traitor').style.display = "block";
+        }
+
+    }
+</script>
+
+
 
 @include('frontend/footer')
