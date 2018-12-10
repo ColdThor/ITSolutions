@@ -20,7 +20,34 @@
         </style>
 
 
+        <!-- CRAWLER
 
+            <div style="color: black">
+          <?php
+/*
+        use Goutte\Client;
+        use GuzzleHttp\Client as GuzzleClient;
+
+
+        $client = new Client();
+        $crawler = $client->request('GET', 'https://www.nehnutelnosti.sk/vyhladavanie/');
+
+        $goutteClient = new Client();
+        $guzzleClient = new GuzzleClient(array(
+            'timeout' => 60,
+        ));
+        $goutteClient->setClient($guzzleClient);
+
+
+        $crawler->filter('h2 > a')->each(function ($node) {
+            print $node->text()."\n"."<br />";
+        });
+
+*/
+            ?>
+            </div>
+
+        <!-- CRAWLER -->
 
         <div class="search-field">
             <form method="post" class="search-form" action="{{  action('HomeController@search')  }}">

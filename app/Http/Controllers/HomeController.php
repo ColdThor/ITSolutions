@@ -238,6 +238,9 @@ class HomeController extends Controller
             ->leftJoin('user', 'advertisement.id_user', '=', 'user.id_user')
             ->select('advertisement.*','type.title AS type','location.city AS location')->get();
 
+
+
+
             Session::flash('search', $ad);
             return redirect()-> action('HomeController@results');
     }
