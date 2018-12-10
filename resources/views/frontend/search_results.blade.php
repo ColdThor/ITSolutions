@@ -294,18 +294,42 @@
             $goutteClient->setClient($guzzleClient);
 
 
-            $crawler->filter('h2 > a,img')->each(function ($node) {
+            $crawler->filter('h2 > a,img, div')->each(function ($node) {
                 if (in_array($node->getNode(0)->nodeName, ['h2', 'a'])) {
 
                     echo '<a href="'.$node->getNode(0)->getAttribute('href').'">'.$node->getNode(0)->textContent.'</a><br />';
                 }
-              /*  elseif ($node->getNode(0)->nodeName == 'img') {
-                    $length = strlen($node->getNode(0)->getAttribute('data-lazy-src'));
-                    if($length>10) {
-                            echo '<img src="'.$node->getNode(0)->getAttribute('data-lazy-src')."\" height='100px' width='100px'><br/>\n";
-                        }
+                elseif ($node->getNode(0)->nodeName == 'div') {
+                    $class= $node->getNode(0)->getAttribute('class');
+                    if($class == "location-text mb-1 d-block text-truncate") {
+                        echo $node->getNode(0)->textContent.'<br />'; // MIESTO INZERÁTU
+                    }
 
-                } */
+                    elseif($class == "col-auto pl-0 pl-md-3 pr-0 advertisement-price-panel text-right mt-2 mt-md-0 align-self-end") {
+                        echo $node->getNode(0)->textContent.'<br />';  //CENA INZERÁTU
+                    }
+                    elseif($class == "location-text") {
+                        echo $node->getNode(0)->textContent.'<br />'; //DRUH A VÝMERA INZERÁTU
+                    }
+                    elseif($class == "advertisement-content-text mb-0 d-none d-md-block") {
+                        echo $node->getNode(0)->textContent.'<br />';   // POPIS INZERÁTU
+                    }
+                    }
+               elseif ($node->getNode(0)->nodeName == 'img') {
+                   $class= $node->getNode(0)->getAttribute('class');
+
+                               $length = strlen($node->getNode(0)->getAttribute('data-lazy-src'));
+                               if($length>10) {
+                                   if($class == "img--small") {
+                                           echo '<img src="'.$node->getNode(0)->getAttribute('data-lazy-src')."\" height='200px' width='200px'><br/>\n";
+                                           // FOTKA, NIEKDE JE ICH VIAC AKO 1 A TO JE PROBLEM, VIEŠ TAM GALLERY SPRAVIŤ?
+
+
+                                   }
+                                   }
+
+                           }
+
             });
             ?>
         </div>
