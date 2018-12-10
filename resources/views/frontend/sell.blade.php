@@ -168,14 +168,14 @@
                         <?php endforeach; ?>
                     </select>
 
-                    <h5 class="mt-20">Priložiť obrázky nehnuteľnosti<b>*</b></h5>
+                    <h5 class="mt-20">Priložiť obrázky nehnuteľnosti (max. 1 MB)<b>*</b></h5>
                     <div class="col-lg-12 align-items-center justify-content-center mt-05">
                         <div class="row" style="color: black">
                             {!! Form::file('fotka[]', array('multiple'=>true)) !!}
                         </div>
                     </div>
 
-                <h5 class="mt-20">Priložiť panoramické foto nehnuteľnosti</h5>
+                <h5 class="mt-20">Priložiť panoramické foto nehnuteľnosti (max. 1 MB)</h5>
                 <div class="col-lg-12 align-items-center justify-content-center mt-05">
                     <div class="row" style="color: black">
                         {!! Form::file('pan[]', array('multiple'=>true)) !!}
