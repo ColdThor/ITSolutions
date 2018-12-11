@@ -1,61 +1,43 @@
-
 @extends('backend/header')
 @section('page') Login @endsection
 @section('content')
-
-<html>
-<head>
-    <title>Prihlásenie</title>
-</head>
-<body>
-
-
-
 <!-- Main content -->
 <section class="content">
     <div class="row">
-        <div class="col-md-8">
-            <div class="box box-primary">
+        <div class="col-md-6">
+            <div class="box box-warning">
                 <div class="box-header with-border">
                     <h3 class="box-title">Prihlásiť sa</h3>
                 </div>
+                <form role="form" method="post">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" class="form-control" id="email" placeholder="Zadajte email">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Heslo</label>
+                            <input type="password" name="password" class="form-control" id="password" placeholder="Zadajte heslo">
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
 
-
-
-                {{ Form::open(array('url' => '/it-admin/login')) }}
-                <h1>Login</h1>
-
-                <!-- if there are login errors, show them here -->
-                <p>
-                    {{ $errors->first('no') }}
-                    {{ $errors->first('email') }}
-                    {{ $errors->first('password') }}
-                </p>
-
-                <p>
-                    {{ Form::label('email', 'Email') }}
-                    {{ Form::text('email', Input::old('email'), array('placeholder' => '@')) }}
-                </p>
-
-                <p>
-                    {{ Form::label('password', 'Heslo') }}
-                    {{ Form::password('password') }}
-                </p>
-
-                <p style="margin-left: 10px">{{ Form::submit('Prihlásiť sa!',array('class'=>'btn btn-primary')) }}</p>
-                {{ Form::close() }}
-
-
-<br />
-
-
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-default">Prihlásiť sa</button>
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <p>
+                            {{ $errors->first('no') }}
+                            {{ $errors->first('email') }}
+                            {{ $errors->first('password') }}
+                        </p>
+                    </div>
+                </form>
             </div>
-            <!-- /.box -->
         </div>
-        <!-- /.col -->
+        <!-- /.box -->
     </div>
-    <!-- /.row -->
 </section>
+
 @endsection
 
 
