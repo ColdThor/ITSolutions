@@ -3,44 +3,13 @@
 @section('page') Inzeráty @endsection
 
 <section class="property-area section-gap relative">
-    <div class="container pt-30">
-        <div class="row pt-20">
-            <div class="col-lg-12 d-flex align-items-center justify-content-center toggle-wrap">
-                <h2>Výsledky hľadania</h2>
-            </div>
-        </div>
-
-        <style>
-            .location {
-                display: none;
-            }
-            .specification {
-                display:none;
-            }
-            .inzeraty {
-                display: none;
-                cursor: default;
-            }
-
-            .click {
-                cursor: pointer;
-            }
-
-
-
-        </style>
-
-
-
-
+    <div class="container pt-10">
         <div class="search-field">
             <form method="post" class="search-form" action="{{  action('HomeController@search')  }}">
-
-
                 <div class="row">
                     <div class="col-lg-12 d-flex align-items-center justify-content-center toggle-wrap">
                         <div class="row">
-                            <h2>Parametre hľadanej nehnuteľnosti</h2>
+                            <h3>Upraviť parametre vyhľadávania</h3>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-xs-6">
@@ -298,9 +267,9 @@
                                         echo  substr($nazov[$i],0,60)."...";
                                     } else { echo $nazov[$i];} ?></a></h5>
                         </div>
-                        <div class="bottom d-flex justify-content-start">
-                            <p><span class="lnr lnr-apartment"></span>Cena/Výmera: <b><?php echo substr($cena[$i],20,40); ?></b></p>
-                            <p><span class="lnr lnr-crop"></span>Výmera: <?php echo substr($druh[$i],102,strlen($druh[$i])); ?></p>
+                        <div class="bottom-price d-flex justify-content-start">
+                            <p><span class="lnr lnr-apartment"></span>Cena:<b><?php echo substr($cena[$i],20,40); ?></b></p>
+                            <p><span class="lnr lnr-crop"></span>Výmera: <b><?php echo substr($druh[$i],102,strlen($druh[$i])); ?></b></p>
                         </div>
                         <div class="bottom d-flex justify-content-start">
                             <p><span class="lnr lnr-map-marker"></span><b>{{$m}}</b></p>

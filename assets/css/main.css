@@ -2659,6 +2659,20 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
     text-align: left;
 }
 
+.desc-crawler .bottom-price {
+    border-top: 1px solid #ccc;
+    padding-top: 15px;
+}
+
+.desc-crawler .bottom-price p {
+    width: 50%;
+    text-align: left;
+}
+
+.desc-crawler .bottom-price p:nth-child(2) {
+    text-align: right;
+}
+
 @media (max-width: 1280px) and (min-width: 988px) {
     .desc-crawler .desc-crawler .middle p {
         font-size: 10px;
@@ -2670,8 +2684,6 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
         font-size: 10px;
     }
 }
-
-
 
 .single-packages .title {
     color: #1a1a1a;
@@ -3245,4 +3257,19 @@ h6 {
 
 .top-offers {
     color: #fff;
+}
+
+.location {
+    display: none;
+}
+.specification {
+    display:none;
+}
+.inzeraty {
+    display: none;
+    cursor: default;
+}
+
+.click {
+    cursor: pointer;
 }
