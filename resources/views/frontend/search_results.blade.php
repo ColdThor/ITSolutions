@@ -280,8 +280,10 @@
     <div class="click" onclick="showDiv()">
         <a style="color: #000" class="genric-btn default circle arrow">Inzeráty od zmluvných partnerov</a>
 
-        <div style="color: black" class="inzeraty" id="traitor">
+        <br />
 
+        <div style="color: black" class="inzeraty" id="traitor">
+            <br />
             <div class="row">
             <?php
             $i = 0;
@@ -289,11 +291,15 @@
                 <div class="col-lg-6">
                 <div class="single-property">
                     <div class="images">
-                        <image class="" src="{{$image[$i]}}"></image>
+
+                        <a href="{{$link[$i]}}"><image class="" src="{{$image[$i]}}"></image></a>
                     </div>
                     <div class="desc-crawler">
                         <div class="top d-flex justify-content-between">
-                            <h5><a href="{{$link[$i]}}">{{$nazov[$i]}}</a></h5>
+                            <h5><a href="{{$link[$i]}}"><?php
+                                        if(strlen($nazov[$i])>60) {
+                                            echo  substr($nazov[$i],0,60)."...";
+                                        } else { echo $nazov[$i];} ?></a></h5>
                         </div>
                         <div class="bottom d-flex justify-content-start">
                             <p><span class="lnr lnr-apartment"></span>Cena/Výmera: <b><?php echo $cena[$i]; ?></b></p>
