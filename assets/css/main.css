@@ -2615,6 +2615,64 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
     }
 }
 
+
+.desc-crawler {
+    padding: 15px;
+}
+
+.desc-crawler .top {
+    padding: 5px 0px 15px 0px;
+}
+
+.desc-crawler .top a {
+    color: #222;
+}
+
+.desc-crawler .middle {
+    padding-bottom: 5px;
+}
+
+.desc-crawler .middle p {
+    width: 33%;
+}
+
+@media (max-width: 1024px) and (min-width: 992px) {
+    .desc-crawler .middle p {
+        font-size: 11px;
+    }
+}
+
+.desc-crawler .middle .gr {
+    color: #1fe111;
+}
+
+.desc-crawler .middle .rd {
+    color: #f40f68;
+}
+
+.desc-crawler .bottom {
+    border-top: 1px solid #ccc;
+    padding-top: 15px;
+}
+
+.desc-crawler .bottom p {
+    text-align: left;
+}
+
+@media (max-width: 1280px) and (min-width: 988px) {
+    .desc-crawler .desc-crawler .middle p {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 414px) {
+    .desc-crawler .middle p {
+        font-size: 10px;
+    }
+}
+
+
+
 .single-packages .title {
     color: #1a1a1a;
     text-align: center;

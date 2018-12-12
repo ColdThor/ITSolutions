@@ -266,7 +266,6 @@
                 </script>
             @endif
         </div>
-    </div>
 
 
    <?php if($i==0): ?>
@@ -279,33 +278,45 @@
 <br />
 <!-- CRAWLER -->
     <div class="click" onclick="showDiv()">
-        <h2 style="color: black">Inzeráty od zmluvných partnerov<span class="lnr lnr-arrow-right"></span></h2>
+        <a style="color: #000" class="genric-btn default circle arrow">Inzeráty od zmluvných partnerov</a>
+
         <div style="color: black" class="inzeraty" id="traitor">
 
-
+            <div class="row">
             <?php
             $i = 0;
-            foreach ($miesto as $m):
-            ?>
-                <a href="{{$link[$i]}}">
-            <image class="" src="{{$image[$i]}}"></image>
-            <h3>{{$nazov[$i]}}</h3>
-                </a>
-                    <span style="color: black">Poloha: {{$m}}</span> <br />
-                   <span style="color: black">Cena: </span><span style="color: orangered"><?php echo $cena[$i]; ?></span> <br />
-                <span style="color: black">Druh: {{$druh[$i]}}</span> <br />
-                <span style="color: black">Popis: {{$popis[$i]}}</span> <br />
-                    <?php
-                    $i++;
+            foreach ($miesto as $m): ?>
+                <div class="col-lg-6">
+                <div class="single-property">
+                    <div class="images">
+                        <image class="" src="{{$image[$i]}}"></image>
+                    </div>
+                    <div class="desc-crawler">
+                        <div class="top d-flex justify-content-between">
+                            <h5><a href="{{$link[$i]}}">{{$nazov[$i]}}</a></h5>
+                        </div>
+                        <div class="bottom d-flex justify-content-start">
+                            <p><span class="lnr lnr-apartment"></span>Cena/Výmera: <b><?php echo $cena[$i]; ?></b></p>
+                        </div>
+                        <div class="bottom d-flex justify-content-start">
+                            <p><span class="lnr lnr-map-marker"></span><b>{{$m}}</b></p>
+                        </div>
+                        <div class="bottom d-flex justify-content-start">
+                            <p><span class="lnr lnr-history"></span>Druh:<b>{{$druh[$i]}}</b></p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <?php
+                $i++;
                 endforeach; ?>
 
-
-
+            </div>
         </div>
     </div>
 
     <!-- CRAWLER -->
-
+        </div>
 </section>
 
 
