@@ -281,7 +281,7 @@
         <a style="color: #000" class="genric-btn default circle arrow">Inzeráty od zmluvných partnerov</a>
 
         <div style="color: black" class="inzeraty" id="traitor">
-
+            <br />
             <div class="row">
             <?php
             $i = 0;
@@ -289,20 +289,24 @@
                 <div class="col-lg-6">
                 <div class="single-property">
                     <div class="images">
-                        <image class="" src="{{$image[$i]}}"></image>
+                        <a href="{{$link[$i]}}"><image  src="{{$image[$i]}}"></image></a>
                     </div>
                     <div class="desc-crawler">
                         <div class="top d-flex justify-content-between">
-                            <h5><a href="{{$link[$i]}}">{{$nazov[$i]}}</a></h5>
+                            <h5><a href="{{$link[$i]}}"><?php
+                                    if(strlen($nazov[$i])>60) {
+                                        echo  substr($nazov[$i],0,60)."...";
+                                    } else { echo $nazov[$i];} ?></a></h5>
                         </div>
                         <div class="bottom d-flex justify-content-start">
-                            <p><span class="lnr lnr-apartment"></span>Cena/Výmera: <b><?php echo $cena[$i]; ?></b></p>
+                            <p><span class="lnr lnr-apartment"></span>Cena/Výmera: <b><?php echo substr($cena[$i],20,40); ?></b></p>
+                            <p><span class="lnr lnr-crop"></span>Výmera: <?php echo substr($druh[$i],102,strlen($druh[$i])); ?></p>
                         </div>
                         <div class="bottom d-flex justify-content-start">
                             <p><span class="lnr lnr-map-marker"></span><b>{{$m}}</b></p>
                         </div>
                         <div class="bottom d-flex justify-content-start">
-                            <p><span class="lnr lnr-history"></span>Druh:<b>{{$druh[$i]}}</b></p>
+                            <p><span class="lnr lnr-history"></span>Druh:<b><?php echo substr($druh[$i],20,50); ?></b></p>
                         </div>
                     </div>
                 </div>
@@ -313,6 +317,10 @@
 
             </div>
         </div>
+
+
+
+
     </div>
 
     <!-- CRAWLER -->
