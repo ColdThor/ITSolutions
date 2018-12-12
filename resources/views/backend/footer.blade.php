@@ -1,3 +1,3 @@
-<strong>Copyright &copy; 2018 ITSolutions.</strong>
+<strong>Copyright &copy; 2018 Svetrealít.</strong>
 
 
