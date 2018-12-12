@@ -289,13 +289,13 @@
                 <div class="col-lg-6">
                 <div class="single-property">
                     <div class="images">
-                        <a href="{{$link[$i]}}">
+                        <a href="{{$link[$i]}}" target="_blank">
                         <image class="" src="{{$image[$i]}}"></image>
                         </a>
                     </div>
                     <div class="desc-crawler">
                         <div class="top d-flex justify-content-between">
-                            <h5><a href="{{$link[$i]}}">{{$nazov[$i]}}</a></h5>
+                            <h5><a href="{{$link[$i]}}" target="_blank">{{$nazov[$i]}}</a></h5>
                         </div>
                         <div class="bottom d-flex justify-content-start">
                             <p><span class="lnr lnr-apartment"></span>Cena/cena za m²: <b><?php echo $cena[$i]; ?></b></p>
