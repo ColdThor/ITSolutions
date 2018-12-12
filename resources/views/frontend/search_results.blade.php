@@ -278,31 +278,33 @@
 <br />
 <!-- CRAWLER -->
     <div class="click" onclick="showDiv()">
-        <a style="color: #000" class="genric-btn default circle arrow">Inzeráty od zmluvných partnerov</a>
+        <a style="color: #000" class="genric-btn default circle arrow pt-10 pb-20">Inzeráty od zmluvných partnerov</a>
 
         <div style="color: black" class="inzeraty" id="traitor">
 
-            <div class="row">
+            <div class="row pt-20">
             <?php
             $i = 0;
             foreach ($miesto as $m): ?>
                 <div class="col-lg-6">
                 <div class="single-property">
                     <div class="images">
+                        <a href="{{$link[$i]}}">
                         <image class="" src="{{$image[$i]}}"></image>
+                        </a>
                     </div>
                     <div class="desc-crawler">
                         <div class="top d-flex justify-content-between">
                             <h5><a href="{{$link[$i]}}">{{$nazov[$i]}}</a></h5>
                         </div>
                         <div class="bottom d-flex justify-content-start">
-                            <p><span class="lnr lnr-apartment"></span>Cena/Výmera: <b><?php echo $cena[$i]; ?></b></p>
+                            <p><span class="lnr lnr-apartment"></span>Cena/cena za m²: <b><?php echo $cena[$i]; ?></b></p>
                         </div>
                         <div class="bottom d-flex justify-content-start">
                             <p><span class="lnr lnr-map-marker"></span><b>{{$m}}</b></p>
                         </div>
                         <div class="bottom d-flex justify-content-start">
-                            <p><span class="lnr lnr-history"></span>Druh:<b>{{$druh[$i]}}</b></p>
+                            <p><span class="lnr lnr-home"></span>Druh/výmera:<b>{{$druh[$i]}}</b></p>
                         </div>
                     </div>
                 </div>
