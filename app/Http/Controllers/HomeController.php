@@ -558,19 +558,138 @@ class HomeController extends Controller
         ));
         $goutteClient->setClient($guzzleClient);
 
-        $miesto = "";
-        $cena = "";
-        $druh = "";
-        $popis = "";
-        $image = "";
+        $nazov = array();
+        $link = array();
+        $miesto = array();
+        $cena = array();
+        $druh = array();
+        $popis = array();
+        $image = array();
+
+        $GLOBALS['increment_miesto'] = 0;
+        $GLOBALS['increment_nazov'] = 0;
+        $GLOBALS['increment_cena'] = 0;
+        $GLOBALS['increment_druh'] = 0;
+        $GLOBALS['increment_popis'] = 0;
+        $GLOBALS['increment_image'] = 0;
+
+        $crawler->filter('h2 > a,img, div')->each(function ($node) {
+            if (in_array($node->getNode(0)->nodeName, ['h2', 'a'])) {
+                $i_nazov =   $GLOBALS['increment_nazov']++;
+                $GLOBALS['nazov'.$i_nazov] = $node->getNode(0)->textContent;
+                $GLOBALS['link'.$i_nazov] = $node->getNode(0)->getAttribute('href');
+            }
+            elseif ($node->getNode(0)->nodeName == 'div') {
+                $class= $node->getNode(0)->getAttribute('class');
+                if($class == "location-text mb-1 d-block text-truncate") {
+                 $i_miesto =   $GLOBALS['increment_miesto']++;
+                 $GLOBALS['miesto'.$i_miesto] = $node->getNode(0)->textContent; // MIESTO INZERÁTU
+                }
+
+                elseif($class == "col-auto pl-0 pl-md-3 pr-0 advertisement-price-panel text-right mt-2 mt-md-0 align-self-end") {
+                    $i_cena =   $GLOBALS['increment_cena']++;
+                    $GLOBALS['cena'.$i_cena] = $node->getNode(0)->textContent;
+                }
+                elseif($class == "location-text") {
+                    $i_druh =   $GLOBALS['increment_druh']++;
+                    $GLOBALS['druh'.$i_druh] = $node->getNode(0)->textContent; //DRUH A VÝMERA INZERÁTU
+                }
+                elseif($class == "advertisement-content-text mb-0 d-none d-md-block") {
+                    $i_popis =   $GLOBALS['increment_popis']++;
+                    $GLOBALS['popis'.$i_popis] = $node->getNode(0)->textContent;   // POPIS INZERÁTU
+                }
+            }
+            elseif ($node->getNode(0)->nodeName == 'img') {
+                $class= $node->getNode(0)->getAttribute('class');
+
+                $length = strlen($node->getNode(0)->getAttribute('data-lazy-src'));
+                if($length>10) {
+                    if($class == "img--small") {
+                        $i_image =   $GLOBALS['increment_image']++;
+                        $GLOBALS['image'.$i_image] = $node->getNode(0)->getAttribute('data-lazy-src');
+                    }
+                }
+
+            }
+        });
 
 
 
+        $i_nazov = 0;
+        $nazov_bol = true;
+        while(   $nazov_bol) {
+            if(isset($GLOBALS['nazov'.$i_nazov])) {
+                array_push($nazov, $GLOBALS['nazov'.$i_nazov]);
+                array_push($link, $GLOBALS['link'.$i_nazov]);
+                $i_nazov++;
+            } else {
+                $nazov_bol = false;
+            }
+        }
 
+
+            $i_miesto = 0;
+            $miesto_bol = true;
+            while( $miesto_bol) {
+                if(isset($GLOBALS['miesto'.$i_miesto])) {
+                    array_push($miesto, $GLOBALS['miesto'.$i_miesto]);
+                    $i_miesto++;
+                } else {
+                    $miesto_bol = false;
+                }
+            }
+
+
+        $i_cena = 0;
+        $cena_bol = true;
+        while( $cena_bol) {
+            if(isset($GLOBALS['cena'.$i_cena])) {
+                array_push($cena, $GLOBALS['cena'.$i_cena]);
+                $i_cena++;
+            } else {
+                $cena_bol = false;
+            }
+        }
+
+        $i_druh = 0;
+        $druh_bol = true;
+        while(  $druh_bol) {
+            if(isset($GLOBALS['druh'.$i_druh])) {
+                array_push($druh, $GLOBALS['druh'.$i_druh]);
+                $i_druh++;
+            } else {
+                $druh_bol = false;
+            }
+        }
+
+        $i_popis = 0;
+        $popis_bol = true;
+        while($popis_bol) {
+            if(isset($GLOBALS['popis'.$i_popis])) {
+                array_push($popis, $GLOBALS['popis'.$i_popis]);
+                $i_popis++;
+            } else {
+                $popis_bol = false;
+            }
+        }
+
+
+        $i_image = 0;
+        $image_bol = true;
+        while($image_bol) {
+            if(isset($GLOBALS['image'.$i_image])) {
+                array_push($image, $GLOBALS['image'.$i_image]);
+                $i_image++;
+            } else {
+                $image_bol = false;
+            }
+        }
 
 
         //CRAWLER
 
+        $data['link'] = $link;
+        $data['nazov'] = $nazov;
         $data['miesto'] = $miesto;
         $data['cena'] = $cena;
         $data['druh'] = $druh;
