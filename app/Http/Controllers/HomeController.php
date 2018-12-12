@@ -9,6 +9,8 @@ use App\Models\Newsletter;
 use Redirect;
 use Validator;
 use DB;
+use Goutte\Client;
+use GuzzleHttp\Client as GuzzleClient;
 use Session;
 use Input;
 use Mail;
@@ -166,6 +168,9 @@ class HomeController extends Controller
         }
 
            $ad= $advertisements->latest('advertisement.created_at')->get();
+
+
+
 
 
             Session::flash('search', $ad);
@@ -540,7 +545,41 @@ class HomeController extends Controller
         $data['rek'] = $rek;
         $data['user'] = $user;
 
-            return view('frontend/search_results',$data);
+
+
+        //CRAWLER
+
+        $client = new Client();
+        $crawler = $client->request('GET', 'https://www.nehnutelnosti.sk/vyhladavanie/');
+
+        $goutteClient = new Client();
+        $guzzleClient = new GuzzleClient(array(
+            'timeout' => 60,
+        ));
+        $goutteClient->setClient($guzzleClient);
+
+        $miesto = "";
+        $cena = "";
+        $druh = "";
+        $popis = "";
+        $image = "";
+
+
+
+
+
+
+        //CRAWLER
+
+        $data['miesto'] = $miesto;
+        $data['cena'] = $cena;
+        $data['druh'] = $druh;
+        $data['popis'] = $popis;
+        $data['image'] = $image;
+        $data['crawler'] = $crawler;
+
+
+        return view('frontend/search_results',$data);
     }
 
     public function showlogin() {
