@@ -269,13 +269,19 @@
                         </div>
                         <div class="bottom-price d-flex justify-content-start">
                             <p><span class="lnr lnr-apartment"></span>Cena:<b><?php echo substr($cena[$i],20,40); ?></b></p>
-                            <p><span class="lnr lnr-crop"></span>Výmera: <b><?php echo substr($druh[$i],102,strlen($druh[$i])); ?></b></p>
+                            <p><span class="lnr lnr-crop"></span>Výmera: <b><?php
+                                    if(strlen($druh[$i])>130) {
+                                    echo  substr($druh[$i],102,strlen($druh[$i]));
+                                    } else {
+                                        echo  substr($druh[$i],97,strlen($druh[$i]));
+                                    }
+                                  ?></b></p>
                         </div>
                         <div class="bottom d-flex justify-content-start">
                             <p><span class="lnr lnr-map-marker"></span><b>{{$m}}</b></p>
                         </div>
                         <div class="bottom d-flex justify-content-start">
-                            <p><span class="lnr lnr-history"></span>Druh:<b><?php echo substr($druh[$i],20,50); ?></b></p>
+                            <p><span class="lnr lnr-history"></span>Druh:<b><?php echo substr($druh[$i],20,55); ?></b></p>
                         </div>
                     </div>
                 </div>
@@ -288,7 +294,7 @@
         </div>
 
 
-
+ <!--  -->
 
     </div>
 
