@@ -206,7 +206,7 @@
                 <div class="single-property">
                     <div class="images">
                         <a href="<?php echo url('/inzerat/'.$fotka.'/false'); ?>" style="color: black">
-                            <img class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $fotka ?>/fotka_1.png" alt="">
+                            <img class="img-fluid mx-auto d-block" src="/storage/app/public/inzeraty/inzerat_<?php echo $fotka ?>/fotka_1.png" alt="">
                         </a>
                         <span>{{$ads->type}} </span>
                     </div>

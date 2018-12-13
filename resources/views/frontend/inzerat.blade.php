@@ -25,7 +25,7 @@
         <div class="col-lg-7 col-md-7">
             <?php $id= $ad->id_advertisement; $i = 1;
             while(file_exists("storage/inzeraty/inzerat_".$id."/fotka_".$i.".png")):?>
-            <img  class="mySlides img-fluid mx-auto" src="/reality/storage/app/public/inzeraty/inzerat_{{$ad->id_advertisement}}/fotka_<?php echo $i; ?>.png" alt="Foto1">
+            <img  class="mySlides img-fluid mx-auto" src="/storage/app/public/inzeraty/inzerat_{{$ad->id_advertisement}}/fotka_<?php echo $i; ?>.png" alt="Foto1">
             <?php
             $i++;
             endwhile; ?>
@@ -69,7 +69,7 @@
     ?>
     <div class="row pt-10">
         <div class="col-lg-12 col-md-12 panorama">
-            <img class="mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_{{$ad->id_advertisement}}/panorama_<?php echo $i; ?>.jpg" alt="Panorama1" style="max-height: 430px">
+            <img class="mx-auto d-block" src="/storage/app/public/inzeraty/inzerat_{{$ad->id_advertisement}}/panorama_<?php echo $i; ?>.jpg" alt="Panorama1" style="max-height: 430px">
         </div>
     </div>
 

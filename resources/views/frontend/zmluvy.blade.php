@@ -16,7 +16,7 @@
                     <div class="images">
                         <div class="imagebox">
                             <a href="<?php echo url('/kupa')?>">
-                                <img class="img-fluid mx-auto d-block" src="/reality/assets/img/zmluva1.jpg" alt="Kúpa | Predaj | Prenájom">
+                                <img class="img-fluid mx-auto d-block" src="/assets/img/zmluva1.jpg" alt="Kúpa | Predaj | Prenájom">
                                 <span class="imagebox-desc">Kúpa | Predaj | Prenájom</span>
                             </a>
                         </div>
@@ -30,7 +30,7 @@
                     <div class="images">
                         <div class="imagebox">
                             <a href="<?php echo url('/ziadosti')?>">
-                                <img class="img-fluid mx-auto d-block" src="/reality/assets/img/zmluva2.jpg" alt="Žiadosti">
+                                <img class="img-fluid mx-auto d-block" src="/assets/img/zmluva2.jpg" alt="Žiadosti">
                                 <span class="imagebox-desc">Žiadosti</span>
                             </a>
                         </div>
@@ -43,7 +43,7 @@
                     <div class="images">
                         <div class="imagebox">
                             <a href="<?php echo url('/navrhy'); ?>">
-                                <img class="img-fluid mx-auto d-block" src="/reality/assets/img/zmluva3.jpg" alt="Návrhy a ohlásenia" >
+                                <img class="img-fluid mx-auto d-block" src="/assets/img/zmluva3.jpg" alt="Návrhy a ohlásenia" >
                                 <span class="imagebox-desc">Návrhy a ohlásenia</span>
                             </a>
                         </div>

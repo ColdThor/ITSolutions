@@ -11,42 +11,42 @@
             </div>
             <div class="row pb-20" >
                 <div class="col-lg-4 col-md-6 pb-30">
-                    <a href="/reality/assets/img/ziadost-o-predlzenie-najomnej-zmluvy.pdf" download>
+                    <a href="/assets/img/ziadost-o-predlzenie-najomnej-zmluvy.pdf" download>
                         <div class="single-service" >
                             <h4>Vzor žiadosti o predĺženie nájomnej zmluvy</h4>
-                            <a href="/reality/assets/img/ziadost-o-predlzenie-najomnej-zmluvy.pdf" download class="genric-btn default circle">Stiahnuť</a>
+                            <a href="/assets/img/ziadost-o-predlzenie-najomnej-zmluvy.pdf" download class="genric-btn default circle">Stiahnuť</a>
                         </div>
                     </a>
                 </div>
                 <div class="col-lg-4 col-md-6 pb-30">
-                    <a href="/reality/assets/img/ziadost-o-pridelenie-najomneho-bytu.pdf" download="">
+                    <a href="/assets/img/ziadost-o-pridelenie-najomneho-bytu.pdf" download="">
                         <div class="single-service">
                             <h4>Vzor žiadosti o pridelenie nájomného bytu</h4>
-                            <a href="/reality/assets/img/ziadost-o-pridelenie-najomneho-bytu.pdf" download class="genric-btn default circle">Stiahnuť</a>
+                            <a href="/assets/img/ziadost-o-pridelenie-najomneho-bytu.pdf" download class="genric-btn default circle">Stiahnuť</a>
                         </div>
                     </a>
                 </div>
                 <div class="col-lg-4 col-md-6 pb-30">
-                    <a href="/reality/assets/img/ziadost-o-vydanie-rovnopisu-z-notarskej-zapisnice.pdf" download="">
+                    <a href="/assets/img/ziadost-o-vydanie-rovnopisu-z-notarskej-zapisnice.pdf" download="">
                         <div class="single-service">
                             <h4>Vzor žiadosti o vydanie rovnopisu z notárskej zápisnice</h4>
-                            <a href="/reality/assets/img/ziadost-o-vydanie-rovnopisu-z-notarskej-zapisnice.pdf" download class="genric-btn default circle">Stiahnuť</a>
+                            <a href="/assets/img/ziadost-o-vydanie-rovnopisu-z-notarskej-zapisnice.pdf" download class="genric-btn default circle">Stiahnuť</a>
                         </div>
                     </a>
                 </div>
                 <div class="col-lg-4 col-md-6 pb-30">
-                    <a href="/reality/assets/img/zmluva-o-zriadeni-spolocenstva-vlastnikov-bytov-a-nebytovych-priestorov.pdf" download="">
+                    <a href="/assets/img/zmluva-o-zriadeni-spolocenstva-vlastnikov-bytov-a-nebytovych-priestorov.pdf" download="">
                         <div class="single-service">
                             <h4>Zmluva o zriadení spoločenstva vlastníkov bytov</h4>
-                            <a href="/reality/assets/img/zmluva-o-zriadeni-spolocenstva-vlastnikov-bytov-a-nebytovych-priestorov.pdf" download class="genric-btn default circle">Stiahnuť</a>
+                            <a href="/assets/img/zmluva-o-zriadeni-spolocenstva-vlastnikov-bytov-a-nebytovych-priestorov.pdf" download class="genric-btn default circle">Stiahnuť</a>
                         </div>
                     </a>
                 </div>
                 <div class="col-lg-4 col-md-6 pb-30">
-                    <a href="/reality/assets/img/zmluva-o-zruseni-a-vysporiadani-podieloveho-spoluvlastnictva-k-pozemku-a-nehnutelnosti.pdf" download="">
+                    <a href="/assets/img/zmluva-o-zruseni-a-vysporiadani-podieloveho-spoluvlastnictva-k-pozemku-a-nehnutelnosti.pdf" download="">
                         <div class="single-service">
                             <h4>Zmluva o zrušení a vysporiadaní podielového spoluvlastníctva</h4>
-                            <a href="/reality/assets/img/zmluva-o-zruseni-a-vysporiadani-podieloveho-spoluvlastnictva-k-pozemku-a-nehnutelnosti.pdf" download class="genric-btn default circle">Stiahnuť</a>
+                            <a href="/assets/img/zmluva-o-zruseni-a-vysporiadani-podieloveho-spoluvlastnictva-k-pozemku-a-nehnutelnosti.pdf" download class="genric-btn default circle">Stiahnuť</a>
                         </div>
                     </a>
                 </div>

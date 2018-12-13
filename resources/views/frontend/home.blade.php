@@ -273,7 +273,7 @@
                     if($i==1):?>
                     <div class="images">
                         <a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>">
-                            <img class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png">
+                            <img class="img-fluid mx-auto d-block" src="/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png">
                         </a>
                         <span><strong>Lokalita: </strong><?php echo $realita->location ?></span>
                     </div>
@@ -303,7 +303,7 @@
                     if($i==2):?>
                     <div class="images">
                         <a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>">
-                            <img class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png">
+                            <img class="img-fluid mx-auto d-block" src="/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png">
                         </a>
                         <span><strong>Lokalita: </strong><?php echo $realita->location ?></span>
                     </div>
@@ -332,7 +332,7 @@
                     if($i==3):?>
                     <div class="images">
                         <a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>">
-                            <img class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png">
+                            <img class="img-fluid mx-auto d-block" src="/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png">
                         </a>
                         <span><strong>Lokalita: </strong><?php echo $realita->location ?></span>
                     </div>
@@ -361,7 +361,7 @@
                     if($i==4):?>
                     <div class="images">
                         <a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>">
-                            <img class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png">
+                            <img class="img-fluid mx-auto d-block" src="/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png">
                         </a>
                         <span><strong>Lokalita: </strong><?php echo $realita->location ?></span>
                     </div>
@@ -391,7 +391,7 @@
                     if($i==5):?>
                     <div class="images">
                         <a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>" style="color: black">
-                            <img class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png">
+                            <img class="img-fluid mx-auto d-block" src="/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png">
                         </a>
                         <span><strong>Lokalita: </strong><?php echo $realita->location ?></span>
                     </div>
@@ -421,7 +421,7 @@
                     if($i==6):?>
                     <div class="images">
                         <a href="<?php echo url('/inzerat/'.$realita->id_advertisement.'/false'); ?>">
-                            <img class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png">
+                            <img class="img-fluid mx-auto d-block" src="/storage/app/public/inzeraty/inzerat_<?php echo $realita->id_advertisement ?>/fotka_1.png">
                         </a>
                         <span><strong>Lokalita: </strong><?php echo $realita->location ?></span>
                     </div>
