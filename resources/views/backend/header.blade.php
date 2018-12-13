@@ -98,7 +98,7 @@
                                         <a href="<?php echo url('/it-admin/helpdesk/'.$help->id_helpdesk); ?>">
                                             <div class="pull-left">
                                             <!--
-                                                <img src=" {{asset('admin-theme//dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+                                                <img src=" {{asset('public/admin-theme//dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
                                             -->
                                             </div>
 
@@ -176,7 +176,7 @@
                                     <?php
                                     $id = session()->get('userID');
                                     ?>
-                                    <img src="/storage/app/admins/admin_<?php echo $id?>/fotka.jpeg" class="img-circle" alt="User Image" style="height: 100px; width: 100px;">
+                                    <img src="/storage/app/public/admins/admin_<?php echo $id?>/fotka.jpeg" class="img-circle" alt="User Image" style="height: 100px; width: 100px;">
                                 @endif
                                 <p>
                                     <!-- meno pouzivatela -->
@@ -220,14 +220,14 @@
         @include('backend/footer')
     </footer>
     <!-- jQuery 3 -->
-    <script type="text/javascript" src="{{ URL::asset('admin-theme/bower_components/jquery/dist/jquery.min.js')}}"></script>
+    <script type="text/javascript" src="{{ URL::asset('public/admin-theme/bower_components/jquery/dist/jquery.min.js')}}"></script>
     <!-- Bootstrap 3.3.7 -->
-    <script type="text/javascript" src="{{ URL::asset('admin-theme/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <script type="text/javascript" src="{{ URL::asset('public/admin-theme/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 
 
     <!-- DataTables -->
-    <script type="text/javascript" src="{{ URL::asset('admin-theme/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-    <script type="text/javascript" src="{{ URL::asset('admin-theme/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+    <script type="text/javascript" src="{{ URL::asset('public/admin-theme/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+    <script type="text/javascript" src="{{ URL::asset('public/admin-theme/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.4.1/css/buttons.dataTables.min.css">
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
@@ -239,13 +239,13 @@
 
 
     <!-- SlimScroll -->
-    <script type="text/javascript" src="{{ URL::asset('admin-theme/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
+    <script type="text/javascript" src="{{ URL::asset('public/admin-theme/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
     <!-- FastClick -->
-    <script type="text/javascript" src="{{ URL::asset('admin-theme/bower_components/fastclick/lib/fastclick.js')}}"></script>
+    <script type="text/javascript" src="{{ URL::asset('public/admin-theme/bower_components/fastclick/lib/fastclick.js')}}"></script>
     <!-- AdminLTE App -->
-    <script type="text/javascript" src="{{ URL::asset('admin-theme/dist/js/adminlte.min.js')}}"></script>
+    <script type="text/javascript" src="{{ URL::asset('public/admin-theme/dist/js/adminlte.min.js')}}"></script>
     <!-- AdminLTE for demo purposes -->
-    <script type="text/javascript" src="{{ URL::asset('admin-theme/dist/js/demo.js')}}"></script>
+    <script type="text/javascript" src="{{ URL::asset('public/admin-theme/dist/js/demo.js')}}"></script>
 
 </div>
 </body>
