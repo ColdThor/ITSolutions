@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Admin | @yield('page')</title>
-    <link rel="icon" href='/reality/assets/img/fav.png'>
+    <link rel="icon" href='/assets/img/fav.png'>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -162,7 +162,7 @@
                                 <?php
                                 $id = session()->get('userID');
                                 ?>
-                                <img src="/reality/storage/app/public/admins/admin_<?php echo $id?>/fotka.jpeg" class="img-circle" alt="User Image" style="height: 20px; width: 20px;">
+                                <img src="/storage/app/public/admins/admin_<?php echo $id?>/fotka.jpeg" class="img-circle" alt="User Image" style="height: 20px; width: 20px;">
                             @endif
                           @if(session()->has('admin'))
                                 <span class="hidden-xs">{{session()->get('userName')}}<!-- Meno pouzivatela--></span>
@@ -176,7 +176,7 @@
                                     <?php
                                     $id = session()->get('userID');
                                     ?>
-                                    <img src="/reality/storage/app/admins/admin_<?php echo $id?>/fotka.jpeg" class="img-circle" alt="User Image" style="height: 100px; width: 100px;">
+                                    <img src="/storage/app/admins/admin_<?php echo $id?>/fotka.jpeg" class="img-circle" alt="User Image" style="height: 100px; width: 100px;">
                                 @endif
                                 <p>
                                     <!-- meno pouzivatela -->

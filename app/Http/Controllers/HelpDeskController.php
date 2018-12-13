@@ -44,7 +44,7 @@ class HelpDeskController extends Controller
 
             $data = array('text'=>$text, 'to' => $email, 'id' => $id,'message' => $help_data->text);
             Mail::send('admin/reply', ["data" => $data], function ($message) use ($data) {
-                $message->from('chrisfodor333@gmail.com', 'Svet Realít');
+                $message->from('svetrealit@devsite.sk', 'Svet Realít');
                 $message->subject("Odpoveď na Vašu otázku - Svet Realít");
                 $message->to($data['to']);
             });

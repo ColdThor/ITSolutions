@@ -6,15 +6,15 @@
 
 
 
-    <link rel="stylesheet" href="/reality/assets/css/linearicons.css">
-    <link rel="stylesheet" href="/reality/assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/reality/assets/css/nice-select.css">
-    <link rel="stylesheet" href="/reality/assets/css/ion.rangeSlider.css" />
-    <link rel="stylesheet" href="/reality/assets/css/ion.rangeSlider.skinFlat.css" />
-    <link rel="stylesheet" href="/reality/assets/css/bootstrap.css">
-    <link rel="stylesheet" href="/reality/assets/css/main.css">
-    <link rel="stylesheet" href="/reality/assets/css/paver.css">
-    <link rel="stylesheet" href="/reality/assets/css/fSelect.css">
+    <link rel="stylesheet" href="/assets/css/linearicons.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/nice-select.css">
+    <link rel="stylesheet" href="/assets/css/ion.rangeSlider.css" />
+    <link rel="stylesheet" href="/assets/css/ion.rangeSlider.skinFlat.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/paver.css">
+    <link rel="stylesheet" href="/assets/css/fSelect.css">
 
 
 
@@ -25,7 +25,7 @@
     -->
 
     <!-- Mobile Specif ic Meta -->
-    <link rel="icon" href='/reality/assets/img/fav.png'>
+    <link rel="icon" href='/assets/img/fav.png'>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon-->
 

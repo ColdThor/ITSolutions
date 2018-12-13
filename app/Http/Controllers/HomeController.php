@@ -444,7 +444,7 @@ class HomeController extends Controller
             if(!session()->has('userID')) {
                 $data = array('name'=>$first_name,'password' =>$password, 'to' => $contact_mail, 'id' => $id);
                 Mail::send('frontend/mail', ["data" => $data], function ($message) use ($data) {
-                    $message->from('chrisfodor333@gmail.com', 'Svet Realít');
+                    $message->from('svetrealit@devsite.sk', 'Svet Realít');
                     $message->subject("Váš inzerát bol pridaný");
                     $message->to($data['to']);
                 });

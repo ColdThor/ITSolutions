@@ -69,18 +69,18 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
 
-<script type="text/javascript"  src="/reality/assets/js/jquery.paver.min.js"></script>
-<script type="text/javascript"  src="/reality/assets/js/functions.min.js"></script>
+<script type="text/javascript"  src="/assets/js/jquery.paver.min.js"></script>
+<script type="text/javascript"  src="/assets/js/functions.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-<script src="/reality/assets/js/vendor/bootstrap.min.js"></script>
-<script src="/reality/assets/js/jquery.ajaxchimp.min.js"></script>
-<script src="/reality/assets/js/jquery.nice-select.min.js"></script>
-<script src="/reality/assets/js/jquery.sticky.js"></script>
-<script src="/reality/assets/js/ion.rangeSlider.js"></script>
+<script src="/assets/js/vendor/bootstrap.min.js"></script>
+<script src="/assets/js/jquery.ajaxchimp.min.js"></script>
+<script src="/assets/js/jquery.nice-select.min.js"></script>
+<script src="/assets/js/jquery.sticky.js"></script>
+<script src="/assets/js/ion.rangeSlider.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="/reality/assets/js/jquery.magnific-popup.min.js"></script>
-<script src="/reality/assets/js/main.js"></script>
-<script src="/reality/assets/js/fSelect.js"></script>
+<script src="/assets/js/jquery.magnific-popup.min.js"></script>
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/fSelect.js"></script>
 
 
 

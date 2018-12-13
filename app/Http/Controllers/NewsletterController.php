@@ -47,7 +47,7 @@ class NewsletterController extends Controller
 
             $data = array('text'=>$text, 'to' => $emails);
             Mail::send('admin/newsletter_mail', ["data" => $data], function ($message) use ($data) {
-                $message->from('chrisfodor333@gmail.com', 'Svet Realít');
+                $message->from('svetrealit@devsite.sk', 'Svet Realít');
                 $message->subject("Svet Realít - Newsletter");
                 $message->to($data['to']);
             });
