@@ -13,13 +13,22 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label for="email">Email</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-envelope"></i>
+                                </div>
                             <input type="email" name="email" class="form-control" id="email" placeholder="Zadajte email">
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="password">Heslo</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-lock"></i>
+                                </div>
                             <input type="password" name="password" class="form-control" id="password" placeholder="Zadajte heslo">
+                            </div>
                         </div>
-                    </div>
                     <!-- /.box-body -->
 
                     <div class="box-footer">
@@ -30,6 +39,7 @@
                             {{ $errors->first('email') }}
                             {{ $errors->first('password') }}
                         </p>
+                    </div>
                     </div>
                 </form>
             </div>
