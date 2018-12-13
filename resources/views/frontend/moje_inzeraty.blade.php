@@ -11,11 +11,13 @@
             @if(session()->has('mypage'))
                 <?php $search = session()->get('mypage');
                 $i=0;
+                $user_id = 0;
                 foreach($search as $ads):
                     $i++;
 
                 $fotka = $ads->id_advertisement;
                 $user_id = $ads->id_user_group;
+
                 ?>
                 <div class="col-lg-6">
                     <div class="single-property">
