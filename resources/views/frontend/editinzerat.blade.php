@@ -93,7 +93,7 @@
 
                     <div class="col-lg-12 d-flex align-items-center justify-content-center mt-10">
                         <div class="row">
-                            <div class="g-recaptcha" data-sitekey="6LdscXwUAAAAAEjwe-hTuEOTCptX4bHax134Q6xZ"></div>
+                            <div class="g-recaptcha" data-sitekey="6LfFWoEUAAAAAGCjU2tU-PdEoKKdoBgn4pZUn4oU"></div>
                         </div>
                     </div>
 
