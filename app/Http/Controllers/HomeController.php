@@ -574,10 +574,8 @@ class HomeController extends Controller
         $GLOBALS['increment_image'] = 0;
 
         $crawler->filter('h2 > a,img, div')->each(function ($node) {
-            $helper = "";
             if (in_array($node->getNode(0)->nodeName, ['h2', 'a'])) {
                 $i_nazov =   $GLOBALS['increment_nazov']++;
-
                 $GLOBALS['nazov'.$i_nazov] = $node->getNode(0)->textContent;
                 $GLOBALS['link'.$i_nazov] = $node->getNode(0)->getAttribute('href');
             }
@@ -603,17 +601,13 @@ class HomeController extends Controller
             }
             elseif ($node->getNode(0)->nodeName == 'img') {
                 $class= $node->getNode(0)->getAttribute('class');
-                $alt= $node->getNode(0)->getAttribute('class');
+                
 
                 $length = strlen($node->getNode(0)->getAttribute('data-lazy-src'));
                 if($length>10) {
-
                     if($class == "img--small") {
-
                         $i_image =   $GLOBALS['increment_image']++;
-                            $GLOBALS['image'.$i_image] = $node->getNode(0)->getAttribute('data-lazy-src');
-
-
+                        $GLOBALS['image'.$i_image] = $node->getNode(0)->getAttribute('data-lazy-src');
                     }
                 }
 
