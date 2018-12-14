@@ -255,59 +255,41 @@
             <?php
             $i = 0;
             $k = 0;
-            foreach ($miesto as $m): ?>
+
+            foreach ($miesto as $m):
+                $id = true;
+                ?>
+
                 <div class="col-lg-6">
                 <div class="single-property">
                     <div class="images">
 
-
-
                         <?php
-                        $id = 0;
-                        if($k != 0) {
 
-                            if(isset($image_title[$k+1]) && $image_title[$k] == $image_title[$k-1] && $druh[$k] == $druh[$k-1]) {
-                                $id = $k+1;
-                            } else {
-                                if(isset($image_title[$k])) {
-                                    $id = $k;
+
+                                while($id) {
+                                    if(isset($image_title[$k])  && isset($image_title[$k-1]) && $image_title[$k] == $image_title[$k-1]) {
+                                        if(isset($nazov[$i]) && isset($nazov[$i-1]) && $nazov[$i] == $nazov[$i-1]) {
+                                         $k++;
+                                            $id = false;
+                                            }
+                                            $k++;
+                                    } else {
+
+                                            $id = false;
+
+
+                                    }
                                 }
-                            }
 
 
 
 
-                            if(isset($image_title[$k+2]) && $image_title[$k] == $image_title[$k+1] && $druh[$k] == $druh[$k-1]) {
-                                $id = $k+2;
-                            }    else {
-                                if(isset($image_title[$k])) {
-                                    $id = $k;
-                                }
-                            }
 
-
-
-                            if(isset($image_title[$k+3]) && $image_title[$k] == $image_title[$k+2] && $druh[$k] == $druh[$k-1]) {
-                                $id = $k+3;
-                            }    else {
-                                if(isset($image_title[$k])) {
-                                    $id = $k;
-                                }
-                            }
-
-
-
-                            if(isset($image_title[$k+4]) && $image_title[$k] == $image_title[$k+4] && $druh[$k] == $druh[$k-1]) {
-                                $id = $k+4;
-                            } else {
-                                if(isset($image_title[$k])) {
-                                    $id = $k;
-                                }
-                            }
-
-                           } ?>
-
-                            <a href="{{$link[$i]}}"><image  src="{{$image[$id]}}"></image></a>
+                        ?>
+                                    <?php if(isset($image_title[$k])): ?>
+                            <a href="{{$link[$i]}}"><image  src="<?php echo $image[$k];?>"></image></a>
+                                    <?php endif; ?>
 
                             <!-- REF HERE ONLY -->
 
@@ -362,8 +344,8 @@
                 </div>
                 </div>
                 <?php
-                $i++;
                 $k++;
+                $i++;
                 endforeach; ?>
 
             </div>
