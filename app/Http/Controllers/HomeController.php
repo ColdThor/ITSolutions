@@ -601,7 +601,7 @@ class HomeController extends Controller
             }
             elseif ($node->getNode(0)->nodeName == 'img') {
                 $class= $node->getNode(0)->getAttribute('class');
-                
+
 
                 $length = strlen($node->getNode(0)->getAttribute('data-lazy-src'));
                 if($length>10) {
