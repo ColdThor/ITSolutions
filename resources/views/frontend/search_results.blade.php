@@ -288,7 +288,12 @@
 
                         ?>
                                     <?php if(isset($image_title[$k])): ?>
+                        <?php if($image[$k] == "#"): ?>
+                            <a href="{{$link[$i]}}"><image  src="/assets/img/homepage.jpg"></image></a>
+                        <?php else: ?>
                             <a href="{{$link[$i]}}"><image  src="<?php echo $image[$k];?>"></image></a>
+                        <?php endif; ?>
+
                                     <?php endif; ?>
 
                             <!-- REF HERE ONLY -->
