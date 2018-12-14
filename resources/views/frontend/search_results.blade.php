@@ -263,25 +263,48 @@
                     <div class="desc-crawler">
                         <div class="top d-flex justify-content-between">
                             <h5><a href="{{$link[$i]}}"><?php
-                                    if(strlen($nazov[$i])>60) {
-                                        echo  substr($nazov[$i],0,60)."...";
+                                    if(strlen($nazov[$i])>62) {
+                                        echo  substr($nazov[$i],0,62)."...";
                                     } else { echo $nazov[$i];} ?></a></h5>
                         </div>
                         <div class="bottom-price d-flex justify-content-start">
                             <p><span class="lnr lnr-apartment"></span>Cena:<b><?php echo substr($cena[$i],20,40); ?></b></p>
                             <p><span class="lnr lnr-crop"></span>Výmera: <b><?php
                                     if(strlen($druh[$i])>130) {
+                                        if(substr($druh[$i],102,strlen($druh[$i]))!= " " || substr($druh[$i],102,strlen($druh[$i])) != null) {
                                     echo  substr($druh[$i],102,strlen($druh[$i]));
                                     } else {
-                                        echo  substr($druh[$i],97,strlen($druh[$i]));
+                                            echo "nedefinované";
+                                        }
                                     }
+                                    else {
+                                        if(substr($druh[$i],97,strlen($druh[$i]))!= " " || substr($druh[$i],97,strlen($druh[$i])) != null) {
+                                            if( strlen(substr($druh[$i],97,strlen($druh[$i])))<27) {
+                                                echo " nedefinované";
+                                            } else {
+                                            echo
+                                            substr($druh[$i],97,strlen($druh[$i]));
+                                            }
+                                        } else {
+                                            echo " nedefinované";
+                                        }
+                                    }
+
                                   ?></b></p>
                         </div>
                         <div class="bottom d-flex justify-content-start">
                             <p><span class="lnr lnr-map-marker"></span><b>{{$m}}</b></p>
                         </div>
                         <div class="bottom d-flex justify-content-start">
-                            <p><span class="lnr lnr-history"></span>Druh:<b><?php echo substr($druh[$i],20,55); ?></b></p>
+                            <p><span class="lnr lnr-history"></span>Druh:<b><?php
+                                        if(strlen(substr($druh[$i],20,55))<25) {
+                                            echo " nedefinované";
+                                        } else {
+                                            echo substr($druh[$i],20,55);
+                                        }
+
+
+                                    ?></b></p>
                         </div>
                     </div>
                 </div>

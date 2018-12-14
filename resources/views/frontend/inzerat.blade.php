@@ -64,7 +64,7 @@
     $id= $ad->id_advertisement;
     $i=1;
     $exists = false;
-    while(file_exists("storage/inzeraty/inzerat_".$id."/panorama_".$i.".jpg")):
+    while(file_exists("public/storage/inzeraty/inzerat_".$id."/panorama_".$i.".jpg")):
     $exists = true;
     ?>
     <div class="row pt-10">
