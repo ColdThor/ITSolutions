@@ -7,15 +7,15 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
-                    <div class="box-header">
+                    <div class="box-header with-border">
                         <h3 class="box-title">Druhy inzercie</h3>
                     </div>
                     <!-- /.box-header -->
-                    <div class="box-body">
-                        <table  id=usertable class="table table-bordered table-hover">
+                    <div class="box-body table-responsive">
+                        <table  id=usertable class="table table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th>Číslo druhu</th>
+                                    <th>ID</th>
                                     <th>Názov druhu</th>
                                     <th>Skupina</th>
                                     <th>Editovať</th>

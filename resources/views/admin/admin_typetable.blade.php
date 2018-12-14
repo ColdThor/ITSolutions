@@ -7,15 +7,15 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
-                    <div class="box-header">
+                    <div class="box-header with-border">
                         <h3 class="box-title">Typy inzercie</h3>
                     </div>
                     <!-- /.box-header -->
-                    <div class="box-body">
-                        <table  id=usertable class="table table-bordered table-hover">
+                    <div class="box-body table-responsive">
+                        <table  id=usertable class="table table-bordered table-striped">
                             <thead>
                                  <tr>
-                                    <th>Číslo typu</th>
+                                    <th>ID</th>
                                     <th>Názov typu</th>
                                     <th>Editovať</th>
                                     <th>Zmazať</th>

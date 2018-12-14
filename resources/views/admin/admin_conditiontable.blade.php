@@ -11,11 +11,11 @@
                         <h3 class="box-title">Stavy inzercie</h3>
                     </div>
                     <!-- /.box-header -->
-                    <div class="box-body">
-                        <table  id=usertable class="table table-bordered table-hover">
+                    <div class="box-body table-responsive">
+                        <table  id=usertable class="table table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th>Číslo stavu</th>
+                                    <th>ID</th>
                                     <th>Názov stavu</th>
                                     <th>Editovať</th>
                                     <th>Zmazať</th>

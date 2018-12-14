@@ -13,7 +13,7 @@
             <p>{{session()->get('userName')}}</p>
 
 
-            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            <a><i class="fa fa-circle text-success"></i> Online</a>
         @endif
     </div>
 </div>
