@@ -271,19 +271,19 @@
                             <p><span class="lnr lnr-apartment"></span>Cena:<b><?php echo substr($cena[$i],20,40); ?></b></p>
                             <p><span class="lnr lnr-crop"></span>Výmera: <b><?php
                                     if(strlen($druh[$i])>130) {
-                                        if(substr($druh[$i],102,strlen($druh[$i]))!= " " || substr($druh[$i],102,strlen($druh[$i])) != null) {
-                                    echo  substr($druh[$i],102,strlen($druh[$i]));
-                                    } else {
-                                            echo "nedefinované";
+                                        if( strlen(substr($druh[$i],102,strlen($druh[$i])))== 33) {
+                                         echo  substr($druh[$i],100,strlen($druh[$i]));
+                                        } else {
+                                        echo  substr($druh[$i],102,strlen($druh[$i]));
                                         }
+
                                     }
                                     else {
                                         if(substr($druh[$i],97,strlen($druh[$i]))!= " " || substr($druh[$i],97,strlen($druh[$i])) != null) {
                                             if( strlen(substr($druh[$i],97,strlen($druh[$i])))<27) {
                                                 echo " nedefinované";
                                             } else {
-                                            echo
-                                            substr($druh[$i],97,strlen($druh[$i]));
+                                            echo substr($druh[$i],97,strlen($druh[$i]));
                                             }
                                         } else {
                                             echo " nedefinované";
