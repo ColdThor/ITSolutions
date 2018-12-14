@@ -565,6 +565,7 @@ class HomeController extends Controller
         $druh = array();
         $popis = array();
         $image = array();
+        $image_title = array();
 
         $GLOBALS['increment_miesto'] = 0;
         $GLOBALS['increment_nazov'] = 0;
@@ -574,6 +575,7 @@ class HomeController extends Controller
         $GLOBALS['increment_image'] = 0;
 
         $crawler->filter('h2 > a,img, div')->each(function ($node) {
+
             if (in_array($node->getNode(0)->nodeName, ['h2', 'a'])) {
                 $i_nazov =   $GLOBALS['increment_nazov']++;
                 $GLOBALS['nazov'.$i_nazov] = $node->getNode(0)->textContent;
@@ -605,9 +607,11 @@ class HomeController extends Controller
 
                 $length = strlen($node->getNode(0)->getAttribute('data-lazy-src'));
                 if($length>10) {
+
                     if($class == "img--small") {
                         $i_image =   $GLOBALS['increment_image']++;
                         $GLOBALS['image'.$i_image] = $node->getNode(0)->getAttribute('data-lazy-src');
+                        $GLOBALS['image_title'.$i_image] = $node->getNode(0)->getAttribute('alt');
                     }
                 }
 
@@ -686,6 +690,17 @@ class HomeController extends Controller
             }
         }
 
+        $i_image_title = 0;
+        $image_title_bol = true;
+        while($image_title_bol) {
+            if(isset($GLOBALS['image_title'.$i_image_title])) {
+                array_push($image_title, $GLOBALS['image_title'.$i_image_title]);
+                $i_image_title++;
+            } else {
+                $image_title_bol = false;
+            }
+        }
+
 
         //CRAWLER
 
@@ -696,6 +711,7 @@ class HomeController extends Controller
         $data['druh'] = $druh;
         $data['popis'] = $popis;
         $data['image'] = $image;
+        $data['image_title'] = $image_title;
         $data['crawler'] = $crawler;
 
 
