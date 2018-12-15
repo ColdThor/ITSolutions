@@ -1,4 +1,4 @@
-<!-- Start contact-info Area -->
+<div class="container-footer">
 <section class="about-area section-gap" id="contact">
     <div class="container">
         <div class="row">
@@ -13,7 +13,7 @@
                 <h4>Kontakt</h4>
                 <p>
                     Tel.: +421 918 157 419<br>
-                    Email: <a href="mailto:info@svetrealit.sk" target="_top">info@svetrealit.sk</a>
+                    Email: <a href="mailto:svetrealit@devsite.sk" target="_top">svetrealit@devsite.sk</a>
                 </p>
             </div>
             <div class="single-info col-lg-4 col-md-12 pt-10">
@@ -63,6 +63,7 @@
         </div>
     </div>
 </footer>
+</div>
 <!-- End footer Area -->
 
 

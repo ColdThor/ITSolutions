@@ -1,11 +1,9 @@
 @include('frontend/header')
+@include('frontend/chat')
 @section('page') Pridať inzerát @endsection
-
-
-
-<div class="container pt-130">
+<div class="container pt-70">
     <div class="row align-items-center justify-content-center">
-        <div class="col-lg-5">
+        <div class="col-lg-6">
             <div class="generic-banner-content">
                 <h3 class="text-center">Pridať inzerát</h3>
                 <div class="d-flex align-items-center justify-content-center mt-10">

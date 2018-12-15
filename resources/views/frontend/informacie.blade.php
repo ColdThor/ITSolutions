@@ -1,11 +1,11 @@
 @include('frontend/header')
 @section('page') Užitočné informácie @endsection
-
+<div class="wrapper">
 <div align="center">
     <section class="service-area section-gap">
         <div class="container">
             <div class="row d-flex justify-content-center">
-                <div class="col-md-8 pt-50 pb-30 header-text">
+                <div class="col-md-8 pt-30 pb-30 header-text">
                     <h3>Užitočné informácie</h3>
                 </div>
             </div>
@@ -38,5 +38,6 @@
             </div>
         </div>
     </section>
+</div>
 </div>
 @include('frontend/footer')

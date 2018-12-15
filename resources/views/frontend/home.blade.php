@@ -199,7 +199,7 @@
                             </div>
                             <div class="col-lg-12 d-flex align-items-center justify-content-center">
                                 <div class="row">
-                                    <button type="submit" class="primary-btn mt-10" name="submit" value="submit">Hľadať<span class="lnr lnr-arrow-right"></span></button>
+                                    <button type="submit" class="primary-btn mt-20" name="submit" value="submit">Hľadať<span class="lnr lnr-arrow-right"></span></button>
                                 </div>
                             </div>
                         </div>

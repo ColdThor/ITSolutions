@@ -5,7 +5,7 @@
     <section class="service-area section-gap">
         <div class="container">
             <div class="row d-flex justify-content-center">
-                <div class="col-md-8 pt-50 pb-30 header-text">
+                <div class="col-md-8 pt-30 pb-30 header-text">
                     <h3>Všetky potrebné dokumenty na jednom mieste</h3>
                 </div>
             </div>
