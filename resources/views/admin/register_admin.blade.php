@@ -1,88 +1,75 @@
-@extends('backend/header')
-@section('page') Register @endsection
-@section('content')
 
-    <html>
-    <head>
-        <title>Register</title>
-    </head>
-    <body>
+    @extends('backend/header')
+    @section('page') Register @endsection
+    @section('content')
 
-
-
-    <!-- Main content -->
-    <section class="content">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="box box-primary">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Zaregistrovať nového admina</h3>
-                    </div>
-
-                <div>
-
-                    {{ Form::open(array('url' => '/it-admin/register', 'files' => true)) }}
-                    <h1>Registrovať</h1>
-
-                    <!-- if there are login errors, show them here -->
-                    <p>
-
-                        {{ $errors->first('email') }}
-                        {{ $errors->first('password') }}
-                        {{ $errors->first('fotka') }}
-                    </p>
-
-                    <p>
-                        {{ Form::label('first_name', 'Meno') }}
-                        {{ Form::text('first_name') }}
-                    </p>
-
-                    <p>
-                        {{ Form::label('last_name', 'Priezvisko') }}
-                        {{ Form::text('last_name') }}
-                    </p>
-
-
-                    <p>
-                        {{ Form::label('email', 'Email') }}
-                        {{ Form::text('email') }}
-                    </p>
-
-
-
-                    <p>
-                        {{ Form::label('telephone', 'Telefónne číslo') }}
-                        {{ Form::text('telephone') }}
-                    </p>
-
-                    <p>
-                        {{ Form::label('password', 'Heslo') }}
-                        {{ Form::password('password') }}
-                    </p>
-
-                    <p>
-                        {{ Form::label('password_confirmation', 'Heslo znovu') }}
-                        {{ Form::password('password_confirmation') }}
-                    </p>
-
-                    <p>
-                        {{ Form::label('fotka', 'Profilová fotka') }}
-                        <input name= "fotka" type="file" accept=" .jpg, .jpeg" style="margin-left: 10px" />
-                    </p>
-
-
-                    <p style="margin-left: 10px">{{ Form::submit('Registrovať',array('class'=>'btn btn-primary')) }}</p>
-                    {{ Form::close() }}
-
-
-                    <br />
-
-
+        <section class="content">
+            <div class="box box-default">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Pridať nového administrátora</h3>
                 </div>
-                <!-- /.box -->
+
+                {{ Form::open(array('url' => '/it-admin/register', 'files' => true)) }}
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="first_name">Meno</label>
+                                    <input type="text" name="first_name" class="form-control" id="first_name" placeholder="Meno">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="last_name">Priezvisko</label>
+                                    <input type="text" name="last_name" class="form-control" id="last_name" placeholder="Priezvisko">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="telephone">Telefónne číslo</label>
+                                    <input type="text" name="telephone" class="form-control" id="telephone" placeholder="Telefónne číslo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="password">Heslo</label>
+                                    <input type="password" name="password" class="form-control" id="password" placeholder="Heslo">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="password_confirmation">Zopakujte heslo</label>
+                                    <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Zopakujte heslo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="fotka">Profilová fotka</label>
+                                <input type="file" name="fotka" id="fotka" accept=".png .jpg, .jpeg">
+                            </div>
+                        </div><br>
+                        <div class="box-footer">
+                            <button type="submit" name="submit" value="submit" class="btn btn-default">Pridať administrátora</button>
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <h5 class="text-red">
+                                {{ $errors->first('email') }}
+                                {{ $errors->first('password') }}
+                                {{ $errors->first('fotka') }}
+                            </h5>
+                        </div>
+                    </div>
+                {{ Form::close() }}
             </div>
-            <!-- /.col -->
-        </div>
-        <!-- /.row -->
-    </section>
+        </section>
 @endsection

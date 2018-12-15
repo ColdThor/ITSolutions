@@ -458,7 +458,7 @@ class HomeController extends Controller
                 $i=0;
                 foreach ($fotky as $fotka) {
                     $i++;
-                    Storage::putFileAs('public/inzeraty/' . $name, $fotka, 'fotka_' . $i . '.png');
+                    Storage::disk('public_uploads')->putFileAs('/storage/inzeraty/' . $name, $fotka, 'fotka_' . $i . '.png','public');
                 }
             } else {
                 return Redirect::to('/pridat')

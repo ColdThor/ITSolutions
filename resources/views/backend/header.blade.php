@@ -162,7 +162,7 @@
                                 <?php
                                 $id = session()->get('userID');
                                 ?>
-                                <img src="/storage/app/public/admins/admin_<?php echo $id?>/fotka.jpeg" class="img-circle" alt="User Image" style="height: 20px; width: 20px;">
+                                <img src="{{ asset('public/storage/admins/admin_'.$id."/fotka.jpeg") }}" class="img-circle" alt="User Image" style="height: 20px; width: 20px;">
                             @endif
                           @if(session()->has('admin'))
                                 <span class="hidden-xs">{{session()->get('userName')}}<!-- Meno pouzivatela--></span>
@@ -176,7 +176,7 @@
                                     <?php
                                     $id = session()->get('userID');
                                     ?>
-                                    <img src="/storage/app/public/admins/admin_<?php echo $id?>/fotka.jpeg" class="img-circle" alt="User Image" style="height: 100px; width: 100px;">
+                                    <img src="{{ asset('public/storage/admins/admin_'.$id."/fotka.jpeg") }}" class="img-circle" alt="User Image" style="height: 100px; width: 100px;">
                                 @endif
                                 <p>
                                     <!-- meno pouzivatela -->

@@ -5,7 +5,7 @@
             <?php
             $id = session()->get('userID');
             ?>
-        <img src="/storage/app/public/admins/admin_<?php echo $id?>/fotka.jpeg" class="img-circle" alt="User Image" style="height: 50px; width: 50px;">
+        <img src="{{ asset('public/storage/admins/admin_'.$id."/fotka.jpeg") }}" class="img-circle" alt="User Image" style="height: 50px; width: 50px;">
         @endif
     </div>
     <div class="pull-left info">
