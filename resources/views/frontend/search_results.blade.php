@@ -288,7 +288,7 @@
 
                         ?>
                                     <?php if(isset($image_title[$k])): ?>
-                        <?php if(!in_array($image_title[$k],$nazov)): ?>
+                        <?php if(isset($nazov[$k]) && !in_array($nazov[$k],$image_title)): ?>
                             <a href="{{$link[$i]}}"><image  src="/assets/img/homepage.jpg"></image></a>
                         <?php else: ?>
                             <a href="{{$link[$i]}}"><image  src="<?php echo $image[$k];?>"></image></a>
