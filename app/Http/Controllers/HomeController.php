@@ -606,6 +606,7 @@ class HomeController extends Controller
 
 
                 $length = strlen($node->getNode(0)->getAttribute('data-lazy-src'));
+
                 if($length>10) {
 
                     if($class == "img--small") {
@@ -613,11 +614,11 @@ class HomeController extends Controller
                         $GLOBALS['image'.$i_image] = $node->getNode(0)->getAttribute('data-lazy-src');
                         $GLOBALS['image_title'.$i_image] = $node->getNode(0)->getAttribute('alt');
                     }
-                    if($class == null) {
-                        $i_image =   $GLOBALS['increment_image']++;
-                        $GLOBALS['image'.$i_image] = "#";
-                        $GLOBALS['image_title'.$i_image] = "#";
-                    }
+
+                       // $GLOBALS['image'.$i_image] = "#";
+                       // $GLOBALS['image_title'.$i_image] = "#";
+
+
                 }
 
             }

@@ -288,7 +288,7 @@
 
                         ?>
                                     <?php if(isset($image_title[$k])): ?>
-                        <?php if($image[$k] == "#"): ?>
+                        <?php if(!in_array($image_title[$k],$nazov)): ?>
                             <a href="{{$link[$i]}}"><image  src="/assets/img/homepage.jpg"></image></a>
                         <?php else: ?>
                             <a href="{{$link[$i]}}"><image  src="<?php echo $image[$k];?>"></image></a>
