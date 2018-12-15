@@ -472,7 +472,7 @@ class HomeController extends Controller
                 foreach ($panoramy as $panorama) {
 
                     $i++;
-                    Storage::putFileAs('public/inzeraty/' . $name, $panorama, 'panorama_' . $i . '.jpg');
+                    Storage::disk('public_uploads')->putFileAs('/storage/inzeraty/' . $name, $panorama, 'panorama_' . $i . '.jpg');
 
                 }
             }
