@@ -50,17 +50,6 @@
 
 <!-- Start Header Area -->
 <header class="default-header">
-    <div class="menutop-wrap">
-        <div class="menu-top container">
-            <div class="d-flex justify-content-end align-items-center">
-                <ul class="list">
-                    @if(session()->has('userID'))
-                        <li><a href="<?php echo url('/moje_inzeraty'); ?>">Prihlásený: {{session()->get('userName')}}</a></li>
-                        <li><a href="<?php echo url('/user/logout'); ?>">Odhlásiť sa</a></li>
-                    @endif
-                </ul>
-            </div>
-        </div>
-    </div>
+ 
     @include('frontend/navigation')
 </header>

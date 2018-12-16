@@ -4,7 +4,7 @@
 <section class="service-area section-gap">
     <div class="container">
         <div class="row d-flex justify-content-center">
-            <div class="col-md-8 pt-50 pb-40 header-text">
+            <div class="col-md-8 pt-30 pb-40 header-text">
                 <h3>Všetky informácie o hypotékach na jednom mieste</h3>
                 <h5 class="info pt-10">Pre zobrazenie detailu kliknite na danú tému</h5>
             </div>

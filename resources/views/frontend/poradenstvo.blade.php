@@ -1,7 +1,7 @@
 @include('frontend/header')
 @section('page') Poradenstvo @endsection
 
-<div class="container pt-100 pb-60">
+<div class="container pt-70 pb-60">
     <div class="row align-items-center justify-content-center">
         <div class="col-lg-5 col-md-8">
             <div class="generic-banner-content">

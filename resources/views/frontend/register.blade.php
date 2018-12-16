@@ -3,7 +3,7 @@
 @section('page') Registrácia @endsection
 
 
-<div class="container pt-130">
+<div class="container pt-70">
     <div class="row align-items-center justify-content-center">
         <div class="col-lg-5">
             <div class="generic-banner-content">

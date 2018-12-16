@@ -212,7 +212,7 @@
                     </div>
                     <div class="desc">
                         <div class="top d-flex justify-content-between">
-                            <h5><a href="<?php echo url('/inzerat/'.$fotka.'/false'); ?>"> {{$ads->title}}</a></h5>
+                            <h5><a href="<?php echo url('/inzerat/'.$fotka.'/false'); ?>"> <?php echo substr($ads->title,0,62); ?></a></h5>
                         </div>
                         <div class="bottom d-flex justify-content-start">
                             <p><span class="lnr lnr-apartment"></span>Cena: <b>{{$ads->price}}€</b></p>

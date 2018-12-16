@@ -18,12 +18,23 @@
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="<?php echo url('/pridat'); ?>">Pridať inzerát</a>
                         @if(session()->has('userID'))
-                        <a class="dropdown-item" href="<?php echo url('/moje_inzeraty'); ?>">Moje inzeráty</a>
+                            <a class="dropdown-item" href="<?php echo url('/moje_inzeraty'); ?>">Zoznam inzerátov</a>
                             @endif
                     </div>
                 </div>
                 @if(!session()->has('userID'))
                 <li><a href="<?php echo url('/user/login'); ?>">Realitné kancelárie</a></li>
+                @endif
+                @if(!session()->has('userID'))
+                    <li><a href="<?php echo url('/user/login'); ?>">Prihlásiť sa</a></li>
+                @endif
+                @if(session()->has('userID'))
+                    <div class="dropdown">
+                        <li class="dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton"><a href="">Prihlásený: {{session()->get('userName')}}</a></li>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="<?php echo url('/user/logout'); ?>">Odhlásiť sa</a>
+                        </div>
+                    </div>
                 @endif
             </ul>
         </div>
