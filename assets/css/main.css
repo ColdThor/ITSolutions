@@ -3280,6 +3280,7 @@ h6 {
 }
 
 .container-footer {
-    display: table-row;
-    height: 50px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

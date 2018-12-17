@@ -1,4 +1,4 @@
-<div class="container-footer">
+
 <section class="about-area section-gap" id="contact">
     <div class="container">
         <div class="row">
@@ -50,20 +50,22 @@
             </div>
         </div>
     </div>
+
+
 </section>
 <!-- End contact-info Area -->
 
 <!-- start footer Area -->
 <footer class="footer-area section-gap-footer">
     <div class="container">
-        <div class="footer-bottom d-flex justify-content-center align-items-center">
+
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            <p>Copyright© <script>document.write(new Date().getFullYear());</script>. Svet realít</p>
+            <p align="center">Copyright© <script>document.write(new Date().getFullYear());</script>. Svet realít</p>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-        </div>
+
     </div>
 </footer>
-</div>
+
 <!-- End footer Area -->
 
 
