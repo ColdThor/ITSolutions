@@ -15,9 +15,14 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <div id="pop_div"></div>
-
-                        <?= Lava::render('ColumnChart', 'Finances', 'pop_div') ?>
+                            <div id="pop_div"></div>
+                            <?= Lava::render('ColumnChart', 'Finances', 'pop_div') ?>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="box-body">
+                            <div id="are_div"></div>
+                            <?= Lava::render('AreaChart', 'Inzeraty', 'are_div') ?>
                     </div>
                     <!-- /.box-body -->
                 </div>

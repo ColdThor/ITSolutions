@@ -3274,13 +3274,4 @@ h6 {
     cursor: pointer;
 }
 
-.wrapper {
-    height: auto;
-    padding: 10px;
-}
-
-.container-footer {
-    display: table-row;
-    height: 50px;
-}
 
