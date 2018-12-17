@@ -54,7 +54,7 @@
                                                 columns: [0,1,2,3,4,5,6,7,8,9,10,11]
                                             }
                                         },
-                                        { extend: 'pdf', text: 'Export do PDF',
+                                        { extend: 'pdfHtml5', text: 'Export do PDF',
                                             exportOptions: {
                                                 columns: [0,1,2,3,4,5,6,7,8,9,10,11]
                                             }
