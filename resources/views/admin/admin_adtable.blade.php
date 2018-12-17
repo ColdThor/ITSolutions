@@ -2,6 +2,8 @@
 @section('page') Inzeráty @endsection
 @section('content')
 
+
+
     <section class="content">
         <div class="row">
             <div class="col-xs-12">
@@ -49,12 +51,12 @@
                                     buttons: [
                                         { extend: 'excel', text: 'Export do excelu',
                                             exportOptions: {
-                                                columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13]
+                                                columns: [0,1,2,3,4,5,6,7,8,9,10,11]
                                             }
                                         },
                                         { extend: 'pdf', text: 'Export do PDF',
                                             exportOptions: {
-                                                columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13]
+                                                columns: [0,1,2,3,4,5,6,7,8,9,10,11]
                                             }
                                         }
                                     ],
