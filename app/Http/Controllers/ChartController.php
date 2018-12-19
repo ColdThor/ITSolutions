@@ -175,6 +175,7 @@ class ChartController extends Controller {
             ;
             Lava::DonutChart('Kraje', $kraje, [
                 'title' => 'Podiel inzerátov podľa krajov',
+                'fontSize' => 9,
                 'legend' => [
                     'position' => 'bottom'
                 ]
