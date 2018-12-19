@@ -11,17 +11,19 @@
             @if(session()->has('mypage'))
                 <?php $search = session()->get('mypage');
                 $i=0;
+                $user_id = 0;
                 foreach($search as $ads):
-                    $i++;
+                $i++;
 
                 $fotka = $ads->id_advertisement;
                 $user_id = $ads->id_user_group;
+
                 ?>
                 <div class="col-lg-6">
                     <div class="single-property">
                         <div class="images">
                             <a href="<?php echo url('/inzerat/'.$fotka.'/false'); ?>" style="color: black">
-                                <img class="img-fluid mx-auto d-block" src="/reality/storage/app/public/inzeraty/inzerat_<?php echo $fotka ?>/fotka_1.png" alt="" ></a>
+                                <img class="img-fluid mx-auto d-block" src="{{ asset('public/storage/inzeraty/inzerat_'.$fotka."/fotka_1.png") }}" alt="" ></a>
                             <span>{{$ads->type}} </span>
                         </div>
                         <div class="desc">
@@ -44,17 +46,26 @@
 
         </div>
 
-            <?php if($user_id == 3 || $user_id == 4):?>
-                <br />
-<span style="color: black; margin-left: 5%">Štatistiky</span>
-    <br />
-            <div class="box-body">
-
-                <div id="pop_div"></div>
-
-                <?= Lava::render('ColumnChart', 'Finances', 'pop_div') ?>
-            </div>
-            <?php endif; ?>
+        <?php if($user_id == 3 || $user_id == 4):?>
+        <br>
+        <h4>Štatistiky</h4>
+        <br>
+        <div class="box-body">
+            <div id="view_div"></div>
+            <?= Lava::render('BarChart', 'Zobrazenia', 'view_div') ?>
+        </div>
+        <br>
+        <div class="box-body">
+            <div id="kraj_div"></div>
+            <?= Lava::render('DonutChart', 'Kraj', 'kraj_div') ?>
+        </div>
+        <br>
+        <div class="box-body">
+            <div id="krajw_div"></div>
+            <?= Lava::render('BarChart', 'Krajview', 'krajw_div') ?>
+        </div>
+        <br>
+        <?php endif; ?>
 
         <?php if($i==0): ?>
         <span style="color: black">Používateľ nemá žiadne inzeráty</span>

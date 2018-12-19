@@ -230,6 +230,74 @@ class HomeController extends Controller
             ],
         ]);
 
+        $views = Lava::DataTable();
+
+        $viewdata = DB::table('advertisement')
+            ->select('title','views AS zobrazenia')
+            ->where('id_user','=',session()->get('userID'))
+            ->orderByRaw('views DESC')
+            ->take(5)
+            ->get();
+
+        $views->addStringColumn('nazov')
+            ->addNumberColumn('počet zobrazení');
+        foreach($viewdata as $w) {
+            $views->addRow([$w->title, $w->zobrazenia]);
+        }
+        ;
+
+        Lava::BarChart('Zobrazenia', $views, [
+            'title' => 'Najsledovanejšie inzeráty',
+            'legend' => [
+                'position' => 'bottom'
+            ]
+        ]);
+
+        $kraj = Lava::DataTable();
+
+        $datakr = DB::table('advertisement')
+            ->join('location', 'advertisement.id_location', '=', 'location.id_location')
+            ->select('region',DB::raw('COUNT(id_advertisement) as pocet_inzeratov'))
+            ->where('id_user','=',session()->get('userID'))
+            ->groupBy('region')
+            ->get();
+
+        $kraj->addStringColumn('kraj')
+            ->addNumberColumn('počet inzerátov');
+        foreach($datakr as $d) {
+            $kraj->addRow([$d->region, $d->pocet_inzeratov]);
+        }
+        ;
+
+        Lava::DonutChart('Kraj', $kraj, [
+            'title' => 'Podiel inzerátov podľa krajov',
+            'legend' => [
+                'position' => 'bottom'
+            ]
+        ]);
+
+        $krajview = Lava::DataTable();
+
+        $datakraj = DB::table('advertisement')
+            ->join('location', 'advertisement.id_location', '=', 'location.id_location')
+            ->select('region',DB::raw('SUM(views) as pocet_zobrazeni'))
+            ->where('id_user','=',session()->get('userID'))
+            ->groupBy('region')
+            ->get();
+
+        $krajview->addStringColumn('Kraj')
+            ->addNumberColumn('počet zobrazení');
+        foreach($datakraj as $d) {
+            $krajview->addRow([$d->region, $d->pocet_zobrazeni]);
+        }
+        ;
+
+        Lava::BarChart('Krajview', $krajview, [
+            'title' => 'Počet zobrazení podľa krajov',
+            'legend' => [
+                'position' => 'bottom'
+            ]
+        ]);
 
         return view('frontend/moje_inzeraty');
     }
