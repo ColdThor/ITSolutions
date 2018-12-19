@@ -22,6 +22,7 @@
                                 <th>Email</th>
                                 <th>Telefón</th>
                                 <th>Cena (€)</th>
+                                <th>Výmera (m<sup>2</sup>)</th>
                                 <th>Zverejnený</th>
                                 <th>Lokalita</th>
                                 <th>Druh</th>
@@ -51,12 +52,12 @@
                                     buttons: [
                                         { extend: 'excel', text: 'Export do excelu',
                                             exportOptions: {
-                                                columns: [0,1,2,3,4,5,6,7,8,9,10,11]
+                                                columns: [0,1,2,3,4,5,6,7,8,9,10,11,12]
                                             }
                                         },
                                         { extend: 'pdfHtml5', text: 'Export do PDF',
                                             exportOptions: {
-                                                columns: [0,1,2,3,4,5,6,7,8,9,10,11]
+                                                columns: [0,1,2,3,4,5,6,7,8,9,10,11,12]
                                             }
                                         }
                                     ],
@@ -73,6 +74,7 @@
                                         { data: 'contact_mail', name: 'contact_mail' },
                                         { data: 'contact_phone', name: 'contact_phone' },
                                         { data: 'price', name: 'price' },
+                                        { data: 'area', name: 'area' },
                                         { data: 'date', name: 'date' },
                                         { data: 'location', name: 'location.region' },
                                         { data: 'specification', name: 'specification.title' },
