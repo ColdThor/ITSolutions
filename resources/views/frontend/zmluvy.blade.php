@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-md-8 pt-30 pb-40 header-text">
-                <h3>Vzory právnych zmlúv</h3>
+                <h3 class="hh">Vzory právnych zmlúv</h3>
                 <h5 class="info pt-10">Všetky dokumenty pre kúpu, predaj, výstavbu alebo úpravu Vašej nehnuteľnosti</h5>
             </div>
         </div>

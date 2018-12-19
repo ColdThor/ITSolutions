@@ -8,7 +8,7 @@
     <div class="row align-items-center justify-content-center">
         <div class="col-lg-5">
             <div class="generic-banner-content">
-                <h3 class="text-center">Pridať inzerát</h3>
+                <h3 class="text-center hh">Pridať inzerát</h3>
                 <div class="d-flex align-items-center justify-content-center mt-10">
                     <div class="row">
                         <h5>Položky označené s <b>*</b> sú povinné.</h5>

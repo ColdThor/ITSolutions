@@ -8,7 +8,7 @@
     <div class="row align-items-center justify-content-center">
         <div class="col-lg-5">
             <div class="generic-banner-content">
-                <h3 class="text-center">Prihlásiť sa do účtu</h3>
+                <h3 class="text-center hh">Prihlásiť sa do účtu</h3>
                 <form  method="post" action="{{ action ('HomeController@dologin') }}">
                     <div class="input-group-icon mt-30">
                         <div class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
