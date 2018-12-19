@@ -47,7 +47,7 @@
     <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
-
+<div class="article">
 <!-- Start Header Area -->
 <header class="default-header">
     @include('frontend/navigation')
