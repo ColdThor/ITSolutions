@@ -156,8 +156,7 @@ Route::post('/send_newsletter',[  'as' => 'updates',
     'uses' =>'NewsletterController@send_newsletter']);
 
 Route::get('/it-admin/helpdesk/{id}', 'HelpDeskController@index')->name('helpdesk');
-Route::post('/send_helpdesk',[  'as' => 'updates',
-    'uses' =>'HelpdeskController@send_message']);
+Route::post('/send_helpdesk','HelpDeskController@send_message')->name('helpdesk_message');
 
 Route::get('/informacie', 'HomeController@informacie')->name('informacie');
 Route::get('/zmluvy', 'HomeController@zmluvy')->name('zmluvy');
