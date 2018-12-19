@@ -23,9 +23,6 @@
                     </div>
                 </div>
                 @if(!session()->has('userID'))
-                <li><a href="<?php echo url('/user/login'); ?>">Realitné kancelárie</a></li>
-                @endif
-                @if(!session()->has('userID'))
                     <li><a href="<?php echo url('/user/login'); ?>">Prihlásiť sa</a></li>
                 @endif
                 @if(session()->has('userID'))

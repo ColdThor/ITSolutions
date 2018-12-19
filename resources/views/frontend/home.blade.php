@@ -9,6 +9,12 @@
     .specification {
         display:none;
     }
+
+
+
+
+
+
 </style>
 
 <section class="banner-area relative" id="home">
@@ -23,7 +29,7 @@
                         <div class="row">
                             <div class="col-lg-12 d-flex align-items-center justify-content-center toggle-wrap">
                                 <div class="row">
-                                    <h2>Parametre hľadanej nehnuteľnosti</h2>
+                                    <h2 class="hh">Parametre hľadanej nehnuteľnosti</h2>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-6">
@@ -218,7 +224,7 @@
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-md-8 pt-30 pb-40 header-text">
-                <h2>Naša vízia modernej inzercie</h2>
+                <h2 class="hh">Naša vízia modernej inzercie</h2>
             </div>
         </div>
         <div class="row pb-20">

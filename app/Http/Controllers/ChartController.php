@@ -165,10 +165,7 @@ class ChartController extends Controller {
                 elseif($i==7) {
                     $kraje->addRow([$ud->region,$datakraj_zil]);
                 }
-
                 $i++;
-
-
             }
 
 

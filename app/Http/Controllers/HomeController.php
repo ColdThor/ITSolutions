@@ -182,7 +182,6 @@ class HomeController extends Controller
 
 
     public function show_mypage() {
-
         $ad = Advertisement::leftJoin('condition', 'advertisement.id_condition', '=', 'condition.id_condition')
             ->leftJoin('type', 'advertisement.id_type', '=', 'type.id_type')
             ->leftJoin('specification', 'advertisement.id_specification', '=', 'specification.id_specification')
@@ -205,9 +204,9 @@ class HomeController extends Controller
             $title = "";
             $title2 = "";
         } else {
-        $data2 = DB::table('advertisement')->where('views', 'NOT LIKE',$data)->where("id_user","=",session()->get('userID'))->max('views');
-        $title = DB::table('advertisement')->where("id_user","=",session()->get('userID'))->where('views', DB::raw("(select MAX(`views`) from advertisement)"))->get()->first();
-        $title2 = DB::table('advertisement')->where("id_user","=",session()->get('userID'))->where('views', DB::raw("(select MAX(`views`) from advertisement WHERE views NOT LIKE ".$data.")"))->get()->first();
+            $data2 = DB::table('advertisement')->where('views', 'NOT LIKE',$data)->where("id_user","=",session()->get('userID'))->max('views');
+            $title = DB::table('advertisement')->where("id_user","=",session()->get('userID'))->where('views', DB::raw("(select MAX(`views`) from advertisement)"))->get()->first();
+            $title2 = DB::table('advertisement')->where("id_user","=",session()->get('userID'))->where('views', DB::raw("(select MAX(`views`) from advertisement WHERE views NOT LIKE ".$data.")"))->get()->first();
         }
 
 
@@ -230,6 +229,150 @@ class HomeController extends Controller
             ],
         ]);
 
+        $views = Lava::DataTable();
+
+        $viewdata = DB::table('advertisement')
+            ->select('title','views AS zobrazenia')
+            ->where('id_user','=',session()->get('userID'))
+            ->orderByRaw('views DESC')
+            ->take(5)
+            ->get();
+
+        $views->addStringColumn('nazov')
+            ->addNumberColumn('počet zobrazení');
+        foreach($viewdata as $w) {
+            $views->addRow([$w->title, $w->zobrazenia]);
+        }
+        ;
+
+        Lava::BarChart('Zobrazenia', $views, [
+            'title' => 'Najsledovanejšie inzeráty',
+            'legend' => [
+                'position' => 'bottom'
+            ]
+        ]);
+
+        $kraje = Lava::DataTable();
+
+        $datakr = DB::table('advertisement')
+            ->join('location', 'advertisement.id_location', '=', 'location.id_location')
+            ->select('region')
+            ->where('id_user','=',session()->get('userID'))
+            ->groupBy('region')
+            ->get();
+
+        $datakraj_bb = DB::table('advertisement')->groupBy('location.region')
+            ->where("region","=","Banskobystrický kraj")
+            ->where('id_user','=',session()->get('userID'))
+            ->join('location', 'advertisement.id_location', '=', 'location.id_location')
+            ->count();
+
+        $datakraj_ba = DB::table('advertisement')->groupBy('location.region')
+            ->where("region","=","Bratislavský kraj")
+            ->where('id_user','=',session()->get('userID'))
+            ->join('location', 'advertisement.id_location', '=', 'location.id_location')
+            ->count();
+
+        $datakraj_ke = DB::table('advertisement')->groupBy('location.region')
+            ->where("region","=","Košický kraj")
+            ->where('id_user','=',session()->get('userID'))
+            ->join('location', 'advertisement.id_location', '=', 'location.id_location')
+            ->count();
+
+        $datakraj_nr = DB::table('advertisement')->groupBy('location.region')
+            ->where("region","=","Nitriansky kraj")
+            ->where('id_user','=',session()->get('userID'))
+            ->join('location', 'advertisement.id_location', '=', 'location.id_location')
+            ->count();
+
+        $datakraj_pr = DB::table('advertisement')->groupBy('location.region')
+            ->where("region","=","Prešovský kraj")
+            ->where('id_user','=',session()->get('userID'))
+            ->join('location', 'advertisement.id_location', '=', 'location.id_location')
+            ->count();
+
+        $datakraj_tre = DB::table('advertisement')->groupBy('location.region')
+            ->where("region","=","Prešovský kraj")
+            ->where('id_user','=',session()->get('userID'))
+            ->join('location', 'advertisement.id_location', '=', 'location.id_location')
+            ->count();
+
+        $datakraj_trn = DB::table('advertisement')->groupBy('location.region')
+            ->where("region","=","Prešovský kraj")
+            ->where('id_user','=',session()->get('userID'))
+            ->join('location', 'advertisement.id_location', '=', 'location.id_location')
+            ->count();
+
+        $datakraj_zil = DB::table('advertisement')->groupBy('location.region')
+            ->where("region","=","Prešovský kraj")
+            ->where('id_user','=',session()->get('userID'))
+            ->join('location', 'advertisement.id_location', '=', 'location.id_location')
+            ->count();
+
+
+
+
+            $i= 0;
+        $kraje->addStringColumn('kraj')
+            ->addNumberColumn('počet inzerátov');
+        foreach($datakr as $ud) {
+            if($i==0) {
+                $kraje->addRow([$ud->region,$datakraj_bb]);
+            }
+            elseif($i==1) {
+                $kraje->addRow([$ud->region,$datakraj_ba]);
+            }
+            elseif($i==2) {
+                $kraje->addRow([$ud->region,$datakraj_ke]);
+            }
+            elseif($i==3) {
+                $kraje->addRow([$ud->region,$datakraj_nr]);
+            }
+            elseif($i==4) {
+                $kraje->addRow([$ud->region,$datakraj_pr]);
+            }
+            elseif($i==5) {
+                $kraje->addRow([$ud->region,$datakraj_tre]);
+            }
+            elseif($i==6) {
+                $kraje->addRow([$ud->region,$datakraj_trn]);
+            }
+            elseif($i==7) {
+                $kraje->addRow([$ud->region,$datakraj_zil]);
+            }
+            $i++;
+        }
+
+        Lava::DonutChart('Kraj', $kraje, [
+            'title' => 'Podiel inzerátov podľa krajov',
+            'fontSize' => 9,
+            'legend' => [
+                'position' => 'bottom'
+            ]
+        ]);
+
+        $krajview = Lava::DataTable();
+
+        $datakraj = DB::table('advertisement')
+            ->join('location', 'advertisement.id_location', '=', 'location.id_location')
+            ->select('region',DB::raw('SUM(views) as pocet_zobrazeni'))
+            ->where('id_user','=',session()->get('userID'))
+            ->groupBy('region')
+            ->get();
+
+        $krajview->addStringColumn('Kraj')
+            ->addNumberColumn('počet zobrazení');
+        foreach($datakraj as $d) {
+            $krajview->addRow([$d->region, $d->pocet_zobrazeni]);
+        }
+        ;
+
+        Lava::BarChart('Krajview', $krajview, [
+            'title' => 'Počet zobrazení podľa krajov',
+            'legend' => [
+                'position' => 'bottom'
+            ]
+        ]);
 
         return view('frontend/moje_inzeraty');
     }
@@ -936,7 +1079,7 @@ class HomeController extends Controller
                 $username = $user->first_name. " ".$user->last_name;
                 Session::put('userID',$userID);
                 Session::put('userName',$username);
-                return redirect('/');
+                return redirect('/moje_inzeraty');
             } else {
                 return Redirect::to('/user/login')
                     ->withErrors(['no' => 'Kombinácia emailu a hesla neexistuje']);

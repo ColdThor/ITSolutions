@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-md-8 pt-30 pb-30 header-text">
-                    <h3>Užitočné informácie</h3>
+                    <h3 class="hh">Užitočné informácie</h3>
                 </div>
             </div>
 

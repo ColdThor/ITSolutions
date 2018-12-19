@@ -5,7 +5,7 @@
     <div class="row align-items-center justify-content-center">
         <div class="col-lg-5 col-md-8">
             <div class="generic-banner-content">
-                <h3 class="text-center">Kontaktovať poradňu</h3>
+                <h3 class="text-center hh">Kontaktovať poradňu</h3>
                 {{ Form::open(array('url' => '/ask_helpdesk', 'files' => true)) }}
                     <div class="input-group-icon mt-30">
                         <div class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>

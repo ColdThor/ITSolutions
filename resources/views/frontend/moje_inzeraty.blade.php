@@ -4,16 +4,25 @@
     <div class="container pt-30">
         <div class="row d-flex justify-content-center">
             <div class="col-md-8 pt-30 pb-40 header-text">
-                <h2>Moje inzeráty</h2>
+                <h2 class="hh">Moje inzeráty</h2>
             </div>
         </div>
+
+        <style>
+            .grafy {
+                display: inline;
+                cursor: default;
+            }
+
+        </style>
+
         <div class="row">
             @if(session()->has('mypage'))
                 <?php $search = session()->get('mypage');
                 $i=0;
                 $user_id = 0;
                 foreach($search as $ads):
-                    $i++;
+                $i++;
 
                 $fotka = $ads->id_advertisement;
                 $user_id = $ads->id_user_group;
@@ -46,17 +55,31 @@
 
         </div>
 
-            <?php if($user_id == 3 || $user_id == 4):?>
-                <br />
-<span style="color: black; margin-left: 5%">Štatistiky</span>
-    <br />
-            <div class="box-body">
+        <?php if($user_id == 3 || $user_id == 4):?>
+        <br>
+        <div class="click" onclick="showGrafy()">
+            <a style="color: #000" class="genric-btn default circle arrow">Štatistiky</a>
+        <br>
+            <div class="grafy" id="grafy">
+        <div class="box-body">
+            <div id="view_div"></div>
+            <?= Lava::render('BarChart', 'Zobrazenia', 'view_div') ?>
+        </div>
+        <br>
+        <div class="box-body">
+            <div id="kraj_div"></div>
+            <?= Lava::render('DonutChart', 'Kraj', 'kraj_div') ?>
+        </div>
+        <br>
+        <div class="box-body">
+            <div id="krajw_div"></div>
+            <?= Lava::render('BarChart', 'Krajview', 'krajw_div') ?>
+        </div>
+        <br>
+        <?php endif; ?>
 
-                <div id="pop_div"></div>
-
-                <?= Lava::render('ColumnChart', 'Finances', 'pop_div') ?>
             </div>
-            <?php endif; ?>
+        </div>
 
         <?php if($i==0): ?>
         <span style="color: black">Používateľ nemá žiadne inzeráty</span>
@@ -65,5 +88,19 @@
 
     </div>
 </section>
+
+
+
+<script type="text/javascript">
+    function showGrafy() {
+        if( document.getElementById('grafy').style.display === "inline") {
+            document.getElementById('grafy').style.display = "none";
+        } else {
+            document.getElementById('grafy').style.display = "inline";
+        }
+
+    }
+</script>
+
 
 @include('frontend/footer')

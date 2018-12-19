@@ -2199,7 +2199,10 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
         font-size: 8px;
         padding: 5px 0px;
     }
+
 }
+
+
 
 @media (max-width: 768px) {
     .menutop-wrap {
@@ -2253,6 +2256,7 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
 .search-field {
     background-color: #fff;
     padding: 40px;
+    margin-bottom: 15px;
 }
 
 .search-field .app-select {
@@ -2499,6 +2503,10 @@ text-transform:uppercase .menutop-wrap .menu-top .list li:hover a {
 
 .single-prop .desc {
     padding: 0;
+}
+
+.single-prop:hover img {
+    transform: scale(1.09);
 }
 
 .single-property {
@@ -3154,9 +3162,17 @@ h6 {
     background: #fff;
 }
 
+
 .section-top-border {
     padding: 70px;
     border-top: 1px dotted #eee;
+}
+
+@media (max-width: 462px) {
+    .section-top-border {
+        padding: 15px;
+    }
+
 }
 
 .switch-wrap {
@@ -3274,20 +3290,22 @@ h6 {
     cursor: pointer;
 }
 
-.wrapper {
-    height: auto;
-    padding: 10px;
-}
-
-.container-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
 .article {
     min-height: 100%;
     display: grid;
     grid-template-rows: auto 1fr auto;
     grid-template-columns: 100%;
+}
+
+.hh {
+    background: #ea0098; /* Old browsers */
+    background: -moz-linear-gradient(left, #ea0098 0%, #ed6200 70%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #ea0098 0%,#ed6200 70%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #ea0098 0%,#ed6200 70%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hh::selection {
+    background: dodgerblue;
 }

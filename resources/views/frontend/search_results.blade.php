@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-lg-12 d-flex align-items-center justify-content-center toggle-wrap">
                         <div class="row">
-                            <h3>Upraviť parametre vyhľadávania</h3>
+                            <h3 class="hh">Upraviť parametre vyhľadávania</h3>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-xs-6">
